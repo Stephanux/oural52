@@ -31,7 +31,7 @@ function manageAction(req, res, next) {
 
     /***************************************************************************************************** */
     /** AJOUT DE L'ENSEMBLE DES PARAMETRES DU FICHIERS "CONFIG_ACTIONS.JSON" DANS LE MESSAGE ASSOCIE A REQ */
-    /*  la la boucle de récupération des paramètres de l'action du fichier config_actions.json             */
+    /*  via la boucle de récupération des paramètres de l'action du fichier config_actions.json             */
     /***************************************************************************************************** */
     /* Boucle de récupération des paramètres de l'action du fichier config_actions.json */
     for (param in global.actions_json[req.message.action]) {
