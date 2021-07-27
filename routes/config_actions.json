@@ -35,7 +35,7 @@
         "controler": "finder",
         "modelName": "Users",
         "modelList": "Countries",
-        "view" : "formUser",
+        "view": "formUser",
         "form_action": "/createUser",
         "title": "Create a new user",
         "libelle": "creation"
@@ -48,11 +48,13 @@
     "GET/deleteUser": {
         "controler": "deleteById",
         "modelName": "Users",
-        "view" : "users"
+        "view": "users"
     },
-    "GET/formInsert" :{
-        "controler": "formInsert",
+    "GET/formInsert": {
+        "controler": "selectListSchemas",
         "view": "addPiece",
+        "tables_list": ["marques", "type_vehicule"],
+        "sql_list": ["select * FROM marques", "select * from type_vehicule"],
         "form_action": "/addPiece"
     },
     "POST/addPiece": {
