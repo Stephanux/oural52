@@ -27,7 +27,9 @@
                     <div class="marque">
                         <label for="marque">Marque du véhicule :</label>
                         <select name="marque">
-                            <option value=""></option>
+                            {{#each data.marques}}
+                            <option value="{{this.id}}">{{this.nom_marque}}</option>
+                            {{/each}}
                         </select>
                         <label for="modele">Modèle du véhicule :</label>
                         <select name="modele">
