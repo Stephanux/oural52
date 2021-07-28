@@ -66,15 +66,6 @@
         "view": "addPiece",
         "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_vehicule, id_marque) VALUES (?, ?, ?, ?)"
     },
-    "GET/formEdit":{
-        "controler": "updateById",
-        "view": "editPiece",
-        "form_action": "/editPiece"
-    },
-    "GET/editPiece": {
-        "controler": "editPiece",
-        "view": "editPiece"
-    },
     "GET/stock": {
         "controler": "selectListSchemas",
         "view": "stock",
