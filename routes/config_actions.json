@@ -60,6 +60,12 @@
     "POST/addPiece": {
         "controler": "addPiece",
         "view": "addPiece",
-        "request": "INSERT INTO Vehicules (nom_vehicule, date_mise_circulation, id_vehicule, id_marque) VALUES (?, ?, ?, ?)"
+        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_vehicule, id_marque) VALUES (?, ?, ?, ?)"
+    },
+    "GET/stock": {
+        "controler": "selectListSchemas",
+        "view": "stock",
+        "tables_list": ["Vehicules", "marques", "type_vehicule", "pieces_detachees", "type_p_d", "sous_type_p_d"],
+        "sql_list": ["select * from Vehicules", "select * FROM marques", "select * from type_vehicule", "select * from pieces_detachees", "select * from type_p_d", "select * from sous_type_p_d"]
     }
 }
