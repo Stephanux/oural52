@@ -151,7 +151,7 @@ body{
 }
 
 
-.form_add input[type="submit"][value="Editez"]{
+.form_add input[type="submit"][value="Modifiez"]{
   width: 100px;
   margin-left: 350px;
   background-color: var(--edit-color);
@@ -267,6 +267,11 @@ body{
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.car{
+  width: 35px;
+  height: 35px;
 }
 
 .edit{

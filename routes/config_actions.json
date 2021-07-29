@@ -50,16 +50,18 @@
         "modelName": "Users",
         "view": "users"
     },
-    "GET/main": {
-        "controler": "getView",
-        "view": "main"
+    "GET/accueil": {
+        "controler": "getViewWithAuth",
+        "view": "main",
+        "title": "Accueil"
     },
     "GET/formInsert": {
         "controler": "selectListSchemas",
         "view": "addPiece",
         "tables_list": ["marques", "type_vehicule"],
         "sql_list": ["select * FROM marques", "select * from type_vehicule"],
-        "form_action": "/addPiece"
+        "form_action": "/addPiece",
+        "title": "Ajoutez une pièce"
     },
     "POST/addPiece": {
         "controler": "addPiece",
@@ -70,6 +72,23 @@
         "controler": "selectListSchemas",
         "view": "stock",
         "tables_list": ["Vehicules", "marques", "type_vehicule", "pieces_detachees", "type_p_d", "sous_type_p_d"],
-        "sql_list": ["select * from Vehicules", "select * FROM marques", "select * from type_vehicule", "select * from pieces_detachees", "select * from type_p_d", "select * from sous_type_p_d"]
+        "sql_list": ["select * from Vehicules", "select * FROM marques", "select * from type_vehicule", "select * from pieces_detachees", "select * from type_p_d", "select * from sous_type_p_d"],
+        "title": "Gestion de stock"
+    },
+    "GET/loginPublic": {
+        "controler": "getViewWithAuth",
+        "view": "loginPublic",
+        "title": "Se connecter"
+    },
+    "GET/editPiece": {
+        "controler": "getViewWithAuth",
+        "view": "editPiece",
+        "title": "Modifiez une pièce" 
+    },
+    "GET/deletePiece": {
+        "controler": "getViewWithAuth",
+        "view": "deletePiece",
+        "title": "Supprimez une pièce",
+        "request": "delete from * where id = ?"
     }
 }
