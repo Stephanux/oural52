@@ -66,7 +66,26 @@
     "POST/addPiece": {
         "controler": "addPiece",
         "view": "addPiece",
-        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_vehicule, id_marque) VALUES (?, ?, ?, ?)"
+        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, id_marque) VALUES (nameV, dateMEC, marque, modele)"
+    },
+    "GET/formUpdate": {
+        "controler": "selectListSchemas",
+        "view": "editPiece",
+        "tables_list": ["Vehicule", "type_vehicule", "marques", "pieces_detachees", "type_p_d", "sous_type_p_d"],
+        "sql_list": ["select * from Vehicules where id = ?", "select * from type_vehicule where id = ?", "select * FROM marques where id = ?", "select * from pieces_detachees where id = ?", "select * from type_p_d where id = ?", "select * from sous_type_p_d where id = ?"],
+        "form_action": "editPiece",
+        "title": "Modifiez une pièce"
+    },
+    "POST/modifyVehicule": {
+        "controler": "updateById",
+        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE id_vehicule=?",
+        "params_query": ["nom_vehicule", "date_mise_circulation", "id_marque", "id_type_vehicule"]
+      },
+    "GET/deletePiece": {
+        "controler": "getViewWithAuth",
+        "view": "deletePiece",
+        "title": "Supprimez une pièce",
+        "request": "delete from * where id = ?"
     },
     "GET/stock": {
         "controler": "selectListSchemas",
@@ -79,16 +98,5 @@
         "controler": "getViewWithAuth",
         "view": "loginPublic",
         "title": "Se connecter"
-    },
-    "GET/editPiece": {
-        "controler": "getViewWithAuth",
-        "view": "editPiece",
-        "title": "Modifiez une pièce" 
-    },
-    "GET/deletePiece": {
-        "controler": "getViewWithAuth",
-        "view": "deletePiece",
-        "title": "Supprimez une pièce",
-        "request": "delete from * where id = ?"
     }
 }

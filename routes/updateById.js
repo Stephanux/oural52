@@ -1,53 +1,33 @@
 var express = require('express');
 var router = express.Router();
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId;
 
-/* SET user from _id with new data for an update into mongoDB . */
-router.route('/:_id').get(function (req, res) {
+/* POST UPDATE via Sequelize raw query . */
+router.route('/:id').post(function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        global.schemas[req.message.modelName].updateOne({ _id: new ObjectId(req.params._id) },
-            { $set: req.query },
-            function (err, result) {
-                if (err) { throw err; }
-                console.log('from updateById: ', result);
-                global.schemas[req.message.modelName].find({ _id: new ObjectId(req.params._id) }, function (err, result) {
-                    if (err) { throw err; }
-                    console.log('users: ', result);
-                    res.render(view, {
-                        title: req.message.title,
-                        data: result[0]
-                    });
-                }); // fin du find() après update
-            } // fin callback de l'update
-        ); // fin de l'update()
+        // ici on réalise une requête d'insertion dans une base SQL
+        var params_name = req.message.params_query;
+        var params_value = [];
+        for (let i = 0; i < params_name.length; i++) {
+            params_value.push(req.body[params_name[i]]);
+        }
+        params_value.push(req.params.id); // ajout de l'id passé dans l'URL pour la clause Where
+        console.log("params_value :", params_value);
+        console.log("req.body : ", req.body);
+        global.sequelize.query(req.message.sql_query,
+            {
+                replacements: params_value,
+                type: sequelize.QueryTypes.UPDATE
+            })
+            .then(function (result) { // sql query success
+                console.log('listes retour updateSQL : ', result);
+                res.redirect(req.message.redirect);
+            }).catch(function (err) { // sql query error
+                console.log('error select', err);
+                res.send('Erreur : ' + err);
+            });
     } else {
         res.redirect('/');  // affichage boîte de login si pas authentifié
     }
-}); // fin de la gestion de la route
-
-/* SET user from _id with new data for an update into mongoDB . */
-router.route('/:_id').post(function (req, res) {
-    if ((req.session.passport) && (req.session.passport.user != null)) {
-        global.schemas[req.message.modelName].updateOne({ _id: new ObjectId(req.params._id) },
-            { $set: req.query },
-            function (err, result) {
-                if (err) { throw err; }
-                console.log('from updateById: ', result);
-                global.schemas[req.message.modelName].find({ _id: new ObjectId(req.params._id) }, function (err, result) {
-                    if (err) { throw err; }
-                    console.log('users: ', result);
-                    res.render(req.message.view, {
-                        title: req.message.title,
-                        data: result[0]
-                    });
-                }); // fin du find() après update
-            } // fin callback de l'update
-        ); // fin de l'update()
-    } else {
-        res.redirect('/');  // affichage boîte de login si pas authentifié
-    }
-}); // fin de la gestion de la route
-
+});
 
 module.exports = router;
