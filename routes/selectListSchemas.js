@@ -12,7 +12,7 @@ router.get('/', function(req, res, next) {
             if (i < req.message.tables_list.length) {
                 global.sequelize.query(req.message.sql_list[i], {
                         type: sequelize.QueryTypes.SELECT
-                    })
+                })
                     .then(function(result) { // sql query success
                         console.log('listes des données : ', result);
                         // on copie les données obtenues par la requête dans la variable data

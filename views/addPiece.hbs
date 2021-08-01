@@ -8,6 +8,7 @@
                     <label for="dateMEC">Date de mise en circulation :</label>
                     <input type="date" name="dateMEC">
                 </div>
+                <!--
                 <div class="types">
                     <span>Type de véhicule :</span>
                     <label for="car">Voiture</label>
@@ -23,20 +24,14 @@
                     <label for="docV">Doc véhicule :</label>
                     <input type="file" name="docV">
                 </div>
+                -->
                 <div class="marque">
                     <label for="marque">Marque du véhicule :</label>
-                    <select name="marque">
-                        {{#each data.marques}}
-                        <option value="{{this.id}}">{{this.nom_marque}}</option>
-                        {{/each}}
-                    </select>
+                    <input type="text" name="marque">
                     <label for="modele">Modèle du véhicule :</label>
-                    <select name="modele">
-                        {{#each data.marques}}
-                        <option value="{{this.id}}">{{this.modele_marque}}</option>
-                        {{/each}}
-                    </select>
+                    <input type="text" name="modele">
                 </div>
+                <!--
                 <div class="piece">
                     <label for="namePD">Nom de la pièce détachée :</label>
                     <select name="namePD" id="namePD">
@@ -79,6 +74,7 @@
                     <label for="localisation">Localisation :</label>
                     <input type="text" name="localisation">
                 </div>
+                -->
                 <input type="submit" value="Ajoutez">
             </div>
         </form>

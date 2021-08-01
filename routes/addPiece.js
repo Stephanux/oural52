@@ -6,6 +6,7 @@ router.post('/', (req, res, next) => {
         
 		global.sequelize.query(req.message.request,
 			{
+				replacements: req.body,
 				type: sequelize.QueryTypes.INSERT
 			})
         
