@@ -80,7 +80,7 @@
         "controler": "updateById",
         "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE id_vehicule=?",
         "params_query": ["nom_vehicule", "date_mise_circulation", "id_marque", "id_type_vehicule"]
-      },
+    },
     "GET/deletePiece": {
         "controler": "getViewWithAuth",
         "view": "deletePiece",

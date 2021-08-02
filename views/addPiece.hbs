@@ -8,28 +8,27 @@
                     <label for="dateMEC">Date de mise en circulation :</label>
                     <input type="date" name="dateMEC">
                 </div>
-                <!--
                 <div class="types">
-                    <span>Type de véhicule :</span>
-                    <label for="car">Voiture</label>
-                    <input type="checkbox" name="car" id="car">
-                    <label for="moto">Moto</label>
-                    <input type="checkbox" name="moto" id="moto">
-                    <label for="tracteur">Tracteur</label>
-                    <input type="checkbox" name="tracteur" id="tracteur">
-                    <label for="scoot">Cyclomoteur</label>
-                    <input type="checkbox" name="scoot" id="scoot">
+                    <label for="typeV">Type de véhicule :</label>
+                    <select name="typeV" >
+                        <option value=""></option>
+                    {{#each data.type_vehicule}}
+                        <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
+                    {{/each}}
+                    </select>
                 </div>
                 <div class="docTypes">
                     <label for="docV">Doc véhicule :</label>
                     <input type="file" name="docV">
                 </div>
-                -->
                 <div class="marque">
                     <label for="marque">Marque du véhicule :</label>
-                    <input type="text" name="marque">
-                    <label for="modele">Modèle du véhicule :</label>
-                    <input type="text" name="modele">
+                    <select name="marqueV">
+                        <option value=""></option>
+                    {{#each data.marques}}
+                        <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
+                    {{/each}}
+                    </select>
                 </div>
                 <!--
                 <div class="piece">
