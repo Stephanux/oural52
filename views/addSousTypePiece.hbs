@@ -10,8 +10,15 @@
         <form action="{{this.form_action}}" method="POST">
             <div class="form_add">
                 <div class="types">
-                    <label for="type_piece">Sous-type de pièce</label>
-                    <input type="text" name="type_piece">
+                    <label for="stype_piece">Sous-type de pièce</label>
+                    <input type="text" name="stype_piece">
+                    <label for="type_piece">Type de pièce</label>
+                    <select name="type_piece">
+                        <option value=""></option>
+                        {{#each data.type_p_d}}
+                        <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                        {{/each}}
+                    </select>
                     <input type="hidden">
                 </div>
                 <input type="submit" value="Ajoutez">

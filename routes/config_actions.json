@@ -85,7 +85,7 @@
     "POST/addTypeVehicule": {
         "controler": "addSQL",
         "view": "addTypeVehicule",
-        "request": "insert into type_vehicule (nom_type_vehicule, doc_pdf, id_type_vehicule) VALUES (?, ?, ?)"
+        "request": "insert into type_vehicule (nom_type_vehicule, doc_pdf) VALUES (?, ?)"
     },
     "GET/formInsertMarque": {
         "controler": "selectListSchemas",
@@ -98,7 +98,7 @@
     "POST/addMarque": {
         "controler": "addSQL",
         "view": "addMarque",
-        "request": "insert into marques (nom_marque, modele, id_marque) VALUES (?, ?, ?)"
+        "request": "insert into marques (nom_marque, modele) VALUES (?, ?)"
     },
     "GET/formInsertPiece": {
         "controler": "selectListSchemas",
@@ -111,33 +111,33 @@
     "POST/addPiece": {
         "controler": "addSQL",
         "view": "addPiece",
-        "request": "insert into pieces_detachees (nom_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, id_type_vehicule, id_p_d) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+        "request": "insert into pieces_detachees (nom_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, etat, id_type_p_d) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
     },
     "GET/formInsertTypePiece": {
         "controler": "selectListSchemas",
         "view": "addTypePiece",
-        "tables_list": ["type_p_d"],
-        "sql_list": ["select * from type_p_d"],
+        "tables_list": ["type_p_d", "type_vehicule"],
+        "sql_list": ["select * from type_p_d", "select * from type_vehicule"],
         "form_action": "/addTypePiece",
         "title": "Ajoutez un type de pièce détachée"
     },
     "POST/addTypePiece": {
         "controler": "addSQL",
         "view": "addTypePiece",
-        "request": "insert into type_p_d (nom_type_p_d, etat, id_type_vehicule) VALUES (?, ?, ?, ?)"
+        "request": "insert into type_p_d (nom_type_p_d) VALUES (?)"
     },
     "GET/formInsertSousTypePiece": {
         "controler": "selectListSchemas",
         "view": "addSousTypePiece",
-        "tables_list": ["sous_type_p_d"],
-        "sql_list": ["select * from sous_type_p_d"],
+        "tables_list": ["sous_type_p_d", "type_p_d"],
+        "sql_list": ["select * from sous_type_p_d", "select * from type_p_d"],
         "form_action": "/addSousTypePiece",
         "title": "Ajoutez un sous-type de pièce détachée"
     },
     "POST/addSousTypePiece": {
         "controler": "addSQL",
         "view": "addSousTypePiece",
-        "request": "insert into sous_type_p_d (nom_stype, id_stype_p_d, id_type_vehicule) VALUES (?, ?, ?)"
+        "request": "insert into sous_type_p_d (nom_stype, id_type_p_d) VALUES (?, ?)"
     },
     "GET/formUpdate": {
         "controler": "selectListSchemas",
