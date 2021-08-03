@@ -7,33 +7,33 @@
     --edit-color: hsl(56, 66%, 36%);
     --text-color-white: hsl(0, 50%, 100%);
     --text-color-black: hsl(0, 50%, 0%);
-}
-
-*{
+  }
+  
+  *{
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-}
-
-a {
+  }
+  
+  a {
     text-decoration: none;
     color: var(--text-color-white);
-}
-
-input{
+  }
+  
+  input{
     height: 20px;
     border: none;
-}
-
-body{
+  }
+  
+  body{
     font-size: 16px;
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     background-color: var(--body-bcg-color);
-}
-
-/******header*******/
-
-.header{
+  }
+  
+  /******header*******/
+  
+  .header{
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -42,24 +42,24 @@ body{
     padding: 50px;
     background-color: var(--header-bcg-color);
     color: var(--text-color-white);
-}
-
-.home{
+  }
+  
+  .home{
     width: 30px;
     height: 30px;
-}
-
-.header a:hover{
+  }
+  
+  .header a:hover{
     color: var(--body-bcg-color);
-}
-
-.fil0:hover{
+  }
+  
+  .fil0:hover{
     fill: var(--body-bcg-color);
-}
-
-/****container****/
-
-.container{
+  }
+  
+  /****container****/
+  
+  .container{
     display: flex;
     justify-content: center;
     align-items: center;
@@ -68,62 +68,62 @@ body{
     margin: 100px 360px 0 350px;
     border-radius: 2%;
     background-color: var(--container-bcg-color);
-}
-
-/****form login****/
-
-.form_login {
+  }
+  
+  /****form login****/
+  
+  .form_login {
     display: flex;
     flex-direction: column;
-}
-
-.form_login input{
+  }
+  
+  .form_login input{
     margin-bottom: 20px;
-}
-
-.form_login input[type="submit"]{
+  }
+  
+  .form_login input[type="submit"]{
     background-color: var(--header-bcg-color);
     color: var(--text-color-white);
     height: 25px;
-}
-
-.form_login input[type="submit"]:hover{
+  }
+  
+  .form_login input[type="submit"]:hover{
     background-color: hsl(227, 96%, 67%);;
-}
-
-/****main page****/
-
-.main{
+  }
+  
+  /****main page****/
+  
+  .main{
     display: flex;
     height: 400px;
     flex-direction: column;
-}
-
-.main h2{
+  }
+  
+  .main h2{
     margin: 20px 0 100px 0;
-}
-
-.main a {
+  }
+  
+  .main a {
     color: var(--text-color-black);
-}
-
-.main button{
+  }
+  
+  .main button{
     margin-bottom: 20px;
-}
-
-.main input{
+  }
+  
+  .main input{
     background-color: var(--delete-color);
     color: var(--text-color-white);
     height: 25px;
-}
-
-.main input:hover{
+  }
+  
+  .main input:hover{
     background-color: hsl(0, 63%, 46%);
-}
-
-/****add****/
-
-.wrapper{
+  }
+  
+  /****add****/
+  
+  .wrapper{
     display: flex;
     justify-content: center;
     width: 1000px;
@@ -131,102 +131,101 @@ body{
     background-color: var(--container-bcg-color);
     margin: 70px 0 0 270px;
     border-radius: 2%;
-}
-
-.form_add{
+  }
+  
+  .form_add{
     display: flex;
     flex-direction: column;
     margin: 50px;
-}
-
-.form_add :nth-child(n){
+  }
+  
+  .form_add :nth-child(n){
     margin-bottom: 14px;
-}
-
-.form_add input[type="submit"][value="Ajoutez"]{
+  }
+  
+  .form_add input[type="submit"][value="Ajoutez"]{
     width: 100px;
     margin-left: 350px;
     background-color: var(--add-color);
     color: var(--text-color-white);
-}
-
-
-.form_add input[type="submit"][value="Editez"]{
+  }
+  
+  
+  .form_add input[type="submit"][value="Modifiez"]{
     width: 100px;
     margin-left: 350px;
     background-color: var(--edit-color);
     color: var(--text-color-white);
-}
-
-.form_add input[type="sumit"]:hover{
+  }
+  
+  .form_add input[type="sumit"]:hover{
     background-color: hsl(140, 93%, 58%);
-}
-
-/****vehicule****/
-
-.vehicule input{
+  }
+  
+  /****vehicule****/
+  
+  .vehicule input{
     margin-right: 100px;
-}
-
-/****types****/
-
-.types input{
-    height: 10px;
+  }
+  
+  /****types****/
+  
+  .types input{
     margin-right: 20px;
-}
-
-.types span{
+  }
+  
+  .types span{
     margin-right: 25px;
-}
-
-.types label{
+  }
+  
+  .types label{
     margin-right: 10px;
-}
-
-/****marque****/
-
-.marque input{
+  }
+  
+  /****marque****/
+  
+  .marque input{
     margin-right: 125px;
-}
-
-/****pièce****/
-
-.piece{
+  }
+  
+  /****pièce****/
+  
+  .piece{
     display: flex;
     flex-wrap: wrap;
-}
-
-.piece label {
+  }
+  
+  .piece label {
     margin-right: 10px;
-}
-
-.piece select{
+  }
+  
+  .piece select{
     margin-right: 175px;
-}
-
-/****sous types****/
-
-.stype {
+  }
+  
+  /****sous types****/
+  
+  .stype {
     display: flex;
     flex-wrap: wrap;
-}
-
-.stype input{
+  }
+  
+  .stype input{
     margin-right: 10px;
-}
-
-
-.stype input[type="number"]{
+  }
+  
+  
+  .stype input[type="number"]{
     width: 60px;
-}
-
-.stype label{
+  }
+  
+  .stype label{
     margin-right: 10px;
-}
-
-/****stock****/
-
-.wrap{
+  }
+  
+  /****stock****/
+  
+  .wrap{
     display: flex;
     justify-content: center;
     width: 1400px;
@@ -234,91 +233,100 @@ body{
     background-color: var(--container-bcg-color);
     margin: 50px 0 0 70px;
     border-radius: 1%;
-}
-
-#stock{
+  }
+  
+  #stock{
     border-collapse: collapse;
     margin: 10px;
-}
-
-#stock th, #stock tr{
+  }
+  
+  #stock th, #stock tr{
     border: 1px solid var(--text-color-black);
     padding: 5px;
-}
-
-#stock tr:nth-child(even){
+  }
+  
+  #stock tr:nth-child(even){
     background-color: var(--body-bcg-color);
-}
-
-#stock tr:focus{
+  }
+  
+  #stock tr:focus{
     border: 2px solid var(--header-bcg-color);
-}
-
-#stock th{
+  }
+  
+  #stock th{
     background-color: var(--header-bcg-color);
     color: var(--text-color-white);
-}
-
-#stock td{
+  }
+  
+  #stock td{
     border: 1px solid var(--text-color-black)
-}
-
-#stock span{
+  }
+  
+  #stock span{
     display: flex;
     justify-content: center;
     margin-top: 10px;
-}
-
-.edit{
+  }
+  
+  .car{
+    width: 35px;
+    height: 35px;
+  }
+  
+  .edit{
     width: 25px;
     height: 25px;
     fill: var(--edit-color);
-}
-
-.delete{
+  }
+  
+  .delete{
     width: 25px;
     height: 25px;
     fill: var(--delete-color);
-}
-
-.table-foot{
+  }
+  
+  .table-foot{
     display: flex;
     justify-content: space-between;
     margin: 10px;
-}
-
-.arrow-left{
+  }
+  
+  .arrow-left{
     width: 30px;
     height: 30px;
     fill: var(--header-bcg-color);
-}
-
-.arrow-right{
+  }
+  
+  .arrow-right{
     width: 30px;
     height: 30px;
     fill: var(--header-bcg-color);
-}
-
-.pagination{
+  }
+  
+  .pagination{
     display: flex;
-}
-
-/****delete****/
-
-.supp{
+  }
+  
+  /****delete****/
+  
+  .supp{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-
-.supp input{
+  }
+  
+  .supp input{
     width: 80px;
     margin: 10px 0 10px 0;
     background-color: var(--delete-color);
     color: var(--text-color-white);
-}
-
-.supp button{
+  }
+  
+  .supp button{
     margin-top: 10px;
-}
+  }
+  
+  .supp a{
+    color: var(--text-color-black);
+  }

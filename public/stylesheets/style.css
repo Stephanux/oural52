@@ -171,7 +171,6 @@ body{
 /****types****/
 
 .types input{
-  height: 10px;
   margin-right: 20px;
 }
 
@@ -326,4 +325,23 @@ body{
 
 .supp button{
   margin-top: 10px;
+}
+
+.supp a{
+  color: var(--text-color-black);
+}
+
+/****nav****/
+
+#nav{
+  display: flex;
+  justify-content: space-around;
+}
+
+#nav li {
+  list-style: none;
+}
+
+#nav a {
+  color: var(--text-color-black);
 }
