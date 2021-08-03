@@ -55,31 +55,121 @@
         "view": "main",
         "title": "Accueil"
     },
-    "GET/formInsert": {
+    "GET/formInsertVehicule": {
+        "controler": "selectListSchemas",
+        "view": "addVehicule",
+        "tables_list": [
+            "marques",
+            "type_vehicule"
+        ],
+        "sql_list": [
+            "select * FROM marques",
+            "select * from type_vehicule"
+        ],
+        "form_action": "/addVehicule",
+        "title": "Ajoutez un véhicule"
+    },
+    "POST/addVehicule": {
+        "controler": "addSQL",
+        "view": "addVehicule",
+        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, id_marque) VALUES (?, ?, ?, ?)"
+    },
+    "GET/formInsertTypeVehicule": {
+        "controler": "selectListSchemas",
+        "view": "addTypeVehicule",
+        "tables_list": "type_vehicule",
+        "sql_list": "select * from type_vehicule",
+        "form_action": "/addTypeVehicule",
+        "title": "Ajoutez un type de véhicule"
+    },
+    "POST/addTypeVehicule": {
+        "controler": "addSQL",
+        "view": "addTypeVehicule",
+        "request": "insert into type_vehicule (nom_type_vehicule, doc_pdf, id_type_vehicule) VALUES (?, ?, ?)"
+    },
+    "GET/formInsertMarque": {
+        "controler": "selectListSchemas",
+        "view": "addMarque",
+        "tables_list": "marques",
+        "sql_list": "select * from marques",
+        "form_action": "/addMarque",
+        "title": "Ajoutez une marque de véhicule"
+    },
+    "POST/addMarque": {
+        "controler": "addSQL",
+        "view": "addMarque",
+        "request": "insert into marques (nom_marque, modele, id_marque) VALUES (?, ?, ?)"
+    },
+    "GET/formInsertPiece": {
         "controler": "selectListSchemas",
         "view": "addPiece",
-        "tables_list": ["marques", "type_vehicule"],
-        "sql_list": ["select * FROM marques", "select * from type_vehicule"],
+        "tables_list": "pieces_detachees",
+        "sql_list": "select * from pieces_detachees",
         "form_action": "/addPiece",
-        "title": "Ajoutez une pièce"
+        "title": "Ajoutez une pièce détachée"
     },
     "POST/addPiece": {
-        "controler": "addPiece",
+        "controler": "addSQL",
         "view": "addPiece",
-        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, id_marque) VALUES (?, ?, ?, ?)"
+        "request": "insert into pieces_detachees (nom_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, id_type_vehicule, id_p_d) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)"
+    },
+    "GET/formInsertTypePiece": {
+        "controler": "selectListSchemas",
+        "view": "addTypePiece",
+        "tables_list": "type_p_d",
+        "sql_list": "select * from type_p_d",
+        "form_action": "/addTypePiece",
+        "title": "Ajoutez un type de pièce détachée"
+    },
+    "POST/addTypePiece": {
+        "controler": "addSQL",
+        "view": "addTypePiece",
+        "request": "insert into type_p_d (nom_type_p_d, etat, id_type_vehicule) VALUES (?, ?, ?, ?)"
+    },
+    "GET/formInsertSousTypePiece": {
+        "controler": "selectListSchemas",
+        "view": "addSousTypePiece",
+        "tables_list": "sous_type_p_d",
+        "sql_list": "select * from sous_type_p_d",
+        "form_action": "/addSousTypePiece",
+        "title": "Ajoutez un sous-type de pièce détachée"
+    },
+    "POST/addSousTypePiece": {
+        "controler": "addSQL",
+        "view": "addSousTypePiece",
+        "request": "insert into sous_type_p_d (nom_stype, id_stype_p_d, id_type_vehicule) VALUES (?, ?, ?)"
     },
     "GET/formUpdate": {
         "controler": "selectListSchemas",
         "view": "editPiece",
-        "tables_list": ["Vehicule", "type_vehicule", "marques", "pieces_detachees", "type_p_d", "sous_type_p_d"],
-        "sql_list": ["select * from Vehicules where id = ?", "select * from type_vehicule where id = ?", "select * FROM marques where id = ?", "select * from pieces_detachees where id = ?", "select * from type_p_d where id = ?", "select * from sous_type_p_d where id = ?"],
+        "tables_list": [
+            "Vehicule",
+            "type_vehicule",
+            "marques",
+            "pieces_detachees",
+            "type_p_d",
+            "sous_type_p_d"
+        ],
+        "sql_list": [
+            "select * from Vehicules where id = ?",
+            "select * from type_vehicule where id = ?",
+            "select * FROM marques where id = ?",
+            "select * from pieces_detachees where id = ?",
+            "select * from type_p_d where id = ?",
+            "select * from sous_type_p_d where id = ?"
+        ],
         "form_action": "editPiece",
         "title": "Modifiez une pièce"
     },
-    "POST/modifyVehicule": {
+    "POST/updateVehicule": {
         "controler": "updateById",
         "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE id_vehicule=?",
-        "params_query": ["nom_vehicule", "date_mise_circulation", "id_marque", "id_type_vehicule"]
+        "params_query": [
+            "nom_vehicule",
+            "date_mise_circulation",
+            "id_marque",
+            "id_type_vehicule"
+        ]
     },
     "GET/deletePiece": {
         "controler": "getViewWithAuth",
@@ -90,8 +180,22 @@
     "GET/stock": {
         "controler": "selectListSchemas",
         "view": "stock",
-        "tables_list": ["Vehicules", "marques", "type_vehicule", "pieces_detachees", "type_p_d", "sous_type_p_d"],
-        "sql_list": ["select * from Vehicules", "select * FROM marques", "select * from type_vehicule", "select * from pieces_detachees", "select * from type_p_d", "select * from sous_type_p_d"],
+        "tables_list": [
+            "Vehicules",
+            "marques",
+            "type_vehicule",
+            "pieces_detachees",
+            "type_p_d",
+            "sous_type_p_d"
+        ],
+        "sql_list": [
+            "select * from Vehicules",
+            "select * FROM marques",
+            "select * from type_vehicule",
+            "select * from pieces_detachees",
+            "select * from type_p_d",
+            "select * from sous_type_p_d"
+        ],
         "title": "Gestion de stock"
     },
     "GET/loginPublic": {

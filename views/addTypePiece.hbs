@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <section>
+        <span>Types de pièces existant</span>
+        <select name="type">
+            <option value=""></option>
+            {{#each data.type_p_d}}
+            <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+            {{/each}}
+        </select>
+        <form action="{{this.form_action}}" method="POST">
+            <div class="form_add">
+                <div class="types">
+                    <label for="type_piece">Type de pièce</label>
+                    <input type="text" name="type_piece">
+                    <label for="etat">Etat de la pièce</label>
+                    <input type="text" name="etat">
+                    <input type="hidden">
+                </div>
+                <input type="submit" value="Ajoutez">
+            </div>
+        </form>
+    </section>
+</div>

@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <section>
+        <span>Types de véhicule existant</span>
+        <select name="type">
+            <option value=""></option>
+            {{#each data.type_vehicule}}
+            <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
+            {{/each}}
+        </select>
+        <form action="{{this.form_action}}" method="POST">
+            <div class="form_add">
+                <div class="types">
+                    <label for="type_vehicule">Type de véhicule</label>
+                    <input type="text" name="type_vehicule">
+                    <label for="doc_pdf">Doc du type de véhicule</label>
+                    <input type="file" name="doc_pdf">
+                    <input type="hidden">
+                </div>
+                <input type="submit" value="Ajoutez">
+            </div>
+        </form>
+    </section>
+</div>

@@ -1,79 +1,34 @@
 <div class="wrapper">
     <section>
+        <span>Pièce détachées existante</span>
+        <select name="type">
+            <option value=""></option>
+            {{#each data.pieces_detachees}}
+            <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
+            {{/each}}
+        </select>
         <form action="{{this.form_action}}" method="POST">
             <div class="form_add">
-                <div class="vehicule">
-                    <label for="nameV">Nom du véhicule :</label>
-                    <input type="text" name="nameV">
-                    <label for="dateMEC">Date de mise en circulation :</label>
-                    <input type="date" name="dateMEC">
-                </div>
-                <div class="types">
-                    <label for="typeV">Type de véhicule :</label>
-                    <select name="typeV" >
-                        <option value=""></option>
-                    {{#each data.type_vehicule}}
-                        <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
-                    {{/each}}
-                    </select>
-                </div>
-                <div class="docTypes">
-                    <label for="docV">Doc véhicule :</label>
-                    <input type="file" name="docV">
-                </div>
-                <div class="marque">
-                    <label for="marque">Marque du véhicule :</label>
-                    <select name="marqueV">
-                        <option value=""></option>
-                    {{#each data.marques}}
-                        <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
-                    {{/each}}
-                    </select>
-                </div>
-                <!--
                 <div class="piece">
-                    <label for="namePD">Nom de la pièce détachée :</label>
-                    <select name="namePD" id="namePD">
-                        <option value=""></option>
-                        <option value="carrosserie">Carrosserie</option>
-                        <option value="moteur">Moteur</option>
-                        <option value="boîte">Boîte</option>
-                        <option value="transmission">Transmission</option>
-                        <option value="partie-cycle">Partie cycle</option>
-                        <option value="electricite">Electricité</option>
-                        <option value="pneumatique">Pneumatique</option>
-                        <option value="consommable">Consommable</option>
-                        <option value="accessoire">Accessoire</option>
-                    </select>
-                    <label for="doc">Document PDF :</label>
-                    <input type="file" name="docPD" id="doc">
-                    <label for="photo">Photo :</label>
-                    <input type="file">
-                </div>
-                <div class="stype">
-                    <label for="type">Type de pièce détachée :</label>
-                    <input type="text" name="type">
-                    <label for="ref">Référence :</label>
-                    <input type="text" name="ref">
-                    <label for="etat">Etat de la pièce :</label>
-                    <select name="etat">
-                        <option value="neuf">Neuf</option>
-                        <option value="comme-neuf">Comme neuf</option>
-                        <option value="bon">Bon</option>
-                        <option value="correct">Correct</option>
-                        <option value="mauvais">Mauvais</option>
-                    </select>
-                    <label for="dimension">Dimensions de la pièces :</label>
-                    <label for="hauteur">Hauteur :</label>
-                    <input type="number" name="hauteur">
-                    <label for="largeur">Largeur :</label>
-                    <input type="number" name="largeur">
-                    <label for="diametre">Diamètre :</label>
-                    <input type="number">
-                    <label for="localisation">Localisation :</label>
-                    <input type="text" name="localisation">
-                </div>
-                -->
+                        <label for="namePD">Nom de la pièce détachée :</label>
+                        <select name="namePD" id="namePD">
+                            <option value=""></option>
+                            <option value="carrosserie">Carrosserie</option>
+                            <option value="moteur">Moteur</option>
+                            <option value="boîte">Boîte</option>
+                            <option value="transmission">Transmission</option>
+                            <option value="partie-cycle">Partie cycle</option>
+                            <option value="electricite">Electricité</option>
+                            <option value="pneumatique">Pneumatique</option>
+                            <option value="consommable">Consommable</option>
+                            <option value="accessoire">Accessoire</option>
+                        </select>
+                        <label for="doc">Document PDF :</label>
+                        <input type="file" name="docPD" id="doc">
+                        <label for="photo">Photo :</label>
+                        <input type="file">
+                        <input type="hidden">
+                    </div>
                 <input type="submit" value="Ajoutez">
             </div>
         </form>

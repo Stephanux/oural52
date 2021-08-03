@@ -1,0 +1,21 @@
+<div class="wrapper">
+    <section>
+        <span>Sous-types de pièces existant</span>
+        <select name="type">
+            <option value=""></option>
+            {{#each data.sous_type_p_d}}
+            <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
+            {{/each}}
+        </select>
+        <form action="{{this.form_action}}" method="POST">
+            <div class="form_add">
+                <div class="types">
+                    <label for="type_piece">Sous-type de pièce</label>
+                    <input type="text" name="type_piece">
+                    <input type="hidden">
+                </div>
+                <input type="submit" value="Ajoutez">
+            </div>
+        </form>
+    </section>
+</div>
