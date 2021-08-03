@@ -10,25 +10,21 @@
         <form action="{{this.form_action}}" method="POST">
             <div class="form_add">
                 <div class="piece">
-                        <label for="namePD">Nom de la pièce détachée :</label>
-                        <select name="namePD" id="namePD">
-                            <option value=""></option>
-                            <option value="carrosserie">Carrosserie</option>
-                            <option value="moteur">Moteur</option>
-                            <option value="boîte">Boîte</option>
-                            <option value="transmission">Transmission</option>
-                            <option value="partie-cycle">Partie cycle</option>
-                            <option value="electricite">Electricité</option>
-                            <option value="pneumatique">Pneumatique</option>
-                            <option value="consommable">Consommable</option>
-                            <option value="accessoire">Accessoire</option>
-                        </select>
-                        <label for="doc">Document PDF :</label>
-                        <input type="file" name="docPD" id="doc">
-                        <label for="photo">Photo :</label>
-                        <input type="file">
-                        <input type="hidden">
-                    </div>
+                    <label for="namePD">Nom de la pièce détachée :</label>
+                    <input type="text" name="namePD">
+                    <label for="typePD">Type de pièce détachée</label>
+                    <select name="typePD">
+                        <option value=""></option>
+                        {{#each data.type_p_d}}
+                        <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                        {{/each}}
+                    </select>
+                    <label for="doc">Document PDF :</label>
+                    <input type="file" name="docPD" id="doc">
+                    <label for="photo">Photo :</label>
+                    <input type="file">
+                    <input type="hidden">
+                </div>
                 <input type="submit" value="Ajoutez">
             </div>
         </form>
