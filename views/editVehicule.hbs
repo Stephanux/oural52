@@ -1,0 +1,16 @@
+<div class="wrapper">
+    <section>
+        <form action="{{this.form_action}}" method="POST">
+            <div class="form">
+                <label for="nameV">Nom du véhicule à modifier :</label>
+                <select name="nameV">
+                    <option value=""></option>
+                    {{#each data.Vehicule}}
+                    <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
+                    {{/each}}
+                </select>
+                <input type="submit" value="Modifiez">
+            </div>
+        </form>
+    </section>
+</div>
