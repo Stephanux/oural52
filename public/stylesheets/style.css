@@ -133,17 +133,17 @@ body{
   border-radius: 2%;
 }
 
-.form_add{
+.form{
   display: flex;
   flex-direction: column;
   margin: 50px;
 }
 
-.form_add :nth-child(n){
+.form :nth-child(n){
   margin-bottom: 14px;
 }
 
-.form_add input[type="submit"][value="Ajoutez"]{
+.form input[type="submit"][value="Ajoutez"]{
   width: 100px;
   margin-left: 350px;
   background-color: var(--add-color);
@@ -151,14 +151,14 @@ body{
 }
 
 
-.form_add input[type="submit"][value="Modifiez"]{
+.form input[type="submit"][value="Modifiez"]{
   width: 100px;
   margin-left: 350px;
   background-color: var(--edit-color);
   color: var(--text-color-white);
 }
 
-.form_add input[type="sumit"]:hover{
+.form input[type="sumit"]:hover{
   background-color: hsl(140, 93%, 58%);
 }
 
