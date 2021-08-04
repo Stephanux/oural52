@@ -145,7 +145,6 @@ body{
 
 .form input[type="submit"][value="Ajoutez"]{
   width: 100px;
-  margin-left: 350px;
   background-color: var(--add-color);
   color: var(--text-color-white);
 }
@@ -153,7 +152,6 @@ body{
 
 .form input[type="submit"][value="Modifiez"]{
   width: 100px;
-  margin-left: 350px;
   background-color: var(--edit-color);
   color: var(--text-color-white);
 }
@@ -343,5 +341,18 @@ body{
 }
 
 #nav a {
+  color: var(--text-color-black);
+}
+
+#nav2{
+  display: flex;
+  justify-content: space-around;
+}
+
+#nav2 li {
+  list-style: none;
+}
+
+#nav2 a {
   color: var(--text-color-black);
 }
