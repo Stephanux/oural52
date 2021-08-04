@@ -2,30 +2,24 @@
     <section>
         <form action="{{this.form_action}}" method="POST">
             <div class="form_add">
-                <div class="vehicule">
-                    <label for="nameV">Nom du véhicule :</label>
-                    <input type="text" name="nameV">
-                    <label for="dateMEC">Date de mise en circulation :</label>
-                    <input type="date" name="dateMEC">
-                </div>
-                <div class="types">
-                    <label for="typeV">Type de véhicule :</label>
-                    <select name="typeV" >
-                        <option value=""></option>
+                <label for="nameV">Nom du véhicule :</label>
+                <input type="text" name="nameV">
+                <label for="dateMEC">Date de mise en circulation :</label>
+                <input type="date" name="dateMEC">
+                <label for="typeV">Type de véhicule :</label>
+                <select name="typeV">
+                    <option value=""></option>
                     {{#each data.type_vehicule}}
-                        <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
+                    <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
                     {{/each}}
-                    </select>
-                </div>
-                <div class="marque">
-                    <label for="marque">Marque du véhicule :</label>
-                    <select name="marqueV">
-                        <option value=""></option>
+                </select>
+                <label for="marque">Marque du véhicule :</label>
+                <select name="marqueV">
+                    <option value=""></option>
                     {{#each data.marques}}
-                        <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
+                    <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
                     {{/each}}
-                    </select>
-                </div>
+                </select>
                 <input type="submit" value="Ajoutez">
             </div>
         </form>
