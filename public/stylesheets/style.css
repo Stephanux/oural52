@@ -88,6 +88,7 @@ body{
 }
 
 .form_login input[type="submit"]:hover{
+  transition: 0.5s;
   background-color: hsl(227, 96%, 67%);;
 }
 
@@ -118,6 +119,7 @@ body{
 }
 
 .main input:hover{
+  transition: 0.5s;
   background-color: hsl(0, 63%, 46%);
 }
 
@@ -152,6 +154,7 @@ body{
 }
 
 .form input[type="submit"][value="Ajoutez"]:hover{
+  transition: 0.5s;
   background-color: hsl(140, 70%, 37%);
 }
 
@@ -163,6 +166,7 @@ body{
 }
 
 .form input[type="submit"][value="Modifiez"]:hover{
+  transition: 0.5s;
   background-color: hsl(56, 64%, 42%);
 }
 
