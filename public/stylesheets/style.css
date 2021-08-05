@@ -151,6 +151,10 @@ body{
   color: var(--text-color-white);
 }
 
+.form input[type="submit"][value="Ajoutez"]:hover{
+  background-color: hsl(140, 70%, 37%);
+}
+
 
 .form input[type="submit"][value="Modifiez"]{
   width: 100px;
@@ -158,8 +162,8 @@ body{
   color: var(--text-color-white);
 }
 
-.form input[type="sumit"]:hover{
-  background-color: hsl(140, 93%, 58%);
+.form input[type="submit"][value="Modifiez"]:hover{
+  background-color: hsl(56, 64%, 42%);
 }
 
 /****vehicule****/

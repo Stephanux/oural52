@@ -51,10 +51,12 @@ body{
 
 .header a:hover{
   color: var(--body-bcg-color);
+  transition: 0.5s;
 }
 
 .fil0:hover{
   fill: var(--body-bcg-color);
+  transition: 0.5s;
 }
 
 /****container****/
@@ -88,7 +90,8 @@ body{
 }
 
 .form_login input[type="submit"]:hover{
-  background-color: hsl(227, 96%, 67%);;
+  transition: 0.5s;
+  background-color: hsl(227, 96%, 67%);
 }
 
 /****main page****/
@@ -118,6 +121,7 @@ body{
 }
 
 .main input:hover{
+  transition: 0.5s;
   background-color: hsl(0, 63%, 46%);
 }
 
@@ -135,33 +139,38 @@ body{
   border-radius: 2%;
 }
 
-.form{
+.form_add{
   display: flex;
   flex-direction: column;
   margin: 50px;
 }
 
-.form:nth-child(n){
+.form_add :nth-child(n){
   margin-bottom: 14px;
 }
 
-.form input[type="submit"][value="Ajoutez"]{
+.form_add input[type="submit"][value="Ajoutez"]{
   width: 100px;
   background-color: var(--add-color);
   color: var(--text-color-white);
 }
 
+.form_add input[type="submit"][value="Ajoutez"]:hover{
+  transition: 0.5s;
+  background-color: hsl(140, 71%, 42%);
+}
 
-.form input[type="submit"][value="Modifiez"]{
+
+.form_add input[type="submit"][value="Modifiez"]{
   width: 100px;
   background-color: var(--edit-color);
   color: var(--text-color-white);
 }
 
-.form input[type="sumit"]:hover{
-  background-color: hsl(140, 93%, 58%);
+.form_add input[type="submit"][value="Modifiez"]:hover{
+  transition: 0.5s;
+  background-color: hsl(56, 65%, 43%);
 }
-
 
 /****pièce****/
 
