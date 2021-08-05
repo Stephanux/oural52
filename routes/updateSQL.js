@@ -20,6 +20,9 @@ router.route('/:id').post(function (req, res, next) {
             })
             .then(function (result) { // sql query success
                 console.log('listes retour updateSQL : ', result);
+                res.render(req.message.view, {
+                    title: req.message.title
+                })
                 res.redirect(req.message.redirect);
             }).catch(function (err) { // sql query error
                 console.log('error select', err);

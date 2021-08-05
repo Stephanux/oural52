@@ -12,7 +12,7 @@ router.post('/', (req, res, next) => {
 			.then((datas) => {
 				console.log('listes des datas : ', datas);
 				res.render(req.message.view, {
-					title: 'Oural-52'
+					title: req.message.title
 				});
 			}) // SQL query error return error into callback
 			.catch((err) => {
