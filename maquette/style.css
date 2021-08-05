@@ -128,7 +128,8 @@ body{
   justify-content: center;
   align-items: center;
   width: 1000px;
-  height: 500px;
+  min-height: 500px;
+  height: auto;
   background-color: var(--container-bcg-color);
   margin: 70px 0 0 270px;
   border-radius: 2%;

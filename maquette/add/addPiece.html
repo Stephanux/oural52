@@ -1,14 +1,7 @@
 <div class="wrapper">
     <section>
-        <span>Pièce détachées existante</span>
-        <select name="type">
-            <option value=""></option>
-            {{#each data.pieces_detachees}}
-            <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
-            {{/each}}
-        </select>
-        <form action="{{this.form_action}}" method="POST">
-            <div class="form">
+        <form>
+            <div class="form_add">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD">
                 <label for="photo">Photo :</label>
@@ -28,9 +21,15 @@
                 <label for="typePD">Type de pièce détachée</label>
                 <select name="typePD">
                     <option value=""></option>
-                    {{#each data.type_p_d}}
-                    <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
-                    {{/each}}
+                    <option value="carrosserie">Carrosserie</option>
+                    <option value="moteur">Moteur</option>
+                    <option value="boite">Boîte</option>
+                    <option value="transmission">Transmission</option>
+                    <option value="partie_cycle">Partie Cycle</option>
+                    <option value="electricite">Electricité</option>
+                    <option value="pneumatique">Pneumatique</option>
+                    <option value="consommable">Consommables</option>
+                    <option value="accessoires">Accessoires</option>
                 </select>
                 <input type="hidden" value="">
                 <input type="submit" value="Ajoutez">
