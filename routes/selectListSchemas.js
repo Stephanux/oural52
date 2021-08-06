@@ -37,6 +37,7 @@ router.get('/', function (req, res, next) {
                     libelle: req.message.libelle,
                     del_label: req.message.del_label,
                     form_action: req.message.form_action,
+                    msg: req.query.msg,
                     data: results // Attention a renvoyer une variable avec un nom generique
                 });
             } else {
