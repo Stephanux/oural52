@@ -1,5 +1,8 @@
 <div class="wrapper">
     <section>
+        {{#if msg}}
+        <h4>{{msg}}</h4>
+        {{/if}}
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="nameV">Nom du véhicule :</label>
