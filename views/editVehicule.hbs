@@ -1,15 +1,33 @@
 <div class="wrapper">
     <section>
+        {{#if msg}}
+        <h4>{{msg}}</h4>
+        {{/if}}
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
-                <label for="nameV">Nom du véhicule à modifier :</label>
-                <select name="nameV">
+                <label for="nameV">Nom du véhicule :</label>
+                {{#each data.nom_vehicule}}
+                <input type="text" name="nameV" value="{{this.nom_vehicule}}">
+                {{/each}}
+                <label for="dateMEC">Date de mise en circulation :</label>
+                {{#each data.date_mise_circulation}}
+                <input type="date" name="dateMEC" value="{{this.date_mise_circulation}}">
+                {{/each}}
+                <label for="typeV">Type de véhicule :</label>
+                <select name="typeV">
                     <option value=""></option>
-                    {{#each data.Vehicule}}
-                    <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
+                    {{#each data.type_vehicule}}
+                    <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
                     {{/each}}
                 </select>
-                <input type="submit" value="Modifiez">
+                <label for="marque">Marque du véhicule :</label>
+                <select name="marqueV">
+                    <option value=""></option>
+                    {{#each data.marques}}
+                    <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
+                    {{/each}}
+                </select>
+                <input type="submit" value="Ajoutez">
             </div>
         </form>
     </section>
