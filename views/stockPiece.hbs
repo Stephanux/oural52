@@ -1,0 +1,59 @@
+<div class="wrap">
+    <section>
+        <table id="stock">
+            <thead>
+                <tr>
+                    <th>Nom de la pièce</th>
+                    <th>Type de pièce</th>
+                    <th>Photo</th>
+                    <th>Doc Pièce</th>
+                    <th>Etat</th>
+                    <th>Localisation</th>
+                    <th>Longueur</th>
+                    <th>Largeur</th>
+                    <th>Diamètre</th>
+                    <th>Edition</th>
+                </tr>
+            </thead>
+            {{#each data.pieces_detachees}}
+            <tr>
+                <td>{{this.nom_p_d}}</td>
+                <td>{{this.nom_type_p_d}}</td>
+                <td>{{this.photo}}</td>
+                <td>{{this.doc_pdf}}</td>
+                <td>{{this.etat}}</td>
+                <td>{{this.localisation}}</td>
+                <td>{{this.longueur}}</td>
+                <td>{{this.largeur}}</td>
+                <td>{{this.diametre}}</td>
+                <td>
+                    <span>
+                        <a href="/formEditPiece?id={{this.id_p_d}}"><svg xmlns="http://www.w3.org/2000/svg" class="edit" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px"><title>Edit</title><rect x="14.092" y="38.264" width="66.311" height="28.978" transform="translate(-23.463 48.86) rotate(-45)"/><rect x="71.875" y="4.627" width="18.019" height="28.978" transform="translate(10.174 62.793) rotate(-45)"/><polygon points="8.088 71.422 2.5 97.5 28.578 91.912 30.226 90.264 9.736 69.774 8.088 71.422"/></svg></a>
+                        <a href="/formDeletePiece?id={{this.id_p_d}}"><svg xmlns="http://www.w3.org/2000/svg" class="delete" data-name="Layer 2" viewBox="0 0 32 40" x="0px" y="0px"><path d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z"/><path d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z"/></svg></a>
+                    </span>
+                </td>
+            </tr>
+            {{/each}}
+        </table>
+        <div class="table-foot">
+            <span>300 résultats</span>
+            <div class="pagination">
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow-left" data-name="Layer 3" viewBox="0 0 64 80"
+                    x="0px" y="0px">
+                    <title>basic ui</title>
+                    <path
+                        d="M24.73,47.56a2,2,0,0,0,2.83-2.83L14.83,32,27.56,19.27a2,2,0,0,0-2.83-2.83L10.59,30.59a2,2,0,0,0,0,2.83Z" />
+                    <path d="M52.14,30H26a2,2,0,0,0,0,4H52.14a2,2,0,0,0,0-4Z" />
+                </svg>
+                <span>1</span>
+                <svg xmlns="http://www.w3.org/2000/svg" class="arrow-right" data-name="Layer 3" viewBox="0 0 64 80"
+                    x="0px" y="0px">
+                    <title>basic ui</title>
+                    <path
+                        d="M39.41,16.44a2,2,0,0,0-2.83,2.83L49.31,32,36.59,44.73a2,2,0,1,0,2.83,2.83L53.56,33.41a2,2,0,0,0,0-2.83Z" />
+                    <path d="M12,34H38a2,2,0,0,0,0-4H12a2,2,0,0,0,0,4Z" />
+                </svg>
+            </div>
+        </div>
+    </section>
+</div>
