@@ -25,7 +25,7 @@ function manageAction(req, res, next) {
     var type = req.method;
     // On défini la clé de l'annuaire config_actions.json dans une variable "action"
     req.message.action = type + path;
-
+    console.log('action: ' + req.message.action);
     /*chargement de la configuration JSON des paramètres possibles */
     global.params_json = JSON.parse(fs.readFileSync("./config_params.json", "utf8"));
 
