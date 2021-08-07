@@ -3,31 +3,24 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <span>Pièce détachées existante</span>
-        <select name="type">
-            <option value=""></option>
-            {{#each data.pieces_detachees}}
-            <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
-            {{/each}}
-        </select>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
-                <input type="text" name="namePD">
+                <input type="text" name="namePD" value="{{data.nom_p_d}}">
                 <label for="photo">Photo :</label>
-                <input type="file" name="photo">
+                <input type="file" name="photo" value="{{data.photo}}">
                 <label for="longueur">Longueur :</label>
-                <input type="number" name="longueur">
+                <input type="number" name="longueur" value="{{data.longueur}}">
                 <label for="largeur">Largeur :</label>
-                <input type="number" name="largeur">
+                <input type="number" name="largeur" value="{{data.largeur}}">
                 <label for="diametre">Diamètre :</label>
-                <input type="number" name="diametre">
+                <input type="number" name="diametre" value="{{data.diametre}}">
                 <label for="doc">Document PDF :</label>
-                <input type="file" name="docPD" id="doc">
+                <input type="file" name="docPD" id="doc" value="{{data.doc_pdf}}">
                 <label for="localisation">Localisation :</label>
-                <input type="text" name="localisation">
+                <input type="text" name="localisation" value="{{data.localisation}}">
                 <label for="etat">Etat :</label>
-                <input type="text" name="etat">
+                <input type="text" name="etat" value="{{data.etat}}">
                 <label for="typePD">Type de pièce détachée</label>
                 <select name="typePD">
                     <option value=""></option>
@@ -35,7 +28,7 @@
                     <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
                     {{/each}}
                 </select>
-                <input type="submit" value="Ajoutez">
+                <input type="submit" value="Modifiez">
             </div>
         </form>
     </section>
