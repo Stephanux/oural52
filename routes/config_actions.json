@@ -174,7 +174,7 @@
     "GET/formEditVehicule": {
         "controler": "selectSQLById",
         "view": "editVehicule",
-        "sql_query": [ "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, marques.nom_marque, type_vehicule.nom_type_vehicule  FROM Vehicules, marques, type_vehicule WHERE Vehicules.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule"],
+        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, marques.nom_marque, type_vehicule.nom_type_vehicule  FROM Vehicules, marques, type_vehicule WHERE Vehicules.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule",
         "form_action": "/editVehicule",
         "title": "Modifiez un véhicule"
     },
