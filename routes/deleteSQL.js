@@ -2,23 +2,28 @@ var express = require('express')
 var router = express.Router()
 
 // Delete by id
-router.route('/_id').get((req, res)=>{
-    if ((req.session.passport) && (req.session.passport.user != null)){
-        
-        global.sequelize.query(req.statusMessage.request,
-            {
+router.get('/', (req, res) => {
+    if ((req.session.passport) && (req.session.passport.user != null)) {
+        var params_name = req.message.params_query;
+        var params_value = [];
+        for (let i = 0; i < params_name.length; i++) {
+            params_value.push(req.body[params_name[i]]);
+        }
+        params_value.push(parseInt(req.query.id));
+        console.log("params_value :", params_value);
+        console.log("req.body : ", req.body);
+        global.sequelize.query(req.message.sql_query,{
+                replacements: params_value,
                 type: sequelize.QueryTypes.DELETE
-            })
-            .then((datas)=>{
+        })
+            .then((datas) => {
                 console.log('listes des datas: ', datas)
-                res.render(req.message.view, {
-                    title: 'Oural-52',
-                    page: 'Supprimez la pièce'
-                })
+                res.redirect(req.message.redirect + '?msg=Supression correctement effectuée')
             })
-            .catch((err)=>{
+            .catch((err) => {
                 console.error('error select ', err);
-            })      
+                res.redirect(req.message.redirect + '?msg=Il y a une erreur');
+            })
     } else {
         res.redirect('/')
     }

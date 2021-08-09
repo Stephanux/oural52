@@ -209,8 +209,9 @@
     "POST/formDeleteVehicule": {
         "controler": "deleteSQL",
         "view": "delete",
-        "title": "Supprimez un véhicule",
-        "request": "DELETE * from Vehicule WHERE id_vehicule = ?"
+        "params_query": ["id"],
+        "sql_query": "DELETE id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule from Vehicule WHERE id_vehicule = ?",
+        "redirect": "/formDeleteVehicule"
     },
     "GET/stockPiece": {
         "controler": "selectListSchemas",
