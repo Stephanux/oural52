@@ -197,7 +197,7 @@
             "typeV",
             "id"
         ],
-        "redirect": "/formEditVehicule",
+        "redirect": "/stockVehicule",
         "title": "Modifiez un véhicule"
     },
     "GET/formDeleteVehicule": {
