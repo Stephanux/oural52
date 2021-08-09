@@ -191,10 +191,11 @@
         "view": "editVehicule",
         "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE Vehicules.id_vehicule=?",
         "params_query": [
-            "nom_vehicule",
-            "date_mise_circulation",
-            "id_marque",
-            "id_type_vehicule"
+            "nameV",
+            "dateMEC",
+            "marqueV",
+            "typeV",
+            "id"
         ],
         "redirect": "/formEditVehicule",
         "title": "Modifiez un véhicule"
