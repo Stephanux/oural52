@@ -1,9 +1,13 @@
 <div class="container">
     <section>
-        <form action="">
+        {{#if msg}}
+        <h4>{{msg}}</h4>
+        {{/if}}
+        <form action="{{form_action}}">
             <div class="form">
                 <label for="delete">Voulez-vous vraiment supprimer cet élément ?</label>
-                <input type="submit" name="delete" value="Supprimer">
+                <input type="hidden" name="id" value="{{data.id_vehicule}}">
+                <input type="submit" name="delete" value="Supprimez">
             </div>
         </form>
     </section>

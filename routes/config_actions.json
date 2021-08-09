@@ -204,9 +204,10 @@
         "controler": "selectSQLById",
         "view": "delete",
         "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
-        "title": "Supprimez un véhicule"
+        "title": "Supprimez un véhicule",
+        "form_action": "/deleteVehicule"
     },
-    "POST/formDeleteVehicule": {
+    "POST/deleteVehicule": {
         "controler": "deleteSQL",
         "view": "delete",
         "params_query": ["id"],

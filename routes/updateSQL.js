@@ -19,7 +19,7 @@ router.post(('/'), function (req, res, next) {
         })
             .then(function (result) { // sql query success
                 console.log('listes retour updateSQL : ', result);
-                res.redirect(req.message.redirect + '?msg=Modification correctement effectué');
+                res.redirect(req.message.redirect + '?msg=Modification correctement effectuée');
             }).catch(function (err) { // sql query error
                 console.log('error select', err);
                 res.redirect(req.message.redirect + '?msg=Il y a une erreur');
