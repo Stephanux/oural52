@@ -24,7 +24,7 @@
                 <label for="typePD">Type de pièce détachée</label>
                 <select name="typePD">
                     <option value=""></option>
-                    {{#each data.type_p_d}}
+                    {{#each datas.type_p_d}}
                     <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
                     {{/each}}
                 </select>

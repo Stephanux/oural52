@@ -189,13 +189,14 @@
     "POST/editVehicule": {
         "controler": "updateSQL",
         "view": "editVehicule",
-        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE id_vehicule=?",
+        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE Vehicules.id_vehicule=?",
         "params_query": [
             "nom_vehicule",
             "date_mise_circulation",
             "id_marque",
             "id_type_vehicule"
         ],
+        "redirect": "/formEditVehicule",
         "title": "Modifiez un véhicule"
     },
     "GET/formDeleteVehicule": {
@@ -219,8 +220,10 @@
         "title": "Gestion de stock de pièce détachée"
     },
     "GET/formEditPiece": {
-        "controler": "selectSQLById",
+        "controler": "selectByIdAndListSchemas",
         "view": "editPiece",
+        "tables_list": ["type_p_d"],
+        "sql_list": ["SELECT * FROM type_p_d" ],
         "sql_query": "SELECT id_p_d, nom_p_d, pieces_detachees.id_type_p_d, photo, longueur, largeur, diametre, localisation, etat  FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
         "form_action": "/editPiece",
         "title": "Modifiez une pièce détachée"
