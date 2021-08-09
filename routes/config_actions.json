@@ -172,8 +172,16 @@
         "title": "Gestion de stock de véhicule"
     },
     "GET/formEditVehicule": {
-        "controler": "selectSQLById",
+        "controler": "selectByIdAndListSchemas",
         "view": "editVehicule",
+        "tables_list": [
+            "marques", 
+            "type_vehicule"
+        ],
+        "sql_list": [
+            "SELECT * FROM marques", 
+            "SELECT * FROM type_vehicule"
+        ],
         "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
         "form_action": "/editVehicule",
         "title": "Modifiez un véhicule"
@@ -192,14 +200,15 @@
     },
     "GET/formDeleteVehicule": {
         "controler": "selectSQLById",
-        "view": "deletePiece",
-        "title": "Supprimez une pièce"
+        "view": "delete",
+        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
+        "title": "Supprimez un véhicule"
     },
     "POST/formDeleteVehicule": {
         "controler": "deleteSQL",
-        "view": "deleteVehicule",
-        "title": "Supprimez une pièce",
-        "request": "delete from Vehicule where id_vehicule = ?"
+        "view": "delete",
+        "title": "Supprimez un véhicule",
+        "request": "DELETE * from Vehicule WHERE id_vehicule = ?"
     },
     "GET/stockPiece": {
         "controler": "selectListSchemas",
@@ -208,6 +217,13 @@
         "sql_list": ["SELECT id_p_d, nom_p_d, type_p_d.id_type_p_d, type_p_d.nom_type_p_d, photo, longueur, largeur, diametre, localisation, etat  FROM pieces_detachees, type_p_d WHERE pieces_detachees.id_type_p_d = type_p_d.id_type_p_d"],
         "form_action": "/editPiece",
         "title": "Gestion de stock de pièce détachée"
+    },
+    "GET/formEditPiece": {
+        "controler": "selectSQLById",
+        "view": "editPiece",
+        "sql_query": "SELECT id_p_d, nom_p_d, pieces_detachees.id_type_p_d, photo, longueur, largeur, diametre, localisation, etat  FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
+        "form_action": "/editPiece",
+        "title": "Modifiez une pièce détachée"
     },
     "GET/loginPublic": {
         "controler": "getViewWithAuth",
