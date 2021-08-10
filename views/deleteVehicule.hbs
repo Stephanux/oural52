@@ -5,7 +5,7 @@
         {{/if}}
         <form action="{{form_action}}" method="POST">
             <div class="form">
-                <label for="delete">Voulez-vous vraiment supprimer cet élément ?</label>
+                <label for="delete">Voulez-vous vraiment supprimer {{data.nom_vehicule}} ?</label>
                 <input type="hidden" name="id" value="{{data.id_vehicule}}">
                 <input type="submit" name="delete" value="Supprimez">
             </div>

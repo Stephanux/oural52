@@ -202,14 +202,14 @@
     },
     "GET/formDeleteVehicule": {
         "controler": "selectSQLById",
-        "view": "delete",
+        "view": "deleteVehicule",
         "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
         "title": "Supprimez un véhicule",
         "form_action": "/deleteVehicule"
     },
     "POST/deleteVehicule": {
         "controler": "deleteSQL",
-        "view": "delete",
+        "view": "deleteVehicule",
         "params_query": ["id"],
         "sql_query": "DELETE from Vehicules WHERE Vehicules.id_vehicule = ?",
         "redirect": "/stockVehicule"
@@ -252,14 +252,14 @@
     },
     "GET/formDeletePiece": {
         "controler": "selectSQLById",
-        "view": "delete",
+        "view": "deletePiece",
         "sql_query": "SELECT id_p_d, nom_p_d, photo, pieces_detachees.id_type_p_d, longueur, largeur, diametre, doc_pdf, localisation, etat FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
         "title": "Supprimez une pièce",
         "form_action": "/deletePiece"
     },
     "POST/deletePiece": {
         "controler": "deleteSQL",
-        "view": "delete",
+        "view": "deletePiece",
         "params_query": ["id"],
         "sql_query": "DELETE from pieces_detachees WHERE pieces_detachees.id_p_d = ?",
         "redirect": "/stockPiece"
