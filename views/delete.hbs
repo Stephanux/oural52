@@ -3,7 +3,7 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <form action="{{form_action}}">
+        <form action="{{form_action}}" method="POST">
             <div class="form">
                 <label for="delete">Voulez-vous vraiment supprimer cet élément ?</label>
                 <input type="hidden" name="id" value="{{data.id_vehicule}}">

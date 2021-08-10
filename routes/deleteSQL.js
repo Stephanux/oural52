@@ -2,7 +2,7 @@ var express = require('express')
 var router = express.Router()
 
 // Delete by id
-router.get('/', (req, res) => {
+router.post('/', (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         var params_name = req.message.params_query;
         var params_value = [];
