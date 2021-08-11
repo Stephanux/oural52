@@ -3,7 +3,7 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <form action="{{this.form_action}}" method="POST">
+        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD" value="{{data.nom_p_d}}">
