@@ -259,7 +259,7 @@ body{
   margin: 10px;
 }
 
-#stock th, #stock tr{
+#stock th{
   border: 1px solid var(--text-color-black);
   padding: 5px;
 }
@@ -268,17 +268,13 @@ body{
   background-color: var(--body-bcg-color);
 }
 
-#stock tr:focus{
-  border: 2px solid var(--header-bcg-color);
-}
-
 #stock th{
   background-color: var(--header-bcg-color);
   color: var(--text-color-white);
 }
 
 #stock td{
-  border: 1px solid var(--text-color-black)
+  border: 1px solid var(--text-color-black);
 }
 
 #stock span{
