@@ -109,8 +109,8 @@
     "GET/formInsertPiece": {
         "controler": "selectListSchemas",
         "view": "addPiece",
-        "tables_list": ["type_p_d"],
-        "sql_list": ["select * from type_p_d"],
+        "tables_list": ["pieces_detachees"],
+        "sql_list": ["select * from pieces_detachees"],
         "form_action": "/addPiece",
         "title": "Ajoutez une pièce détachée"
     },
