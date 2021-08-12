@@ -96,12 +96,13 @@ body{
 
 .main{
   display: flex;
+  justify-content: center;
   height: 400px;
   flex-direction: column;
 }
 
 .main h2{
-  margin: 20px 0 100px 0;
+  margin: 0 0 50px 25px;
 }
 
 .main a {
@@ -148,7 +149,6 @@ body{
 }
 
 .form input[type="submit"][value="Ajoutez"]{
-  width: 100px;
   background-color: var(--add-color);
   color: var(--text-color-white);
 }
@@ -160,7 +160,6 @@ body{
 
 
 .form input[type="submit"][value="Modifiez"]{
-  width: 100px;
   background-color: var(--edit-color);
   color: var(--text-color-white);
 }
@@ -171,7 +170,6 @@ body{
 }
 
 .form input[type="submit"][value="Supprimez"]{
-  width: 100px;
   background-color: var(--delete-color);
   color: var(--text-color-white);
 }
@@ -244,17 +242,8 @@ body{
 
 /****stock****/
 
-.wrap{
-  display: flex;
-  justify-content: center;
-  width: 1400px;
-  height: 550px;
-  background-color: var(--container-bcg-color);
-  margin: 50px 0 0 70px;
-  border-radius: 1%;
-}
-
 #stock{
+  text-align: center;
   border-collapse: collapse;
   margin: 10px;
 }
