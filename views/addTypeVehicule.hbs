@@ -10,13 +10,12 @@
             <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
+        <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="type_vehicule">Type de véhicule</label>
                 <input type="text" name="type_vehicule">
                 <label for="doc_pdf">Doc du type de véhicule</label>
                 <input type="file" name="doc_pdf">
-                <input type="hidden">
                 <input type="submit" value="Ajoutez">
             </div>
         </form>
