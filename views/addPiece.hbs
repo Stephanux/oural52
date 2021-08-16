@@ -10,7 +10,7 @@
             <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
+        <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD">
@@ -22,8 +22,8 @@
                 <input type="number" name="largeur">
                 <label for="diametre">Diamètre :</label>
                 <input type="number" name="diametre">
-                <label for="doc">Document PDF :</label>
-                <input type="file" name="docPD" id="doc">
+                <label for="doc_pdf">Document PDF :</label>
+                <input type="file" name="doc_pdf" id="doc">
                 <label for="localisation">Localisation :</label>
                 <input type="text" name="localisation">
                 <label for="etat">Etat :</label>
