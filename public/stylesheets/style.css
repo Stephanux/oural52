@@ -248,6 +248,10 @@ body{
   margin: 10px;
 }
 
+#stock a{
+  color: var(--text-color-black);
+}
+
 #stock th{
   border: 1px solid var(--text-color-black);
   padding: 5px;
