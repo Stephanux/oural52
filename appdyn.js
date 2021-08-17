@@ -10,7 +10,8 @@ var LocalStrategy = require('passport-local').Strategy;
 var multer = require('multer');
 
 global.upload = multer({
-    dest: './public/data/uploads/'
+    dest: './public/data/uploads/',
+    limits: 1000
 });
 
 /* Chargement du fichier de configuration générale du Framework MiniSmall */
