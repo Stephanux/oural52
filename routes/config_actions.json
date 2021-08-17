@@ -121,9 +121,16 @@
     "POST/addPiece": {
         "controler": "addSQLAndUploadForPiece",
         "view": "addPiece",
-        "request": "insert into pieces_detachees (nom_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, etat, id_type_p_d) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "request": "INSERT INTO pieces_detachees (nom_p_d, longueur, largeur, diametre, localisation, etat, id_type_p_d, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         "title": "Ajoutez une pièce détachée",
-        "redirect": "/formInsertPiece"
+        "redirect": "/formInsertPiece",
+        "fieldUpload": [{
+            "name": "photo",
+            "maxCount": 1
+        }, {
+            "name": "doc_pdf",
+            "maxCount": 1
+        }]
     },
     "GET/formInsertTypePiece": {
         "controler": "selectListSchemas",
@@ -238,7 +245,7 @@
     "POST/editPiece": {
         "controler": "updateSQL",
         "view": "editPiece",
-        "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, pieces_detachees.id_type_p_d=?, photo=?, longueur=?, largeur=?, diametre=?, doc_pdf=?, localisation=?, etat=? WHERE pieces_detachees.id_p_d=?",
+        "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, id_type_p_d=?, photo=?, longueur=?, largeur=?, diametre=?, doc_pdf=?, localisation=?, etat=? WHERE pieces_detachees.id_p_d=?",
         "params_query": [
             "namePD",
             "typePD",
@@ -246,7 +253,7 @@
             "longueur",
             "largeur",
             "diametre",
-            "doc",
+            "doc_pdf",
             "localisation",
             "etat",
             "id"

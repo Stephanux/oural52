@@ -14,16 +14,12 @@
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD">
-                <label for="photo">Photo :</label>
-                <input type="file" name="photo">
                 <label for="longueur">Longueur :</label>
                 <input type="number" name="longueur">
                 <label for="largeur">Largeur :</label>
                 <input type="number" name="largeur">
                 <label for="diametre">Diamètre :</label>
                 <input type="number" name="diametre">
-                <label for="doc_pdf">Document PDF :</label>
-                <input type="file" name="doc_pdf" id="doc">
                 <label for="localisation">Localisation :</label>
                 <input type="text" name="localisation">
                 <label for="etat">Etat :</label>
@@ -35,6 +31,10 @@
                     <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
                     {{/each}}
                 </select>
+                <label for="photo">Photo :</label>
+                <input type="file" name="photo">
+                <label for="doc_pdf">Document PDF :</label>
+                <input type="file" name="doc_pdf">
                 <input type="submit" value="Ajoutez">
             </div>
         </form>

@@ -39,6 +39,9 @@ function manageAction(req, res, next) {
     }
     console.log('req.message dans dynamicRouteur : ', req.message);
 
+    // Récupération des noms de champs pour un upload de fichiers passé dans le config_actions.json
+    if (req.message.fieldUpload) global.fieldUpload = req.message.fieldUpload;
+
     // (...) Il est donc possible d'ajouter des variables à l'annuaire config_actions.json 
     // en fonction des besoins du développeur, elles seront automatiquemnt récupérées dans 
     // l'objet "req.message" dans les contrôleurs (routes/).
