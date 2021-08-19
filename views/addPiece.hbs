@@ -10,7 +10,7 @@
             <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST">
+        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD">

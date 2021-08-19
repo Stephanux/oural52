@@ -11,12 +11,11 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
         // gestion du fichier uploaded via multer.
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
-        /*
         for (let i = 0; i < fieldUpload.length; i++) {
             req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
             fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
         }
-        */
+
         // insertion effective dans la base de données
         global.sequelize.query(req.message.request, {
             replacements: Object.values(req.body),
