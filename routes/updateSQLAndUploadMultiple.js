@@ -11,9 +11,12 @@ router.post(('/'), upload.fields(fieldUpload), function (req, res, next) {
         // gestion du fichier uploaded via multer.
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
-        for (let i = 0; i < fieldUpload.length; i++) {
-            req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
-            fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
+        if (req.file) {
+            delete req.body[req.files.fieldname];
+            for (let i = 0; i < fieldUpload.length; i++) {
+                req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
+                fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
+            }
         }
 
         // ici on réalise une requête d'insertion dans une base SQL
@@ -25,7 +28,7 @@ router.post(('/'), upload.fields(fieldUpload), function (req, res, next) {
         params_value.push(parseInt(req.query.id)); // ajout de l'id passé dans l'URL pour la clause Where
         console.log("params_value :", params_value);
         console.log("req.body : ", req.body);
-        
+
         global.sequelize.query(req.message.sql_query, {
             replacements: params_value,
             type: sequelize.QueryTypes.UPDATE

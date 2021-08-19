@@ -11,10 +11,13 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
         // gestion du fichier uploaded via multer.
         console.log('file : ', req.file); // contient les infos sur le fichier uploadé
         console.log('body : ', req.body); // contient les autres données du formulaire
-        req.body[req.file.fieldname] = req.file.originalname;
-        fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
-            console.log("\nFile : " + req.file.originalname + " Uploaded and Renamed!\n ");
-        });
+        if(req.file){
+            delete req.body[req.file.fieldname];
+            req.body[req.file.fieldname] = req.file.originalname;
+            fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
+                console.log("\nFile : " + req.file.originalname + " Uploaded and Renamed!\n ");
+            });
+        }
 
         // ici on réalise une requête d'insertion dans une base SQL
         var params_name = req.message.params_query;
