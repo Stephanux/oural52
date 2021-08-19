@@ -5,9 +5,9 @@ const path = require('path');
 const fs = require('fs');
 
 /* POST UPDATE via Sequelize raw query . */
-router.post(('/', upload.fields(fieldUpload)), function (req, res, next) {
+router.post(('/'), upload.fields(fieldUpload), function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        
+
         // gestion du fichier uploaded via multer.
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire

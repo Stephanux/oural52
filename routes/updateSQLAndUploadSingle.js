@@ -5,7 +5,7 @@ const path = require('path');
 const fs = require('fs');
 
 /* POST UPDATE via Sequelize raw query . */
-router.post(('/', upload.single('doc_pdf')), function (req, res, next) {
+router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         
         // gestion du fichier uploaded via multer.
