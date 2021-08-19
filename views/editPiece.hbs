@@ -7,6 +7,17 @@
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD" value="{{data.nom_p_d}}">
+                <label for="typePD">Type de pièce détachée</label>
+                <select name="typePD">
+                    <option value=""></option>
+                    {{#each datas.type_p_d}}
+                    {{#compare this.id_type_p_d ../data.id_type_p_d operator="=="}}
+                    <option value="{{this.id_type_p_d}}" selected>{{this.nom_type_p_d}}</option>
+                    {{else}}
+                    <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                    {{/compare}}
+                    {{/each}}
+                </select>
                 <label for="photo">Photo :</label>
                 <input type="file" name="photo" value="{{data.photo}}">
                 <label for="longueur">Longueur :</label>
@@ -15,19 +26,12 @@
                 <input type="number" name="largeur" value="{{data.largeur}}">
                 <label for="diametre">Diamètre :</label>
                 <input type="number" name="diametre" value="{{data.diametre}}">
-                <label for="doc">Document PDF :</label>
-                <input type="file" name="docPD" id="doc" value="{{data.doc_pdf}}">
+                <label for="doc_pdf">Document PDF :</label>
+                <input type="file" name="doc_pdf" id="doc" value="{{data.doc_pdf}}">
                 <label for="localisation">Localisation :</label>
                 <input type="text" name="localisation" value="{{data.localisation}}">
                 <label for="etat">Etat :</label>
                 <input type="text" name="etat" value="{{data.etat}}">
-                <label for="typePD">Type de pièce détachée</label>
-                <select name="typePD">
-                    <option value=""></option>
-                    {{#each datas.type_p_d}}
-                    <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
-                    {{/each}}
-                </select>
                 <input type="hidden" name="id" value="{{data.id_p_d}}">
                 <input type="submit" value="Modifiez">
             </div>

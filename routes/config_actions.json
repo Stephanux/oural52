@@ -91,7 +91,7 @@
         "title": "Ajoutez un type de véhicule",
         "redirect": "/formInsertTypeVehicule"
     },
-    "GET/editTypeVehicule": {
+    "GET/listTypeVehicule": {
         "controler": "selectListSchemas",
         "view": "listTypeVehicule",
         "tables_list": ["type_vehicule"],
@@ -133,6 +133,34 @@
         "request": "insert into marques (nom_marque, modele) VALUES (?, ?)",
         "title": "Ajoutez une marque de véhicule",
         "redirect": "/formInsertTypeVehicule"
+    },
+    "GET/listMarqueVehicule": {
+        "controler": "selectListSchemas",
+        "view": "listMarqueVehicule",
+        "tables_list": ["marques"],
+        "sql_list": ["select * from marques"],
+        "title": "Modifiez une marque de véhicule"
+    },
+    "GET/formEditMarqueVehicule": {
+        "controler": "selectByIdAndListSchemas",
+        "view": "editMarqueVehiculeById",
+        "tables_list": ["marques"],
+        "sql_list": ["select * from marques"],
+        "sql_query": "SELECT id_marque, nom_marque, modele FROM marques WHERE marques.id_marque=?",
+        "form_action": "/editMarqueVehicule",
+        "title": "Modifiez une marque de véhicule"
+    },
+    "POST/editMarqueVehicule": {
+        "controler": "updateSQL",
+        "view": "editMarqueVehiculeById",
+        "sql_query": "UPDATE marques SET nom_marque=?, modele=? WHERE marques.id_marque=?",
+        "params_query": [
+            "marque",
+            "modele",
+            "id"
+        ],
+        "redirect": "/listMarqueVehicule",
+        "title": "Modifiez une marque de véhicule"
     },
     "GET/formInsertPiece": {
         "controler": "selectListSchemas",
