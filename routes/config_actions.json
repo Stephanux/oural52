@@ -91,6 +91,34 @@
         "title": "Ajoutez un type de véhicule",
         "redirect": "/formInsertTypeVehicule"
     },
+    "GET/editTypeVehicule": {
+        "controler": "selectListSchemas",
+        "view": "listTypeVehicule",
+        "tables_list": ["type_vehicule"],
+        "sql_list": ["select * from type_vehicule"],
+        "title": "Modifiez un type de véhicule"
+    },
+    "GET/formEditTypeVehicule": {
+        "controler": "selectByIdAndListSchemas",
+        "view": "editTypeVehiculeById",
+        "tables_list": ["type_vehicule"],
+        "sql_list": ["select * from type_vehicule"],
+        "sql_query": "SELECT id_type_vehicule, nom_type_vehicule, doc_pdf FROM type_vehicule WHERE type_vehicule.id_type_vehicule=?",
+        "form_action": "/editTypeVehicule",
+        "title": "Modifiez un type de véhicule"
+    },
+    "POST/editTypeVehicule": {
+        "controler": "updateSQLAndUploadSingle",
+        "view": "editTypeVehiculeById",
+        "sql_query": "UPDATE type_vehicule SET nom_type_vehicule=?, doc_pdf=? WHERE type_vehicule.id_type_vehicule=?",
+        "params_query": [
+            "type_vehicule",
+            "doc_pdf",
+            "id"
+        ],
+        "redirect": "/listTypeVehicule",
+        "title": "Modifiez un type de véhicule"
+    },
     "GET/formInsertMarque": {
         "controler": "selectListSchemas",
         "view": "addMarque",
