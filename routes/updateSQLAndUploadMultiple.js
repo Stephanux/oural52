@@ -5,16 +5,16 @@ const path = require('path');
 const fs = require('fs');
 
 /* POST UPDATE via Sequelize raw query . */
-router.post(('/', upload.single('doc_pdf')), function (req, res, next) {
+router.post(('/', upload.fields(fieldUpload)), function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         
         // gestion du fichier uploaded via multer.
-        console.log('file : ', req.file); // contient les infos sur le fichier uploadé
+        console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
-        req.body[req.file.fieldname] = req.file.originalname;
-        fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
-            console.log("\nFile : " + req.file.originalname + " Uploaded and Renamed!\n ");
-        });
+        for (let i = 0; i < fieldUpload.length; i++) {
+            req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
+            fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
+        }
 
         // ici on réalise une requête d'insertion dans une base SQL
         var params_name = req.message.params_query;
@@ -25,7 +25,7 @@ router.post(('/', upload.single('doc_pdf')), function (req, res, next) {
         params_value.push(parseInt(req.query.id)); // ajout de l'id passé dans l'URL pour la clause Where
         console.log("params_value :", params_value);
         console.log("req.body : ", req.body);
-
+        
         global.sequelize.query(req.message.sql_query, {
             replacements: params_value,
             type: sequelize.QueryTypes.UPDATE

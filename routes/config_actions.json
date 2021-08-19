@@ -85,7 +85,7 @@
         "title": "Ajoutez un type de véhicule"
     },
     "POST/addTypeVehicule": {
-        "controler": "addSQLAndUploadForVehicule",
+        "controler": "addSQLAndUploadSingle",
         "view": "addTypeVehicule",
         "request": "insert into type_vehicule (nom_type_vehicule, doc_pdf) VALUES (?, ?)",
         "title": "Ajoutez un type de véhicule",
@@ -175,7 +175,7 @@
         "title": "Ajoutez une pièce détachée"
     },
     "POST/addPiece": {
-        "controler": "addSQLAndUploadForPiece",
+        "controler": "addSQLAndUploadMultiple",
         "view": "addPiece",
         "request": "INSERT INTO pieces_detachees (nom_p_d, longueur, largeur, diametre, localisation, etat, id_type_p_d, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         "title": "Ajoutez une pièce détachée",
@@ -299,23 +299,30 @@
         "title": "Modifiez une pièce détachée"
     },
     "POST/editPiece": {
-        "controler": "updateSQL",
+        "controler": "updateSQLAndUploadMultiple",
         "view": "editPiece",
-        "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, id_type_p_d=?, photo=?, longueur=?, largeur=?, diametre=?, doc_pdf=?, localisation=?, etat=? WHERE pieces_detachees.id_p_d=?",
+        "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, id_type_p_d=?, longueur=?, largeur=?, diametre=?, localisation=?, etat=?, photo=?, doc_pdf=? WHERE pieces_detachees.id_p_d=?",
         "params_query": [
             "namePD",
             "typePD",
-            "photo",
             "longueur",
             "largeur",
             "diametre",
-            "doc_pdf",
             "localisation",
             "etat",
+            "photo",
+            "doc_pdf",
             "id"
         ],
         "redirect": "/stockPiece",
-        "title": "Modifiez une pièce"
+        "title": "Modifiez une pièce",
+        "fieldUpload": [{
+            "name": "photo",
+            "maxCount": 1
+        }, {
+            "name": "doc_pdf",
+            "maxCount": 1
+        }]
     },
     "GET/formDeletePiece": {
         "controler": "selectSQLById",
