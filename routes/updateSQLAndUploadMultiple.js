@@ -11,9 +11,16 @@ router.post(('/'), upload.fields(fieldUpload), function (req, res, next) {
         // gestion du fichier uploaded via multer.
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
-        if (req.file) {
-            delete req.body[req.files.fieldname];
+        if (req.files) {
             for (let i = 0; i < fieldUpload.length; i++) {
+                //supression des fichiers présent avant l'update
+                fs.unlink("./public/data/uploads/" + req.body[fieldUpload[i].name], (err => {
+                    if (err) console.log(err);
+                    else{
+                        console.log("\nDeleted file: " + req.body[fieldUpload[i].name])
+                    }
+                }))    
+                delete req.body[fieldUpload[i].name];
                 req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
                 fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
             }
