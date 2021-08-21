@@ -72,7 +72,7 @@
     "POST/addVehicule": {
         "controler": "addSQL",
         "view": "addVehicule",
-        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, id_marque) VALUES (?, ?, ?, ?)",
+        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, modele.id_marque, id_modele) VALUES (?, ?, ?, ?, ?)",
         "title": "Ajoutez un véhicule",
         "redirect": "/formInsertVehicule"
     },
@@ -130,9 +130,9 @@
     "POST/addMarque": {
         "controler": "addSQL",
         "view": "addMarque",
-        "request": "insert into marques (nom_marque, modele) VALUES (?, ?)",
+        "request": "insert into marques (nom_marque) VALUES (?)",
         "title": "Ajoutez une marque de véhicule",
-        "redirect": "/formInsertTypeVehicule"
+        "redirect": "/formInsertMarque"
     },
     "GET/listMarqueVehicule": {
         "controler": "selectListSchemas",
@@ -146,17 +146,16 @@
         "view": "editMarqueVehiculeById",
         "tables_list": ["marques"],
         "sql_list": ["select * from marques"],
-        "sql_query": "SELECT id_marque, nom_marque, modele FROM marques WHERE marques.id_marque=?",
+        "sql_query": "SELECT id_marque, nom_marque FROM marques WHERE marques.id_marque=?",
         "form_action": "/editMarqueVehicule",
         "title": "Modifiez une marque de véhicule"
     },
     "POST/editMarqueVehicule": {
         "controler": "updateSQL",
         "view": "editMarqueVehiculeById",
-        "sql_query": "UPDATE marques SET nom_marque=?, modele=? WHERE marques.id_marque=?",
+        "sql_query": "UPDATE marques SET nom_marque=? WHERE marques.id_marque=?",
         "params_query": [
             "marque",
-            "modele",
             "id"
         ],
         "redirect": "/listMarqueVehicule",
@@ -234,7 +233,7 @@
         "controler": "selectListSchemas",
         "view": "stockVehicule",
         "tables_list": ["Vehicules"],
-        "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf  FROM Vehicules, marques, type_vehicule WHERE Vehicules.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule"],
+        "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf FROM Vehicules, marques, type_vehicule, modele WHERE Vehicules.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule AND Vehicules.id_modele = modele.id_marque"],
         "form_action": "/editVehicule",
         "title": "Gestion de stock de véhicule"
     },
@@ -243,25 +242,28 @@
         "view": "editVehicule",
         "tables_list": [
             "marques", 
-            "type_vehicule"
+            "type_vehicule",
+            "modele"
         ],
         "sql_list": [
             "SELECT * FROM marques", 
-            "SELECT * FROM type_vehicule"
+            "SELECT * FROM type_vehicule",
+            "SELECT * FROM modele"
         ],
-        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
+        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele FROM Vehicules WHERE Vehicules.id_vehicule=?",
         "form_action": "/editVehicule",
         "title": "Modifiez un véhicule"
     },
     "POST/editVehicule": {
         "controler": "updateSQL",
         "view": "editVehicule",
-        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=? WHERE Vehicules.id_vehicule=?",
+        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=?, id_modele=? WHERE Vehicules.id_vehicule=?",
         "params_query": [
             "nameV",
             "dateMEC",
             "marqueV",
             "typeV",
+            "modeleV",
             "id"
         ],
         "redirect": "/stockVehicule",

@@ -10,19 +10,10 @@
             <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
             {{/each}}
         </select>
-        <span>Modèle de véhicule existant</span>
-        <select name="modele">
-            <option value=""></option>
-            {{#each data.marques}}
-            <option value="{{this.id_marque}}">{{this.modele}}</option>
-            {{/each}}
-        </select>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="marque">Marque du véhicule :</label>
                 <input type="text" name="marque">
-                <label for="modele">Modèle du véhicule :</label>
-                <input type="text" name="modele">
                 <input type="submit" value="Ajoutez">
             </div>
         </form>

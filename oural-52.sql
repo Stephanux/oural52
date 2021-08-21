@@ -1,5 +1,6 @@
+
 CREATE TABLE `Vehicules` ( 
-   `id_vehicule` INT NOT NULL,
+   `id_vehicule` INT NOT NULL AUTO_INCREMENT,
    `nom_vehicule` VARCHAR(200) NOT NULL,
    `date_mise_circulation` DATE NOT NULL,
    `id_type_vehicule` INT NOT NULL,
@@ -9,15 +10,14 @@ CREATE TABLE `Vehicules` (
     )
 );
 CREATE TABLE `marques` ( 
-   `id_marque` INT NOT NULL,
+   `id_marque` INT NOT NULL AUTO_INCREMENT,
    `nom_marque` VARCHAR(50),
-   `modele` VARCHAR(150),
     PRIMARY KEY (
    `id_marque`
     )
 );
 CREATE TABLE `type_vehicule` ( 
-   `id_type_vehicule` INT NOT NULL,
+   `id_type_vehicule` INT NOT NULL AUTO_INCREMENT,
    `nom_type_vehicule` VARCHAR(200) NOT NULL,
    `doc_pdf` VARCHAR(200),
     PRIMARY KEY (
@@ -25,7 +25,7 @@ CREATE TABLE `type_vehicule` (
     )
 );
 CREATE TABLE `pieces_detachees` ( 
-   `id_p_d` INT NOT NULL,
+   `id_p_d` INT NOT NULL AUTO_INCREMENT,
    `nom_p_d` VARCHAR(150) NOT NULL,
    `id_type_p_d` INT NOT NULL,
    `photo` VARCHAR(150),
@@ -47,7 +47,7 @@ CREATE TABLE `liens_p_d` (
     )
 );
 CREATE TABLE `type_p_d` ( 
-   `id_type_p_d` INT NOT NULL,
+   `id_type_p_d` INT NOT NULL AUTO_INCREMENT,
    `nom_type_p_d` VARCHAR(200) NOT NULL,
    `etat` VARCHAR(150),
     PRIMARY KEY (
@@ -55,7 +55,7 @@ CREATE TABLE `type_p_d` (
     )
 );
 CREATE TABLE `sous_type_p_d` ( 
-   `id_stype_p_d` INT NOT NULL,
+   `id_stype_p_d` INT NOT NULL AUTO_INCREMENT,
    `nom_stype` VARCHAR(150) NOT NULL,
    `id_type_p_d` INT NOT NULL,
     PRIMARY KEY (
@@ -63,7 +63,7 @@ CREATE TABLE `sous_type_p_d` (
     )
 );
 CREATE TABLE `modele` ( 
-   `id_modele` INT NOT NULL,
+   `id_modele` INT NOT NULL AUTO_INCREMENT,
    `nom_modele` VARCHAR(100) NOT NULL,
    `id_marque` INT NOT NULL,
     PRIMARY KEY (
