@@ -1,15 +1,15 @@
 CREATE TABLE `Vehicules` ( 
-   `id_vehicule` INT NOT NULL AUTO_INCREMENT,
+   `id_vehicule` INT NOT NULL,
    `nom_vehicule` VARCHAR(200) NOT NULL,
    `date_mise_circulation` DATE NOT NULL,
-   `id_marque` INT NOT NULL,
    `id_type_vehicule` INT NOT NULL,
+   `id_modele` INT NOT NULL,
     PRIMARY KEY (
    `id_vehicule`
     )
 );
 CREATE TABLE `marques` ( 
-   `id_marque` INT NOT NULL AUTO_INCREMENT,
+   `id_marque` INT NOT NULL,
    `nom_marque` VARCHAR(50),
    `modele` VARCHAR(150),
     PRIMARY KEY (
@@ -17,7 +17,7 @@ CREATE TABLE `marques` (
     )
 );
 CREATE TABLE `type_vehicule` ( 
-   `id_type_vehicule` INT NOT NULL AUTO_INCREMENT,
+   `id_type_vehicule` INT NOT NULL,
    `nom_type_vehicule` VARCHAR(200) NOT NULL,
    `doc_pdf` VARCHAR(200),
     PRIMARY KEY (
@@ -25,7 +25,7 @@ CREATE TABLE `type_vehicule` (
     )
 );
 CREATE TABLE `pieces_detachees` ( 
-   `id_p_d` INT NOT NULL AUTO_INCREMENT,
+   `id_p_d` INT NOT NULL,
    `nom_p_d` VARCHAR(150) NOT NULL,
    `id_type_p_d` INT NOT NULL,
    `photo` VARCHAR(150),
@@ -34,7 +34,6 @@ CREATE TABLE `pieces_detachees` (
    `diametre` INT,
    `doc_pdf` VARCHAR(200),
    `localisation` VARCHAR(150),
-   `etat` VARCHAR(150),
     PRIMARY KEY (
    `id_p_d`
     )
@@ -48,29 +47,30 @@ CREATE TABLE `liens_p_d` (
     )
 );
 CREATE TABLE `type_p_d` ( 
-   `id_type_p_d` INT NOT NULL AUTO_INCREMENT,
+   `id_type_p_d` INT NOT NULL,
    `nom_type_p_d` VARCHAR(200) NOT NULL,
+   `etat` VARCHAR(150),
     PRIMARY KEY (
    `id_type_p_d`
     )
 );
 CREATE TABLE `sous_type_p_d` ( 
-   `id_stype_p_d` INT NOT NULL AUTO_INCREMENT,
+   `id_stype_p_d` INT NOT NULL,
    `nom_stype` VARCHAR(150) NOT NULL,
    `id_type_p_d` INT NOT NULL,
     PRIMARY KEY (
    `id_stype_p_d`
     )
 );
-ALTER TABLE `Vehicules` 
-  ADD CONSTRAINT `marques-Vehicules`
-  FOREIGN KEY ( 
-   `id_marque`
-)   REFERENCES `marques`( 
-   `id_marque`
-) ;
-
-
+CREATE TABLE `modele` ( 
+   `id_modele` INT NOT NULL,
+   `nom_modele` VARCHAR(100) NOT NULL,
+   `id_marque` INT NOT NULL,
+    PRIMARY KEY (
+   `id_modele`
+    )
+)
+ COMMENT = 'modele de véhicule pour une parque donnée';
 ALTER TABLE `Vehicules` 
   ADD CONSTRAINT `type_vehicule-Vehicules`
   FOREIGN KEY ( 
@@ -113,4 +113,22 @@ ALTER TABLE `sous_type_p_d`
    `id_type_p_d`
 )   REFERENCES `type_p_d`( 
    `id_type_p_d`
+) ;
+
+
+ALTER TABLE `modele` 
+  ADD CONSTRAINT `marques-modele`
+  FOREIGN KEY ( 
+   `id_marque`
+)   REFERENCES `marques`( 
+   `id_marque`
+) ;
+
+
+ALTER TABLE `Vehicules` 
+  ADD CONSTRAINT `modele-Vehicules`
+  FOREIGN KEY ( 
+   `id_modele`
+)   REFERENCES `modele`( 
+   `id_modele`
 ) ;
