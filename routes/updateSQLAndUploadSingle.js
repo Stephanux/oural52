@@ -12,6 +12,13 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
         console.log('file : ', req.file); // contient les infos sur le fichier uploadé
         console.log('body : ', req.body); // contient les autres données du formulaire
         if(req.file){
+            //supression du fichier présent avant l'update
+            fs.unlink("./public/data/uploads/" + req.body[req.file.fieldname], (err => {
+                if (err) console.log(err);
+                else{
+                    console.log("\nDeleted file: " + req.body[req.file.fieldname])
+                }
+            }))           
             delete req.body[req.file.fieldname];
             req.body[req.file.fieldname] = req.file.originalname;
             fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
