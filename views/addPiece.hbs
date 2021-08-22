@@ -31,6 +31,13 @@
                     <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
                     {{/each}}
                 </select>
+                <label for="StypePD">Sous-type de pièce détachée</label>
+                <select name="StypePD">
+                    <option value=""></option>
+                    {{#each data.sous_type_p_d}}
+                    <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
+                    {{/each}}
+                </select>
                 <label for="photo">Photo :</label>
                 <input type="file" name="photo">
                 <label for="doc_pdf">Document PDF :</label>

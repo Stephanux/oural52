@@ -72,7 +72,13 @@
     "POST/addVehicule": {
         "controler": "addSQL",
         "view": "addVehicule",
-        "request": "insert into Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, modele.id_marque, id_modele) VALUES (?, ?, ?, ?, ?)",
+        "table_list":[
+            "Vehicules",
+            "modele"
+        ],
+        "requests": [
+            "INSERT INTO Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, id_modele) VALUES (?, ?, ?, ?)",
+            "INSERT INTO modele (nom_modele, id_marque) VALUES (?, ?)"],
         "title": "Ajoutez un véhicule",
         "redirect": "/formInsertVehicule"
     },
@@ -80,14 +86,14 @@
         "controler": "selectListSchemas",
         "view": "addTypeVehicule",
         "tables_list": ["type_vehicule"],
-        "sql_list": ["select * from type_vehicule"],
+        "sql_list": ["SELECT * FROM type_vehicule"],
         "form_action": "/addTypeVehicule",
         "title": "Ajoutez un type de véhicule"
     },
     "POST/addTypeVehicule": {
         "controler": "addSQLAndUploadSingle",
         "view": "addTypeVehicule",
-        "request": "insert into type_vehicule (nom_type_vehicule, doc_pdf) VALUES (?, ?)",
+        "request": "INSERT INTO type_vehicule (nom_type_vehicule, doc_pdf) VALUES (?, ?)",
         "title": "Ajoutez un type de véhicule",
         "redirect": "/formInsertTypeVehicule"
     },
@@ -191,12 +197,10 @@
         "controler": "selectListSchemas",
         "view": "addTypePiece",
         "tables_list": [
-            "type_p_d",
-            "type_vehicule"
+            "type_p_d"
         ],
         "sql_list": [
-            "select * from type_p_d",
-            "select * from type_vehicule"
+            "select * from type_p_d"
         ],
         "form_action": "/addTypePiece",
         "title": "Ajoutez un type de pièce détachée"
@@ -204,9 +208,9 @@
     "POST/addTypePiece": {
         "controler": "addSQL",
         "view": "addTypePiece",
-        "request": "insert into type_p_d (nom_type_p_d) VALUES (?)",
+        "request": "INSERT INTO type_p_d (nom_type_p_d) VALUES (?)",
         "title": "Ajoutez un type de pièce détachée",
-        "redirect": "/formInsertTypeVehicule"
+        "redirect": "/formInsertTypePiece"
     },
     "GET/formInsertSousTypePiece": {
         "controler": "selectListSchemas",
@@ -225,15 +229,15 @@
     "POST/addSousTypePiece": {
         "controler": "addSQL",
         "view": "addSousTypePiece",
-        "request": "insert into sous_type_p_d (nom_stype, id_type_p_d) VALUES (?, ?)",
+        "request": "INSERT INTO sous_type_p_d (nom_stype, id_type_p_d) VALUES (?, ?)",
         "title": "Ajoutez un sous-type de pièce détachée",
-        "redirect": "/formInsertTypeVehicule"
+        "redirect": "/formInsertSousTypePiece"
     },
     "GET/stockVehicule": {
         "controler": "selectListSchemas",
         "view": "stockVehicule",
         "tables_list": ["Vehicules"],
-        "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf FROM Vehicules, marques, type_vehicule, modele WHERE Vehicules.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule AND Vehicules.id_modele = modele.id_marque"],
+        "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, modele.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf FROM Vehicules, marques, type_vehicule, modele WHERE modele.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule AND Vehicules.id_modele = modele.id_marque"],
         "form_action": "/editVehicule",
         "title": "Gestion de stock de véhicule"
     },

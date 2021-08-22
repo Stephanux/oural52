@@ -14,13 +14,6 @@
             <div class="form">
                 <label for="type_piece">Type de pièce</label>
                 <input type="text" name="type_piece">
-                <label for="type_vehicule">Type de véhicule</label>
-                <select name="type_vehicule">
-                    <option value=""></option>
-                    {{#each data.type_vehicule}}
-                    <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
-                    {{/each}}
-                </select>
                 <input type="submit" value="Ajoutez">
             </div>
         </form>

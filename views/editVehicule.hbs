@@ -28,6 +28,10 @@
                     {{/compare}}
                     {{/each}}
                 </select>
+                <label for="modeleV">Modèle du véhicule</label>
+                {{#compare this.id_modele ../data.id_modele operator="=="}}
+                <input type="text" name="modeleV" value="{{this.nom_modele}}">
+                {{/compare}}
                 <input type="hidden" name="id" value="{{data.id_vehicule}}">
                 <input type="submit" value="Modifiez">
             </div>
