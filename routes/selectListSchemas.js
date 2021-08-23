@@ -15,7 +15,7 @@ router.get('/', function (req, res, next) {
                 })
                     .then(function (result) { // sql query success
                         console.log('listes des données : ', result);
-                        // on copie les données obtenues par la requête dans la variable data
+                        // on copie les données obtenues par la requête dans la variable result
                         results[req.message.tables_list[i]] = result;
                         getDataFromTable(i + 1, cbk)
                     }).catch(function (err) { // sql query error

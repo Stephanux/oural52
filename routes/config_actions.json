@@ -70,7 +70,7 @@
         "title": "Ajoutez un véhicule"
     },
     "POST/addVehicule": {
-        "controler": "addSQL",
+        "controler": "addMultiTableSQL",
         "view": "addVehicule",
         "table_list":[
             "Vehicules",
