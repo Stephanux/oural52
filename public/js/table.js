@@ -1,3 +1,5 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const maTable = new DataTable('#stock');
- });
+window.onload = function (e){
+    $(document).ready(function () {
+        $('#stock').DataTable();
+    });
+}
