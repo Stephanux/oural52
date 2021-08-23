@@ -16,16 +16,13 @@
                     <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
                     {{/each}}
                 </select>
-                <label for="marque">Marque du véhicule :</label>
-                <select name="marqueV">
+                <label for="marque">Modele du véhicule :</label>
+                <select name="modeleV">
                     <option value=""></option>
-                    {{#each data.marques}}
-                    <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
+                    {{#each data.modele}}
+                    <option value="{{this.id_modele}}">{{this.nom_modele}}</option>
                     {{/each}}
                 </select>
-                <label for="modeleV">Modèle du véhicule</label>
-                <input type="text" name="modeleV">
-                <input type="hidden" value="{{this.id_modele}}">
                 <input type="submit" value="Ajoutez">
             </div>
         </form>
