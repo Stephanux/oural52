@@ -249,11 +249,13 @@
         "view": "addPiece",
         "tables_list": [
             "pieces_detachees",
-            "type_p_d"
+            "type_p_d",
+            "sous_type_p_d"
         ],
         "sql_list": [
             "SELECT * FROM pieces_detachees",
-            "SELECT * FROM type_p_d"
+            "SELECT * FROM type_p_d",
+            "SELECT * FROM sous_type_p_d"
         ],
         "form_action": "/addPiece",
         "title": "Ajoutez une pièce détachée"
