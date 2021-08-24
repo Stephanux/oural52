@@ -159,7 +159,7 @@
     "POST/editModeleVehicule": {
         "controler": "updateSQL",
         "view": "editModeleVehiculeById",
-        "sql_query": "UPDATE modele SET nom_modele=? WHERE modele.id_modele = ?",
+        "sql_query": "UPDATE modele SET nom_modele = ?, id_marque = ? WHERE modele.id_modele = ?",
         "params_query": [
             "modeleV",
             "marqueV",
@@ -274,6 +274,13 @@
             "maxCount": 1
         }]
     },
+    "GET/listTypePiece": {
+        "controler": "selectListSchemas",
+        "view": "listTypePiece",
+        "tables_list": ["type_p_d"],
+        "sql_list": ["SELECT * FROM type_p_d"],
+        "title": "Tableau des types de pièce détachée"
+    },
     "GET/formInsertTypePiece": {
         "controler": "selectListSchemas",
         "view": "addTypePiece",
@@ -292,6 +299,47 @@
         "request": "INSERT INTO type_p_d (nom_type_p_d) VALUES (?)",
         "title": "Ajoutez un type de pièce détachée",
         "redirect": "/formInsertTypePiece"
+    },
+    "GET/formEditTypePiece": {
+        "controler": "selectByIdAndListSchemas",
+        "view": "editTypePieceById",
+        "tables_list": ["type_p_d"],
+        "sql_list": ["SELECT * FROM type_p_d"],
+        "sql_query": "SELECT id_type_p_d, nom_type_p_d FROM type_p_d WHERE type_p_d.id_type_p_d = ?",
+        "form_action": "/editTypePiece",
+        "title": "Modifiez un type de pièce détachée"
+    },
+    "POST/editTypePiece": {
+        "controler": "updateSQL",
+        "view": "editTypePieceById",
+        "sql_query": "UPDATE type_p_d SET nom_type_p_d = ? WHERE type_p_d.id_type_p_d = ?",
+        "params_query": [
+            "type_p_d",
+            "id"
+        ],
+        "redirect": "/listTypePiece",
+        "title": "Modifiez un type de pièce détachée"
+    },
+    "GET/formDeleteTypePiece": {
+        "controler": "selectSQLById",
+        "view": "deleteTypePiece",
+        "sql_query": "SELECT id_type_p_d, nom_type_p_d FROM type_p_d WHERE type_p_d.id_type_p_d = ?",
+        "title": "Supprimez un type de pièce détachée",
+        "form_action": "/deleteTypePiece"
+    },
+    "POST/deleteTypePiece": {
+        "controler": "deleteSQL",
+        "view": "deleteTypePiece",
+        "params_query": ["id"],
+        "sql_query": "DELETE FROM type_p_d WHERE type_p_d.id_type_p_d= ?",
+        "redirect": "/listTypePiece"
+    },
+    "GET/listSousTypePiece": {
+        "controler": "selectListSchemas",
+        "view": "listSousTypePiece",
+        "tables_list": ["sous_type_p_d"],
+        "sql_list": ["SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d"],
+        "title": "Tableau des sous-types de pièce détachée"
     },
     "GET/formInsertSousTypePiece": {
         "controler": "selectListSchemas",
@@ -313,6 +361,47 @@
         "request": "INSERT INTO sous_type_p_d (nom_stype, id_type_p_d) VALUES (?, ?)",
         "title": "Ajoutez un sous-type de pièce détachée",
         "redirect": "/formInsertSousTypePiece"
+    },
+    "GET/formEditSousTypePiece": {
+        "controler": "selectByIdAndListSchemas",
+        "view": "editSousTypePieceById",
+        "tables_list": [
+            "sous_type_p_d",
+            "type_p_d"
+        ],
+        "sql_list": [
+            "SELECT * FROM sous_type_p_d",
+            "SELECT * FROM type_p_d"
+        ],
+        "sql_query": "SELECT id_stype_p_d, sous_type_p_d.id_type_p_d, nom_stype, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_stype_p_d = ?",
+        "form_action": "/editSousTypePiece",
+        "title": "Modifiez un sous-type de véhicule"
+    },
+    "POST/editSousTypePiece": {
+        "controler": "updateSQL",
+        "view": "editSousTypePieceById",
+        "sql_query": "UPDATE sous_type_p_d SET nom_stype = ?, id_type_p_d = ? WHERE sous_type_p_d.id_stype_p_d = ?",
+        "params_query": [
+            "soustypePD",
+            "typePD",
+            "id"
+        ],
+        "redirect": "/listSousTypePiece",
+        "title": "Modifiez un sous-type de pièce détachée"
+    },
+    "GET/formDeleteSousTypePiece": {
+        "controler": "selectSQLById",
+        "view": "deleteSousTypePiece",
+        "sql_query": "SELECT id_stype_p_d, nom_stype FROM sous_type_p_d WHERE sous_type_p_d.id_stype_p_d = ?",
+        "title": "Supprimez un sous-type de pièce détachée",
+        "form_action": "/deleteSousTypePiece"
+    },
+    "POST/deleteSousTypePiece": {
+        "controler": "deleteSQL",
+        "view": "deleteSousTypePiece",
+        "params_query": ["id"],
+        "sql_query": "DELETE FROM sous_type_p_d WHERE sous_type_p_d.id_stype_p_d = ?",
+        "redirect": "/listSousTypePiece"
     },
     "GET/stockVehicule": {
         "controler": "selectListSchemas",

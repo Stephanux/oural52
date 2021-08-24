@@ -1,0 +1,23 @@
+<div class="wrapper">
+    <section>
+        <form action="{{this.form_action}}" method="POST">
+            <div class="form">
+                <label for="soustypePD">Sous-type de pièce détachée</label>
+                <input type="text" name="soustypePD" value="{{data.nom_stype}}">
+                <label for="typePD">Type de pièce détachée</label>
+                <select name="typePD">
+                    <option value=""></option>
+                    {{#each datas.type_p_d}}
+                    {{#compare this.id_type_p_d ../data.id_type_p_d operator="=="}}
+                    <option value="{{this.id_type_p_d}}" selected>{{this.nom_type_p_d}}</option>
+                    {{else}}
+                    <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                    {{/compare}}
+                    {{/each}}
+                </select>
+                <input type="hidden" name="id" value="{{data.id_stype_p_d}}">
+                <input type="submit" value="Modifiez">
+            </div>
+        </form>
+    </section>
+</div>
