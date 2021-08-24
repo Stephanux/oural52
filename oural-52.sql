@@ -34,6 +34,7 @@ CREATE TABLE `pieces_detachees` (
    `diametre` INT,
    `doc_pdf` VARCHAR(200),
    `localisation` VARCHAR(150),
+   `etat` VARCHAR(100),
     PRIMARY KEY (
    `id_p_d`
     )
@@ -49,7 +50,6 @@ CREATE TABLE `liens_p_d` (
 CREATE TABLE `type_p_d` ( 
    `id_type_p_d` INT NOT NULL AUTO_INCREMENT,
    `nom_type_p_d` VARCHAR(200) NOT NULL,
-   `etat` VARCHAR(150),
     PRIMARY KEY (
    `id_type_p_d`
     )
