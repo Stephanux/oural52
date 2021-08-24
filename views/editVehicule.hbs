@@ -17,21 +17,17 @@
                     {{/compare}}
                     {{/each}}
                 </select>
-                <label for="marque">Marque du véhicule :</label>
-                <select name="marqueV">
+                <label for="modeleV">Modèle du véhicule</label>
+                <select name="modeleV">
                     <option value=""></option>
-                    {{#each datas.marques}}
-                    {{#compare this.id_marque ../data.id_marque operator="=="}}
-                    <option value="{{this.id_marque}}" selected>{{this.nom_marque}}</option>
+                    {{#each datas.modele}}
+                    {{#compare this.id_modele ../data.id_modele operator="=="}}
+                    <option value="{{this.id_modele}}" selected>{{this.nom_modele}}</option>
                     {{else}}
-                    <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
+                    <option value="{{this.id_modele}}">{{this.nom_modele}}</option>
                     {{/compare}}
                     {{/each}}
                 </select>
-                <label for="modeleV">Modèle du véhicule</label>
-                {{#compare this.id_modele ../data.id_modele operator="=="}}
-                <input type="text" name="modeleV" value="{{this.nom_modele}}">
-                {{/compare}}
                 <input type="hidden" name="id" value="{{data.id_vehicule}}">
                 <input type="submit" value="Modifiez">
             </div>

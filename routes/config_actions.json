@@ -123,29 +123,77 @@
         "controler": "selectListSchemas",
         "view": "addMarque",
         "tables_list": ["marques"],
-        "sql_list": ["select * from marques"],
+        "sql_list": ["SELECT * FROM marques"],
         "form_action": "/addMarque",
         "title": "Ajoutez une marque de véhicule"
     },
     "POST/addMarque": {
         "controler": "addSQL",
         "view": "addMarque",
-        "request": "insert into marques (nom_marque) VALUES (?)",
+        "request": "INSERT INTO marques (nom_marque) VALUES (?)",
         "title": "Ajoutez une marque de véhicule",
         "redirect": "/formInsertMarque"
+    },
+    "GET/listModeleVehicule": {
+        "controler": "selectListSchemas",
+        "view": "listModeleVehicule",
+        "tables_list": ["modele"],
+        "sql_list": ["SELECT id_modele, nom_modele, modele.id_marque, marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque"],
+        "title": "Tableaux des modèles de véhicule"
+    },
+    "GET/formEditModeleVehicule": {
+        "controler": "selectByIdAndListSchemas",
+        "view": "editModeleVehiculeById",
+        "tables_list": [
+            "modele",
+            "marques"
+        ],
+        "sql_list": [
+            "SELECT * FROM modele",
+            "SELECT * FROM marques"
+        ],
+        "sql_query": "SELECT id_modele, modele.id_marque, nom_modele, marques.nom_marque FROM modele, marques WHERE modele.id_modele = ?",
+        "form_action": "/editModeleVehicule",
+        "title": "Modifiez un modèle de véhicule"
+    },
+    "POST/editModeleVehicule": {
+        "controler": "updateSQL",
+        "view": "editModeleVehiculeById",
+        "sql_query": "UPDATE modele SET nom_modele=? WHERE modele.id_modele = ?",
+        "params_query": [
+            "modeleV",
+            "marqueV",
+            "id"
+        ],
+        "redirect": "/listModeleVehicule",
+        "title": "Modifiez un modèle de véhicule"
+    },
+    "GET/formDeleteModeleVehicule": {
+        "controler": "selectSQLById",
+        "view": "deleteModele",
+        "sql_query": "SELECT id_modele, nom_modele FROM modele WHERE modele.id_modele = ?",
+        "title": "Supprimez un modèle",
+        "form_action": "/deleteModele"
+    },
+    "POST/deleteModele": {
+        "controler": "deleteSQL",
+        "view": "deleteModele",
+        "params_query": ["id"],
+        "sql_query": "DELETE FROM modele WHERE modele.id_modele = ?",
+        "redirect": "/listModeleVehicule"
     },
     "GET/listMarqueVehicule": {
         "controler": "selectListSchemas",
         "view": "listMarqueVehicule",
         "tables_list": ["marques"],
-        "sql_list": ["select * from marques"],
-        "title": "Modifiez une marque de véhicule"
+        "sql_list": ["SELECT * FROM marques"],
+        "title": "Tableaux des marques de véhicule"
     },
     "GET/formEditMarqueVehicule": {
         "controler": "selectByIdAndListSchemas",
         "view": "editMarqueVehiculeById",
         "tables_list": ["marques"],
-        "sql_list": ["select * from marques"],
+        "sql_list": ["SELECT * FROM marques"],
         "sql_query": "SELECT id_marque, nom_marque FROM marques WHERE marques.id_marque=?",
         "form_action": "/editMarqueVehicule",
         "title": "Modifiez une marque de véhicule"
@@ -160,6 +208,41 @@
         ],
         "redirect": "/listMarqueVehicule",
         "title": "Modifiez une marque de véhicule"
+    },
+    "GET/formDeleteMarqueVehicule": {
+        "controler": "selectSQLById",
+        "view": "deleteMarque",
+        "sql_query": "SELECT id_marque, nom_marque FROM marques WHERE marques.id_marque = ?",
+        "title": "Supprimez une marque",
+        "form_action": "/deleteMarque"
+    },
+    "POST/deleteMarque": {
+        "controler": "deleteSQL",
+        "view": "deleteMarque",
+        "params_query": ["id"],
+        "sql_query": "DELETE FROM marques WHERE marques.id_marque = ?",
+        "redirect": "/listMarqueVehicule"
+    },
+    "GET/formInsertModele": {
+        "controler": "selectListSchemas",
+        "view": "addModele",
+        "tables_list": [
+            "marques",
+            "modele"
+        ],
+        "sql_list": [
+            "SELECT * FROM marques",
+            "SELECT * FROM modele"
+        ],
+        "form_action": "/addModele",
+        "title": "Ajoutez le modèle d'une marque"
+    },
+    "POST/addModele": {
+        "controler": "addSQL",
+        "view": "addModele",
+        "request": "INSERT INTO modele (id_marque, nom_modele) VALUES (?, ?)",
+        "title": "Ajoutez le modèle d'une marque",
+        "redirect": "/formInsertModele"
     },
     "GET/formInsertPiece": {
         "controler": "selectListSchemas",
@@ -233,7 +316,7 @@
         "controler": "selectListSchemas",
         "view": "stockVehicule",
         "tables_list": ["Vehicules"],
-        "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, modele.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf FROM Vehicules, marques, type_vehicule, modele WHERE modele.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule AND Vehicules.id_modele = modele.id_marque"],
+        "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, modele.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele, modele.nom_modele, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf FROM Vehicules, marques, type_vehicule, modele WHERE modele.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule AND Vehicules.id_modele = modele.id_modele"],
         "form_action": "/editVehicule",
         "title": "Gestion de stock de véhicule"
     },
@@ -250,18 +333,17 @@
             "SELECT * FROM type_vehicule",
             "SELECT * FROM modele"
         ],
-        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele FROM Vehicules WHERE Vehicules.id_vehicule=?",
+        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_modele, Vehicules.id_type_vehicule FROM Vehicules WHERE Vehicules.id_vehicule=?",
         "form_action": "/editVehicule",
         "title": "Modifiez un véhicule"
     },
     "POST/editVehicule": {
         "controler": "updateSQL",
         "view": "editVehicule",
-        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_marque=?, id_type_vehicule=?, id_modele=? WHERE Vehicules.id_vehicule=?",
+        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_modele=?, id_type_vehicule=? WHERE Vehicules.id_vehicule=?",
         "params_query": [
             "nameV",
             "dateMEC",
-            "marqueV",
             "typeV",
             "modeleV",
             "id"
@@ -272,7 +354,7 @@
     "GET/formDeleteVehicule": {
         "controler": "selectSQLById",
         "view": "deleteVehicule",
-        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_marque, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
+        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_modele, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
         "title": "Supprimez un véhicule",
         "form_action": "/deleteVehicule"
     },
