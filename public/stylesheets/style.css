@@ -293,28 +293,6 @@ body{
   fill: var(--delete-color);
 }
 
-.table-foot{
-  display: flex;
-  justify-content: space-between;
-  margin: 10px;
-}
-
-.arrow-left{
-  width: 30px;
-  height: 30px;
-  fill: var(--header-bcg-color);
-}
-
-.arrow-right{
-  width: 30px;
-  height: 30px;
-  fill: var(--header-bcg-color);
-}
-
-.pagination{
-  display: flex;
-}
-
 /****delete****/
 
 .supp{
