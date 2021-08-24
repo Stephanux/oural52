@@ -17,8 +17,6 @@ router.post('/', upload.single('doc_pdf'), (req, res, next) => {
             fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
                 console.log("\nFile : " + req.file.originalname + " Uploaded and Renamed!\n ");
             });
-        } else{
-            res.redirect(req.message.redirect + '?msg=Vous devez ajouter un document pdf');
         }
 
         // insertion effective dans la base de données

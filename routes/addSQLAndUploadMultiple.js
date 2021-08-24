@@ -17,8 +17,6 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
                 req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
                 fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
             }
-        } else{
-            res.redirect(req.message.redirect + '?msg=Vous devez ajouter une photo et un doc pdf');
         }
 
         // insertion effective dans la base de données
