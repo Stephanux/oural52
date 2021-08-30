@@ -17,6 +17,8 @@ router.post('/', upload.single('doc_pdf'), (req, res, next) => {
             fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
                 console.log("\nFile : " + req.file.originalname + " Uploaded and Renamed!\n ");
             });
+        }else {
+            req.body.doc_pdf = "";
         }
 
         // insertion effective dans la base de données
