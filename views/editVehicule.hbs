@@ -22,9 +22,9 @@
                     <option value=""></option>
                     {{#each datas.modele}}
                     {{#compare this.id_modele ../data.id_modele operator="=="}}
-                    <option value="{{this.id_modele}}" selected>{{this.nom_modele}}</option>
+                    <option value="{{this.id_modele}}" selected>{{this.nom_marque}} - {{this.nom_modele}}</option>
                     {{else}}
-                    <option value="{{this.id_modele}}">{{this.nom_modele}}</option>
+                    <option value="{{this.id_modele}}">{{this.nom_marque}} - {{this.nom_modele}}</option>
                     {{/compare}}
                     {{/each}}
                 </select>

@@ -63,8 +63,8 @@
             "type_vehicule"
         ],
         "sql_list": [
-            "select * FROM modele",
-            "select * from type_vehicule"
+            "SELECT id_modele, nom_modele, modele.id_marque ,marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque",
+            "SELECT * from type_vehicule"
         ],
         "form_action": "/addVehicule",
         "title": "Ajoutez un véhicule"
@@ -424,7 +424,7 @@
             "SELECT * FROM type_vehicule",
             "SELECT * FROM modele"
         ],
-        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_modele, Vehicules.id_type_vehicule FROM Vehicules WHERE Vehicules.id_vehicule=?",
+        "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_modele, Vehicules.id_type_vehicule, modele.id_marque, marques.nom_marque FROM Vehicules, modele, marques WHERE Vehicules.id_vehicule=? AND Vehicules.id_modele = modele.id_modele AND modele.id_marque = marques.id_marque",
         "form_action": "/editVehicule",
         "title": "Modifiez un véhicule"
     },
