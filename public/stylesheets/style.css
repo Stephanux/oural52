@@ -45,16 +45,42 @@ body{
 }
 
 .home{
-  width: 30px;
-  height: 30px;
+  width: 35px;
+  height: 35px;
+  fill: var(--text-color-white);;
 }
 
-.header a:hover{
-  color: var(--body-bcg-color);
+.home:hover{
+  background-color: var(--container-bcg-color);
+  fill: var(--header-bcg-color);
+  transition: 0.5s;
+  border-radius: 50%;
 }
 
-.fil0:hover{
-  fill: var(--body-bcg-color);
+/****sidebar****/
+
+#sidebar{
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+.menu-icon{
+  width: 40px;
+  height: 40px;
+  fill: var(--text-color-white);
+  cursor: pointer;
+}
+
+.menu-icon:hover{
+  background-color: var(--container-bcg-color);
+  fill: var(--header-bcg-color);
+  transition: 0.5s;
+  border-radius: 50%;
+}
+
+.menu-element{
+  display: none;
+  position: absolute;
 }
 
 /****container****/
@@ -65,7 +91,8 @@ body{
   align-items: center;
   width: 800px;
   height: 400px;
-  margin: 100px 360px 0 350px;
+  margin: auto;
+  margin-top: 20vh;
   border-radius: 2%;
   background-color: var(--container-bcg-color);
 }
@@ -133,8 +160,9 @@ body{
   width: 1000px;
   min-height: 500px;
   height: auto;
+  margin: auto;
+  margin-top: 15vh;
   background-color: var(--container-bcg-color);
-  margin: 70px 0 0 270px;
   border-radius: 2%;
 }
 
