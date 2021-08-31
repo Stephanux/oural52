@@ -60,10 +60,14 @@ body{
 /****sidebar****/
 
 #sidebar{
-  display: flex;
-  flex-direction: column;
-  position: relative;
+	position: absolute;
+	width: 230px;
+	height: 100%;
+	background-color: var(--header-bcg-color);
+	left:-300px;
+  z-index: 4;
 }
+
 .menu-icon{
   width: 40px;
   height: 40px;
@@ -78,9 +82,90 @@ body{
   border-radius: 50%;
 }
 
-.menu-element{
+.menu-element li{
+  padding-left: 5px; 
+  margin-top: 10px;
+	color: var(--text-color-white);
+  font-size: 30px;
+	cursor: pointer;
+}
+
+.menu-element li:nth-child(1){
+  margin-top: 40px;
+}
+
+.menu-element span:hover{
+  color: var(--body-bcg-color);
+  transition: 0.3s;
+}
+
+.menu-element a{
+  font-size: 20px;
+}
+
+.menu-element a:hover{
+  color: var(--body-bcg-color);
+}
+
+#sidebar.active{
+	left:0;
+  margin-top: 835px;
+}
+
+.menu-close{
+  margin-left: 190px;
+  fill: var(--text-color-white);
+  width: 40px;
+  cursor: pointer;
+}
+
+.menu-close:hover {
+  fill: var(--delete-color);
+  transition: 0.3s;
+}
+
+.vehicules{
   display: none;
-  position: absolute;
+  width: 10vw;
+  cursor: pointer;
+}
+
+.pieces{
+  display: none;
+  width: 10vw;
+  cursor: pointer;
+}
+
+.stocks{
+  display: none;
+}
+
+.list-vehicule{
+  display: none;
+}
+
+.list-piece{
+  display: none;
+}
+
+.sub-menu-vehicules{
+  display: none;
+}
+
+.sub-menu-pieces{
+  display: none;
+}
+
+.sub-menu-stock{
+  display: none;
+}
+
+.sub-menu-list-vehicules{
+  display: none;
+}
+
+.sub-menu-list-piece{
+  display: none;
 }
 
 /****container****/
