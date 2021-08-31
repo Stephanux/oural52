@@ -119,6 +119,20 @@
         "redirect": "/listTypeVehicule",
         "title": "Modifiez un type de véhicule"
     },
+    "GET/formDeleteTypeVehicule": {
+        "controler": "selectSQLById",
+        "view": "deleteTypeVehicule",
+        "sql_query": "SELECT id_type_vehicule, nom_type_vehicule, doc_pdf FROM type_vehicule WHERE type_vehicule.id_type_vehicule = ?",
+        "title": "Supprimez un type de véhicule",
+        "form_action": "/deleteTypeVehicule"
+    },
+    "POST/deleteTypeVehicule": {
+        "controler": "deleteSQL",
+        "view": "deleteTypeVehicule",
+        "params_query": ["id"],
+        "sql_query": "DELETE FROM type_vehicule WHERE type_vehicule.id_type_vehicule = ?",
+        "redirect": "/listTypeVehicule"
+    },
     "GET/formInsertMarque": {
         "controler": "selectListSchemas",
         "view": "addMarque",
@@ -415,14 +429,12 @@
         "controler": "selectByIdAndListSchemas",
         "view": "editVehicule",
         "tables_list": [
-            "marques",
             "type_vehicule",
             "modele"
         ],
         "sql_list": [
-            "SELECT * FROM marques",
             "SELECT * FROM type_vehicule",
-            "SELECT * FROM modele"
+            "SELECT id_modele, nom_modele, modele.id_marque ,marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque"
         ],
         "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_modele, Vehicules.id_type_vehicule, modele.id_marque, marques.nom_marque FROM Vehicules, modele, marques WHERE Vehicules.id_vehicule=? AND Vehicules.id_modele = modele.id_modele AND modele.id_marque = marques.id_marque",
         "form_action": "/editVehicule",
@@ -431,7 +443,7 @@
     "POST/editVehicule": {
         "controler": "updateSQL",
         "view": "editVehicule",
-        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_modele=?, id_type_vehicule=? WHERE Vehicules.id_vehicule=?",
+        "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_type_vehicule=?, id_modele=? WHERE Vehicules.id_vehicule=?",
         "params_query": [
             "nameV",
             "dateMEC",

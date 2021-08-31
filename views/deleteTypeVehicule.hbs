@@ -1,0 +1,14 @@
+<div class="container">
+    <section>
+        {{#if msg}}
+        <h4>{{msg}}</h4>
+        {{/if}}
+        <form action="{{form_action}}" method="POST">
+            <div class="form">
+                <label for="delete">Voulez-vous vraiment supprimer {{data.nom_type_vehicule}} ?</label>
+                <input type="hidden" name="id" value="{{data.id_type_vehicule}}">
+                <input type="submit" name="delete" value="Supprimez">
+            </div>
+        </form>
+    </section>
+</div>
