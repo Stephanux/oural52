@@ -263,13 +263,11 @@
         "view": "addPiece",
         "tables_list": [
             "pieces_detachees",
-            "type_p_d",
             "sous_type_p_d"
         ],
         "sql_list": [
             "SELECT * FROM pieces_detachees",
-            "SELECT * FROM type_p_d",
-            "SELECT * FROM sous_type_p_d"
+            "SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d"
         ],
         "form_action": "/addPiece",
         "title": "Ajoutez une pièce détachée"
@@ -277,7 +275,7 @@
     "POST/addPiece": {
         "controler": "addSQLAndUploadMultiple",
         "view": "addPiece",
-        "request": "INSERT INTO pieces_detachees (nom_p_d, longueur, largeur, diametre, localisation, etat, id_type_p_d, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "request": "INSERT INTO pieces_detachees (nom_p_d, id_stype_p_d, longueur, largeur, diametre, localisation, etat, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         "title": "Ajoutez une pièce détachée",
         "redirect": "/formInsertPiece",
         "fieldUpload": [{
@@ -302,7 +300,7 @@
             "type_p_d"
         ],
         "sql_list": [
-            "select * from type_p_d"
+            "SELECT * FROM type_p_d"
         ],
         "form_action": "/addTypePiece",
         "title": "Ajoutez un type de pièce détachée"
@@ -472,26 +470,26 @@
         "controler": "selectListSchemas",
         "view": "stockPiece",
         "tables_list": ["pieces_detachees"],
-        "sql_list": ["SELECT id_p_d, nom_p_d, pieces_detachees.id_type_p_d, type_p_d.nom_type_p_d, photo, longueur, largeur, diametre, localisation, etat, doc_pdf  FROM pieces_detachees, type_p_d WHERE pieces_detachees.id_type_p_d = type_p_d.id_type_p_d"],
+        "sql_list": ["SELECT id_p_d, nom_p_d, pieces_detachees.id_stype_p_d, sous_type_p_d.nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d, photo, longueur, largeur, diametre, localisation, etat, doc_pdf  FROM pieces_detachees, type_p_d, sous_type_p_d WHERE pieces_detachees.id_stype_p_d = sous_type_p_d.id_stype_p_d AND sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d"],
         "form_action": "/editPiece",
         "title": "Gestion de stock de pièce détachée"
     },
     "GET/formEditPiece": {
         "controler": "selectByIdAndListSchemas",
         "view": "editPiece",
-        "tables_list": ["type_p_d"],
-        "sql_list": ["SELECT * FROM type_p_d"],
-        "sql_query": "SELECT id_p_d, nom_p_d, pieces_detachees.id_type_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, etat  FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
+        "tables_list": ["sous_type_p_d"],
+        "sql_list": ["SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d"],
+        "sql_query": "SELECT id_p_d, nom_p_d, pieces_detachees.id_stype_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, etat  FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
         "form_action": "/editPiece",
         "title": "Modifiez une pièce détachée"
     },
     "POST/editPiece": {
         "controler": "updateSQLAndUploadMultiple",
         "view": "editPiece",
-        "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, id_type_p_d=?, longueur=?, largeur=?, diametre=?, localisation=?, etat=?, photo=?, doc_pdf=? WHERE pieces_detachees.id_p_d=?",
+        "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, id_stype_p_d=?, longueur=?, largeur=?, diametre=?, localisation=?, etat=?, photo=?, doc_pdf=? WHERE pieces_detachees.id_p_d=?",
         "params_query": [
             "namePD",
-            "typePD",
+            "stypePD",
             "longueur",
             "largeur",
             "diametre",
@@ -514,7 +512,7 @@
     "GET/formDeletePiece": {
         "controler": "selectSQLById",
         "view": "deletePiece",
-        "sql_query": "SELECT id_p_d, nom_p_d, photo, pieces_detachees.id_type_p_d, longueur, largeur, diametre, doc_pdf, localisation, etat FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
+        "sql_query": "SELECT id_p_d, nom_p_d, photo, pieces_detachees.id_stype_p_d, longueur, largeur, diametre, doc_pdf, localisation, etat FROM pieces_detachees WHERE pieces_detachees.id_p_d=?",
         "title": "Supprimez une pièce",
         "form_action": "/deletePiece"
     },

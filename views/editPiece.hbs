@@ -7,14 +7,14 @@
             <div class="form">
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD" value="{{data.nom_p_d}}">
-                <label for="typePD">Type de pièce détachée</label>
-                <select name="typePD">
+                <label for="stypePD">Type et sous-type de pièce détachée</label>
+                <select name="stypePD">
                     <option value=""></option>
-                    {{#each datas.type_p_d}}
-                    {{#compare this.id_type_p_d ../data.id_type_p_d operator="=="}}
-                    <option value="{{this.id_type_p_d}}" selected>{{this.nom_type_p_d}}</option>
+                    {{#each datas.sous_type_p_d}}
+                    {{#compare this.id_stype_p_d ../data.id_stype_p_d operator="=="}}
+                    <option value="{{this.id_stype_p_d}}" selected>{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
                     {{else}}
-                    <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                    <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
                     {{/compare}}
                     {{/each}}
                 </select>
