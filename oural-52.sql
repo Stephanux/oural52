@@ -1,4 +1,3 @@
-
 CREATE TABLE `Vehicules` ( 
    `id_vehicule` INT NOT NULL AUTO_INCREMENT,
    `nom_vehicule` VARCHAR(200) NOT NULL,
@@ -27,7 +26,6 @@ CREATE TABLE `type_vehicule` (
 CREATE TABLE `pieces_detachees` ( 
    `id_p_d` INT NOT NULL AUTO_INCREMENT,
    `nom_p_d` VARCHAR(150) NOT NULL,
-   `id_type_p_d` INT NOT NULL,
    `photo` VARCHAR(150),
    `longueur` INT,
    `largeur` INT,
@@ -35,6 +33,7 @@ CREATE TABLE `pieces_detachees` (
    `doc_pdf` VARCHAR(200),
    `localisation` VARCHAR(150),
    `etat` VARCHAR(100),
+   `id_stype_p_d` INT NOT NULL,
     PRIMARY KEY (
    `id_p_d`
     )
@@ -98,15 +97,6 @@ ALTER TABLE `liens_p_d`
 ) ;
 
 
-ALTER TABLE `pieces_detachees` 
-  ADD CONSTRAINT `type_p_d-pieces_detachees`
-  FOREIGN KEY ( 
-   `id_type_p_d`
-)   REFERENCES `type_p_d`( 
-   `id_type_p_d`
-) ;
-
-
 ALTER TABLE `sous_type_p_d` 
   ADD CONSTRAINT `type_p_d-sous_type_p_d`
   FOREIGN KEY ( 
@@ -131,4 +121,13 @@ ALTER TABLE `Vehicules`
    `id_modele`
 )   REFERENCES `modele`( 
    `id_modele`
+) ;
+
+
+ALTER TABLE `pieces_detachees` 
+  ADD CONSTRAINT `sous_type_p_d-pieces_detachees`
+  FOREIGN KEY ( 
+   `id_stype_p_d`
+)   REFERENCES `sous_type_p_d`( 
+   `id_stype_p_d`
 ) ;
