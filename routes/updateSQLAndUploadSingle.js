@@ -11,7 +11,7 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
         // gestion du fichier uploaded via multer.
         console.log('file : ', req.file); // contient les infos sur le fichier uploadé
         console.log('body : ', req.body); // contient les autres données du formulaire
-        if(req.file !== null){
+        if(req.file != null){
             //supression du fichier présent avant l'update
             fs.unlink("./public/data/uploads/" + req.body[req.file.fieldname], (err => {
                 if (err) console.log(err);

@@ -12,7 +12,7 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
 
-        if(req.files !== null){
+        if(req.files != null){
             for (let i = 0; i < fieldUpload.length; i++) {
                 req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
                 fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);

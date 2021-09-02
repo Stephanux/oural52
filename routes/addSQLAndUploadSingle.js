@@ -12,7 +12,7 @@ router.post('/', upload.single('doc_pdf'), (req, res, next) => {
         console.log('file : ', req.file); // contient les infos sur le fichier uploadé
         console.log('body : ', req.body); // contient les autres données du formulaire
 
-        if(req.file !== null){
+        if(req.file != null){
             req.body[req.file.fieldname] = req.file.originalname;
             fs.rename(req.file.path, req.file.destination + req.file.originalname, () => {
                 console.log("\nFile : " + req.file.originalname + " Uploaded and Renamed!\n ");
