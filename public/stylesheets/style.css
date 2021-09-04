@@ -126,13 +126,11 @@ body{
 
 .vehicules{
   display: none;
-  width: 10vw;
   cursor: pointer;
 }
 
 .pieces{
   display: none;
-  width: 10vw;
   cursor: pointer;
 }
 
@@ -363,6 +361,10 @@ body{
 
 #stock a{
   color: var(--text-color-black);
+}
+
+#stock a:hover{
+  text-decoration: underline;
 }
 
 #stock th{
