@@ -1,5 +1,11 @@
-window.onload = ()=>{
+window.onload = () => {
+    /**DATATABLE**/
+    $(document).ready(function () {
+        $('#stock').DataTable();
+    });
+    /***/
 
+    /**SIDEBAR**/
     let icon = document.querySelector('.menu-icon');
     let sideBar = document.querySelector('#sidebar');
     let closeMenu = document.querySelector('.menu-close')
@@ -13,12 +19,12 @@ window.onload = ()=>{
     let menuEditVehicule = document.querySelector('.sub-menu-list-vehicules');
     let editPiece = document.querySelector('.list-piece');
     let menuEditPiece = document.querySelector('.sub-menu-list-piece');
-    
+
     console.log(icon);
     console.log(sideBar);
-    
+
     //SHOW SIDEBAR//
-    icon.addEventListener('click', ()=>{
+    icon.addEventListener('click', () => {
         console.log('toto')
         sideBar.classList.toggle('active');
         vehicule.style.display = "block";
@@ -27,7 +33,7 @@ window.onload = ()=>{
         editVehicule.style.display = "block";
         editPiece.style.display = "block";
     });
-    
+
     //SHOW SUB-MENUS//
     vehicule.addEventListener('click', () => {
         menuVehicule.style.display = "block";
@@ -36,7 +42,7 @@ window.onload = ()=>{
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
     })
-    
+
     piece.addEventListener('click', () => {
         menuVehicule.style.display = "none";
         menuPiece.style.display = "block";
@@ -44,7 +50,7 @@ window.onload = ()=>{
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
     })
-    
+
     stock.addEventListener('click', () => {
         menuVehicule.style.display = "none";
         menuPiece.style.display = "none";
@@ -52,7 +58,7 @@ window.onload = ()=>{
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
     })
-    
+
     editVehicule.addEventListener('click', () => {
         menuVehicule.style.display = "none";
         menuPiece.style.display = "none";
@@ -60,7 +66,7 @@ window.onload = ()=>{
         menuEditVehicule.style.display = "block";
         menuEditPiece.style.display = "none";
     })
-    
+
     editPiece.addEventListener('click', () => {
         menuVehicule.style.display = "none";
         menuPiece.style.display = "none";
@@ -68,7 +74,7 @@ window.onload = ()=>{
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "block";
     })
-    
+
     //CLOSE SIDEBAR AND SUB-MENUS//
     closeMenu.addEventListener('click', () => {
         sideBar.classList.remove('active');
@@ -78,5 +84,4 @@ window.onload = ()=>{
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
     });
-    
 }
