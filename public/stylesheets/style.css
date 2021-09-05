@@ -212,18 +212,22 @@ body{
 }
 
 .main h2{
-  margin: 0 0 50px 25px;
+  margin: 0 0 50px 50px;
 }
 
 .main a {
+  margin-bottom: 20px;
   color: var(--text-color-black);
 }
 
-.main button{
-  margin-bottom: 20px;
+.main a:hover{
+  color: hsl(0, 1%, 19%);
+  text-decoration: underline;
 }
 
+
 .main input{
+  margin-top: 20px;
   background-color: var(--delete-color);
   color: var(--text-color-white);
   height: 25px;
@@ -290,68 +294,20 @@ body{
   background-color: hsl(0, 63%, 46%);
 }
 
-/****vehicule****/
-
-.vehicule input{
-  margin-right: 100px;
-}
-
-/****types****/
-
-.types input{
-  margin-right: 20px;
-}
-
-.types span{
-  margin-right: 25px;
-}
-
-.types label{
-  margin-right: 10px;
-}
-
-/****marque****/
-
-.marque input{
-  margin-right: 125px;
-}
-
-/****pièce****/
-
-.piece{
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.piece label {
-  margin-right: 10px;
-}
-
-.piece select{
-  margin-right: 175px;
-}
-
-/****sous types****/
-
-.stype {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.stype input{
-  margin-right: 10px;
-}
-
-
-.stype input[type="number"]{
-  width: 60px;
-}
-
-.stype label{
-  margin-right: 10px;
-}
-
 /****stock****/
+
+.wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1400px;
+  min-height: 500px;
+  height: auto;
+  margin: auto;
+  margin-top: 15vh;
+  background-color: var(--container-bcg-color);
+  border-radius: 2%;
+}
 
 #stock{
   text-align: center;
@@ -364,6 +320,7 @@ body{
 }
 
 #stock a:hover{
+  color: hsl(0, 1%, 19%);
   text-decoration: underline;
 }
 
@@ -391,11 +348,6 @@ body{
   margin-top: 10px;
 }
 
-.car{
-  width: 35px;
-  height: 35px;
-}
-
 .edit{
   width: 25px;
   height: 25px;
@@ -406,28 +358,4 @@ body{
   width: 25px;
   height: 25px;
   fill: var(--delete-color);
-}
-
-/****delete****/
-
-.supp{
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-}
-
-.supp input{
-  width: 80px;
-  margin: 10px 0 10px 0;
-  background-color: var(--delete-color);
-  color: var(--text-color-white);
-}
-
-.supp button{
-  margin-top: 10px;
-}
-
-.supp a{
-  color: var(--text-color-black);
 }
