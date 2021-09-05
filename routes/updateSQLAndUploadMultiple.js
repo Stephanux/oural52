@@ -11,8 +11,8 @@ router.post(('/'), upload.fields(fieldUpload), function (req, res, next) {
         // gestion du fichier uploaded via multer.
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
-        if (req.files != null) {
-            for (let i = 0; i < fieldUpload.length; i++) {
+        for (let i = 0; i < fieldUpload.length; i++) {
+                if (req.files != null) {
                 //supression des fichiers présent avant l'update
                 fs.unlink("./public/data/uploads/" + req.body[fieldUpload[i].name], (err => {
                     if (err) console.log(err);
@@ -23,10 +23,9 @@ router.post(('/'), upload.fields(fieldUpload), function (req, res, next) {
                 delete req.body[fieldUpload[i].name];
                 req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
                 fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
-            }
-        } else {
-            req.body.photo = "";
-            req.body.doc_pdf = "";
+            } else {
+                req.body[fieldUpload[i].name] = "";
+            };
         }
 
         // ici on réalise une requête d'insertion dans une base SQL

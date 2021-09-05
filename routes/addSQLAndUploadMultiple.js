@@ -12,15 +12,14 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
 
-        if(req.files != null){
-            for (let i = 0; i < fieldUpload.length; i++) {
+        for (let i = 0; i < fieldUpload.length; i++) {
+            if (req.files[fieldUpload[i].name]) {
                 req.body[fieldUpload[i].name] = req.files[fieldUpload[i].name][0].originalname;
                 fs.renameSync(req.files[fieldUpload[i].name][0].path, req.files[fieldUpload[i].name][0].destination + req.files[fieldUpload[i].name][0].originalname);
-            }
-        } else {
-            req.body.photo = "";
-            req.body.doc_pdf = "";
-        }
+            } else {
+                req.body[fieldUpload[i].name] = "";
+            };
+        };
 
         // insertion effective dans la base de données
         global.sequelize.query(req.message.request, {
