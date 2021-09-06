@@ -105,6 +105,7 @@ body{
 
 .menu-element a:hover{
   color: var(--body-bcg-color);
+  transition: 0.3s;
 }
 
 #sidebar.active{
@@ -136,14 +137,17 @@ body{
 
 .stocks{
   display: none;
+  cursor: pointer;
 }
 
 .list-vehicule{
   display: none;
+  cursor: pointer;
 }
 
 .list-piece{
   display: none;
+  cursor: pointer;
 }
 
 .sub-menu-vehicules{
@@ -312,7 +316,6 @@ body{
 #stock{
   text-align: center;
   border-collapse: collapse;
-  margin: 10px;
 }
 
 #stock a{
@@ -326,7 +329,6 @@ body{
 
 #stock th{
   border: 1px solid var(--text-color-black);
-  padding: 5px;
 }
 
 #stock tr:nth-child(even){
@@ -380,3 +382,19 @@ body{
 ::-webkit-scrollbar-thumb:hover {
   background: hsl(0, 0%, 33%); 
 }
+
+/**RESPONSIVE**/
+
+@media screen and (max-width: 1400px) {
+  .header {
+    width: 100%;
+  }
+}
+
+/*
+@media screen and (max-height: 900px) {
+  #sidebar.active {
+    margin-top: 600px;
+  }
+}
+*/
