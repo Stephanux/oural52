@@ -48,13 +48,7 @@ hbs.registerHelper('compare', function(lvalue, rvalue, options) {
 global.db = {};
 var mongoClient = require('mongodb').MongoClient;
 // Connexion URL
-//var url = 'mongodb://greta:azerty@127.0.0.1:27017/gretajs?authMechanism=DEFAULT';
 var url = config.mongodb.url;
-// Utilisation de la methode “connect” pour se connecter au serveur
-// mongoClient.connect(url, { useUnifiedTopology: true }, function (err, client) {
-//   global.db = client.db('gretajs'); //On met en global la connexion à la base
-//   console.log("Connected successfully to server: global.db initialized");
-// });
 
 // connexion depuis mongoose
 global.schemas = {};
@@ -75,16 +69,6 @@ for (modelName in database_schemas) {
     global.schemas[modelName] = mongoose.model(modelName, database_schemas[modelName].schema,
         database_schemas[modelName].collection);
 }
-
-//connexion via mariadb avec driver natif avec la variable pool en global
-/*var mariadb = require('mariadb');
-global.pool = mariadb.createPool({
-    host: 'localhost',
-    user: 'admin',
-    password: 'azerty',
-    database: 'gretajs',
-    connectionLimit: 5
-});*/
 
 // connexion à mariadb via Sequelize
 var Sequelize = require("sequelize");
@@ -162,7 +146,7 @@ passport.use(new LocalStrategy(
 
 app.post('/authenticated', passport.authenticate('local'), function(req, res) {
     if (req.session.passport.user != null) {
-        res.redirect('/index'); //le user est authentifié on affiche l’index il est en session
+        res.redirect('/accueil'); //le user est authentifié , on affiche l’accueil, il est en session
     } else {
         res.redirect('/'); // il n’est pas présent on renvoie à la boîte de login
     }
