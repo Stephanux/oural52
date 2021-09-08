@@ -13,6 +13,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  font-family: 'Montserrat', sans-serif;
 }
 
 a {
@@ -21,7 +22,7 @@ a {
 }
 
 input{
-  height: 20px;
+  height: 25px;
   border: none;
 }
 
@@ -47,13 +48,13 @@ body{
 .home{
   width: 35px;
   height: 35px;
-  fill: var(--text-color-white);;
+  fill: var(--text-color-white);
+  transition: 0.5s;
 }
 
 .home:hover{
   background-color: var(--container-bcg-color);
   fill: var(--header-bcg-color);
-  transition: 0.5s;
   border-radius: 50%;
 }
 
@@ -72,13 +73,13 @@ body{
   width: 40px;
   height: 40px;
   fill: var(--text-color-white);
+  transition: 0.5s;
   cursor: pointer;
 }
 
 .menu-icon:hover{
   background-color: var(--container-bcg-color);
   fill: var(--header-bcg-color);
-  transition: 0.5s;
   border-radius: 50%;
 }
 
@@ -192,18 +193,22 @@ body{
 }
 
 .form_login input{
-  margin-bottom: 20px;
+  margin: 10px 0 20px;
 }
 
 .form_login input[type="submit"]{
   background-color: var(--header-bcg-color);
   color: var(--text-color-white);
   height: 25px;
+  transition: 0.2s;
+  cursor: pointer;
 }
 
 .form_login input[type="submit"]:hover{
-  transition: 0.5s;
-  background-color: hsl(227, 96%, 67%);;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(227, 96%, 67%);
 }
 
 /****main page****/
@@ -216,29 +221,44 @@ body{
 }
 
 .main h2{
-  margin: 0 0 50px 50px;
+  margin-bottom: 50px;
+}
+
+.main button {
+  width: 280px;
+  height: 30px;
+  margin-bottom: 20px;
+  background :var(--header-bcg-color);
+  border-radius: 150px;
+  border: 2px solid #accbee;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.main button:hover{
+  background-color: hsl(227, 100%, 69%);;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
 }
 
 .main a {
-  margin-bottom: 20px;
-  color: var(--text-color-black);
+  color: var(--text-color-white);
 }
-
-.main a:hover{
-  color: hsl(0, 1%, 19%);
-  text-decoration: underline;
-}
-
 
 .main input{
   margin-top: 20px;
   background-color: var(--delete-color);
   color: var(--text-color-white);
-  height: 25px;
+  width: 280px;
+  height: 30px;
+  transition: 0.2s;
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .main input:hover{
-  transition: 0.5s;
+  transform: translateX(3px);
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32); 
   background-color: hsl(0, 63%, 46%);
 }
 
@@ -269,32 +289,44 @@ body{
 
 .form input[type="submit"][value="Ajoutez"]{
   background-color: var(--add-color);
+  transition: 0.2s;
   color: var(--text-color-white);
+  cursor: pointer;
 }
 
 .form input[type="submit"][value="Ajoutez"]:hover{
-  transition: 0.5s;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
   background-color: hsl(140, 70%, 37%);
 }
 
 
 .form input[type="submit"][value="Modifiez"]{
+  transition: 0.2s;
   background-color: var(--edit-color);
   color: var(--text-color-white);
+  cursor: pointer;
 }
 
 .form input[type="submit"][value="Modifiez"]:hover{
-  transition: 0.5s;
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
   background-color: hsl(56, 64%, 42%);
 }
 
 .form input[type="submit"][value="Supprimez"]{
+  transition: 0.2s;
   background-color: var(--delete-color);
   color: var(--text-color-white);
+  border-radius: 10px;
+  cursor: pointer;
 }
 
 .form input[type="submit"][value="Supprimez"]:hover{
-  transition: 0.5s;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
   background-color: hsl(0, 63%, 46%);
 }
 
@@ -353,13 +385,25 @@ body{
 .edit{
   width: 25px;
   height: 25px;
+  transition: 0.5s;
   fill: var(--edit-color);
+}
+
+.edit:hover{
+  transform: rotate(360deg);
+  fill: hsl(56, 66%, 44%);
 }
 
 .delete{
   width: 25px;
   height: 25px;
+  transition: 0.5s;
   fill: var(--delete-color);
+}
+
+.delete:hover{
+  transform: rotate(360deg);
+  fill: hsl(0, 97%, 56%);
 }
 
 /**SCROLLBAR**/
