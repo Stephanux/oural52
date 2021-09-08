@@ -1,13 +1,13 @@
 {
     "GET/": {
         "controler": "getView",
-        "view": "login",
+        "view": "loginPublic",
         "title": "Authentification"
     },
-    "GET/index": {
-        "controler": "getView",
-        "view": "index",
-        "title": "Bienvenue dans le framework Node/Express"
+    "GET/accueil": {
+        "controler": "getViewWithAuth",
+        "view": "main",
+        "title": "Accueil"
     },
     "GET/logout": {
         "controler": "logout",
@@ -49,11 +49,6 @@
         "controler": "deleteById",
         "modelName": "Users",
         "view": "users"
-    },
-    "GET/accueil": {
-        "controler": "getViewWithAuth",
-        "view": "main",
-        "title": "Accueil"
     },
     "GET/formInsertVehicule": {
         "controler": "selectListSchemas",
@@ -522,10 +517,5 @@
         "params_query": ["id"],
         "sql_query": "DELETE from pieces_detachees WHERE pieces_detachees.id_p_d = ?",
         "redirect": "/stockPiece"
-    },
-    "GET/loginPublic": {
-        "controler": "getViewWithAuth",
-        "view": "loginPublic",
-        "title": "Se connecter"
     }
 }
