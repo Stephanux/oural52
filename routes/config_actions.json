@@ -14,41 +14,37 @@
         "view": "login",
         "title": "Bienvenue dans le framework Node/Express"
     },
-    "GET/users": {
-        "controler": "populate",
+    "GET/listUsers": {
+        "controler": "listUsers",
         "modelName": "Users",
-        "view": "users"
+        "view": "listUsers"
     },
-    "GET/formUser": {
-        "controler": "findByIdWithList",
-        "modelName": "Users",
-        "modelList": "Countries",
-        "view": "formUser",
-        "form_action": "/modifyUser"
-    },
-    "POST/modifyUser": {
-        "controler": "updateById",
-        "modelName": "Users",
-        "view": "modifyUser"
-    },
-    "GET/newUser": {
+    "GET/formInsertUser": {
         "controler": "finder",
         "modelName": "Users",
-        "modelList": "Countries",
-        "view": "formUser",
-        "form_action": "/createUser",
-        "title": "Create a new user",
-        "libelle": "creation"
+        "view": "addUser",
+        "form_action": "/addUser"
     },
-    "POST/createUser": {
-        "controler": "insertOne",
+    "POST/addUser": {
+        "controler": "addUser",
         "modelName": "Users",
-        "view": "users"
+        "view": "listUsers"
     },
-    "GET/deleteUser": {
+    "GET/formEditUser": {
+        "controler": "findUsersByIdWithList",
+        "modelName": "Users",
+        "view": "editUser",
+        "form_action": "/editUser"
+    },
+    "POST/editUser": {
+        "controler": "updateById",
+        "modelName": "Users",
+        "view": "editUser"
+    },
+    "GET/formDeleteUser": {
         "controler": "deleteById",
         "modelName": "Users",
-        "view": "users"
+        "view": "deleteUser"
     },
     "GET/formInsertVehicule": {
         "controler": "selectListSchemas",
