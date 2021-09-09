@@ -382,6 +382,26 @@ body{
   margin-top: 10px;
 }
 
+.car{
+  width: 40px;
+  margin-top: 20px;
+}
+
+.moto{
+  width: 40px;
+  margin-top: 20px;
+}
+
+.scoot{
+  width: 40px;
+  margin-top: 20px;
+}
+
+.tractor{
+  width: 40px;
+  margin-top: 20px;
+}
+
 .edit{
   width: 25px;
   height: 25px;
