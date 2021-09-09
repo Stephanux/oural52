@@ -34,6 +34,8 @@ window.onload = () => {
     let menuEditVehicule = document.querySelector('.sub-menu-list-vehicules');
     let editPiece = document.querySelector('.list-piece');
     let menuEditPiece = document.querySelector('.sub-menu-list-piece');
+    let users = document.querySelector('.list-users');
+    let menuUsers = document.querySelector('.sub-menu-list-users');
 
     //SHOW SIDEBAR//
     icon.addEventListener('click', () => {
@@ -43,6 +45,7 @@ window.onload = () => {
         stock.style.display = "block";
         editVehicule.style.display = "block";
         editPiece.style.display = "block";
+        users.style.display = "block";
     });
 
     //SHOW SUB-MENUS//
@@ -52,7 +55,8 @@ window.onload = () => {
         menuStock.style.display = "none";
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
-    })
+        menuUsers.style.display = "none";
+    });
 
     piece.addEventListener('click', () => {
         menuVehicule.style.display = "none";
@@ -60,7 +64,8 @@ window.onload = () => {
         menuStock.style.display = "none";
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
-    })
+        menuUsers.style.display = "none";
+    });
 
     stock.addEventListener('click', () => {
         menuVehicule.style.display = "none";
@@ -68,7 +73,8 @@ window.onload = () => {
         menuStock.style.display = "block";
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
-    })
+        menuUsers.style.display = "none";
+    });
 
     editVehicule.addEventListener('click', () => {
         menuVehicule.style.display = "none";
@@ -76,7 +82,8 @@ window.onload = () => {
         menuStock.style.display = "none";
         menuEditVehicule.style.display = "block";
         menuEditPiece.style.display = "none";
-    })
+        menuUsers.style.display = "none";
+    });
 
     editPiece.addEventListener('click', () => {
         menuVehicule.style.display = "none";
@@ -84,6 +91,16 @@ window.onload = () => {
         menuStock.style.display = "none";
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "block";
+        menuUsers.style.display = "none";
+    });
+
+    users.addEventListener('click', () => {
+        menuVehicule.style.display = "none";
+        menuPiece.style.display = "none";
+        menuStock.style.display = "none";
+        menuEditVehicule.style.display = "none";
+        menuEditPiece.style.display = "none";
+        menuUsers.style.display = "block";
     })
 
     //CLOSE SIDEBAR AND SUB-MENUS//
@@ -94,5 +111,6 @@ window.onload = () => {
         menuStock.style.display = "none";
         menuEditVehicule.style.display = "none";
         menuEditPiece.style.display = "none";
+        menuUsers.style.display = "none";
     });
 }

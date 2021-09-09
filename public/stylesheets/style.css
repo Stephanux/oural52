@@ -151,6 +151,11 @@ body{
   cursor: pointer;
 }
 
+.list-users {
+  display: none;
+  cursor: pointer;
+}
+
 .sub-menu-vehicules{
   display: none;
 }
@@ -168,6 +173,10 @@ body{
 }
 
 .sub-menu-list-piece{
+  display: none;
+}
+
+.sub-menu-list-users{
   display: none;
 }
 
