@@ -88,11 +88,7 @@ body{
   margin-top: 10px;
 	color: var(--text-color-white);
   font-size: 30px;
-	cursor: pointer;
-}
-
-.menu-element li:nth-child(1){
-  margin-top: 40px;
+	
 }
 
 .menu-element span:hover{
