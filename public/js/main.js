@@ -4,6 +4,15 @@ window.onload = () => {
         $('#stock').DataTable();
     });
 
+    /**GESTION MSG**/
+
+    let msg = document.querySelector('h4');
+    if (msg != null && msg.innerText.includes("correctement")) {
+        msg.style.color = "green";
+    } else if (msg != null) {
+        msg.style.color = "red";
+    };
+
     /**STOCK VEHICULE ICON **/
     let vehiculeStock = document.querySelectorAll('.vehicule');
 

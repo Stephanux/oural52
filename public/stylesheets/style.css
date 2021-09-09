@@ -436,6 +436,12 @@ body{
   fill: hsl(0, 97%, 56%);
 }
 
+/**MSG**/
+
+h4{
+  margin-left: 50px;
+}
+
 /**SCROLLBAR**/
 
 ::-webkit-scrollbar {
