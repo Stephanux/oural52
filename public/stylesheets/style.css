@@ -279,6 +279,7 @@ body{
   height: auto;
   margin: auto;
   margin-top: 15vh;
+  margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
   border-radius: 2%;
 }
@@ -388,24 +389,28 @@ body{
   margin-top: 10px;
 }
 
+.vehicule {
+  font-size: 0;
+}
+
 .car{
   width: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .moto{
   width: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .scoot{
   width: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .tractor{
   width: 40px;
-  margin-top: 20px;
+  margin-top: 10px;
 }
 
 .edit{
