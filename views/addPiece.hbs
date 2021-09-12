@@ -12,6 +12,13 @@
         </select>
         <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
             <div class="form">
+                <label for="nameV">Nom du véhicule associé</label>
+                <select name="nameV">
+                    <option value=""></option>
+                    {{#each data.Vehicules}}
+                    <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
+                    {{/each}}
+                </select>
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD">
                 <label for="stypePD">Type et sous-type de pièce détachée</label>              
