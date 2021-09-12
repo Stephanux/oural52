@@ -42,7 +42,13 @@
         "view": "editUser"
     },
     "GET/formDeleteUser": {
-        "controler": "deleteById",
+        "controler": "findUsersByIdWithList",
+        "modelName": "Users",
+        "view": "deleteUser",
+        "form_action": "/deleteUser"
+    },
+    "POST/deleteUser": {
+        "controleur": "deleteById",
         "modelName": "Users",
         "view": "deleteUser"
     },
@@ -254,19 +260,21 @@
         "view": "addPiece",
         "tables_list": [
             "pieces_detachees",
-            "sous_type_p_d"
+            "sous_type_p_d",
+            "Vehicules"
         ],
         "sql_list": [
             "SELECT * FROM pieces_detachees",
-            "SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d"
+            "SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d",
+            "SELECT id_vehicule, nom_vehicule FROM Vehicules"
         ],
         "form_action": "/addPiece",
         "title": "Ajoutez une pièce détachée"
     },
     "POST/addPiece": {
-        "controler": "addSQLAndUploadMultiple",
+        "controler": "addPieceAndLinkVehicule",
         "view": "addPiece",
-        "request": "INSERT INTO pieces_detachees (nom_p_d, id_stype_p_d, longueur, largeur, diametre, localisation, etat, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        "request": "INSERT INTO pieces_detachees (liens_p_d.id_vehicule, nom_p_d, id_stype_p_d, longueur, largeur, diametre, localisation, etat, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         "title": "Ajoutez une pièce détachée",
         "redirect": "/formInsertPiece",
         "fieldUpload": [{
