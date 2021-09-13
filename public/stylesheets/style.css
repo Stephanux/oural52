@@ -284,6 +284,9 @@ body{
   border-radius: 2%;
 }
 
+.wrapper section .existing {
+  margin-left: 50px;
+}
 .form{
   display: flex;
   flex-direction: column;
@@ -295,6 +298,7 @@ body{
 }
 
 .form input[type="submit"][value="Ajoutez"]{
+  margin-top: 20px;
   background-color: var(--add-color);
   transition: 0.2s;
   color: var(--text-color-white);
@@ -310,6 +314,7 @@ body{
 
 
 .form input[type="submit"][value="Modifiez"]{
+  margin-top: 20px;
   transition: 0.2s;
   background-color: var(--edit-color);
   color: var(--text-color-white);
