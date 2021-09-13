@@ -3,7 +3,7 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <span>Types de véhicule existant</span>
+        <span class="existing">Types de véhicule existant :</span>
         <select name="type">
             <option value=""></option>
             {{#each data.type_vehicule}}
@@ -12,9 +12,9 @@
         </select>
         <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
             <div class="form">
-                <label for="type_vehicule">Type de véhicule</label>
+                <label for="type_vehicule">Type de véhicule :</label>
                 <input type="text" name="type_vehicule">
-                <label for="doc_pdf">Doc du type de véhicule</label>
+                <label for="doc_pdf">Doc du type de véhicule :</label>
                 <input type="file" name="doc_pdf">
                 <input type="submit" value="Ajoutez">
             </div>

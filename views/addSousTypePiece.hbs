@@ -3,7 +3,7 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <span>Sous-types de pièces existant</span>
+        <span class="existing">Sous-types de pièces existant :</span>
         <select name="type">
             <option value=""></option>
             {{#each data.sous_type_p_d}}
@@ -12,9 +12,9 @@
         </select>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
-                <label for="stype_piece">Sous-type de pièce</label>
+                <label for="stype_piece">Sous-type de pièce :</label>
                 <input type="text" name="stype_piece">
-                <label for="type_piece">Type de pièce</label>
+                <label for="type_piece">Type de pièce :</label>
                 <select name="type_piece">
                     <option value=""></option>
                     {{#each data.type_p_d}}

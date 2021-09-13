@@ -2,9 +2,9 @@
     <section>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
-                <label for="soustypePD">Sous-type de pièce détachée</label>
+                <label for="soustypePD">Sous-type de pièce détachée :</label>
                 <input type="text" name="soustypePD" value="{{data.nom_stype}}">
-                <label for="typePD">Type de pièce détachée</label>
+                <label for="typePD">Type de pièce détachée :</label>
                 <select name="typePD">
                     <option value=""></option>
                     {{#each datas.type_p_d}}
