@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="assets/styles/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
+    <title>Stock de pièce détachée</title>
+</head>
+<body>
+    <header>
+        <div class="header">
+            <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+                version="1.1" x="0px" y="0px" viewBox="0 0 24 30" style="enable-background:new 0 0 24 24;"
+                xml:space="preserve">
+                <g>
+                    <g>
+                        <path d="M5,6H3C2.72,6,2.5,5.78,2.5,5.5S2.72,5,3,5h2c0.28,0,0.5,0.22,0.5,0.5S5.28,6,5,6z" />
+                    </g>
+                    <g>
+                        <path d="M21,6H7C6.72,6,6.5,5.78,6.5,5.5S6.72,5,7,5h14c0.28,0,0.5,0.22,0.5,0.5S21.28,6,21,6z" />
+                    </g>
+                    <g>
+                        <path d="M5,13H3c-0.28,0-0.5-0.22-0.5-0.5S2.72,12,3,12h2c0.28,0,0.5,0.22,0.5,0.5S5.28,13,5,13z" />
+                    </g>
+                    <g>
+                        <path
+                            d="M21,13H7c-0.28,0-0.5-0.22-0.5-0.5S6.72,12,7,12h14c0.28,0,0.5,0.22,0.5,0.5S21.28,13,21,13z" />
+                    </g>
+                    <g>
+                        <path d="M5,20H3c-0.28,0-0.5-0.22-0.5-0.5S2.72,19,3,19h2c0.28,0,0.5,0.22,0.5,0.5S5.28,20,5,20z" />
+                    </g>
+                    <g>
+                        <path
+                            d="M21,20H7c-0.28,0-0.5-0.22-0.5-0.5S6.72,19,7,19h14c0.28,0,0.5,0.22,0.5,0.5S21.28,20,21,20z" />
+                    </g>
+                </g><text x="0" y="39" fill="#000000" font-size="5px" font-weight="bold"
+                    font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif"></text><text x="0" y="44"
+                    fill="#000000" font-size="5px" font-weight="bold"
+                    font-family="'Helvetica Neue', Helvetica, Arial-Unicode, Arial, Sans-serif"></text>
+            </svg>
+            <div id="sidebar">
+                <nav id="menu-header">
+                    <svg class="menu-close" xmlns="http://www.w3.org/2000/svg" data-name="Layer 2" viewBox="0 0 32 40"
+                        x="0px" y="0px">
+                        <path d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z" />
+                        <path d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z" />
+                    </svg>
+                    <ul class="menu-element">
+                        <li class="vehicules">
+                            <span>Véhicule</span>
+                            <ul class="sub-menu-vehicules">
+                                <li><a href="/maquette/addVehicule.html">Ajouter un véhicule</a></li>
+                                <li><a href="/maquette/addTypeVehicule.html">Ajouter un type de véhicule</a></li>
+                                <li><a href="/maquette/addMarque.html">Ajouter une marque de véhicule</a></li>
+                                <li><a href="/maquette/addModele.html">Ajouter un modèle d'une marque</a></li>
+                            </ul>
+                        </li>
+                        <li class="pieces">
+                            <span>Pièces détachées</span>
+                            <ul class="sub-menu-pieces">
+                                <li><a href="/maquette/addPiece.html">Ajouter une pièce détachée</a></li>
+                                <li><a href="/maquette/addTypePiece.html">Ajouter un type de pièce détachée</a></li>
+                                <li><a href="/maquette/addSousTypePiece.html">Ajouter un sous-type de pièce détachée</a></li>
+                            </ul>
+                        </li>
+                        <li class="stocks">
+                            <span>Stock</span>
+                            <ul class="sub-menu-stock">
+                                <li><a href="/maquette/stockVehicule.html">Stock de véhicule</a></li>
+                                <li><a href="/maquette/stockPiece.html">Stock de pièce</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-vehicule">
+                            <span>Modification véhicule</span>
+                            <ul class="sub-menu-list-vehicules">
+                                <li><a href="/maquette/listTypeVehicule.html">Liste des types de véhicule</a></li>
+                                <li><a href="/maquette/listMarqueVehicule.html">Liste des marques de véhicule</a></li>
+                                <li><a href="/maquette/listModeleVehicule.html">Liste des modèles d'une marque</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-piece">
+                            <span>Modification pièce</span>
+                            <ul class="sub-menu-list-piece">
+                                <li><a href="/maquette/listTypePiece.html">Liste des types de pièce</a></li>
+                                <li><a href="/maquette/listSousTypePiece.html">Liste des sous-type de pièce</a></li>
+                            </ul>
+                        </li>
+                        <li class="list-users">
+                            <span>Utilisateurs</span>
+                            <ul class="sub-menu-list-users">
+                                <li><a href="/maquette/addUser.html">Ajoutez un utilisateur</a></li>
+                                <li><a href="/maquette/listUsers.html">Liste des utilisateurs</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+            <h1>Oural-52</h1>
+            <a href="/maquette/accueil.html"><svg class="home" xmlns="http://www.w3.org/2000/svg"
+                    xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" version="1.1"
+                    style="shape-rendering:geometricPrecision;text-rendering:geometricPrecision;image-rendering:optimizeQuality;"
+                    viewBox="0 0 236 262.5" x="0px" y="0px" fill-rule="evenodd" clip-rule="evenodd">
+                    <defs></defs>
+                    <g>
+                        <path class="fil0"
+                            d="M204 111l0 99c-23,0 -46,0 -69,0l0 -67 -34 0 0 67c-23,0 -46,0 -69,0l0 -99 -32 -23 118 -88 59 44 0 -26 22 0 0 43 37 27 -32 23zm-86 -95l-96 72 25 18 0 92 39 0 0 -66 64 0 0 66 39 0 0 -92 25 -18 -96 -72z" />
+                    </g>
+                </svg></a>
+        </div>
+    </header>
+    <div class="wrap">
+        <section>
+            <table id="stock">
+                <thead>
+                    <tr>
+                        <th>Nom de la pièce</th>
+                        <th>Marque et modèle de véhicule associé</th>
+                        <th>Type de pièce</th>
+                        <th>Sous-type de pièce</th>
+                        <th>Photo</th>
+                        <th>Doc Pièce</th>
+                        <th>Etat</th>
+                        <th>Localisation</th>
+                        <th>Longueur</th>
+                        <th>Largeur</th>
+                        <th>Diamètre</th>
+                        <th>Edition</th>
+                    </tr>
+                </thead>
+                <tr>
+                    <td>La pièce</td>
+                    <td>Mercedes - M8</td>
+                    <td>Moteur</td>
+                    <td>Haut-moteur</td>
+                    <td><a href="" target="_blank">Photo</a></td>
+                    <td><a href="" target="_blank">Doc-pièce</a></td>
+                    <td>Propre</td>
+                    <td>A-12</td>
+                    <td>5 cm</td>
+                    <td>5 cm</td>
+                    <td>5 cm</td>
+                    <td>
+                        <span>
+                            <a href="/maquette/editPiece.html"><svg xmlns="http://www.w3.org/2000/svg" class="edit" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px"><title>Edit</title><rect x="14.092" y="38.264" width="66.311" height="28.978" transform="translate(-23.463 48.86) rotate(-45)"/><rect x="71.875" y="4.627" width="18.019" height="28.978" transform="translate(10.174 62.793) rotate(-45)"/><polygon points="8.088 71.422 2.5 97.5 28.578 91.912 30.226 90.264 9.736 69.774 8.088 71.422"/></svg></a>
+                            <a href="/maquette/delete.html"><svg xmlns="http://www.w3.org/2000/svg" class="delete" data-name="Layer 2" viewBox="0 0 32 40" x="0px" y="0px"><path d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z"/><path d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z"/></svg></a>
+                        </span>
+                    </td>
+                </tr>
+                <tr>
+                    <td>La jolie pièce</td>
+                    <td>Honda - K52</td>
+                    <td>Moteur</td>
+                    <td>Haut-moteur</td>
+                    <td><a href="" target="_blank">Photo</a></td>
+                    <td><a href="" target="_blank">Doc-pièce</a></td>
+                    <td>Propre</td>
+                    <td>B-02</td>
+                    <td>5 cm</td>
+                    <td>5 cm</td>
+                    <td>5 cm</td>
+                    <td>
+                        <span>
+                            <a href="/maquette/editPiece.html"><svg xmlns="http://www.w3.org/2000/svg" class="edit" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px"><title>Edit</title><rect x="14.092" y="38.264" width="66.311" height="28.978" transform="translate(-23.463 48.86) rotate(-45)"/><rect x="71.875" y="4.627" width="18.019" height="28.978" transform="translate(10.174 62.793) rotate(-45)"/><polygon points="8.088 71.422 2.5 97.5 28.578 91.912 30.226 90.264 9.736 69.774 8.088 71.422"/></svg></a>
+                            <a href="/maquette/delete.html"><svg xmlns="http://www.w3.org/2000/svg" class="delete" data-name="Layer 2" viewBox="0 0 32 40" x="0px" y="0px"><path d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z"/><path d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z"/></svg></a>
+                        </span>
+                    </td>
+                </tr>
+            </table>
+        </section>
+    </div>
+    <script src="assets/js/main.js"></script>
+</body>
+</html>

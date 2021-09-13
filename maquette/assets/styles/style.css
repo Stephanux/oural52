@@ -1,0 +1,469 @@
+:root{
+  --header-bcg-color: hsl(227, 77%, 62%);
+  --container-bcg-color: hsl(240, 14%, 92%);
+  --body-bcg-color: hsl(229, 10%, 79%);
+  --add-color: hsl(140, 71%, 32%);
+  --delete-color: hsl(0, 76%, 37%);
+  --edit-color: hsl(56, 66%, 36%);
+  --text-color-white: hsl(0, 50%, 100%);
+  --text-color-black: hsl(0, 50%, 0%);
+}
+
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Montserrat', sans-serif;
+}
+
+a {
+  text-decoration: none;
+  color: var(--text-color-white);
+}
+
+input{
+  height: 25px;
+  border: none;
+}
+
+body{
+  font-size: 16px;
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--body-bcg-color);
+}
+
+/******header*******/
+
+.header{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 80px;
+  padding: 50px;
+  background-color: var(--header-bcg-color);
+  color: var(--text-color-white);
+}
+
+.home{
+  width: 35px;
+  height: 35px;
+  fill: var(--text-color-white);
+  transition: 0.5s;
+}
+
+.home:hover{
+  background-color: var(--container-bcg-color);
+  fill: var(--header-bcg-color);
+  border-radius: 50%;
+}
+
+/****sidebar****/
+
+#sidebar{
+	position: absolute;
+	width: 230px;
+	height: 100%;
+	background-color: var(--header-bcg-color);
+	left:-300px;
+  z-index: 4;
+}
+
+.menu-icon{
+  width: 40px;
+  height: 40px;
+  fill: var(--text-color-white);
+  transition: 0.5s;
+  cursor: pointer;
+}
+
+.menu-icon:hover{
+  background-color: var(--container-bcg-color);
+  fill: var(--header-bcg-color);
+  border-radius: 50%;
+}
+
+.menu-element li{
+  padding-left: 5px; 
+  margin-top: 10px;
+	color: var(--text-color-white);
+  font-size: 30px;
+	
+}
+
+.menu-element span:hover{
+  color: var(--body-bcg-color);
+  transition: 0.3s;
+}
+
+.menu-element a{
+  font-size: 20px;
+}
+
+.menu-element a:hover{
+  color: var(--body-bcg-color);
+  transition: 0.3s;
+}
+
+#sidebar.active{
+	left:0;
+  margin-top: 835px;
+}
+
+.menu-close{
+  margin-left: 190px;
+  fill: var(--text-color-white);
+  width: 40px;
+  cursor: pointer;
+}
+
+.menu-close:hover {
+  fill: var(--delete-color);
+  transition: 0.3s;
+}
+
+.vehicules{
+  display: none;
+  cursor: pointer;
+}
+
+.pieces{
+  display: none;
+  cursor: pointer;
+}
+
+.stocks{
+  display: none;
+  cursor: pointer;
+}
+
+.list-vehicule{
+  display: none;
+  cursor: pointer;
+}
+
+.list-piece{
+  display: none;
+  cursor: pointer;
+}
+
+.list-users {
+  display: none;
+  cursor: pointer;
+}
+
+.sub-menu-vehicules{
+  display: none;
+}
+
+.sub-menu-pieces{
+  display: none;
+}
+
+.sub-menu-stock{
+  display: none;
+}
+
+.sub-menu-list-vehicules{
+  display: none;
+}
+
+.sub-menu-list-piece{
+  display: none;
+}
+
+.sub-menu-list-users{
+  display: none;
+}
+
+/****container****/
+
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 800px;
+  height: 400px;
+  margin: auto;
+  margin-top: 20vh;
+  border-radius: 2%;
+  background-color: var(--container-bcg-color);
+}
+
+/****form login****/
+
+.form_login {
+  display: flex;
+  flex-direction: column;
+}
+
+.form_login input{
+  margin: 10px 0 20px;
+}
+
+.form_login input[type="submit"]{
+  background-color: var(--header-bcg-color);
+  color: var(--text-color-white);
+  height: 25px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.form_login input[type="submit"]:hover{
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(227, 96%, 67%);
+}
+
+/****main page****/
+
+.main{
+  display: flex;
+  justify-content: center;
+  height: 400px;
+  flex-direction: column;
+}
+
+.main h2{
+  margin-bottom: 50px;
+  margin-left: 55px;
+}
+
+.main button {
+  width: 280px;
+  height: 30px;
+  margin-bottom: 20px;
+  background :var(--header-bcg-color);
+  border-radius: 150px;
+  border: 2px solid #accbee;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.main button:hover{
+  background-color: hsl(227, 100%, 69%);;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+}
+
+.main a {
+  color: var(--text-color-white);
+}
+
+.main input{
+  margin-top: 20px;
+  background-color: var(--delete-color);
+  color: var(--text-color-white);
+  width: 280px;
+  height: 30px;
+  transition: 0.2s;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.main input:hover{
+  transform: translateX(3px);
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32); 
+  background-color: hsl(0, 63%, 46%);
+}
+
+/****add****/
+
+.wrapper{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1000px;
+  min-height: 500px;
+  height: auto;
+  margin: auto;
+  margin-top: 15vh;
+  margin-bottom: 15vh;
+  background-color: var(--container-bcg-color);
+  border-radius: 2%;
+}
+
+.wrapper section .existing {
+  margin-left: 50px;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
+}
+
+.form :nth-child(n){
+  margin-bottom: 14px;
+}
+
+.form input[type="submit"][value="Ajoutez"]{
+  margin-top: 20px;
+  background-color: var(--add-color);
+  transition: 0.2s;
+  color: var(--text-color-white);
+  cursor: pointer;
+}
+
+.form input[type="submit"][value="Ajoutez"]:hover{
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(140, 70%, 37%);
+}
+
+
+.form input[type="submit"][value="Modifiez"]{
+  margin-top: 20px;
+  transition: 0.2s;
+  background-color: var(--edit-color);
+  color: var(--text-color-white);
+  cursor: pointer;
+}
+
+.form input[type="submit"][value="Modifiez"]:hover{
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(56, 64%, 42%);
+}
+
+.form input[type="submit"][value="Supprimez"]{
+  transition: 0.2s;
+  background-color: var(--delete-color);
+  color: var(--text-color-white);
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.form input[type="submit"][value="Supprimez"]:hover{
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(0, 63%, 46%);
+}
+
+/****stock****/
+
+.wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 1400px;
+  min-height: 500px;
+  height: auto;
+  margin: auto;
+  margin-top: 15vh;
+  background-color: var(--container-bcg-color);
+  border-radius: 2%;
+}
+
+#stock{
+  text-align: center;
+  border-collapse: collapse;
+}
+
+#stock a{
+  color: var(--text-color-black);
+}
+
+#stock a:hover{
+  color: hsl(0, 1%, 19%);
+  text-decoration: underline;
+}
+
+#stock th{
+  padding: 10px;
+  border: 1px solid var(--text-color-black);
+}
+
+#stock tr:nth-child(even){
+  background-color: var(--body-bcg-color);
+}
+
+#stock th{
+  background-color: var(--header-bcg-color);
+  color: var(--text-color-white);
+}
+
+#stock td{
+  border: 1px solid var(--text-color-black);
+}
+
+#stock span{
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+
+.car{
+  width: 40px;
+  margin-top: 10px;
+}
+
+.moto{
+  width: 40px;
+  margin-top: 10px;
+}
+
+.scoot{
+  width: 40px;
+  margin-top: 10px;
+}
+
+.tractor{
+  width: 40px;
+  margin-top: 10px;
+}
+
+.edit{
+  width: 25px;
+  height: 25px;
+  transition: 0.5s;
+  fill: var(--edit-color);
+}
+
+.edit:hover{
+  transform: rotate(360deg);
+  fill: hsl(56, 66%, 44%);
+}
+
+.delete{
+  width: 25px;
+  height: 25px;
+  transition: 0.5s;
+  fill: var(--delete-color);
+}
+
+.delete:hover{
+  transform: rotate(360deg);
+  fill: hsl(0, 97%, 56%);
+}
+
+/**MSG**/
+
+h4{
+  margin-left: 50px;
+}
+
+/**SCROLLBAR**/
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(0, 0%, 95%); 
+  box-shadow: inset 0 0 5px grey; 
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(0, 0%, 53%);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(0, 0%, 33%); 
+}
