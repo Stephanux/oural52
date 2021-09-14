@@ -247,7 +247,7 @@ body{
   transform: translateX(3px);
 }
 
-.main a {
+.main button {
   color: var(--text-color-white);
 }
 
