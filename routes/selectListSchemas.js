@@ -32,10 +32,7 @@ router.get('/', function (req, res, next) {
             if (req.message.return_type == null) {
                 // récupérer les données extraites de la base et les envoyées à une vue
                 res.render(req.message.view, {
-                    stitle: 'Connexion à BD SQL données Countries via Sequelize',
                     title: req.message.title,
-                    libelle: req.message.libelle,
-                    del_label: req.message.del_label,
                     form_action: req.message.form_action,
                     msg: req.query.msg,
                     data: results // Attention a renvoyer une variable avec un nom generique

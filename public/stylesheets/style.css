@@ -348,10 +348,11 @@ body{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1800px;
+  width: 1600px;
   min-height: 500px;
   height: auto;
   margin: auto;
+  padding: 50px;
   margin-top: 15vh;
   background-color: var(--container-bcg-color);
   border-radius: 2%;
