@@ -5,6 +5,17 @@
         {{/if}}
         <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
             <div class="form">
+                <label for="nameV">Nom du véhicule associé :</label>
+                <select name="nameV">
+                    <option value=""></option>
+                    {{#each datas.Vehicules}}
+                    {{#compare this.id_vehicule ../data.id_vehicule operator="=="}}
+                    <option value="{{this.id_vehicule}}" selected>{{this.nom_vehicule}}</option>
+                    {{else}}
+                    <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
+                    {{/compare}}
+                    {{/each}}
+                </select>
                 <label for="namePD">Nom de la pièce détachée :</label>
                 <input type="text" name="namePD" value="{{data.nom_p_d}}">
                 <label for="stypePD">Type et sous-type de pièce détachée :</label>
@@ -29,10 +40,10 @@
                 <label for="etat">Etat :</label>
                 <input type="text" name="etat" value="{{data.etat}}">
                 <label for="photo">Photo :</label>
-                <input type="file" name="photo" value="{{data.photo}}">
+                <input type="file" name="photo">
                 <input type="hidden" name="photo" value="{{data.photo}}">
                 <label for="doc_pdf">Document PDF :</label>
-                <input type="file" name="doc_pdf" value="{{data.doc_pdf}}">
+                <input type="file" name="doc_pdf">
                 <input type="hidden" name="doc_pdf" value="{{data.doc_pdf}}">
                 <input type="hidden" name="id" value="{{data.id_p_d}}">
                 <input type="submit" value="Modifiez">
