@@ -11,6 +11,7 @@ router.get('/', function (req, res, next) {
             console.log("connexion depuis Finder : ", result);
             if (req.message.return_type == null) {
                 res.render(req.message.view, {
+                    title: req.message.title,
                     form_action: req.message.form_action,
                     data: result  // Attention a renvoyer une variable avec un nom generique
                 });

@@ -17,13 +17,16 @@
     "GET/listUsers": {
         "controler": "listUsers",
         "modelName": "Users",
-        "view": "listUsers"
+        "view": "listUsers",
+        "title": "Liste des utilisateurs"
     },
     "GET/formInsertUser": {
         "controler": "finder",
         "modelName": "Users",
+        "modelList": "Users",
         "view": "addUser",
-        "form_action": "/addUser"
+        "form_action": "/addUser",
+        "title": "Ajoutez un utilisateur"
     },
     "POST/addUser": {
         "controler": "addUser",
