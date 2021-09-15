@@ -219,6 +219,22 @@ window.onload = () => {
         msgStock.style.color = "green";
     };
 
+    /**ERREUR MSG SI FILES SONT VIDES**/
+
+    let photo = document.querySelector('.photo');
+    let doc = document.querySelector('.doc')
+    let form = document.querySelector('#form');
+    let errFile = document.querySelector('.error-file')
+    console.log(form);
+
+    form.addEventListener('submit', (e) => {
+        e.preventDefault();
+        if (photo.files.length === 0 && doc.files.length === 0) {
+            errFile.innerHTML = 'Veuillez ajouter une photo et un PDF'
+        }
+    })
+    
+
     /**STOCK VEHICULE ICON **/
     let vehiculeStock = document.querySelectorAll('.vehicule');
         

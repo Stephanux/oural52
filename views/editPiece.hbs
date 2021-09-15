@@ -3,7 +3,8 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
+        <span class="error-file"></span>
+        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form">
             <div class="form">
                 <label for="nameV">Nom du véhicule associé :</label>
                 <select name="nameV">
@@ -40,10 +41,10 @@
                 <label for="etat">Etat :</label>
                 <input type="text" name="etat" value="{{data.etat}}">
                 <label for="photo">Photo :</label>
-                <input type="file" name="photo">
+                <input type="file" name="photo" class="photo">
                 <input type="hidden" name="photo" value="{{data.photo}}">
                 <label for="doc_pdf">Document PDF :</label>
-                <input type="file" name="doc_pdf">
+                <input type="file" name="doc_pdf" class="doc">
                 <input type="hidden" name="doc_pdf" value="{{data.doc_pdf}}">
                 <input type="hidden" name="id" value="{{data.id_p_d}}">
                 <input type="submit" value="Modifiez">
