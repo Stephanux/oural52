@@ -470,7 +470,7 @@
         "view": "stockPiece",
         "tables_list": ["pieces_detachees"],
         "sql_list": [
-            "SELECT pieces_detachees.id_p_d, nom_p_d, pieces_detachees.id_stype_p_d, sous_type_p_d.nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d, photo, longueur, largeur, diametre, localisation, etat, doc_pdf, Vehicules.id_vehicule, Vehicules.nom_vehicule FROM pieces_detachees, type_p_d, sous_type_p_d, liens_p_d, Vehicules WHERE pieces_detachees.id_stype_p_d = sous_type_p_d.id_stype_p_d AND sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d AND Vehicules.id_vehicule = liens_p_d.id_vehicule"],
+            "SELECT pieces_detachees.id_p_d, nom_p_d, pieces_detachees.id_stype_p_d, sous_type_p_d.nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d, photo, longueur, largeur, diametre, localisation, etat, doc_pdf, Vehicules.id_vehicule, Vehicules.nom_vehicule FROM pieces_detachees, type_p_d, sous_type_p_d, liens_p_d, Vehicules WHERE pieces_detachees.id_stype_p_d = sous_type_p_d.id_stype_p_d AND sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d AND Vehicules.id_vehicule = liens_p_d.id_vehicule AND pieces_detachees.id_p_d = liens_p_d.id_p_d"],
         "form_action": "/editPiece",
         "title": "Gestion de stock de pièce détachée"
     },
