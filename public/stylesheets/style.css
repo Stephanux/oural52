@@ -282,6 +282,7 @@ body{
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
   border-radius: 2%;
+  position: relative;
 }
 
 .wrapper section .existing {
@@ -342,13 +343,17 @@ body{
   background-color: hsl(0, 63%, 46%);
 }
 
+.champs {
+  font-size: 14px;
+}
+
 /****stock****/
 
 .wrap{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1600px;
+  width: 1400px;
   min-height: 500px;
   height: auto;
   margin: auto;
@@ -451,6 +456,12 @@ h4{
 
 .error-file {
   margin-left: 50px;
+}
+
+.err {
+  position: absolute;
+  top: 0;
+  transform: translateY(185%);
 }
 
 /**SCROLLBAR**/

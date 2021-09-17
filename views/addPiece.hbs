@@ -10,19 +10,20 @@
             <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data">
+        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form">
             <div class="form">
-                <label for="nameV">Nom du véhicule associé :</label>
-                <select name="nameV">
+                <span class="err"></span>
+                <label for="nameV">Nom du véhicule associé* :</label>
+                <select name="nameV" class="needed">
                     <option value=""></option>
                     {{#each data.Vehicules}}
                     <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
                     {{/each}}
                 </select>
-                <label for="namePD">Nom de la pièce détachée :</label>
-                <input type="text" name="namePD">
-                <label for="stypePD">Type et sous-type de pièce détachée</label>              
-                <select name="stypePD">
+                <label for="namePD">Nom de la pièce détachée* :</label>
+                <input class="needed" type="text" name="namePD">
+                <label for="stypePD">Type et sous-type de pièce détachée* :</label>              
+                <select name="stypePD" class="needed">
                     <option value=""></option>
                     {{#each data.sous_type_p_d}}
                     <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
@@ -43,6 +44,7 @@
                 <label for="doc_pdf">Document PDF :</label>
                 <input type="file" name="doc_pdf">
                 <input type="submit" value="Ajoutez">
+                <p class="champs">*champs requis</p>
             </div>
         </form>
     </section>

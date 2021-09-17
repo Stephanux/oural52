@@ -10,18 +10,20 @@
             <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST">
+        <form action="{{this.form_action}}" method="POST" id="form">
             <div class="form">
-                <label for="stype_piece">Sous-type de pièce :</label>
-                <input type="text" name="stype_piece">
-                <label for="type_piece">Type de pièce :</label>
-                <select name="type_piece">
+                <span class="err"></span>
+                <label for="stype_piece">Sous-type de pièce* :</label>
+                <input class="needed" type="text" name="stype_piece">
+                <label for="type_piece">Type de pièce* :</label>
+                <select name="type_piece" class="needed">
                     <option value=""></option>
                     {{#each data.type_p_d}}
                     <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
                     {{/each}}
                 </select>
                 <input type="submit" value="Ajoutez">
+                <p class="champs">*champs requis</p>
             </div>
         </form>
     </section>

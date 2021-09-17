@@ -5,20 +5,21 @@
             <h4>{{msg}}</h4>
             {{/if}}
         </div>
-        <form action="{{this.form_action}}" method="POST">
+        <form action="{{this.form_action}}" method="POST" id="form">
             <div class="form">
-                <label for="nameV">Nom du véhicule :</label>
-                <input type="text" name="nameV">
+                <span class="err"></span>
+                <label for="nameV">Nom du véhicule* :</label>
+                <input class="needed" type="text" name="nameV">
                 <label for="dateMEC">Date de mise en circulation :</label>
                 <input type="date" name="dateMEC">
-                <label for="typeV">Type de véhicule :</label>
-                <select name="typeV">
+                <label for="typeV">Type de véhicule* :</label>
+                <select name="typeV" class="needed">
                     <option value=""></option>
                     {{#each data.type_vehicule}}
                     <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
                     {{/each}}
                 </select>
-                <label for="marque">Modèle du véhicule :</label>
+                <label for="marque">Modèle du véhicule* :</label>
                 <select name="modeleV">
                     <option value=""></option>
                     {{#each data.modele}}
@@ -26,6 +27,7 @@
                     {{/each}}
                 </select>
                 <input type="submit" value="Ajoutez">
+                <p class="champs">*champs requis</p>
             </div>
         </form>
     </section>

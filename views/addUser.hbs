@@ -12,17 +12,21 @@
             <option value="{{this._id}}">{{this.firstName}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" id="formAddUser">
+        <form action="{{this.form_action}}" method="POST" id="form">
             <div class="form">
-                <label for="name">Nom :</label>
-                <input type="text" name="name" value="{{data.name}}">
-                <label for="firstName">Prénom :</label>
-                <input type="text" name="firstName" value="{{data.firstName}}">
-                <label for="login">Pseudo :</label>
-                <input type="text" name="login" value="{{data.login}}">
-                <label for="mdp">Mot de passe :</label>
-                <input type="password" name="mdp" value="{{data.mdp}}">
+            <span class="err"></span>
+                <label for="name">Nom* :</label>
+                <input class="needed" type="text" name="name" value="{{data.name}}">
+                <label for="firstName">Prénom* :</label>
+                <input class="needed" type="text" name="firstName" value="{{data.firstName}}">
+                <label for="login">Pseudo* :</label>
+                <input class="needed" type="text" name="login" value="{{data.login}}">
+                <label for="mdp">Mot de passe* :</label>
+                <input class="needed pass" type="password" name="mdp" value="{{data.mdp}}">
+                <label for="password-confirm">Confirmation du mot de passe* :</label>
+                <input class="needed confirm" type="password" name="password-confirm">
                 <input type="submit" value="Ajoutez">
+                <p class="champs">*champs requis</p>
             </div>
         </form>
     </section>
