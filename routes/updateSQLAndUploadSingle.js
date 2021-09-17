@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -27,8 +27,8 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
         }
 
         // ici on réalise une requête d'insertion dans une base SQL
-        var params_name = req.message.params_query;
-        var params_value = [];
+        const params_name = req.message.params_query;
+        const params_value = [];
         for (let i = 0; i < params_name.length; i++) {
             params_value.push(req.body[params_name[i]]);
         }
@@ -40,10 +40,10 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
             replacements: params_value,
             type: sequelize.QueryTypes.UPDATE
         })
-            .then(function (result) { // sql query success
+            .then((result) => { // sql query success
                 console.log('listes retour updateSQL : ', result);
                 res.redirect(req.message.redirect + '?msg=Modification correctement effectuée');
-            }).catch(function (err) { // sql query error
+            }).catch((err) => { // sql query error
                 console.log('error select', err);
                 res.redirect(req.message.redirect + '?msg=Il y a une erreur');
                 res.send('Erreur : ' + err);
