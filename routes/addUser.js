@@ -9,21 +9,16 @@ router.route('/').post((req, res) => {
         if (!req.body._id) req.body._id = new ObjectId();
         global.schemas[req.message.modelName].create([req.body], (err, result) => {
             if (err) {
-                throw err;
+                console.log('erreur :' , err);
+                res.redirect(req.message.redirect + "?msg=Il y a une erreur")
             }
 
             console.log('insertOne mongoose: ', result);
             // on refait une requête pour récupérer tous les enregs du modelName
-            global.schemas[req.message.modelName].find({}, (err, result2) => {
+            global.schemas[req.message.modelName].find({}, function (err, result2) {
                 console.log("result into deleteUser : ", result2);
-            })
-            .then(() => {
-                res.redirect(req.message.redirect + '?msg=Ajout correctement effectuée')
-            })
-            .catch((err) => {
-                console.log("erreur: " + err);
-                res.redirect(req.message.redirect + '?msg=Il y a eu une erreur')
-            })
+                res.redirect(req.message.redirect + "?msg=Ajout correctement effectué")
+            })          
         }); // fin de l'insert()
     } else {
         res.redirect('/');
