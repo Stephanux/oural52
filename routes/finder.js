@@ -13,6 +13,7 @@ router.get('/', function (req, res, next) {
                 res.render(req.message.view, {
                     title: req.message.title,
                     form_action: req.message.form_action,
+                    msg: req.query.msg,
                     data: result  // Attention a renvoyer une variable avec un nom generique
                 });
                 //}

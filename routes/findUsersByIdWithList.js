@@ -22,6 +22,7 @@ router.get('/', (req, res) => {
                         title: req.message.title,
                         form_action: req.message.form_action,
                         data: result[0],
+                        msg: req.query.msg,
                         liste: list
                     });
                 });
