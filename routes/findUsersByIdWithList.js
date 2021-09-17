@@ -15,9 +15,9 @@ router.get('/', (req, res) => {
                 if (err) {
                     console.log('error : ', err);
                 }
-                console.log('data from id findByIdWithList : ', result);
-                global.schemas[req.message.modelList].find({_id: req.query.id}, (err, list) => {
-                    console.log('list from id findByIdWithList : ', list);
+                console.log('data from id : ', result);
+                global.schemas[req.message.modelName].find({_id: req.query.id}, (err, list) => {
+                    console.log('list from id : ', list);
                     res.render(req.message.view, {
                         title: req.message.title,
                         form_action: req.message.form_action,
