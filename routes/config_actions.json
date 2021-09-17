@@ -42,7 +42,14 @@
     "POST/editUser": {
         "controler": "updateById",
         "modelName": "Users",
-        "view": "editUser"
+        "view": "editUser",
+        "params_query": [
+            "name",
+            "firstName",
+            "login",
+            "mdp",
+            "_id"],
+        "redirect": "/listUsers"
     },
     "GET/formDeleteUser": {
         "controler": "findUsersByIdWithList",
@@ -53,7 +60,8 @@
     "POST/deleteUser": {
         "controleur": "deleteById",
         "modelName": "Users",
-        "view": "deleteUser"
+        "view": "deleteUser",
+        "redirect": "/listUsers"
     },
     "GET/formInsertVehicule": {
         "controler": "selectListSchemas",

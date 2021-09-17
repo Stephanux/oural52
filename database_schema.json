@@ -6,16 +6,7 @@
             "name": "String",
             "firstName": "String",
             "login": "String",
-            "mdp": "String",
-            "function": "String",
-            "office": "String",
-            "date_naiss": "String",
-            "adresse1": "String",
-            "adresse2": "String",
-            "cp": "String",
-            "city": "String",
-            "mobile_phone": "String",
-            "home_phone": "String"
+            "mdp": "String"
         }
     }
 }
