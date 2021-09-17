@@ -31,7 +31,8 @@
     "POST/addUser": {
         "controler": "addUser",
         "modelName": "Users",
-        "view": "listUsers"
+        "view": "listUsers",
+        "redirect": "/formInsertUser"
     },
     "GET/formEditUser": {
         "controler": "findUsersByIdWithList",
