@@ -231,15 +231,13 @@ window.onload = () => {
     let mdp = document.querySelector('.pass');
     let displayMessage = false;
 
-    form.addEventListener('submit', (e) => {
-        
+    form.addEventListener('submit', (e) => {      
         /*
         if (photo.files.length === 0 && doc.files.length === 0) {
             e.preventDefault();
             errFile.innerHTML = 'Veuillez ajouter une photo et un PDF'
         }
         */
-        
         for (i = 0; i < needed.length; i++) {
             if (needed[i].value === "") {
                 e.preventDefault();
@@ -247,26 +245,26 @@ window.onload = () => {
                 err.innerHTML = "Veuillez remplir les champs requis";
                 err.style.color = "red";
                 displayMessage = true;
-            } else if (needed[i].value !== "") {
-                needed[i].style.border = "none";
-                err.innerHTML = "";
-            }
-            
-            if (mdp.value !== confirm.value) {
-                e.preventDefault();
-                mdp.style.border = "1px solid red";
-                confirm.style.border = "1px solid red";
-                err.style.color = "red";
-                err.innerHTML = "Les mots de passe ne correspondent pas";
-                displayMessage = true;
-            } else if (mdp.value === confirm.value & mdp.value !== "" & confirm.value !== "") {
-                mdp.style.border = "none";
-                confirm.style.border = "none";
-                err.innerHTML = "";
-            }
-        }
+                if (mdp.value !== confirm.value) {
+                    e.preventDefault();
+                    mdp.style.border = "1px solid red";
+                    confirm.style.border = "1px solid red";
+                    err.style.color = "red";
+                    err.innerHTML += "Les mots de passe ne correspondent pas";
+                    displayMessage = true;
+                };
+            };         
+        };
     });
-
+    needed.forEach(needed => {
+        needed.addEventListener('input', () => {
+            if (displayMessage) {
+                needed.style.border = "none";
+                err.innerHTML = "";
+            };
+        });
+    });
+    
     /**STOCK VEHICULE ICON **/
     let vehiculeStock = document.querySelectorAll('.vehicule');
 
