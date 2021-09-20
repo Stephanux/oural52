@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <section>
+    <div>
         <div>
             {{#if msg}}
             <h4>{{msg}}</h4>
@@ -7,7 +7,6 @@
         </div>
         <span class="existing">Utilisateurs existant :</span>
         <select>
-            <option value=""></option>
             {{#each data}}
             <option value="{{this._id}}">{{this.firstName}}</option>
             {{/each}}
@@ -16,18 +15,18 @@
             <div class="form">
             <span class="err"></span>
                 <label for="name">Nom* :</label>
-                <input class="needed" type="text" name="name" value="{{data.name}}">
+                <input class="needed" type="text" name="name" id="name" value="{{data.name}}">
                 <label for="firstName">Prénom* :</label>
-                <input class="needed" type="text" name="firstName" value="{{data.firstName}}">
+                <input class="needed" type="text" name="firstName" id="firstName" value="{{data.firstName}}">
                 <label for="login">Pseudo* :</label>
-                <input class="needed" type="text" name="login" value="{{data.login}}">
+                <input class="needed" type="text" name="login" id="login" value="{{data.login}}">
                 <label for="mdp">Mot de passe* :</label>
-                <input class="needed pass" type="password" name="mdp" value="{{data.mdp}}">
+                <input class="needed pass" type="password" name="mdp" id="mdp" value="{{data.mdp}}">
                 <label for="password-confirm">Confirmation du mot de passe* :</label>
-                <input class="needed confirm" type="password" name="password-confirm">
+                <input class="needed confirm" type="password" name="password-confirm" id="password-confirm">
                 <input type="submit" value="Ajoutez">
-                <p class="champs">*champs requis</p>
+                <span class="champs">*champs requis</span>
             </div>
         </form>
-    </section>
+    </div>
 </div>

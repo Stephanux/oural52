@@ -1,12 +1,12 @@
 <div class="wrapper">
-    <section>
+    <div>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="type_p_d">Type de pièce détachée :</label>
-                <input type="text" name="type_p_d" value="{{data.nom_type_p_d}}">
+                <input type="text" name="type_p_d" id="type_p_d" value="{{data.nom_type_p_d}}">
                 <input type="hidden" name="id" value="{{data.id_type_p_d}}">
                 <input type="submit" value="Modifiez">
             </div>
         </form>
-    </section>
+    </div>
 </div>

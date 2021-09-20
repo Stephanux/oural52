@@ -1,12 +1,12 @@
 <div class="wrapper">
-    <section>
+    <div>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="marque">Marque du véhicule :</label>
-                <input type="text" name="marque" value="{{data.nom_marque}}">
+                <input type="text" name="marque" id="marque" value="{{data.nom_marque}}">
                 <input type="hidden" name="id" value="{{data.id_marque}}">
                 <input type="submit" value="Modifiez">
             </div>
         </form>
-    </section>
+    </div>
 </div>

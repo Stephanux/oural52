@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <section>
+    <div>
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
@@ -14,10 +14,10 @@
             <div class="form">
                 <span class="err"></span>
                 <label for="type_piece">Type de pièce* :</label>
-                <input class="needed" type="text" name="type_piece">
+                <input class="needed" type="text" name="type_piece" id="type_piece">
                 <input type="submit" value="Ajoutez">
-                <p class="champs">*champs requis</p>
+                <span class="champs">*champs requis</span>
             </div>
         </form>
-    </section>
+    </div>
 </div>

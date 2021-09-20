@@ -111,45 +111,42 @@
         </div>
     </header>
     <div class="wrapper">
-        <section>
+        <div>
             <span class="existing">Pièces détachées existante</span>
             <select name="type">
-                <option value=""></option>
                 <option value="la-piece">La pièce</option>
             </select>
             <form>
                 <div class="form">
                     <label for="nameV">Nom du véhicule associé</label>
-                    <select name="nameV">
-                        <option value=""></option>
+                    <select name="nameV" id="nameV">   
                         <option value="bob">Bob</option>
                         <option value="oural">Oural</option>
                     </select>
                     <label for="namePD">Nom de la pièce détachée :</label>
-                    <input type="text" name="namePD">
+                    <input type="text" name="namePD" id="namePD">
                     <label for="stypePD">Type et sous-type de pièce détachée</label>              
-                    <select name="stypePD">
-                        <option value=""></option>
+                    <select name="stypePD" id="stypePD">  
                         <option value="moteur-haut-moteur">Moteur - Haut-moteur</option>
                     </select> 
                     <label for="longueur">Longueur :</label>
-                    <input type="number" name="longueur">
+                    <input type="number" name="longueur" id="longueur">
                     <label for="largeur">Largeur :</label>
-                    <input type="number" name="largeur">
+                    <input type="number" name="largeur" id="largeur">
                     <label for="diametre">Diamètre :</label>
-                    <input type="number" name="diametre">
+                    <input type="number" name="diametre" id="diametre">
                     <label for="localisation">Localisation :</label>
-                    <input type="text" name="localisation">
+                    <input type="text" name="localisation" id="localisation">
                     <label for="etat">Etat :</label>
-                    <input type="text" name="etat">
+                    <input type="text" name="etat" id="etat">
                     <label for="photo">Photo :</label>
-                    <input type="file" name="photo">
+                    <input type="file" name="photo" id="photo">
                     <label for="doc_pdf">Document PDF :</label>
-                    <input type="file" name="doc_pdf">
+                    <input type="file" name="doc_pdf" id="doc_pdf">
                     <input type="submit" value="Ajoutez">
                 </div>
             </form>
-        </section>
+        </div>
     </div>
     <script src="assets/js/main.js"></script>
 </body>

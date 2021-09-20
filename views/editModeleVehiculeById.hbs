@@ -1,10 +1,9 @@
 <div class="wrapper">
-    <section>
+    <div>
         <form action="{{form_action}}" method="POST">
             <div class="form">
                 <label for="marqueV">Marque du véhicule :</label>
-                <select name="marqueV">
-                    <option value=""></option>
+                <select name="marqueV" id="marqueV">
                     {{#each datas.marques}}
                     {{#compare this.id_marque ../data.id_marque operator="=="}}
                     <option value="{{this.id_marque}}" selected>{{this.nom_marque}}</option>
@@ -14,10 +13,10 @@
                     {{/each}}
                 </select>
                 <label for="modeleV">Modèle du véhicule :</label>
-                <input type="text" name="modeleV" value="{{data.nom_modele}}">
+                <input type="text" name="modeleV" id="modeleV" value="{{data.nom_modele}}">
                 <input type="hidden" name="id" value="{{data.id_modele}}">
                 <input type="submit" value="Modifiez">
             </div>
         </form>
-    </section>
+    </div>
 </div>

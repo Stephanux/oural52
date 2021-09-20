@@ -1,11 +1,11 @@
 <div class="wrapper">
-    <section>
+    <div>
         <form action="{{this.form_action}}" method="POST">
             <div class="form">
                 <label for="soustypePD">Sous-type de pièce détachée :</label>
-                <input type="text" name="soustypePD" value="{{data.nom_stype}}">
+                <input type="text" name="soustypePD" id="soustypePD" value="{{data.nom_stype}}">
                 <label for="typePD">Type de pièce détachée :</label>
-                <select name="typePD">
+                <select name="typePD" id="typePD">
                     <option value=""></option>
                     {{#each datas.type_p_d}}
                     {{#compare this.id_type_p_d ../data.id_type_p_d operator="=="}}
@@ -19,5 +19,5 @@
                 <input type="submit" value="Modifiez">
             </div>
         </form>
-    </section>
+    </div>
 </div>

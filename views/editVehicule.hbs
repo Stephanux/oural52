@@ -1,14 +1,13 @@
 <div class="wrapper">
-    <section>
+    <div>
         <form action="{{form_action}}" method="POST">
             <div class="form">
                 <label for="nameV">Nom du véhicule :</label>
-                <input type="text" name="nameV" value="{{data.nom_vehicule}}">
+                <input type="text" name="nameV" id="nameV" value="{{data.nom_vehicule}}">
                 <label for="dateMEC">Date de mise en circulation :</label>
-                <input type="date" name="dateMEC" value="{{data.date_mise_circulation}}">
+                <input type="date" name="dateMEC" id="dateMEC" value="{{data.date_mise_circulation}}">
                 <label for="typeV">Type de véhicule :</label>
-                <select name="typeV">
-                    <option value=""></option>
+                <select name="typeV" id="typeV">
                     {{#each datas.type_vehicule}}
                     {{#compare this.id_type_vehicule ../data.id_type_vehicule operator="=="}}
                     <option value="{{this.id_type_vehicule}}" selected>{{this.nom_type_vehicule}}</option>
@@ -18,8 +17,7 @@
                     {{/each}}
                 </select>
                 <label for="modeleV">Modèle du véhicule :</label>
-                <select name="modeleV">
-                    <option value=""></option>
+                <select name="modeleV" id="modeleV">
                     {{#each datas.modele}}
                     {{#compare this.id_modele ../data.id_modele operator="=="}}
                     <option value="{{this.id_modele}}" selected>{{this.nom_marque}} - {{this.nom_modele}}</option>
@@ -32,5 +30,5 @@
                 <input type="submit" value="Modifiez">
             </div>
         </form>
-    </section>
+    </div>
 </div>

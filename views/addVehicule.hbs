@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <section>
+    <div>
         <div>
             {{#if msg}}
             <h4>{{msg}}</h4>
@@ -9,26 +9,26 @@
             <div class="form">
                 <span class="err"></span>
                 <label for="nameV">Nom du véhicule* :</label>
-                <input class="needed" type="text" name="nameV">
+                <input class="needed" type="text" name="nameV" id="nameV">
                 <label for="dateMEC">Date de mise en circulation :</label>
-                <input type="date" name="dateMEC">
+                <input type="date" name="dateMEC" id="dateMEC">
                 <label for="typeV">Type de véhicule* :</label>
-                <select name="typeV" class="needed">
+                <select name="typeV" class="needed" id="typeV">
                     <option value=""></option>
                     {{#each data.type_vehicule}}
                     <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
                     {{/each}}
                 </select>
-                <label for="marque">Modèle du véhicule* :</label>
-                <select name="modeleV">
+                <label for="modeleV">Modèle du véhicule* :</label>
+                <select name="modeleV" id="modeleV">
                     <option value=""></option>
                     {{#each data.modele}}
                     <option value="{{this.id_modele}}">{{this.nom_marque}} - {{this.nom_modele}}</option>
                     {{/each}}
                 </select>
                 <input type="submit" value="Ajoutez">
-                <p class="champs">*champs requis</p>
+                <span class="champs">*champs requis</span>
             </div>
         </form>
-    </section>
+    </div>
 </div>

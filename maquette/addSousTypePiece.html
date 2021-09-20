@@ -111,25 +111,23 @@
         </div>
     </header>
     <div class="wrapper">
-        <section>
+        <div>
             <span class="existing">Sous-types de pièces existant :</span>
             <select name="type">
-                <option value=""></option>
                 <option value="haut-moteur">Haut-moteur</option>
             </select>
             <form>
                 <div class="form">
                     <label for="stype_piece">Sous-type de pièce :</label>
-                    <input type="text" name="stype_piece">
+                    <input type="text" name="stype_piece" id="stype_piece">
                     <label for="type_piece">Type de pièce :</label>
-                    <select name="type_piece">
-                        <option value=""></option>
+                    <select name="type_piece" id="type_piece">
                         <option value="moteur">Moteur</option>
                     </select>
                     <input type="submit" value="Ajoutez">
                 </div>
             </form>
-        </section>
+        </div>
     </div>
     <script src="assets/js/main.js"></script>
 </body>

@@ -1,5 +1,5 @@
 <div class="wrapper">
-    <section>
+    <div>
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
@@ -14,38 +14,38 @@
             <div class="form">
                 <span class="err"></span>
                 <label for="nameV">Nom du véhicule associé* :</label>
-                <select name="nameV" class="needed">
+                <select name="nameV" class="needed" id="nameV">
                     <option value=""></option>
                     {{#each data.Vehicules}}
                     <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
                     {{/each}}
                 </select>
                 <label for="namePD">Nom de la pièce détachée* :</label>
-                <input class="needed" type="text" name="namePD">
+                <input class="needed" type="text" name="namePD" id="namePD">
                 <label for="stypePD">Type et sous-type de pièce détachée* :</label>              
-                <select name="stypePD" class="needed">
+                <select name="stypePD" class="needed" id="stypePD">
                     <option value=""></option>
                     {{#each data.sous_type_p_d}}
                     <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
                     {{/each}}
                 </select> 
                 <label for="longueur">Longueur :</label>
-                <input type="number" name="longueur">
+                <input type="number" name="longueur" id="longueur">
                 <label for="largeur">Largeur :</label>
-                <input type="number" name="largeur">
+                <input type="number" name="largeur" id="largeur">
                 <label for="diametre">Diamètre :</label>
-                <input type="number" name="diametre">
+                <input type="number" name="diametre" id="diametre">
                 <label for="localisation">Localisation :</label>
-                <input type="text" name="localisation">
+                <input type="text" name="localisation" id="localisation">
                 <label for="etat">Etat :</label>
-                <input type="text" name="etat">
+                <input type="text" name="etat" id="etat">
                 <label for="photo">Photo :</label>
-                <input type="file" name="photo">
+                <input type="file" name="photo" id="photo">
                 <label for="doc_pdf">Document PDF :</label>
-                <input type="file" name="doc_pdf">
+                <input type="file" name="doc_pdf" id="doc_pdf">
                 <input type="submit" value="Ajoutez">
-                <p class="champs">*champs requis</p>
+                <span class="champs">*champs requis</span>
             </div>
         </form>
-    </section>
+    </div>
 </div>
