@@ -7,22 +7,25 @@ const bcrypt = require('bcryptjs');
 router.route('/').post((req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         let pass = req.body.mdp;
-        pass = bcrypt.hashSync(pass, 10);
+        bcrypt.hash(pass, 10)
+            .then((hash) => {
+                req.body.mdp = hash
+                if (!req.body._id) req.body._id = new ObjectId();
+                global.schemas[req.message.modelName].create([req.body], (err, result) => {
+                    if (err) {
+                        console.log('erreur :' , err);
+                        res.redirect(req.message.redirect + "?msg=Il y a une erreur")
+                    };
+                
+                    console.log('insertOne mongoose: ', result);
+                    // on refait une requête pour récupérer tous les enregs du modelName
+                    global.schemas[req.message.modelName].find({}, (err, result2) => {
+                        console.log("result into deleteUser : ", result2);
+                        res.redirect(req.message.redirect + "?msg=Ajout correctement effectué")
+                    });          
+                }); // fin de l'insert()
+            })
         // On doit créer via Mongoose un _id pour faire l'insertion dans la base
-        if (!req.body._id) req.body._id = new ObjectId();
-        global.schemas[req.message.modelName].create([req.body], (err, result) => {
-            if (err) {
-                console.log('erreur :' , err);
-                res.redirect(req.message.redirect + "?msg=Il y a une erreur")
-            };
-        
-            console.log('insertOne mongoose: ', result);
-            // on refait une requête pour récupérer tous les enregs du modelName
-            global.schemas[req.message.modelName].find({}, (err, result2) => {
-                console.log("result into deleteUser : ", result2);
-                res.redirect(req.message.redirect + "?msg=Ajout correctement effectué")
-            });          
-        }); // fin de l'insert()
     } else {
         res.redirect('/');
     }
