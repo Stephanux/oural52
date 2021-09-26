@@ -8,6 +8,7 @@ var session = require('express-session');
 var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 var multer = require('multer');
+var bcrypt = require('bcryptjs')
 
 global.upload = multer({
     dest: './public/data/uploads/',
@@ -119,10 +120,16 @@ passport.deserializeUser(function(id, done) {
 });
 
 passport.use(new LocalStrategy(
-    function(username, password, done) {
+    function(username, password, done) {    
+        
         global.schemas["Users"].findOne({
             login: username
         }, function(err, user) {
+            /*
+            bcrypt.compare(password, user.mdp, function(err, res) {
+                console.log('password: ',res)
+            });
+            */
             if (err) {
                 return done(err);
             }
