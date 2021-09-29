@@ -1,10 +1,10 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
-/* GET users listing. */
-router.get('/', function (req, res, next) {
+/* Liste des utilisateurs */
+router.get('/', (req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        global.schemas[req.message.modelName].find({}, function (err, result) {
+        global.schemas[req.message.modelName].find({}, (err, result) => {
             if (err) {
                 throw err;
             }

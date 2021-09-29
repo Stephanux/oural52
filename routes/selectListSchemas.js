@@ -1,34 +1,32 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* GET data content listing. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         // ici on réalise une requête
         let i = 0; // indice pour parcourir le tableau req.message.tables_list
         let results = {};
 
-        function getDataFromTable(i, cbk) {
+        let getDataFromTable = (i, cbk) => {
             if (i < req.message.tables_list.length) {
                 global.sequelize.query(req.message.sql_list[i], {
                     type: sequelize.QueryTypes.SELECT
                 })
-                    .then(function (result) { // sql query success
+                    .then((result) => { // sql query success
                         console.log('listes des données : ', result);
                         // on copie les données obtenues par la requête dans la variable result
                         results[req.message.tables_list[i]] = result;
                         getDataFromTable(i + 1, cbk)
-                    }).catch(function (err) { // sql query error
+                    }).catch((err) => { // sql query error
                         console.log('error select', err);
                         //res.send("error : ", err);
                     });
-
             } else {
                 cbk(); // appel de la callback pour faire le rendu
             }
         }
-
-        getDataFromTable(i, function () {
+        getDataFromTable(i, () => {
             if (req.message.return_type == null) {
                 // récupérer les données extraites de la base et les envoyées à une vue
                 res.render(req.message.view, {

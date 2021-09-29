@@ -6,8 +6,7 @@ const fs = require('fs');
 
 /* POST UPDATE via Sequelize raw query . */
 router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
-    if ((req.session.passport) && (req.session.passport.user != null)) {
-        
+    if ((req.session.passport) && (req.session.passport.user != null)) {       
         // gestion du fichier uploaded via multer.
         console.log('file : ', req.file); // contient les infos sur le fichier uploadé
         console.log('body : ', req.body); // contient les autres données du formulaire
@@ -27,8 +26,8 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
         }
 
         // ici on réalise une requête d'insertion dans une base SQL
-        const params_name = req.message.params_query;
-        const params_value = [];
+        let params_name = req.message.params_query;
+        let params_value = [];
         for (let i = 0; i < params_name.length; i++) {
             params_value.push(req.body[params_name[i]]);
         }

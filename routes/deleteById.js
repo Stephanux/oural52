@@ -1,10 +1,10 @@
 /* *********************************************************
 **  Module générique pour faire un "deleteOne()" via l’_id *
 ** *********************************************************/
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId;
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 /* DELETE record from _id into url and into config_actions.json */
 router.route('/').post((req, res) => {

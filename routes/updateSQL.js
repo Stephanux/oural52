@@ -1,12 +1,12 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 
 /* POST UPDATE via Sequelize raw query . */
-router.post(('/'), function (req, res, next) {
+router.post(('/'), (req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         // ici on réalise une requête d'insertion dans une base SQL
-        var params_name = req.message.params_query;
-        var params_value = [];
+        let params_name = req.message.params_query;
+        let params_value = [];
         for (let i = 0; i < params_name.length; i++) {
             params_value.push(req.body[params_name[i]]);
         }
@@ -17,10 +17,10 @@ router.post(('/'), function (req, res, next) {
             replacements: params_value,
             type: sequelize.QueryTypes.UPDATE
         })
-            .then(function (result) { // sql query success
+            .then((result) => { // sql query success
                 console.log('listes retour updateSQL : ', result);
                 res.redirect(req.message.redirect + '?msg=Modification correctement effectuée');
-            }).catch(function (err) { // sql query error
+            }).catch((err) => { // sql query error
                 console.log('error select', err);
                 res.redirect(req.message.redirect + '?msg=Il y a une erreur');
                 res.send('Erreur : ' + err);

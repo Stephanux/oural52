@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+const express = require('express');
+const router = express.Router();
 const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
@@ -29,12 +29,12 @@ router.post(('/'), upload.fields(fieldUpload), (req, res, next) => {
         }
 
         // ici on réalise une requête pour mettre à jour la table "liens_p_d"
-        const id_vehicule = req.body.nameV;
-        const id_piece = req.body.id;
+        let id_vehicule = req.body.nameV;
+        let id_piece = req.body.id;
         delete req.body.nameV;
 
-        var params_name = req.message.params_query;
-        var params_value = [];
+        let params_name = req.message.params_query;
+        let params_value = [];
         for (let i = 0; i < params_name.length; i++) {
             params_value.push(req.body[params_name[i]]);
         }
