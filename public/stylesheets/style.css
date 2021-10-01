@@ -122,57 +122,12 @@ body{
   transition: 0.3s;
 }
 
-.vehicules{
+.vehicules, .pieces, .stocks, .list-vehicule, .list-piece, .list-users{
   display: none;
   cursor: pointer;
 }
 
-.pieces{
-  display: none;
-  cursor: pointer;
-}
-
-.stocks{
-  display: none;
-  cursor: pointer;
-}
-
-.list-vehicule{
-  display: none;
-  cursor: pointer;
-}
-
-.list-piece{
-  display: none;
-  cursor: pointer;
-}
-
-.list-users {
-  display: none;
-  cursor: pointer;
-}
-
-.sub-menu-vehicules{
-  display: none;
-}
-
-.sub-menu-pieces{
-  display: none;
-}
-
-.sub-menu-stock{
-  display: none;
-}
-
-.sub-menu-list-vehicules{
-  display: none;
-}
-
-.sub-menu-list-piece{
-  display: none;
-}
-
-.sub-menu-list-users{
+.sub-menu-vehicules, .sub-menu-pieces, .sub-menu-stock, .sub-menu-list-vehicules, .sub-menu-list-piece, .sub-menu-list-users{
   display: none;
 }
 
@@ -188,6 +143,7 @@ body{
   margin-top: 15vh;
   border-radius: 2%;
   background-color: var(--container-bcg-color);
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 /****form login****/
@@ -214,6 +170,30 @@ body{
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: hsl(227, 96%, 67%);
+}
+
+/****form****/
+
+form input {
+  border-radius: 10px;
+  padding: 0 10px;
+  outline: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+select {
+  padding: 0 10px;
+  border-radius: 10px;
+  border: none;
+  outline: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  height: 25px;
+}
+
+#doc_vehicule, #doc_piece, #photo {
+  box-shadow: none;
+  padding: 0;
+  border-radius: 0;
 }
 
 /****main page****/
@@ -284,6 +264,8 @@ body{
   background-color: var(--container-bcg-color);
   border-radius: 2%;
   position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
 }
 
 .existing {
@@ -360,8 +342,10 @@ body{
   margin: auto;
   padding: 50px;
   margin-top: 15vh;
+  margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
   border-radius: 2%;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
 #stock{
@@ -387,18 +371,29 @@ body{
 }
 
 #stock th{
+  vertical-align: middle;
+  text-align: center;
   background-color: var(--header-bcg-color);
   color: var(--text-color-white);
 }
 
 #stock td{
   border: 1px solid var(--text-color-black);
+  vertical-align: middle;
 }
 
 #stock span{
   display: flex;
   justify-content: center;
   margin-top: 10px;
+}
+
+.dataTable-input {
+  width: 120px;
+  border-radius: 10px;
+  padding: 0 10px;
+  outline: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .vehicule {
