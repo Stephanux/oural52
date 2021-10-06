@@ -196,6 +196,55 @@ select {
   border-radius: 0;
 }
 
+/****form validation ****/
+
+.form div {
+  position: relative;
+}
+
+.form input {
+  width: 300px;
+}
+
+.form i {
+  position: absolute;
+  padding: 5px 10px;
+}
+
+.failure-icon,
+.error {
+  color: red;
+}
+
+.success-icon {
+  color: green;
+}
+
+.error {
+  font-size: 14.5px;
+  margin-top: 5px;
+}
+
+.success-icon,
+.failure-icon,
+.icon-password,
+.icon-confirm-password {
+  right: 0;
+  opacity: 0;
+}
+
+.close-eye {
+    opacity: 0;
+}
+
+.form input[type="password"] {
+  padding: 0 30px;
+}
+
+.form input[type="text"] {
+  padding: 0 30px;
+}
+
 /****main page****/
 
 .main{

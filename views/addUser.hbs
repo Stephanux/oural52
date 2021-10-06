@@ -13,17 +13,54 @@
         </select>
         <form action="{{this.form_action}}" method="POST" id="form">
             <div class="form">
-            <span class="err"></span>
                 <label for="name">Nom* :</label>
-                <input class="needed" type="text" name="name" id="name" value="{{data.name}}">
+                <div>
+                    <input type="text" name="name" id="name" class="needed" value="{{data.name}}">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+
                 <label for="firstName">Prénom* :</label>
-                <input class="needed" type="text" name="firstName" id="firstName" value="{{data.firstName}}">
+                <div>
+                    <input type="text" name="firstName" id="firstName" class="needed" value="{{data.firstName}}">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+
                 <label for="login">Pseudo* :</label>
-                <input class="needed" type="text" name="login" id="login" value="{{data.login}}">
+                <div>
+                    <input type="text" name="login" id="login" class="needed" value="{{data.login}}">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+
                 <label for="mdp">Mot de passe* :</label>
-                <input class="needed pass" type="password" name="mdp" id="mdp" value="{{data.mdp}}">
+                <div>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="mdp" id="mdp" class="needed" value="{{data.mdp}}">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <span class="icon-password">
+                        <i class="fas fa-eye password-eye"></i>
+                    </span>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+
                 <label for="password-confirm">Confirmation du mot de passe* :</label>
-                <input class="needed confirm" type="password" name="password-confirm" id="password-confirm">
+                <div>
+                    <i class="fas fa-lock"></i>
+                    <input type="password" name="password-confirm" id="password-confirm" class="needed">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <span class="icon-confirm-password">
+                        <i class="fas fa-eye confirm-password-eye"></i>
+                    </span>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+
                 <input type="submit" value="Ajoutez">
                 <span class="champs">*champs requis</span>
             </div>
