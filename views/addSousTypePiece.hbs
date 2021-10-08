@@ -13,9 +13,9 @@
             <div class="form">
                 <span class="err"></span>
                 <label for="stype_piece">Sous-type de pièce* :</label>
-                <input class="needed" type="text" name="stype_piece">
+                <input type="text" name="stype_piece">
                 <label for="type_piece">Type de pièce* :</label>
-                <select name="type_piece" class="needed">
+                <select name="type_piece">
                     {{#each data.type_p_d}}
                     <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
                     {{/each}}
