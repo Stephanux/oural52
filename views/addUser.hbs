@@ -14,7 +14,7 @@
         <form action="{{this.form_action}}" method="POST" id="form">
             <div class="form">
                 <label for="name">Nom* :</label>
-                <div>
+                <div class="form-data">
                     <input type="text" name="name" id="name" value="{{data.name}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
@@ -22,7 +22,7 @@
                 </div>
 
                 <label for="firstName">Prénom* :</label>
-                <div>
+                <div class="form-data">
                     <input type="text" name="firstName" id="firstName" value="{{data.firstName}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
@@ -30,7 +30,7 @@
                 </div>
 
                 <label for="login">Pseudo* :</label>
-                <div>
+                <div class="form-data">
                     <input type="text" name="login" id="login" value="{{data.login}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
@@ -38,8 +38,7 @@
                 </div>
 
                 <label for="mdp">Mot de passe* :</label>
-                <div>
-                    <i class="fas fa-lock"></i>
+                <div class="form-data">
                     <input type="password" name="mdp" id="mdp" value="{{data.mdp}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <span class="icon-password">
@@ -50,8 +49,7 @@
                 </div>
 
                 <label for="password-confirm">Confirmation du mot de passe* :</label>
-                <div>
-                    <i class="fas fa-lock"></i>
+                <div class="form-data">
                     <input type="password" name="password-confirm" id="password-confirm">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <span class="icon-confirm-password">

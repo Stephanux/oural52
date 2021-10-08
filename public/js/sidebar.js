@@ -15,6 +15,12 @@ window.addEventListener('load', () => {
     let menuEditPiece = document.querySelector('.sub-menu-list-piece')
     let users = document.querySelector('.list-users')
     let menuUsers = document.querySelector('.sub-menu-list-users')
+    let titleVehicule = document.querySelector('.title-vehicule')
+    let titlePiece = document.querySelector('.title-piece')
+    let titleStock = document.querySelector('.title-stock')
+    let tileEditVehicule = document.querySelector('.title-edit-vehicule')
+    let titleEditPiece = document.querySelector('.title-edit-piece')
+    let titleUser = document.querySelector('.title-user')
 
     //SHOW SIDEBAR//
     icon.addEventListener('click', () => {
@@ -35,6 +41,12 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "none"
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
+        titleVehicule.classList.add('item')
+        titlePiece.classList.remove('item')
+        titleStock.classList.remove('item')
+        tileEditVehicule.classList.remove('item')
+        titleEditPiece.classList.remove('item')
+        titleUser.classList.remove('item')
     })
 
     piece.addEventListener('click', () => {
@@ -44,6 +56,12 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "none"
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
+        titlePiece.classList.add('item')
+        titleVehicule.classList.remove('item')
+        titleStock.classList.remove('item')
+        tileEditVehicule.classList.remove('item')
+        titleEditPiece.classList.remove('item')
+        titleUser.classList.remove('item')
     })
 
     stock.addEventListener('click', () => {
@@ -53,6 +71,11 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "none"
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
+        titleStock.classList.add('item')
+        titlePiece.classList.remove('item')
+        tileEditVehicule.classList.remove('item')
+        titleEditPiece.classList.remove('item')
+        titleUser.classList.remove('item')
     })
 
     editVehicule.addEventListener('click', () => {
@@ -62,6 +85,11 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "block"
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
+        tileEditVehicule.classList.add('item')
+        titlePiece.classList.remove('item')
+        titleStock.classList.remove('item')
+        titleEditPiece.classList.remove('item')
+        titleUser.classList.remove('item')
     })
 
     editPiece.addEventListener('click', () => {
@@ -71,6 +99,11 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "none"
         menuEditPiece.style.display = "block"
         menuUsers.style.display = "none"
+        titleEditPiece.classList.add('item')
+        titlePiece.classList.remove('item')
+        titleStock.classList.remove('item')
+        tileEditVehicule.classList.remove('item')
+        titleUser.classList.remove('item')
     })
 
     users.addEventListener('click', () => {
@@ -80,11 +113,18 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "none"
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "block"
+        titleUser.classList.add('item')
+        titlePiece.classList.remove('item')
+        titleVehicule.classList.remove('item')
+        titleStock.classList.remove('item')
+        tileEditVehicule.classList.remove('item')
+        titleEditPiece.classList.remove('item')
     })
 
     //CLOSE SIDEBAR AND SUB-MENUS//
     closeMenu.addEventListener('click', () => {
         sideBar.classList.remove('active')
+        titleVehicule.classList.remove('item')
         menuVehicule.style.display = "none"
         menuPiece.style.display = "none"
         menuStock.style.display = "none"
