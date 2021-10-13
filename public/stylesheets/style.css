@@ -68,7 +68,7 @@ li {
 	position: absolute;
 	width: 350px;
   padding: 10px;
-	height: 100%;
+	height: 1080px;
 	background-color: var(--header-bcg-color);
 	left:-400px;
   z-index: 4;
@@ -86,6 +86,10 @@ li {
   background-color: var(--container-bcg-color);
   fill: var(--header-bcg-color);
   border-radius: 50%;
+}
+
+.menu-element {
+  margin-top: 100px;
 }
 
 .menu-element li{
@@ -111,12 +115,14 @@ li {
 }
 
 #sidebar.active{
+  top: 0;
 	left:0;
-  margin-top: 650px;
 }
 
 .menu-close{
-  margin-left: 300px;
+  position: absolute;
+  top: 0;
+  right: 0;
   fill: var(--text-color-white);
   width: 40px;
   cursor: pointer;
@@ -313,7 +319,7 @@ select {
   margin-top: 15vh;
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
-  border-radius: 2%;
+  border-radius: 10px;
   position: relative;
   box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
   padding: 20px 0;
@@ -396,7 +402,7 @@ select {
   margin-top: 15vh;
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
-  border-radius: 2%;
+  border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
 }
 
@@ -449,6 +455,10 @@ select {
 
 .wrapper .dataTable-selector {
   padding: 0 0 0 10px;
+}
+
+.wrap .dataTable-selector {
+  padding: 0;
 }
 
 .vehicule {
@@ -538,14 +548,71 @@ h4{
 
 /**RESPONSIVE**/
 
+@media screen and (max-width: 1400px) {
+  .wrap {
+    width: 1210px;
+  }
+}
 @media screen and (max-width: 1200px) {
   .header {
     width: 100%;
   }
+
+  .wrap{
+    width: 1000px;
+  }
+
+  #stock thead {
+    display: none;
+  }
+
+  #stock tr{
+    display: block;
+    margin-bottom: 40px;
+  }
+
+  #stock td {
+    display: block;
+    text-align: right;
+    height: 37px;
+    border: 3px inset var(--body-bcg-color);
+  }
+
+  #stock td:before {
+    content: attr(data-label);
+    float: left;
+    color: var(--header-bcg-color);
+  }
+
+  #stock span {
+    justify-content: flex-end;
+    margin: 0;
+  }
+
+  .car {
+    display: none;
+  }
+
+  .vehicule {
+    font-size: 16px;
+  }
+
+  #stock td:nth-child(even){
+    background-color: var(--body-bcg-color);
+  }
+
+  #stock tr:nth-child(even){
+    background-color: transparent;
+  }
+
 }
 
 @media screen and (max-width: 1024px) {
   .wrapper {
+    width: 800px;
+  }
+
+  .wrap {
     width: 800px;
   }
 }
@@ -562,6 +629,14 @@ h4{
 
 @media screen and (max-width: 820px) {
   .wrapper {
+    width: 600px;
+  }
+
+  .container {
+    width: 600px;
+  }
+
+  .wrap {
     width: 600px;
   }
 }
@@ -589,28 +664,65 @@ h4{
     width: 400px;
   }
 
+  .container {
+    width: 400px;
+  }
+
+  .wrap {
+    width: 400px;
+    font-size: 12px;
+  }
+
+  .dataTable-input{
+    width: 110px;
+  }
+
   #sidebar.active{
     width: 100%;
     height: 200px;
-    margin-top: 100px;
+    background-color: var(--container-bcg-color);
+    padding: 0;
   }
 
   .menu-element{
     display: flex;
-    justify-content: space-between;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 40px;
+  }
+
+  .menu-element span:hover {
+    color: var(--header-bcg-color);
   }
 
   .active .menu-close {
-    margin-left: 500px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    fill: var(--delete-color);
   }
 
   .menu-element li{
+    line-height: 30px;
+    text-align: center;
     font-size: 16px;
     margin: 0;
+    background-color: var(--container-bcg-color);
+    color: var(--header-bcg-color);
+    width: 100%;
+    border: 1px solid var(--body-bcg-color);
   }
 
   .menu-element a {
-    font-size: 10px;
+    font-size: 12px;
+    color: var(--header-bcg-color);
+  }
+
+}
+
+@media screen and (max-width: 550px) {
+  .active .menu-close{
+    margin-left: 380px;
   }
 }
 
@@ -620,8 +732,33 @@ h4{
     padding: 50px 20px;
   }
 
+  .header h1 {
+    font-size: 20px;
+  }
+
+  .wrap {
+    width: 320px;
+    font-size: 10px;
+  }
+
   .wrapper {
     width: 300px;
+  }
+
+  .container {
+    width: 300px;
+  }
+
+  .active .menu-close{
+    margin-left: 280px;
+  }
+
+  .dataTable-search{
+    margin: 10px 40px 0 0;
+  }
+
+  .dataTable-top{
+    margin-left: 30px;
   }
 }
 
@@ -633,13 +770,5 @@ h4{
 
   .wrapper {
     width: 280px;
-  }
-}
-
-
-
-@media screen and (height: 700px) {
-  #sidebar {
-    margin-top: 600px;
   }
 }

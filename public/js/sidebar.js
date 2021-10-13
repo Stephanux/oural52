@@ -72,6 +72,7 @@ window.addEventListener('load', () => {
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
         titleStock.classList.add('item')
+        titleVehicule.classList.remove('item')
         titlePiece.classList.remove('item')
         tileEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
@@ -125,6 +126,12 @@ window.addEventListener('load', () => {
     closeMenu.addEventListener('click', () => {
         sideBar.classList.remove('active')
         titleVehicule.classList.remove('item')
+        titlePiece.classList.remove('item')
+        titleVehicule.classList.remove('item')
+        titleStock.classList.remove('item')
+        tileEditVehicule.classList.remove('item')
+        titleEditPiece.classList.remove('item')
+        titleUser.classList.remove('item')
         menuVehicule.style.display = "none"
         menuPiece.style.display = "none"
         menuStock.style.display = "none"

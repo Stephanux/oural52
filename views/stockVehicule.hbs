@@ -18,13 +18,13 @@
             <tbody>
                 {{#each data.Vehicules}}
                 <tr>
-                    <td>{{this.nom_vehicule}}</td>
-                    <td class="date">{{this.date_mise_circulation}}</td>
-                    <td>{{this.nom_marque}}</td>
-                    <td>{{this.nom_modele}}</td>
-                    <td class="vehicule">{{this.nom_type_vehicule}}</td>
-                    <td><a href="data/uploads/{{this.doc_pdf}}" target="_blank">{{this.doc_pdf}}</a></td>
-                    <td>
+                    <td data-label="Nom du véhicule">{{this.nom_vehicule}}</td>
+                    <td class="date" data-label="Mise en circulation">{{this.date_mise_circulation}}</td>
+                    <td data-label="Marque du véhicule">{{this.nom_marque}}</td>
+                    <td data-label="Modèle">{{this.nom_modele}}</td>
+                    <td class="vehicule" data-label="Type de véhicule">{{this.nom_type_vehicule}}</td>
+                    <td data-label="Doc véhicule"><a href="data/uploads/{{this.doc_pdf}}" target="_blank">{{this.doc_pdf}}</a></td>
+                    <td data-label="Edition">
                         <span>
                             <a href="/formEditVehicule?id={{this.id_vehicule}}"><svg xmlns="http://www.w3.org/2000/svg"
                                     class="edit" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
