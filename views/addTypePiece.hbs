@@ -5,7 +5,6 @@
         {{/if}}
         <span class="existing">Types de pièces existant :</span>
         <select name="type">
-            <option value=""></option>
             {{#each data.type_p_d}}
             <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
             {{/each}}

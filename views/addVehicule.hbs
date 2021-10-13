@@ -13,14 +13,12 @@
                 <input type="date" name="dateMEC" id="dateMEC">
                 <label for="typeV">Type de véhicule* :</label>
                 <select name="typeV" id="typeV">
-                    <option value=""></option>
                     {{#each data.type_vehicule}}
                     <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
                     {{/each}}
                 </select>
                 <label for="modeleV">Modèle du véhicule* :</label>
                 <select name="modeleV" id="modeleV">
-                    <option value=""></option>
                     {{#each data.modele}}
                     <option value="{{this.id_modele}}">{{this.nom_marque}} - {{this.nom_modele}}</option>
                     {{/each}}

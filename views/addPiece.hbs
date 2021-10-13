@@ -5,7 +5,6 @@
         {{/if}}
         <span class="existing">Pièces détachées existante :</span>
         <select name="type">
-            <option value=""></option>
             {{#each data.pieces_detachees}}
             <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
             {{/each}}
@@ -15,7 +14,6 @@
                 <span class="err"></span>
                 <label for="nameV">Nom du véhicule associé* :</label>
                 <select name="nameV" id="nameV">
-                    <option value=""></option>
                     {{#each data.Vehicules}}
                     <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
                     {{/each}}
@@ -24,7 +22,6 @@
                 <input type="text" name="namePD" id="namePD">
                 <label for="stypePD">Type et sous-type de pièce détachée* :</label>              
                 <select name="stypePD" id="stypePD">
-                    <option value=""></option>
                     {{#each data.sous_type_p_d}}
                     <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
                     {{/each}}
