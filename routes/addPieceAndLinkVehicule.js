@@ -36,7 +36,7 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
                 type: sequelize.QueryTypes.INSERT
             })
             .then(() => {
-                res.redirect(req.message.redirect + '?msg=Ajouts correctements effectués');
+                res.redirect(req.message.redirect + '?msg=Ajout correctement effectué');
             }) // SQL query error return error into callback
             .catch((err) => {
                 console.log('error select', err);
