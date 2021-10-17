@@ -117,7 +117,6 @@ li {
 #sidebar.active{
   top: 0;
 	left:0;
-  margin-top: 835px;
 }
 
 .menu-close{
@@ -563,6 +562,10 @@ h4{
     width: 1000px;
   }
 
+  #stock {
+    width: 600px;
+  }
+
   #stock thead {
     display: none;
   }
@@ -576,13 +579,15 @@ h4{
     display: block;
     text-align: right;
     height: 37px;
-    border: 3px inset var(--body-bcg-color);
+    border: 2px solid var(--body-bcg-color);
   }
 
-  #stock td:before {
+  #stock td div:before {
     content: attr(data-label);
     float: left;
-    color: var(--header-bcg-color);
+    background-color: var(--header-bcg-color);
+    color: var(--text-color-white);
+    padding: 0 10px;
   }
 
   #stock span {
@@ -590,7 +595,7 @@ h4{
     margin: 0;
   }
 
-  .car {
+  .car, .moto, .scoot, .tractor {
     display: none;
   }
 
@@ -622,13 +627,14 @@ h4{
   #sidebar{
     width: 250px;
   }
-
-  .menu-close {
-    margin-left: 200px;
-  }
 }
 
 @media screen and (max-width: 820px) {
+
+  #stock {
+    width: 400px;
+  }
+
   .wrapper {
     width: 600px;
   }
@@ -647,10 +653,6 @@ h4{
     width: 200px;
   }
 
-  .menu-close {
-    margin-left: 150px;
-  }
-
   .menu-element li{
     font-size: 20px;
   }
@@ -661,6 +663,11 @@ h4{
 }
 
 @media screen and (max-width: 630px) {
+
+  #stock {
+    width: 300px;
+  }
+
   .wrapper {
     width: 400px;
   }
@@ -721,12 +728,6 @@ h4{
 
 }
 
-@media screen and (max-width: 550px) {
-  .active .menu-close{
-    margin-left: 380px;
-  }
-}
-
 @media screen and (max-width: 420px) {
 
   .header {
@@ -748,18 +749,6 @@ h4{
 
   .container {
     width: 300px;
-  }
-
-  .active .menu-close{
-    margin-left: 280px;
-  }
-
-  .dataTable-search{
-    margin: 10px 40px 0 0;
-  }
-
-  .dataTable-top{
-    margin-left: 30px;
   }
 }
 

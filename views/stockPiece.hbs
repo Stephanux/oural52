@@ -22,18 +22,19 @@
             </thead>
             {{#each data.pieces_detachees}}
             <tr>
-                <td data-label="Nom de la pièce">{{this.nom_p_d}}</td>
-                <td data-label="Nom du véhicule associé">{{this.nom_vehicule}}</td>
-                <td data-label="Type de pièce">{{this.nom_type_p_d}}</td>
-                <td data-label="Sous-type de pièce">{{this.nom_stype}}</td>
-                <td data-label="Photo"><a href="data/uploads/{{this.photo}}" target="_blank">{{this.photo}}</a></td>
-                <td data-label="Doc Pièce"><a href="data/uploads/{{this.doc_pdf}}" target="_blank">{{this.doc_pdf}}</a></td>
-                <td data-label="Etat">{{this.etat}}</td>
-                <td data-label="Localisation">{{this.localisation}}</td>
-                <td data-label="Longueur">{{this.longueur}}</td>
-                <td data-label="Largeur">{{this.largeur}}</td>
-                <td data-label="Diamètre">{{this.diametre}}</td>
-                <td data-label="Edition">
+                <td><div data-label="Nom de la pièce"></div>{{this.nom_p_d}}</td>
+                <td><div data-label="Nom du véhicule associé"></div>{{this.nom_vehicule}}</td>
+                <td><div data-label="Type de pièce"></div>{{this.nom_type_p_d}}</td>
+                <td><div data-label="Sous-type de pièce"></div>{{this.nom_stype}}</td>
+                <td><div data-label="Photo"></div><a href="data/uploads/{{this.photo}}" target="_blank">{{this.photo}}</a></td>
+                <td><div data-label="Doc Pièce"></div><a href="data/uploads/{{this.doc_pdf}}" target="_blank">{{this.doc_pdf}}</a></td>
+                <td><div data-label="Etat"></div>{{this.etat}}</td>
+                <td><div data-label="Localisation"></div>{{this.localisation}}</td>
+                <td><div data-label="Longueur"></div>{{this.longueur}}</td>
+                <td><div data-label="Largeur"></div>{{this.largeur}}</td>
+                <td><div data-label="Diamètre"></div>{{this.diametre}}</td>
+                <td>
+                    <div data-label="Edition"></div>
                     <span>
                         <a href="/formEditPiece?id={{this.id_p_d}}"><svg xmlns="http://www.w3.org/2000/svg" class="edit" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px"><title>Edit</title><rect x="14.092" y="38.264" width="66.311" height="28.978" transform="translate(-23.463 48.86) rotate(-45)"/><rect x="71.875" y="4.627" width="18.019" height="28.978" transform="translate(10.174 62.793) rotate(-45)"/><polygon points="8.088 71.422 2.5 97.5 28.578 91.912 30.226 90.264 9.736 69.774 8.088 71.422"/></svg></a>
                         <a href="/formDeletePiece?id={{this.id_p_d}}"><svg xmlns="http://www.w3.org/2000/svg" class="delete" data-name="Layer 2" viewBox="0 0 32 40" x="0px" y="0px"><path d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z"/><path d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z"/></svg></a>
