@@ -1,11 +1,8 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId;
+const express = require('express');
+const router = express.Router();
 
 /* Composant générique findByIdWithList pour lire un enreg via son Id mongodb 
 + une liste d'une autre collection via la variable modelList dans config_actions.json */
-/* GET data from _id into url  http://localhost:3000/formUser/5d2855f6181abe6e1b5f697c */
 router.get('/', (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         global.schemas[req.message.modelName].find({

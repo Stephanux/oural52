@@ -5,7 +5,6 @@
         {{/if}}
         <span class="existing">Pièces détachées existante :</span>
         <select name="type">
-            <option value=""></option>
             {{#each data.pieces_detachees}}
             <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
             {{/each}}
@@ -14,17 +13,15 @@
             <div class="form">
                 <span class="err"></span>
                 <label for="nameV">Nom du véhicule associé* :</label>
-                <select name="nameV" class="needed" id="nameV">
-                    <option value=""></option>
+                <select name="nameV" id="nameV">
                     {{#each data.Vehicules}}
                     <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
                     {{/each}}
                 </select>
                 <label for="namePD">Nom de la pièce détachée* :</label>
-                <input class="needed" type="text" name="namePD" id="namePD">
+                <input type="text" name="namePD" id="namePD">
                 <label for="stypePD">Type et sous-type de pièce détachée* :</label>              
-                <select name="stypePD" class="needed" id="stypePD">
-                    <option value=""></option>
+                <select name="stypePD" id="stypePD">
                     {{#each data.sous_type_p_d}}
                     <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
                     {{/each}}
@@ -42,10 +39,11 @@
                 <label for="photo">Photo :</label>
                 <input type="file" name="photo" id="photo">
                 <label for="doc_pdf">Document PDF :</label>
-                <input type="file" name="doc_pdf" id="doc_pdf">
+                <input type="file" name="doc_pdf" id="doc_piece">
                 <input type="submit" value="Ajoutez">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
+<script src="js/form.js"></script>

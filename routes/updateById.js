@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
-var mongoose = require('mongoose');
-var ObjectId = mongoose.Types.ObjectId;
+const express = require('express');
+const router = express.Router();
+const mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 
 /* SET user from _id with new data for an update into mongoDB . */
 router.route('/').post((req, res) => {
@@ -20,6 +20,5 @@ router.route('/').post((req, res) => {
         res.redirect('/');  // affichage boîte de login si pas authentifié
     }
 });
-
 
 module.exports = router;

@@ -1,11 +1,11 @@
-var express = require('express')
-var router = express.Router()
+const express = require('express')
+const router = express.Router()
 
 // Delete by id
 router.post('/', (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        var params_name = req.message.params_query;
-        var params_value = [];
+        let params_name = req.message.params_query;
+        let params_value = [];
         for (let i = 0; i < params_name.length; i++) {
             params_value.push(req.body[params_name[i]]);
         }

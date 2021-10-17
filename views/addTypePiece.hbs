@@ -5,7 +5,6 @@
         {{/if}}
         <span class="existing">Types de pièces existant :</span>
         <select name="type">
-            <option value=""></option>
             {{#each data.type_p_d}}
             <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
             {{/each}}
@@ -14,10 +13,11 @@
             <div class="form">
                 <span class="err"></span>
                 <label for="type_piece">Type de pièce* :</label>
-                <input class="needed" type="text" name="type_piece" id="type_piece">
+                <input type="text" name="type_piece" id="type_piece">
                 <input type="submit" value="Ajoutez">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
+<script src="js/form.js"></script>

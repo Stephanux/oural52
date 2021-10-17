@@ -6,10 +6,10 @@ var router = express.Router();
 var mongoose = require('mongoose');
 
 /* GET users listing. */
-router.get('/', function (req, res, next) {
+router.get('/', (req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        global.schemas[req.message.modelName].find({}).populate(req.message.pop_ref)
-            .exec(function (err, result) {
+        global.schemas[req.message.modelName].find({})
+            .exec((err, result) => {
                 if (err) {
                     console.log("error: ", err);
                     return handleError(err);
