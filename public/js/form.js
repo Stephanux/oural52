@@ -22,27 +22,27 @@ window.addEventListener('load', () => {
     let iconPassword = document.querySelector('.icon-password')
     let iconConfirmPassword = document.querySelector('.icon-confirm-password')
 
-      /**LOGIN**/
+    /**LOGIN**/
 
-      let usernameLogin = document.querySelector('#usernameLogin')
-      let passwordLogin = document.querySelector('#passwordLogin')
-      let formLogin = document.querySelector('#form-login')
-  
-      console.log(errorMsg)
-      console.log(successIcon)
-      console.log(failureIcon)
-  
-      formLogin.addEventListener('submit', (e) => {
-          if(usernameLogin.value === '' || passwordLogin.value === ''){
-              e.preventDefault()
-              engine(usernameLogin, 0, "Le pseudo est requis")
-              engine(passwordLogin, 1, "Le mot de passe est requis")
-          }
-          displayEye(passwordLogin, iconPassword)
-          hideStyle(usernameLogin, 0, "")
-          hideStyle(passwordLogin, 1, "")
-          switched(iconPassword, passwordLogin)
-      })
+    let usernameLogin = document.querySelector('#usernameLogin')
+    let passwordLogin = document.querySelector('#passwordLogin')
+    let formLogin = document.querySelector('#form-login')
+
+    console.log(errorMsg)
+    console.log(successIcon)
+    console.log(failureIcon)
+
+    formLogin.addEventListener('submit', (e) => {
+        if(usernameLogin.value === '' || passwordLogin.value === ''){
+            e.preventDefault()
+            engine(usernameLogin, 0, "Le pseudo est requis")
+            engine(passwordLogin, 1, "Le mot de passe est requis")
+        }
+        displayEye(passwordLogin, iconPassword)
+        hideStyle(usernameLogin, 0, "")
+        hideStyle(passwordLogin, 1, "")
+        switched(iconPassword, passwordLogin)
+    })
 
     //DISPLAY ERROR MSG
     let engine = (id, serial, message) => {
