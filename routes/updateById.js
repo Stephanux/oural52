@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 /* SET user from _id with new data for an update into mongoDB . */
-router.route('/').post((req, res) => {
+router.post('/:_id', (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         global.schemas[req.message.modelName].updateOne({ _id: new ObjectId(req.query.id) }, (err, result)  => {
                 if (err) { throw err; }
