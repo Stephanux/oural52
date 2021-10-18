@@ -18,34 +18,20 @@
             <tbody>
                 {{#each data.Vehicules}}
                 <tr>
-                    <td><div data-label="Nom du véhicule"></div>{{this.nom_vehicule}}</td>
-                    <td><div data-label="Date de mise en circulation"></div><span class="date">{{this.date_mise_circulation}}</span></td>
-                    <td><div data-label="Marque du véhicule"></div>{{this.nom_marque}}</td>
-                    <td><div data-label="Modèle"></div>{{this.nom_modele}}</td>
-                    <td class="vehicule"><div data-label="Type de véhicule"></div>{{this.nom_type_vehicule}}</td>
-                    <td><div data-label="Doc véhicule"></div><a href="data/uploads/{{this.doc_pdf}}" target="_blank">{{this.doc_pdf}}</a></td>
+                    <td><div class="printResp" data-label="Nom du véhicule"></div><div>{{this.nom_vehicule}}</div></td>
+                    <td><div class="printResp" data-label="Mise en circulation"></div><div class="date">{{this.date_mise_circulation}}</div></td>
+                    <td><div class="printResp" data-label="Marque du véhicule"></div><div>{{this.nom_marque}}</div></td>
+                    <td><div class="printResp" data-label="Modèle"></div><div>{{this.nom_modele}}</div></td>
+                    <td><div class="printResp" data-label="Type de véhicule"></div><div class="vehicule">{{this.nom_type_vehicule}}</div></td>
+                    <td><div class="printResp" data-label="Doc véhicule"></div><div><a href="data/uploads/{{this.doc_pdf}}" target="_blank">{{this.doc_pdf}}</a></div></td>
                     <td>
-                        <div data-label="Edition"></div>
-                        <span>
-                            <a href="/formEditVehicule?id={{this.id_vehicule}}"><svg xmlns="http://www.w3.org/2000/svg"
-                                    class="edit" data-name="Layer 1" viewBox="0 0 100 125" x="0px" y="0px">
-                                    <title>Edit</title>
-                                    <rect x="14.092" y="38.264" width="66.311" height="28.978"
-                                        transform="translate(-23.463 48.86) rotate(-45)" />
-                                    <rect x="71.875" y="4.627" width="18.019" height="28.978"
-                                        transform="translate(10.174 62.793) rotate(-45)" />
-                                    <polygon
-                                        points="8.088 71.422 2.5 97.5 28.578 91.912 30.226 90.264 9.736 69.774 8.088 71.422" />
-                                </svg></a>
-                            <a href="/formDeleteVehicule?id={{this.id_vehicule}}"><svg
-                                    xmlns="http://www.w3.org/2000/svg" class="delete" data-name="Layer 2"
-                                    viewBox="0 0 32 40" x="0px" y="0px">
-                                    <path
-                                        d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z" />
-                                    <path
-                                        d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z" />
-                                </svg></a>
-                        </span>
+                        <div class="printResp" data-label="Edition"></div>
+                        <div>
+                            <span>
+                                <a href="/formEditVehicule?id={{this.id_vehicule}}"><svg class="edit" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 95 95" style="enable-background:new 0 0 95 95" xml:space="preserve"><path d="m11.089 63.472 46.88-46.88 20.506 20.505-46.88 46.881zM61.767 12.705 74.495-.022 95 20.484 82.273 33.21zM5.6 68.9 0 95l26.1-5.6 1.6-1.6L7.2 67.3z"/></svg></a>
+                                <a href="/formDeleteVehicule?id={{this.id_vehicule}}"><svg class="delete" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 26 26" style="enable-background:new 0 0 26 26" xml:space="preserve"><path d="M1 26c-.6 0-1-.4-1-1 0-.3.1-.5.3-.7l24-24c.4-.4 1-.4 1.4 0s.4 1 0 1.4l-24 24c-.2.2-.4.3-.7.3z"/><path d="M25 26c-.3 0-.5-.1-.7-.3l-24-24C-.1 1.3-.1.7.3.3c.4-.4 1-.4 1.4 0l24 24c.4.4.4 1 0 1.4-.2.2-.4.3-.7.3z"/></svg></a>
+                            </span>
+                        </div>
                     </td>
                 </tr>
                 {{/each}}
