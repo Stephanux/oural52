@@ -12,7 +12,14 @@ var bcrypt = require('bcryptjs')
 
 global.upload = multer({
     dest: './public/data/uploads/',
-    limits: 1000
+    limits: 1000,
+    fileFilter: (req, file, cb) => {
+        if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "application/pdf") {
+          cb(null, true);
+        } else {
+            cb(req.body.msg = new Error("Le format de fichier accepté est jpg, png, jpeg, pdf."), false)     
+        }
+      }
 });
 
 /* Chargement du fichier de configuration générale du Framework MiniSmall */

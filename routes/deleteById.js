@@ -7,7 +7,11 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 /* DELETE record from _id into url and into config_actions.json */
+<<<<<<< HEAD
 router.post(('/'), (req, res) => {
+=======
+router.post('/:_id', (req, res) => {
+>>>>>>> 96c7cbe2c18fcf78e0dda7d8ce9af0e0f827cdb0
     if ((req.session.passport) && (req.session.passport.user != null)) {
         global.schemas[req.message.modelName].deleteOne({ _id: new ObjectId(req.params._id) }, (err, result) => {
             if (err) {

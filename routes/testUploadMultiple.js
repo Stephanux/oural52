@@ -25,7 +25,7 @@ router.post(('/'), upload.fields(fieldUpload), (req, res, next) => {
                 }))   
             } else {
                 console.log('/********* ',req.files);
-                req.files = req.body[fieldUpload[i].name];
+                req.files[fieldUpload[i]] = req.body[fieldUpload[i].name];
             }
         }
 

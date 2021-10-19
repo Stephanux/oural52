@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     let errorMsg = document.querySelectorAll('.error')
     let successIcon = document.querySelectorAll('.success-icon')
     let failureIcon = document.querySelectorAll('.failure-icon')
-    let form = document.querySelector('#form')
+    let formUser = document.querySelector('#form-user')
     let name = document.querySelector('#name')
     let firstname = document.querySelector('#firstName')
     let pseudo = document.querySelector('#login')
@@ -22,8 +22,29 @@ window.addEventListener('load', () => {
     let iconPassword = document.querySelector('.icon-password')
     let iconConfirmPassword = document.querySelector('.icon-confirm-password')
 
-    console.log(name.value)
+    /**LOGIN**/
 
+    /*
+    let usernameLogin = document.querySelector('#usernameLogin')
+    let passwordLogin = document.querySelector('#passwordLogin')
+    let formLogin = document.querySelector('#form-login')
+
+    console.log(errorMsg)
+    console.log(successIcon)
+    console.log(failureIcon)
+
+    formLogin.addEventListener('submit', (e) => {
+        if(usernameLogin.value === '' || passwordLogin.value === ''){
+            e.preventDefault()
+            engine(usernameLogin, 0, "Le pseudo est requis")
+            engine(passwordLogin, 1, "Le mot de passe est requis")
+        }
+        displayEye(passwordLogin, iconPassword)
+        hideStyle(usernameLogin, 0, "")
+        hideStyle(passwordLogin, 1, "")
+        switched(iconPassword, passwordLogin)
+    })
+    */
     //DISPLAY ERROR MSG
     let engine = (id, serial, message) => {
         if (id.value.trim() === "") {
@@ -42,24 +63,27 @@ window.addEventListener('load', () => {
         }
     }
     
-    form.addEventListener('submit', (e) => {
+    /**USER**/
+    formUser.addEventListener('submit', (e) => {
+
+        if(name.value === '' || firstname.value === '' || pseudo.value === '' || password.value === '' || confirmPassword.value === ''){
         e.preventDefault()
-        //USER
         engine(name, 0, "Le nom est requis")
         engine(firstname, 1 , "Le prénom est requis")
         engine(pseudo, 2 , "Le pseudo est requis")
         engine(password, 3, "Le mot de passe est obligatoire")
         engine(confirmPassword, 4, "La confirmation est obligatoire")
 
+        }
         if (password.value !== confirmPassword.value) {
-            e.preventDefault();
-            confirmPassword.style.border = "2px solid red";
+            e.preventDefault()
+            confirmPassword.style.border = "2px solid red"
             errorMsg[4].innerHTML = "Les mots de passes ne correspondent pas"
             failureIcon[4].style.opacity = "1"
             successIcon[3].style.opacity = "1"
             successIcon[4].style.opacity = "0"
-            eyeIconConfirmPassword.style.opacity = "0"
         }
+
         /*
          //CHECK EMAIL VALIDATE
          let validateMail = /^[a-zA-Z0-9][a-zA-Z0-9._-]{2,}[@][a-zA-Z0-9]{2,}[.][a-z]{2,3}$/.test(email.value)

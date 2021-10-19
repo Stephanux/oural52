@@ -68,7 +68,7 @@ li {
 	position: absolute;
 	width: 350px;
   padding: 10px;
-	height: 1080px;
+	height: 100%;
 	background-color: var(--header-bcg-color);
 	left:-400px;
   z-index: 4;
@@ -123,6 +123,7 @@ li {
   position: absolute;
   top: 0;
   right: 0;
+  margin-top: 10px;
   fill: var(--text-color-white);
   width: 40px;
   cursor: pointer;
@@ -162,37 +163,12 @@ li {
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-/****form login****/
-
-.form_login {
-  display: flex;
-  flex-direction: column;
-}
-
-.form_login input{
-  margin: 10px 0 20px;
-}
-
-.form_login input[type="submit"]{
-  background-color: var(--header-bcg-color);
-  color: var(--text-color-white);
-  height: 25px;
-  transition: 0.2s;
-  cursor: pointer;
-}
-
-.form_login input[type="submit"]:hover{
-  border-radius: 10px;
-  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
-  transform: translateX(3px);
-  background-color: hsl(227, 96%, 67%);
-}
-
 /****form****/
 
 form input {
   border-radius: 10px;
   padding: 0 10px;
+  width: 100%;
   outline: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -218,10 +194,6 @@ select {
   position: relative;
 }
 
-.form #name, .form #firstName, .form #login, .form #mdp, .form #password-confirm {
-  width: 300px;
-}
-
 .form i {
   position: absolute;
   padding: 5px 10px;
@@ -237,8 +209,9 @@ select {
 }
 
 .error {
-  font-size: 14.5px;
-  margin-top: 5px;
+  display: none;
+  font-size: 14px;
+  margin: 0;
 }
 
 .success-icon,
@@ -339,7 +312,22 @@ select {
   margin-bottom: 14px;
 }
 
-.form input[type="submit"][value="Ajoutez"]{
+.form input[type="submit"][value="Se connecter"]{
+  background-color: var(--header-bcg-color);
+  color: var(--text-color-white);
+  height: 25px;
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.form input[type="submit"][value="Se connecter"]:hover{
+  border-radius: 10px;
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(227, 96%, 67%);
+}
+
+.form input[type="submit"][value="Ajouter"]{
   margin-top: 20px;
   background-color: var(--add-color);
   transition: 0.2s;
@@ -347,7 +335,7 @@ select {
   cursor: pointer;
 }
 
-.form input[type="submit"][value="Ajoutez"]:hover{
+.form input[type="submit"][value="Ajouter"]:hover{
   border-radius: 10px;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
@@ -355,7 +343,7 @@ select {
 }
 
 
-.form input[type="submit"][value="Modifiez"]{
+.form input[type="submit"][value="Modifier"]{
   margin-top: 20px;
   transition: 0.2s;
   background-color: var(--edit-color);
@@ -363,14 +351,14 @@ select {
   cursor: pointer;
 }
 
-.form input[type="submit"][value="Modifiez"]:hover{
+.form input[type="submit"][value="Modifier"]:hover{
   border-radius: 10px;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: hsl(56, 64%, 42%);
 }
 
-.form input[type="submit"][value="Supprimez"]{
+.form input[type="submit"][value="Supprimer"]{
   transition: 0.2s;
   background-color: var(--delete-color);
   color: var(--text-color-white);
@@ -378,7 +366,7 @@ select {
   cursor: pointer;
 }
 
-.form input[type="submit"][value="Supprimez"]:hover{
+.form input[type="submit"][value="Supprimer"]:hover{
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: hsl(0, 63%, 46%);
@@ -486,8 +474,8 @@ select {
 }
 
 .edit{
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   transition: 0.5s;
   fill: var(--edit-color);
 }
@@ -498,15 +486,20 @@ select {
 }
 
 .delete{
-  width: 25px;
-  height: 25px;
+  width: 20px;
+  height: 20px;
   transition: 0.5s;
   fill: var(--delete-color);
+  margin-left: 10px;
 }
 
 .delete:hover{
   transform: rotate(360deg);
   fill: hsl(0, 97%, 56%);
+}
+
+.printResp {
+  font-size: 0;
 }
 
 /**MSG**/
@@ -562,6 +555,10 @@ h4{
     width: 1000px;
   }
 
+  .printResp {
+    font-size: 16px;
+  }
+
   #stock {
     width: 600px;
   }
@@ -578,16 +575,27 @@ h4{
   #stock td {
     display: block;
     text-align: right;
-    height: 37px;
     border: 2px solid var(--body-bcg-color);
   }
 
-  #stock td div:before {
+  #stock td div {
+    width: 45%;
+    padding: 20px;
+  }
+  
+  #stock td div:first-child {
+    text-align: center;
     font-weight: bold;
-    content: attr(data-label);
-    float: left;
-    color: var(--header-bcg-color);
-    text-decoration: underline overline;
+    color: var(--text-color-white);
+    background-color: var(--header-bcg-color);
+  }
+
+  #stock td {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0;
+    align-items: center;
   }
 
   #stock span {
@@ -687,47 +695,6 @@ h4{
 
   .dataTable-input{
     width: 110px;
-  }
-
-  #sidebar.active{
-    width: 100%;
-    height: 200px;
-    background-color: var(--container-bcg-color);
-    padding: 0;
-  }
-
-  .menu-element{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 40px;
-  }
-
-  .menu-element span:hover {
-    color: var(--header-bcg-color);
-  }
-
-  .active .menu-close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    fill: var(--delete-color);
-  }
-
-  .menu-element li{
-    line-height: 30px;
-    text-align: center;
-    font-size: 16px;
-    margin: 0;
-    background-color: var(--container-bcg-color);
-    color: var(--header-bcg-color);
-    width: 100%;
-    border: 1px solid var(--body-bcg-color);
-  }
-
-  .menu-element a {
-    font-size: 12px;
-    color: var(--header-bcg-color);
   }
 
 }
