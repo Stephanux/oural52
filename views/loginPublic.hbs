@@ -1,27 +1,28 @@
 <div class="container">
-        <main>        
-            <form action="/authenticated" method="POST" id="form-login">
-                <div class="form">
-                    <label for="username">Nom d'utilisateur :</label>
-                    <div class="form-data">
-                        <input type="text" name="username" id="usernameLogin">
-                        <i class="fas fa-exclamation-circle failure-icon"></i>
-                        <i class="far fa-check-circle success-icon"></i>
-                        <div class="error"></div>
-                    </div>
-                    <label for="password">Mot de passe :</label>
-                    <div class="form-data">
-                        <input type="password" name="password" id="passwordLogin">
-                        <i class="fas fa-exclamation-circle failure-icon"></i>
-                        <span class="icon-password">
-                            <i class="fas fa-eye password-eye"></i>
-                        </span>
-                        <i class="far fa-check-circle success-icon"></i>
-                        <div class="error"></div>
-                    </div>
-                    <input type="submit" value="Se connecter">
+    <main>        
+        <form action="/authenticated" method="POST" id="form-login">
+            <div class="form">
+                <label for="username">Nom d'utilisateur :</label>
+                <div class="form-data">
+                    <input type="text" name="username" id="usernameLogin">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
                 </div>
-            </form>
-        </main>
-    </div>
-    <script src="js/form.js"></script>
+                <label for="password">Mot de passe :</label>
+                <div class="form-data">
+                    <input type="password" name="password" id="passwordLogin">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <span class="icon-password">
+                        <i class="fas fa-eye password-eye"></i>
+                    </span>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+                <input type="submit" value="Se connecter">
+            </div>
+        </form>
+    </main>
+</div>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formLogin.js" type="module"></script>
