@@ -17,7 +17,7 @@ global.upload = multer({
         if (file.mimetype == "image/png" || file.mimetype == "image/jpg" || file.mimetype == "image/jpeg" || file.mimetype == "application/pdf") {
           cb(null, true);
         } else {
-            cb(req.body.msg = new Error("Le format de fichier accepté est jpg, png, jpeg, pdf."), false)     
+            cb(new Error("Le format de fichier accepté est jpg, png, jpeg, pdf."), false)     
         }
       }
 });
