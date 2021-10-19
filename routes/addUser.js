@@ -4,14 +4,15 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 const bcrypt = require('bcryptjs');
 
-router.route('/').post((req, res) => {
+router.route('/').post( async(req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
+        /**Hashage mot de passe**/
         let pass = req.body.mdp;
-        bcrypt.hash(pass, 10)
-            .then((hash) => {
+        await bcrypt.hash(pass, 10)
+            .then(async(hash) => {
                 req.body.mdp = hash
                 if (!req.body._id) req.body._id = new ObjectId();
-                global.schemas[req.message.modelName].create([req.body], (err, result) => {
+                await global.schemas[req.message.modelName].create([req.body], (err, result) => {
                     if (err) {
                         console.log('erreur :' , err);
                         res.redirect(req.message.redirect + "?msg=Il y a une erreur")
@@ -25,6 +26,7 @@ router.route('/').post((req, res) => {
                     });          
                 }); // fin de l'insert()
             })
+            .catch((err) => console.log(err))
         // On doit créer via Mongoose un _id pour faire l'insertion dans la base
     } else {
         res.redirect('/');
