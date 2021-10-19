@@ -13,7 +13,7 @@ window.addEventListener('load', () => {
     let errorMsg = document.querySelectorAll('.error')
     let successIcon = document.querySelectorAll('.success-icon')
     let failureIcon = document.querySelectorAll('.failure-icon')
-    let formUser = document.querySelector('#form')
+    let formUser = document.querySelector('#form-user')
     let name = document.querySelector('#name')
     let firstname = document.querySelector('#firstName')
     let pseudo = document.querySelector('#login')
@@ -24,6 +24,7 @@ window.addEventListener('load', () => {
 
     /**LOGIN**/
 
+    /*
     let usernameLogin = document.querySelector('#usernameLogin')
     let passwordLogin = document.querySelector('#passwordLogin')
     let formLogin = document.querySelector('#form-login')
@@ -43,7 +44,7 @@ window.addEventListener('load', () => {
         hideStyle(passwordLogin, 1, "")
         switched(iconPassword, passwordLogin)
     })
-
+    */
     //DISPLAY ERROR MSG
     let engine = (id, serial, message) => {
         if (id.value.trim() === "") {
@@ -81,7 +82,6 @@ window.addEventListener('load', () => {
             failureIcon[4].style.opacity = "1"
             successIcon[3].style.opacity = "1"
             successIcon[4].style.opacity = "0"
-            eyeIconConfirmPassword.style.opacity = "0"
         }
 
         /*

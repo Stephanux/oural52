@@ -11,11 +11,11 @@
             <option value="{{this._id}}">{{this.firstName}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" id="form">
+        <form action="{{this.form_action}}" method="POST" id="form-user">
             <div class="form">
                 <label for="name">Nom* :</label>
                 <div class="form-data">
-                    <input type="text" name="name" id="name" value="{{data.name}}">
+                    <input type="text" name="name" id="userName" value="{{data.name}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
                     <div class="error"></div>
@@ -23,7 +23,7 @@
 
                 <label for="firstName">Prénom* :</label>
                 <div class="form-data">
-                    <input type="text" name="firstName" id="firstName" value="{{data.firstName}}">
+                    <input type="text" name="firstName" id="userFirstname" value="{{data.firstName}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
                     <div class="error"></div>
@@ -31,7 +31,7 @@
 
                 <label for="login">Pseudo* :</label>
                 <div class="form-data">
-                    <input type="text" name="login" id="login" value="{{data.login}}">
+                    <input type="text" name="login" id="userLogin" value="{{data.login}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
                     <div class="error"></div>
@@ -39,7 +39,7 @@
 
                 <label for="mdp">Mot de passe* :</label>
                 <div class="form-data">
-                    <input type="password" name="mdp" id="mdp" value="{{data.mdp}}">
+                    <input type="password" name="mdp" id="userMdp" value="{{data.mdp}}">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <span class="icon-password">
                         <i class="fas fa-eye password-eye"></i>
@@ -58,11 +58,11 @@
                     <i class="far fa-check-circle success-icon"></i>
                     <div class="error"></div>
                 </div>
-
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formUser.js" type="module"></script>

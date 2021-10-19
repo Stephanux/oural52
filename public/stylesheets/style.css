@@ -68,7 +68,7 @@ li {
 	position: absolute;
 	width: 350px;
   padding: 10px;
-	height: 1080px;
+	height: 100%;
 	background-color: var(--header-bcg-color);
 	left:-400px;
   z-index: 4;
@@ -168,6 +168,7 @@ li {
 form input {
   border-radius: 10px;
   padding: 0 10px;
+  width: 100%;
   outline: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
 }
@@ -193,10 +194,6 @@ select {
   position: relative;
 }
 
-.form #name, .form #firstName, .form #login, .form #mdp, .form #password-confirm {
-  width: 300px;
-}
-
 .form i {
   position: absolute;
   padding: 5px 10px;
@@ -212,8 +209,9 @@ select {
 }
 
 .error {
-  font-size: 14.5px;
-  margin-top: 5px;
+  display: none;
+  font-size: 14px;
+  margin: 0;
 }
 
 .success-icon,

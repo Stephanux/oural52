@@ -141,9 +141,7 @@ window.addEventListener('load', () => {
     })
 
     //HIDE SIDEBAR IF USER IS NOT LOGGIN
-    let title = document.querySelector('h1')
     if(window.location.pathname === ('/')) {
         icon.style.display = 'none'
-        title.style.marginLeft = "42.5vw"
     }
 })
