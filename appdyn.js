@@ -132,11 +132,11 @@ passport.use(new LocalStrategy(
         global.schemas["Users"].findOne({
             login: username
         }, function(err, user) {
-            /*
-            bcrypt.compare(password, user.mdp, function(err, res) {
-                console.log('password: ',res)
-            });
-            */
+            if(user) {
+                bcrypt.compare(password, user.mdp, (err, res) => {
+                    console.log('password: ',res)
+                })
+            }
             if (err) {
                 return done(err);
             }
