@@ -4,13 +4,14 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 /* SET user from _id with new data for an update into mongoDB . */
-router.route('/').post((req, res) => {
+router.post(('/'), (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        global.schemas[req.message.modelName].updateOne({ _id: new ObjectId(req.query.id) }, (err, result)  => {
+        console.log('************ ', req.params)
+        global.schemas[req.message.modelName].updateOne({ _id = new ObjectId(req.params._id) }, { $set = req.query }, (err, result)  => {
                 if (err) { throw err; }
 
                 console.log('from updateById: ', result);
-                global.schemas[req.message.modelName].find({ _id: new ObjectId(req.query.id) }, (err, result) => {
+                global.schemas[req.message.modelName].find({ _id: new ObjectId(req.params._id) }, (err, result) => {
                     if (err) { throw err; }
                     console.log('users: ', result);
                     res.redirect(req.message.redirect + "&msg=Modification correctement effectué");
