@@ -491,11 +491,13 @@
         "view": "editPiece",
         "tables_list": [
             "sous_type_p_d",
+            "liens_p_d",
             "Vehicules"
         ],
         "sql_list": [
             "SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d",
-            "SELECT Vehicules.id_vehicule, pieces_detachees.id_p_d, nom_vehicule FROM Vehicules, liens_p_d, pieces_detachees WHERE Vehicules.id_vehicule = liens_p_d.id_vehicule AND pieces_detachees.id_p_d = liens_p_d.id_p_d"
+            "SELECT Vehicules.id_vehicule, pieces_detachees.id_p_d, Vehicules.nom_vehicule FROM Vehicules, liens_p_d, pieces_detachees WHERE Vehicules.id_vehicule = liens_p_d.id_vehicule AND pieces_detachees.id_p_d = liens_p_d.id_p_d",
+            "SELECT id_vehicule, nom_vehicule FROM Vehicules"
         ],
         "sql_query": "SELECT pieces_detachees.id_p_d, nom_p_d, pieces_detachees.id_stype_p_d, photo, longueur, largeur, diametre, doc_pdf, localisation, etat, liens_p_d.id_vehicule FROM pieces_detachees, liens_p_d WHERE pieces_detachees.id_p_d=?",
         "form_action": "/editPiece",
