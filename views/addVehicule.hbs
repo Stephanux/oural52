@@ -5,28 +5,49 @@
             <h4>{{msg}}</h4>
             {{/if}}
         </div>
-        <form action="{{this.form_action}}" method="POST" id="form">
+        <form action="{{this.form_action}}" method="POST" id="form-add-vehicule">
             <div class="form">
                 <label for="nameV">Nom du véhicule* :</label>
-                <input type="text" name="nameV" id="nameV">
+                <div class="form-data">
+                    <input type="text" name="nameV" id="nameV">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="dateMEC">Date de mise en circulation :</label>
-                <input type="date" name="dateMEC" id="dateMEC">
+                <div class="form-data">
+                    <input type="date" name="dateMEC" id="dateMEC">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="typeV">Type de véhicule* :</label>
-                <select name="typeV" id="typeV">
-                    {{#each data.type_vehicule}}
-                    <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
-                    {{/each}}
-                </select>
+                <div class="form-data">
+                    <select name="typeV" id="typeV">
+                        {{#each data.type_vehicule}}
+                        <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
+                        {{/each}}
+                    </select>
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="modeleV">Modèle du véhicule* :</label>
-                <select name="modeleV" id="modeleV">
-                    {{#each data.modele}}
-                    <option value="{{this.id_modele}}">{{this.nom_marque}} - {{this.nom_modele}}</option>
-                    {{/each}}
-                </select>
+                <div class="form-data">
+                    <select name="modeleV" id="modeleV">
+                        {{#each data.modele}}
+                        <option value="{{this.id_modele}}">{{this.nom_marque}} - {{this.nom_modele}}</option>
+                        {{/each}}
+                    </select>
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formAddVehicule.js" type="module"></script>
