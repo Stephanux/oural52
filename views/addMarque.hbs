@@ -9,15 +9,20 @@
             <option value="{{this.id_marque}}">{{this.nom_marque}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" id="form">
+        <form action="{{this.form_action}}" method="POST" id="form-marque">
             <div class="form">
-                <span class="err"></span>
                 <label for="marque">Marque du véhicule* :</label>
-                <input type="text" name="marque" id="marque">
+                <div class="form-data">
+                    <input type="text" name="marque" id="addMarque">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formAddMarque.js" type="module"></script>

@@ -13,14 +13,14 @@ export class FormControl {
             this.errorMsg[serial].innerHTML = message
             id.style.border = "2px solid red"
 
-            this.failureIcon[serial].style.opacity = "1"
-            this.successIcon[serial].style.opacity = "0"
+            this.failureIcon[serial].style.display = "inline-block"
+            this.successIcon[serial].style.display = "none"
         } else {
             this.errorMsg[serial].innerHTML = ""
             id.style.border = "2px solid green"
 
-            this.failureIcon[serial].style.opacity = "0"
-            this.successIcon[serial].style.opacity = "1"
+            this.failureIcon[serial].style.display = "none"
+            this.successIcon[serial].style.display = "inline-block"
         }
     }
 
@@ -28,9 +28,9 @@ export class FormControl {
             confirmPassword.style.border = "2px solid red"
             this.errorMsg[serial].style.display = "block"
             this.errorMsg[serial].innerHTML = "Les mots de passes ne correspondent pas"
-            this.failureIcon[serial].style.opacity = "1"
-            this.successIcon[serialGood].style.opacity = "1"
-            this.successIcon[serial].style.opacity = "0"        
+            this.failureIcon[serial].style.display = "inline-block"
+            this.successIcon[serialGood].style.display = "inline-block"
+            this.successIcon[serial].style.display = "none"        
     }
 
     displayEye(element, eye){
@@ -51,7 +51,7 @@ export class FormControl {
                 this.errorMsg[serial].style.display = "block"
                 this.errorMsg[serial].innerHTML = message
                 id.style.border = "none"
-                this.failureIcon[serial].style.opacity = "0"
+                this.failureIcon[serial].style.display = "none"
             }
         })
     }

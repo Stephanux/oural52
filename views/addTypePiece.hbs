@@ -9,15 +9,20 @@
             <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" id="form">
+        <form action="{{this.form_action}}" method="POST" id="form-type-piece">
             <div class="form">
-                <span class="err"></span>
                 <label for="type_piece">Type de pièce* :</label>
-                <input type="text" name="type_piece" id="type_piece">
+                <div class="form-data">
+                    <input type="text" name="type_piece" id="type_piece">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formAddTypePiece.js" type="module"></script>

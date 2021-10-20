@@ -9,21 +9,31 @@
             <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" id="form">
+        <form action="{{this.form_action}}" method="POST" id="form-add-sous-type">
             <div class="form">
-                <span class="err"></span>
                 <label for="stype_piece">Sous-type de pièce* :</label>
-                <input type="text" name="stype_piece">
+                <div class="form-data">
+                    <input type="text" name="stype_piece" id="stype_piece">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="type_piece">Type de pièce* :</label>
-                <select name="type_piece">
-                    {{#each data.type_p_d}}
-                    <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
-                    {{/each}}
-                </select>
+                <div class="form-data">
+                    <select name="type_piece">
+                        {{#each data.type_p_d}}
+                        <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                        {{/each}}
+                    </select>
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </section>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formAddSousTypePiece.js" type="module"></script>

@@ -9,11 +9,15 @@
             <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form">
+        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form-type-vehicule">
             <div class="form">
-                <span class="err"></span>
                 <label for="type_vehicule">Type de véhicule* :</label>
-                <input type="text" name="type_vehicule" id="type_vehicule">
+                <div class="form-data">
+                    <input type="text" name="type_vehicule" id="type_vehicule">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="doc_pdf">Doc du type de véhicule :</label>
                 <input type="file" name="doc_pdf" id="doc_vehicule">
                 <input type="submit" value="Ajouter">
@@ -22,4 +26,5 @@
         </form>
     </div>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formAddTypeVehicule.js" type="module"></script>

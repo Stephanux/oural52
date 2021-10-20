@@ -157,7 +157,7 @@ li {
   width: 800px;
   height: 400px;
   margin: auto;
-  margin-top: 20vh;
+  margin-top: 15vh;
   border-radius: 2%;
   background-color: var(--container-bcg-color);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -190,6 +190,11 @@ select {
 
 /****form validation ****/
 
+.form select {
+  width: 100%;
+  text-align: center;
+}
+
 .form .form-data {
   position: relative;
 }
@@ -214,16 +219,16 @@ select {
   margin: 0;
 }
 
-.success-icon,
-.failure-icon,
-.icon-password,
-.icon-confirm-password {
+.form .success-icon,
+.form .failure-icon,
+.form .icon-password,
+.form .icon-confirm-password {
   right: 0;
-  opacity: 0;
+  display: none;
 }
 
-.close-eye {
-    opacity: 0;
+.form .close-eye {
+    display: none;
 }
 
 /****main page****/

@@ -19,9 +19,10 @@ router.get(('/'), (req, res) => {
                             type: sequelize.QueryTypes.SELECT
                         })
                             .then((result) => { // sql query success
-                                console.log('listes des données : ', result);
+                                console.log('listes des données data : ', result)
                                 // on copie les données obtenues par la requête dans la variable data
-                                results[req.message.tables_list[i]] = result;
+                                results[req.message.tables_list[i]] = result
+                                console.log('listes des données datas : ', results)
                                 getDataFromTable(i + 1, cbk)
                             }).catch((err) => { // sql query error
                                 console.log('error select', err);

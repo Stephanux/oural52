@@ -9,41 +9,91 @@
             <option value="{{this.id_p_d}}">{{this.nom_p_d}}</option>
             {{/each}}
         </select>
-        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form">
+        <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form-piece">
             <div class="form">
-                <span class="err"></span>
                 <label for="nameV">Nom du véhicule associé* :</label>
-                <select name="nameV" id="nameV">
-                    {{#each data.Vehicules}}
-                    <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
-                    {{/each}}
-                </select>
+                <div class="form-data">
+                    <select name="nameV" id="nameV">
+                        {{#each data.Vehicules}}
+                        <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
+                        {{/each}}
+                    </select>
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="namePD">Nom de la pièce détachée* :</label>
-                <input type="text" name="namePD" id="namePD">
-                <label for="stypePD">Type et sous-type de pièce détachée* :</label>              
-                <select name="stypePD" id="stypePD">
-                    {{#each data.sous_type_p_d}}
-                    <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
-                    {{/each}}
-                </select> 
+                <div class="form-data">
+                    <input type="text" name="namePD" id="namePD">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
+                <label for="stypePD">Type et sous-type de pièce détachée* :</label> 
+                <div class="form-data">
+                    <select name="stypePD" id="stypePD">
+                        {{#each data.sous_type_p_d}}
+                        <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
+                        {{/each}}
+                    </select> 
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>             
                 <label for="longueur">Longueur :</label>
-                <input type="number" name="longueur" id="longueur">
+                <div class="form-data">
+                    <input type="number" name="longueur" id="longueur">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="largeur">Largeur :</label>
-                <input type="number" name="largeur" id="largeur">
+                <div class="form-data">
+                    <input type="number" name="largeur" id="largeur">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="diametre">Diamètre :</label>
-                <input type="number" name="diametre" id="diametre">
+                <div class="form-data">
+                    <input type="number" name="diametre" id="diametre">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="localisation">Localisation :</label>
-                <input type="text" name="localisation" id="localisation">
+                <div class="form-data">
+                    <input type="text" name="localisation" id="localisation">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="etat">Etat :</label>
-                <input type="text" name="etat" id="etat">
+                <div class="form-data">
+                    <input type="text" name="etat" id="etat">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="photo">Photo :</label>
-                <input type="file" name="photo" id="photo">
+                <div class="form-data">
+                    <input type="file" name="photo" id="photo">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <label for="doc_pdf">Document PDF :</label>
-                <input type="file" name="doc_pdf" id="doc_piece">
+                <div class="form-data">
+                    <input type="file" name="doc_pdf" id="doc_piece">
+                    <i class="fas fa-exclamation-circle failure-icon"></i>
+                    <i class="far fa-check-circle success-icon"></i>
+                    <div class="error"></div>
+                </div>
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
         </form>
     </div>
 </div>
-<script src="js/form.js"></script>
+<script src="js/class/FormControl.js" type="module"></script>
+<script src="js/form/formAddPiece.js" type="module"></script>
