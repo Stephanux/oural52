@@ -142,6 +142,8 @@ window.addEventListener('load', () => {
 
     //HIDE SIDEBAR IF USER IS NOT LOGGIN
     if(window.location.pathname === ('/')) {
-        icon.style.display = 'none'
+        icon.classList.add('sidebar')
+    } else {
+        icon.classList.remove('sidebar')
     }
 })
