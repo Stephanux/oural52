@@ -3,7 +3,7 @@ const router = express.Router();
 const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
-/* SET user from _id with new data for an update into mongoDB . */
+/* Modification d'un utilisateur dans la base de données */
 router.post(('/'), (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         console.log('************ ', req.params)

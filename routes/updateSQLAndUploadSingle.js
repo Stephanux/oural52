@@ -4,7 +4,7 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-/* POST UPDATE via Sequelize raw query . */
+/* Modification data et fichier */
 router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
     if ((req.session.passport) && (req.session.passport.user != null)) {       
         // gestion du fichier uploaded via multer.
@@ -39,10 +39,10 @@ router.post(('/'), upload.single('doc_pdf'), function (req, res, next) {
             replacements: params_value,
             type: sequelize.QueryTypes.UPDATE
         })
-            .then((result) => { // sql query success
+            .then((result) => {
                 console.log('listes retour updateSQL : ', result);
                 res.redirect(req.message.redirect + '?msg=Modification correctement effectuée');
-            }).catch((err) => { // sql query error
+            }).catch((err) => {
                 console.log('error select', err);
                 res.redirect(req.message.redirect + '?msg=Il y a une erreur');
                 res.send('Erreur : ' + err);

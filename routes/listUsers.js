@@ -5,9 +5,10 @@ var express = require('express');
 var router = express.Router();
 var mongoose = require('mongoose');
 
-/* GET users listing. */
+/* Liste des utilisateurs */
 router.get('/', (req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
+        /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
         global.schemas[req.message.modelName].find({})
             .exec((err, result) => {
                 if (err) {

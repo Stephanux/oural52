@@ -1,12 +1,12 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
-/* GET data content listing. */
+/* Contrôleur générique qui récupère une liste de données */
 router.get('/', (req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         // ici on réalise une requête
-        let i = 0; // indice pour parcourir le tableau req.message.tables_list
-        let results = {};
+        let i = 0 // indice pour parcourir le tableau req.message.tables_list
+        let results = {}
 
         let getDataFromTable = (i, cbk) => {
             if (i < req.message.tables_list.length) {
@@ -14,16 +14,16 @@ router.get('/', (req, res, next) => {
                     type: sequelize.QueryTypes.SELECT
                 })
                     .then((result) => { // sql query success
-                        console.log('listes des données : ', result);
+                        console.log('listes des données : ', result)
                         // on copie les données obtenues par la requête dans la variable result
-                        results[req.message.tables_list[i]] = result;
+                        results[req.message.tables_list[i]] = result
                         getDataFromTable(i + 1, cbk)
                     }).catch((err) => { // sql query error
-                        console.log('error select', err);
-                        //res.send("error : ", err);
-                    });
+                        console.log('error select', err)
+                        //res.send("error : ", err)
+                    })
             } else {
-                cbk(); // appel de la callback pour faire le rendu
+                cbk() // appel de la callback pour faire le rendu
             }
         }
         getDataFromTable(i, () => {
@@ -34,15 +34,15 @@ router.get('/', (req, res, next) => {
                     form_action: req.message.form_action,
                     msg: req.query.msg,
                     data: results // Attention a renvoyer une variable avec un nom generique
-                });
+                })
             } else {
-                res.setHeader('content-type', 'application/json');
-                res.send(result);
+                res.setHeader('content-type', 'application/json')
+                res.send(result)
             }
-        });
+        })
     } else {
-        res.redirect('/'); // affichage boîte de login si pas authentifié
+        res.redirect('/') // affichage boîte de login si pas authentifié
     }
-});
+})
 
-module.exports = router;
+module.exports = router

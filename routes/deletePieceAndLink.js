@@ -1,9 +1,11 @@
 const express = require('express')
 const router = express.Router()
 
-// Delete by id
+// Supprime une pièce ainsi que le lien dans la table de jointure
 router.post('/', (req, res) => {
+    /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
     if ((req.session.passport) && (req.session.passport.user != null)) {
+        /**On récupère l'id depuis le fichier config_action.json */
         let params_name = req.message.params_query;
         let params_value = [];
         for (let i = 0; i < params_name.length; i++) {
@@ -24,6 +26,7 @@ router.post('/', (req, res) => {
             global.sequelize.query(`DELETE FROM pieces_detachees WHERE pieces_detachees.id_p_d = ${id_p_d}`, {
                 type: sequelize.QueryTypes.DELETE
             })
+            /**Redirection */
             .then(() => {
                 res.redirect(req.message.redirect + '?msg=Supression correctement effectuée')
             })

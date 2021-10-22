@@ -4,10 +4,10 @@ const multer = require('multer');
 const path = require('path');
 const fs = require('fs');
 
-/* POST add page. */
+/* Ajoute une pièce, avec fichier(s) puis fais le lien avec la table "liens_p_d"  */
 router.post('/', upload.fields(fieldUpload), (req, res, next) => {
+    /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
     if ((req.session.passport) && (req.session.passport.user != null)) {
-
         // gestion du fichier uploaded via multer.
         console.log('files : ', req.files); // contient les infos sur les fichiers uploadés
         console.log('body : ', req.body); // contient les autres données du formulaire
@@ -25,10 +25,12 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
         // insertion effective dans la base de données, en premier dans la table "pieces_detachees"
         const id_vehicule = req.body.nameV;
         delete req.body.nameV;
+        /**On récupère la valeur de l'id véhicule puis on supprime le req.body.nameV pour éviter une erreur d'insertion, puis on effectue la requête */
         global.sequelize.query(req.message.request, {
             replacements: Object.values(req.body),
             type: sequelize.QueryTypes.INSERT
         })
+        /**Traitement des données et redirection avec message de succès ou d'erreur */
         .then((datas) => {
             console.log("liste des datas : " + datas);
             // deuxième insertion effective dans la base de données, dans la table "liens_p_d"
@@ -37,7 +39,7 @@ router.post('/', upload.fields(fieldUpload), (req, res, next) => {
             })
             .then(() => {
                 res.redirect(req.message.redirect + '?msg=Ajout correctement effectué');
-            }) // SQL query error return error into callback
+            }) // Gestion erreur
             .catch((err) => {
                 console.log('error select', err);
                 res.redirect(req.message.redirect + '?msg=Il y a une erreur');

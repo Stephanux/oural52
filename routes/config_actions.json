@@ -21,7 +21,7 @@
         "title": "Liste des utilisateurs"
     },
     "GET/formInsertUser": {
-        "controler": "finder",
+        "controler": "listUsers",
         "modelName": "Users",
         "modelList": "Users",
         "view": "addUser",
