@@ -4,9 +4,9 @@
         "view": "loginPublic",
         "title": "Se connecter"
     },
-    "GET/accueil": {
+    "GET/home": {
         "controler": "getViewWithAuth",
-        "view": "main",
+        "view": "home",
         "title": "Accueil"
     },
     "GET/logout": {

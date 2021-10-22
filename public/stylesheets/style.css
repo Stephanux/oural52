@@ -156,6 +156,7 @@ li {
 
 .container{
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 800px;
@@ -165,6 +166,50 @@ li {
   border-radius: 2%;
   background-color: var(--container-bcg-color);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/****back btn****/
+
+.super-head{
+  position: relative;
+}
+
+.back {
+  width: 100px;
+  height: 30px;
+  background: var(--text-color-black);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+}
+
+.back div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.back svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-color-white);
+}
+
+.back span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.back:hover{
+  background: hsl(0, 0%, 13%);
+  transform: translateX(-3px);
+  transition: .5s;
 }
 
 /****form****/
@@ -388,6 +433,7 @@ select {
 
 .wrap{
   display: flex;
+  position: relative;
   justify-content: center;
   align-items: center;
   width: 1400px;
@@ -481,6 +527,18 @@ select {
   margin-top: 10px;
 }
 
+.add{
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+  fill: var(--add-color); 
+}
+
+.add:hover{
+  transform: translateY(-2px);
+  fill: hsl(140, 70%, 37%);
+}
+
 .edit{
   width: 20px;
   height: 20px;
@@ -489,7 +547,7 @@ select {
 }
 
 .edit:hover{
-  transform: rotate(360deg);
+  transform: rotate(1turn);
   fill: hsl(56, 66%, 44%);
 }
 
@@ -502,7 +560,7 @@ select {
 }
 
 .delete:hover{
-  transform: rotate(360deg);
+  transform: rotate(1turn);
   fill: hsl(0, 97%, 56%);
 }
 
@@ -551,16 +609,20 @@ h4{
 
 @media screen and (max-width: 1400px) {
   .wrap {
-    width: 1210px;
+    width: 1240px;
   }
 }
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 1240px) {
   .header {
     width: 100%;
   }
 
   .wrap{
     width: 1000px;
+  }
+
+  .wrap .dataTable-top {
+    margin-right: 0;
   }
 
   .printResp {

@@ -146,4 +146,13 @@ window.addEventListener('load', () => {
     } else {
         icon.classList.remove('sidebar')
     }
+
+    //BACK BUTTON
+
+    let backBtn = document.querySelectorAll('.back')
+    for(i = 0; i < backBtn.length; i++){
+        backBtn[i].addEventListener('click', () => {
+            window.history.back()
+        })
+    }   
 })
