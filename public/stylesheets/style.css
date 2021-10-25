@@ -185,7 +185,7 @@ li {
   transition: .5s;
   padding: 2px;
   position: absolute;
-  left: 0;
+  left: 10px;
   bottom: -30px;
 }
 
