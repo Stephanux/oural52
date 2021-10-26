@@ -5,7 +5,7 @@ const ObjectId = mongoose.Types.ObjectId;
 const bcrypt = require('bcryptjs');
 
 /**Ajouter un utilisateur avec hashage/salage du mot de passe */
-router.route('/').post( async(req, res) => {
+router.post(('/'), async(req, res) => {
     /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
     if ((req.session.passport) && (req.session.passport.user != null)) {
         /**Hashage mot de passe**/

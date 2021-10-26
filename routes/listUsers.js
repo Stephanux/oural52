@@ -20,6 +20,8 @@ router.get('/', (req, res, next) => {
                     if (req.message.return_type == null) {
                         res.render(req.message.view, {
                             title: req.message.title,
+                            form_action: req.message.form_action,
+                            msg: req.query.msg,
                             data: result
                         });
                     } else {
