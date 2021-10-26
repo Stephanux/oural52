@@ -135,25 +135,24 @@ passport.use(new LocalStrategy(
             if(user) {
                 bcrypt.compare(password, user.mdp, (err, res) => {
                     console.log('password: ',res)
+                    if (err) {
+                        return done(err);
+                    }
+                    if (!res) {
+                        console.log("password erroné");
+                        return done(null, false, {
+                            message: 'Incorrect password.'
+                        });
+                    } else {
+                        console.log("utilisateur : ", user);
+                        return done(null, user);
+                    }
                 })
-            }
-            if (err) {
-                return done(err);
-            }
-            if (!user) {
-                console.log("pas d'utilisateur trouvé");
+            } else {
                 return done(null, false, {
-                    message: 'Incorrect username.'
+                   message: 'Incorrect username.'
                 });
             }
-            if (user.mdp != password) {
-                console.log("password erroné");
-                return done(null, false, {
-                    message: 'Incorrect password.'
-                });
-            }
-            console.log("utilisateur : ", user);
-            return done(null, user);
         });
     }
 ));

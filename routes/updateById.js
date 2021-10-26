@@ -6,17 +6,16 @@ const ObjectId = mongoose.Types.ObjectId;
 /* Modification d'un utilisateur dans la base de données */
 router.post(('/'), (req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
-        console.log('************ ', req.params)
-        global.schemas[req.message.modelName].updateOne({ _id = new ObjectId(req.params._id) }, { $set = req.query }, (err, result)  => {
+        global.schemas[req.message.modelName].updateOne({ _id = new ObjectId(req.body._id) }, { $set = req.query }), function (err, result) {
                 if (err) { throw err; }
 
                 console.log('from updateById: ', result);
-                global.schemas[req.message.modelName].find({ _id: new ObjectId(req.params._id) }, (err, result) => {
+                global.schemas[req.message.modelName].find({ _id: new ObjectId(req.body._id) }, (err, result) => {
                     if (err) { throw err; }
                     console.log('users: ', result);
                     res.redirect(req.message.redirect + "&msg=Modification correctement effectué");
                 });
-        }); // fin de l'update()
+        }; // fin de l'update()
     } else {
         res.redirect('/');  // affichage boîte de login si pas authentifié
     }

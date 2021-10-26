@@ -11,7 +11,7 @@ router.post(('/'), (req, res) => {
     /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
     if ((req.session.passport) && (req.session.passport.user != null)) {
         /**Puis on effectue la requête à la base de données */
-        global.schemas[req.message.modelName].deleteOne({ _id: new ObjectId(req.params._id) }, (err, result) => {
+        global.schemas[req.message.modelName].deleteOne({ _id: new ObjectId(req.body.id) }, function (err, result) {
             if (err) {
                 throw err;
             }

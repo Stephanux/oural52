@@ -59,7 +59,7 @@
         "form_action": "/deleteUser"
     },
     "POST/deleteUser": {
-        "controleur": "deleteById",
+        "controler": "deleteById",
         "modelName": "Users",
         "view": "deleteUser",
         "redirect": "/listUsers"
