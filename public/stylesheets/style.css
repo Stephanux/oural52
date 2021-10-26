@@ -174,7 +174,7 @@ li {
   position: relative;
 }
 
-.back {
+.wrap .back {
   width: 100px;
   height: 30px;
   background: var(--text-color-black);
@@ -186,29 +186,189 @@ li {
   padding: 2px;
   position: absolute;
   left: 10px;
-  bottom: -30px;
+  bottom: -20px;
 }
 
-.back div {
+.wrap .back div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.back svg {
+.wrap .back svg {
   width: 30px;
   height: 30px;
   fill: var(--text-color-white);
 }
 
-.back span {
+.wrap .back span {
   margin-bottom: 5px;
   color: var(--text-color-white);
 }
 
-.back:hover{
+.wrap .back:hover{
   background: hsl(0, 0%, 13%);
   transform: translateX(-3px);
+  transition: .5s;
+}
+
+.wrapper .back {
+  width: 100px;
+  height: 30px;
+  background: var(--text-color-black);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -20px;
+}
+
+.wrapper .back div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.wrapper .back svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-color-white);
+}
+
+.wrapper .back span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.wrapper .back:hover{
+  background: hsl(0, 0%, 13%);
+  transform: translateX(-3px);
+  transition: .5s;
+}
+
+.container .back {
+  width: 100px;
+  height: 30px;
+  background: var(--text-color-black);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  left: 3px;
+  bottom: 0;
+}
+
+.container .back div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.container .back svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-color-white);
+}
+
+.container .back span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.container .back:hover{
+  background: hsl(0, 0%, 13%);
+  transform: translateX(-3px);
+  transition: .5s;
+}
+
+/****add_btn****/
+
+.btn_add{
+  width: 100px;
+  height: 30px;
+  background: var(--add-color);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  right: 10px;
+  bottom: -20px;
+}
+
+.btn_add div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn_add svg {
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+  fill: var(--text-color-white); 
+}
+
+.btn_add span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.btn_add:hover{
+  background: hsl(140, 71%, 37%);
+  transform: translateX(3px);
+  transition: .5s;
+}
+
+/**scroll down**/
+
+.btn_down{
+  display: none;
+  width: 125px;
+  height: 30px;
+  background: var(--text-color-black);
+  border-radius: 10px;
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  right: 10px;
+  top: -40px;
+}
+
+.btn_down div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.btn_down svg {
+  width: 30px;
+  height: 30px;
+  transition: 0.5s;
+  transform: rotate(.75turn);
+  fill: var(--text-color-white); 
+}
+
+.btn_down span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.btn_down:hover{
+  background: hsl(0, 0%, 13%);
+  transform: translateY(3px);
   transition: .5s;
 }
 
@@ -343,6 +503,7 @@ select {
   height: auto;
   margin: auto;
   margin-top: 15vh;
+  /* position: relative; */
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
   border-radius: 10px;
@@ -527,18 +688,6 @@ select {
   margin-top: 10px;
 }
 
-.add{
-  width: 30px;
-  height: 30px;
-  transition: 0.5s;
-  fill: var(--add-color); 
-}
-
-.add:hover{
-  transform: translateY(-2px);
-  fill: hsl(140, 70%, 37%);
-}
-
 .edit{
   width: 20px;
   height: 20px;
@@ -645,7 +794,7 @@ h4{
   #stock td {
     display: block;
     text-align: right;
-    border: 2px solid var(--body-bcg-color);
+    border: 1px solid var(--body-bcg-color);
   }
 
   #stock td div {
@@ -687,6 +836,10 @@ h4{
 
   #stock tr:nth-child(even){
     background-color: transparent;
+  }
+
+  .btn_down{
+    display: block;
   }
 
 }
@@ -765,6 +918,10 @@ h4{
 
   .dataTable-input{
     width: 110px;
+  }
+
+  .printResp {
+    font-size: 12px;
   }
 
 }
