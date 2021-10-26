@@ -1,16 +1,16 @@
 <div class="wrapper">
     <div>
-        <div>
+        <div class="form">
             {{#if msg}}
             <h4>{{msg}}</h4>
             {{/if}}
+            <span class="existing">Utilisateurs existant :</span>
+            <select>
+                {{#each data}}
+                <option value="{{this._id}}">{{this.firstName}} {{this.name}}</option>
+                {{/each}}
+            </select>
         </div>
-        <span class="existing">Utilisateurs existant :</span>
-        <select>
-            {{#each data}}
-            <option value="{{this._id}}">{{this.firstName}} {{this.name}}</option>
-            {{/each}}
-        </select>
         <form action="{{this.form_action}}" method="POST" id="form-user">
             <div class="form">
                 <label for="name">Nom* :</label>

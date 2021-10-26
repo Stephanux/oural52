@@ -1,14 +1,16 @@
 <div class="wrapper">
     <div>
-        {{#if msg}}
-        <h4>{{msg}}</h4>
-        {{/if}}
-        <span class="existing">Types de véhicule existant :</span>
-        <select name="type">
-            {{#each data.type_vehicule}}
-            <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
-            {{/each}}
-        </select>
+        <div class="form">
+            {{#if msg}}
+            <h4>{{msg}}</h4>
+            {{/if}}
+            <span class="existing">Types de véhicule existant :</span>
+            <select name="type">
+                {{#each data.type_vehicule}}
+                <option value="{{this.id_type_vehicule}}">{{this.nom_type_vehicule}}</option>
+                {{/each}}
+            </select>
+        </div>
         <form action="{{this.form_action}}" method="POST" enctype="multipart/form-data" id="form-type-vehicule">
             <div class="form">
                 <label for="type_vehicule">Type de véhicule* :</label>

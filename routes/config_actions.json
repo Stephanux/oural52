@@ -69,11 +69,13 @@
         "view": "addVehicule",
         "tables_list": [
             "modele",
-            "type_vehicule"
+            "type_vehicule",
+            "Vehicules"
         ],
         "sql_list": [
             "SELECT id_modele, nom_modele, modele.id_marque ,marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque",
-            "SELECT * from type_vehicule"
+            "SELECT * from type_vehicule",
+            "SELECT id_vehicule, nom_vehicule FROM Vehicules"
         ],
         "form_action": "/addVehicule",
         "title": "Ajoutez un véhicule"

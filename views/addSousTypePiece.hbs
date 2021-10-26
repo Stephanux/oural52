@@ -1,14 +1,16 @@
 <div class="wrapper">
     <div>
-        {{#if msg}}
-        <h4>{{msg}}</h4>
-        {{/if}}
-        <span class="existing">Sous-types de pièces existant :</span>
-        <select name="type">
-            {{#each data.sous_type_p_d}}
-            <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
-            {{/each}}
-        </select>
+        <div class="form">
+            {{#if msg}}
+            <h4>{{msg}}</h4>
+            {{/if}}
+            <span class="existing">Sous-types de pièces existant :</span>
+            <select name="type">
+                {{#each data.sous_type_p_d}}
+                <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
+                {{/each}}
+            </select>
+        </div>
         <form action="{{this.form_action}}" method="POST" id="form-add-sous-type">
             <div class="form">
                 <label for="stype_piece">Sous-type de pièce* :</label>

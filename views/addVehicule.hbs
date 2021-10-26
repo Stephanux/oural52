@@ -1,9 +1,15 @@
 <div class="wrapper">
     <div>
-        <div>
+        <div class="form">
             {{#if msg}}
             <h4>{{msg}}</h4>
             {{/if}}
+            <span class="existing">Véhicules existant :</span>
+            <select name="type">
+                {{#each data.Vehicules}}
+                <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
+                {{/each}}
+            </select>
         </div>
         <form action="{{this.form_action}}" method="POST" id="form-add-vehicule">
             <div class="form">

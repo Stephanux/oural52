@@ -1,14 +1,16 @@
 <div class="wrapper">
     <div>
-        {{#if msg}}
-        <h4>{{msg}}</h4>
-        {{/if}}
-        <span class="existing">Types de pièces existant :</span>
-        <select name="type">
-            {{#each data.type_p_d}}
-            <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
-            {{/each}}
-        </select>
+        <div class="form">
+            {{#if msg}}
+            <h4>{{msg}}</h4>
+            {{/if}}
+            <span class="existing">Types de pièces existant :</span>
+            <select name="type">
+                {{#each data.type_p_d}}
+                <option value="{{this.id_type_p_d}}">{{this.nom_type_p_d}}</option>
+                {{/each}}
+            </select>
+        </div>
         <form action="{{this.form_action}}" method="POST" id="form-type-piece">
             <div class="form">
                 <label for="type_piece">Type de pièce* :</label>
