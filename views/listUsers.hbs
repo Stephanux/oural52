@@ -3,6 +3,12 @@
         {{#if msg}}
         <h3>{{msg}}</h3>
         {{/if}}
+        <button class="btn_down">
+            <div>
+                <span>Aller en bas</span>
+                <svg viewBox="0 0 64 80" x="0px" y="0px"><path d="M24.73,47.56a2,2,0,0,0,2.83-2.83L14.83,32,27.56,19.27a2,2,0,0,0-2.83-2.83L10.59,30.59a2,2,0,0,0,0,2.83Z"/><path d="M52.14,30H26a2,2,0,0,0,0,4H52.14a2,2,0,0,0,0-4Z"/></svg>
+            </div>
+        </button>
         <table id="stock">
             <thead>
                 <tr>
@@ -60,6 +66,7 @@
                 </div>
             </button>
         </div>
+        <div id="ancre"></div>
     </div>
 </div>
 <script src="js/stock.js"></script>
