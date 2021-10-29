@@ -21,6 +21,14 @@ window.addEventListener('load', () => {
     let tileEditVehicule = document.querySelector('.title-edit-vehicule')
     let titleEditPiece = document.querySelector('.title-edit-piece')
     let titleUser = document.querySelector('.title-user')
+    let toggleMenu = document.querySelectorAll('.toggle-menu')
+    let listMenu = document.querySelectorAll('.list-menu')
+    let listVehicule = document.querySelector('#list-menu-vehicule')
+    let listPiece = document.querySelector('#list-menu-piece')
+    let listStock = document.querySelector('#list-menu-stock')
+    let listEditVehicule = document.querySelector('#list-menu-edit-vehicule')
+    let listEditPiece = document.querySelector('#list-menu-edit-piece')
+    let listUsers = document.querySelector('#list-menu-users')
 
     //SHOW SIDEBAR//
     icon.addEventListener('click', () => {
@@ -42,6 +50,8 @@ window.addEventListener('load', () => {
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
         titleVehicule.classList.add('item')
+        listVehicule.classList.add('hide-list-menu')
+        listVehicule.classList.remove('list-menu')
         titlePiece.classList.remove('item')
         titleStock.classList.remove('item')
         tileEditVehicule.classList.remove('item')
@@ -140,11 +150,36 @@ window.addEventListener('load', () => {
         menuUsers.style.display = "none"
     })
 
+    for(i = 0; i < toggleMenu.length; i++) {
+        toggleMenu[i].addEventListener('click', () => {
+            console.log('allo')
+            listVehicule.classList.add('list-menu')
+            toggleMenu[i].classList.remove('hide-list-menu')
+            menuVehicule.style.display = "none"
+            menuPiece.style.display = "none"
+            menuStock.style.display = "none"
+            menuEditVehicule.style.display = "none"
+            menuEditPiece.style.display = "none"
+            menuUsers.style.display = "none"
+        })
+    }
+
+
     //HIDE SIDEBAR IF USER IS NOT LOGGIN
+    let home = document.querySelector('.home')
+    let logout = document.querySelector('.logout')
+    let title = document.getElementById('title')
+
     if(window.location.pathname === ('/')) {
+        title.style.position = 'absolute'
         icon.classList.add('sidebar')
+        home.classList.add('sidebar')
+        logout.classList.add('sidebar')
     } else {
+        title.classList.add('title-margin')
         icon.classList.remove('sidebar')
+        home.classList.remove('sidebar')
+        logout.classList.remove('sidebar')
     }
 
     //BACK BUTTON

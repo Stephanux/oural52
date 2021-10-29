@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 const ObjectId = mongoose.Types.ObjectId;
 
 /* Modification d'un utilisateur dans la base de données */
-router.post(('/'), (req, res) => {
+router.post(('/'), async(req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         global.schemas[req.message.modelName].updateOne({ _id: new ObjectId(req.body._id) }, { $set: req.body }, function (err, result) {
                 if (err) { 

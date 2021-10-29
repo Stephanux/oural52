@@ -1,10 +1,10 @@
 :root{
-  --header-bcg-color: hsl(227, 77%, 62%);
-  --container-bcg-color: hsl(240, 14%, 92%);
-  --body-bcg-color: hsl(229, 10%, 79%);
-  --add-color: hsl(140, 71%, 32%);
-  --delete-color: hsl(0, 76%, 37%);
-  --edit-color: hsl(56, 66%, 36%);
+  --header-bcg-color: #1f6585;
+  --container-bcg-color: #e8e8ed;
+  --body-bcg-color: #2a3044;
+  --add-color: #188c3e;
+  --delete-color: #a61717;
+  --edit-color: #98901f;
   --text-color-white: hsl(0, 50%, 100%);
   --text-color-black: hsl(0, 50%, 0%);
 }
@@ -50,28 +50,61 @@ li {
 }
 
 .home{
-  width: 35px;
-  height: 35px;
+  width: 30px;
+  height: 30px;
   fill: var(--text-color-white);
   transition: 0.5s;
 }
 
-.home:hover{
-  background-color: var(--container-bcg-color);
-  fill: var(--header-bcg-color);
-  border-radius: 50%;
+.header input {
+  background-color: var(--header-bcg-color);
+  color: var(--text-color-white);
+  text-decoration: underline;
+  cursor: pointer;
+  box-shadow: none;
+}
+
+.header input:hover {
+  color: var(--container-bcg-color);
+}
+
+#logos {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+}
+
+#logos div .menu-icon {
+  margin-top: 10px;
+}
+
+#logos #home{
+  margin-top: 7px;
+}
+
+.title-margin {
+  margin-left: 40px;
+}
+
+h1 span {
+  font-size: 0;
+}
+
+h1 img {
+  width: 400px;
 }
 
 /****sidebar****/
 
 #sidebar{
 	position: absolute;
-	width: 350px;
-  padding: 10px;
+	width: 1000px;
+	padding: 10px;
 	height: 100%;
 	background-color: var(--header-bcg-color);
-	left:-400px;
-  z-index: 4;
+	left: -1000px;
+	z-index: 4;
 }
 
 .sidebar{
@@ -84,12 +117,7 @@ li {
   fill: var(--text-color-white);
   transition: 0.5s;
   cursor: pointer;
-}
-
-.menu-icon:hover{
-  background-color: var(--container-bcg-color);
-  fill: var(--header-bcg-color);
-  border-radius: 50%;
+  margin-top: 0px;
 }
 
 .menu-element {
@@ -100,12 +128,12 @@ li {
   padding-left: 5px; 
   margin-top: 10px;
 	color: var(--text-color-white);
-  font-size: 30px;
+  font-size: 25px;
 	
 }
 
 .menu-element span:hover{
-  color: var(--body-bcg-color);
+  color: var(--container-bcg-color);
   transition: 0.3s;
 }
 
@@ -114,7 +142,7 @@ li {
 }
 
 .menu-element a:hover{
-  color: var(--body-bcg-color);
+  color: var(--container-bcg-color);
   transition: 0.3s;
 }
 
@@ -149,8 +177,23 @@ li {
 
 
 .item {
-  color: var(--body-bcg-color);
+  color: var(--container-bcg-color);
   text-decoration: underline overline;
+}
+
+.list-menu {
+  width: 30px;
+  height: 30px;
+  transform: rotate(.5turn);
+  fill: var(--text-color-white);
+  margin-bottom: -5px;
+}
+
+.hide-list-menu{
+  width: 30px;
+  height: 30px;
+  margin-bottom: -5px;
+  fill: var(--text-color-white);
 }
 /****container****/
 
@@ -159,10 +202,10 @@ li {
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 800px;
-  height: 400px;
+  width: 450px;
+  height: 500px;
   margin: auto;
-  margin-top: 15vh;
+  margin-top: 10vh;
   border-radius: 2%;
   background-color: var(--container-bcg-color);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -178,14 +221,13 @@ li {
   width: 100px;
   height: 30px;
   background: var(--text-color-black);
-  border-radius: 10px;
   cursor: pointer;
   border: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: .5s;
   padding: 2px;
   position: absolute;
-  left: 10px;
+  left: 0;
   bottom: -30px;
 }
 
@@ -208,7 +250,6 @@ li {
 
 .wrap .back:hover{
   background: hsl(0, 0%, 13%);
-  transform: translateX(-3px);
   transition: .5s;
 }
 
@@ -216,14 +257,13 @@ li {
   width: 100px;
   height: 30px;
   background: var(--text-color-black);
-  border-radius: 10px;
   cursor: pointer;
   border: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: .5s;
   padding: 2px;
   position: absolute;
-  left: 3px;
+  left: 0;
   bottom: 0;
 }
 
@@ -246,7 +286,6 @@ li {
 
 .wrapper .back:hover{
   background: hsl(0, 0%, 13%);
-  transform: translateX(-3px);
   transition: .5s;
 }
 
@@ -254,14 +293,13 @@ li {
   width: 100px;
   height: 30px;
   background: var(--text-color-black);
-  border-radius: 10px;
   cursor: pointer;
   border: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: .5s;
   padding: 2px;
   position: absolute;
-  left: 3px;
+  left: 0;
   bottom: 0;
 }
 
@@ -284,7 +322,6 @@ li {
 
 .container .back:hover{
   background: hsl(0, 0%, 13%);
-  transform: translateX(-3px);
   transition: .5s;
 }
 
@@ -294,14 +331,13 @@ li {
   width: 100px;
   height: 30px;
   background: var(--add-color);
-  border-radius: 10px;
   cursor: pointer;
   border: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: .5s;
   padding: 2px;
   position: absolute;
-  right: 10px;
+  right: 0;
   bottom: -30px;
 }
 
@@ -325,7 +361,6 @@ li {
 
 .btn_add:hover{
   background: hsl(140, 71%, 37%);
-  transform: translateX(3px);
   transition: .5s;
 }
 
@@ -336,15 +371,14 @@ li {
   width: 125px;
   height: 30px;
   background: var(--text-color-black);
-  border-radius: 10px;
   cursor: pointer;
   border: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
   transition: .5s;
   padding: 2px;
   position: absolute;
-  right: 10px;
-  top: -40px;
+  right: 0;
+  top: -50px;
 }
 
 .btn_down div {
@@ -368,14 +402,12 @@ li {
 
 .btn_down:hover{
   background: hsl(0, 0%, 13%);
-  transform: translateY(3px);
   transition: .5s;
 }
 
 /****form****/
 
 form input {
-  border-radius: 10px;
   padding: 0 10px;
   width: 100%;
   outline: none;
@@ -384,7 +416,6 @@ form input {
 
 select {
   padding: 0 10px;
-  border-radius: 10px;
   border: none;
   outline: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -459,14 +490,13 @@ select {
   margin-bottom: 20px;
   background :var(--header-bcg-color);
   color: var(--text-color-white);
-  border-radius: 150px;
   border: 2px solid #accbee;
   transition: 0.2s;
   cursor: pointer;
 }
 
 .main button:hover{
-  background-color: hsl(227, 100%, 69%);;
+  background-color:rgb(39, 125, 165)5;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
 }
@@ -482,7 +512,6 @@ select {
   width: 280px;
   height: 30px;
   transition: 0.2s;
-  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -498,12 +527,12 @@ select {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 1000px;
+  width: 700px;
   min-height: 500px;
   height: auto;
   margin: auto;
   margin-top: 15vh;
-  position: relative; 
+  position: relative;
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
   border-radius: 10px;
@@ -519,7 +548,7 @@ select {
 }
 
 .form :nth-child(n){
-  margin-bottom: 14px;
+  margin-bottom: 8px;
 }
 
 .form input[type="submit"][value="Se connecter"]{
@@ -528,13 +557,13 @@ select {
   height: 25px;
   transition: 0.2s;
   cursor: pointer;
+  margin-top: 90px;
 }
 
 .form input[type="submit"][value="Se connecter"]:hover{
-  border-radius: 10px;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
-  background-color: hsl(227, 96%, 67%);
+  background-color: rgb(39, 125, 165);
 }
 
 .form input[type="submit"][value="Ajouter"]{
@@ -546,7 +575,6 @@ select {
 }
 
 .form input[type="submit"][value="Ajouter"]:hover{
-  border-radius: 10px;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: hsl(140, 70%, 37%);
@@ -562,7 +590,6 @@ select {
 }
 
 .form input[type="submit"][value="Modifier"]:hover{
-  border-radius: 10px;
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: hsl(56, 64%, 42%);
@@ -572,7 +599,6 @@ select {
   transition: 0.2s;
   background-color: var(--delete-color);
   color: var(--text-color-white);
-  border-radius: 10px;
   cursor: pointer;
 }
 
@@ -623,7 +649,7 @@ select {
 }
 
 #stock tr:nth-child(even){
-  background-color: var(--body-bcg-color);
+  background-color: hsl(229, 10%, 79%);
 }
 
 #stock th{
@@ -644,9 +670,16 @@ select {
   margin-top: 10px;
 }
 
+.wrap .dataTable-top, .wrap .dataTable-bottom{
+  padding: 8px 0;
+}
+
+.wrapper .dataTable-top, .wrapper .dataTable-bottom{
+  padding: 8px 0;
+}
+
 .dataTable-input {
   width: 120px;
-  border-radius: 10px;
   padding: 0 10px;
   outline: none;
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -692,7 +725,7 @@ select {
 }
 
 .edit:hover{
-  transform: rotate(1turn);
+  transition: 0.5s;
   fill: hsl(56, 66%, 44%);
 }
 
@@ -705,7 +738,7 @@ select {
 }
 
 .delete:hover{
-  transform: rotate(1turn);
+  transition: 0.5s;
   fill: hsl(0, 97%, 56%);
 }
 
@@ -716,7 +749,7 @@ select {
 /**MSG**/
 
 h4{
-  margin-left: 50px;
+  /* margin-left: 50px; */
 }
 
 .error-file {
@@ -827,7 +860,7 @@ h4{
   }
 
   #stock td:nth-child(even){
-    background-color: var(--body-bcg-color);
+    background-color: hsl(229, 10%, 79%);
   }
 
   #stock tr:nth-child(even){
@@ -866,16 +899,17 @@ h4{
     width: 600px;
   }
 
-  .container {
-    width: 600px;
-  }
-
   .wrap {
     width: 600px;
   }
 }
 
 @media screen and (max-width: 740px) {
+
+  h1 img {
+    width: 150px;
+  }
+
   #sidebar{
     width: 200px;
   }
@@ -922,14 +956,18 @@ h4{
 
 }
 
-@media screen and (max-width: 420px) {
+@media screen and (max-width: 440px) {
+
+  h1 img {
+    width: 100px;
+  }
+
+  .title-margin{
+    margin-left: 10px;
+  }
 
   .header {
     padding: 50px 20px;
-  }
-
-  .header h1 {
-    font-size: 20px;
   }
 
   .wrap {
