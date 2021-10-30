@@ -13,6 +13,7 @@ router.post(('/'), async(req, res) => {
         await bcrypt.hash(pass, 10)
             .then(async(hash) => {
                 req.body.mdp = hash
+                // On doit créer via Mongoose un _id pour faire l'insertion dans la base
                 if (!req.body._id) req.body._id = new ObjectId();
                 /**Après le hashage/salage du mot de passe on fait la requête à la base de données */
                 await global.schemas[req.message.modelName].create([req.body], (err, result) => {
@@ -30,7 +31,6 @@ router.post(('/'), async(req, res) => {
                 }); // fin de l'insert()
             })
             .catch((err) => console.log(err))
-        // On doit créer via Mongoose un _id pour faire l'insertion dans la base
     } else {
         res.redirect('/');
     }
