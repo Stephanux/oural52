@@ -62,4 +62,33 @@ export class FormControl {
             password.setAttribute('type', type)
         })
     }
+
+    checkEmail(email, serial){
+        let validateMail = /^[a-zA-Z0-9][a-zA-Z0-9._-]{2,}[@][a-zA-Z0-9]{2,}[.][a-z]{2,3}$/.test(email.value)
+        if(!validateMail) {
+            errorMsg[serial].innerHTML = "Le format de l'email n'est pas le bon"
+        failureIcon[serial].style.opacity = "1"
+        successIcon[serial].style.opacity = "0"
+        email.style.border = "2px solid red"
+        }
+    }
 }
+
+/*
+    //CHECK EMAIL VALIDATE
+    let validateMail = /^[a-zA-Z0-9][a-zA-Z0-9._-]{2,}[@][a-zA-Z0-9]{2,}[.][a-z]{2,3}$/.test(email.value)
+    if(!validateMail) {
+            errorMsg[1].innerHTML = "Le format de l'email n'est pas le bon"
+        failureIcon[1].style.opacity = "1"
+        successIcon[1].style.opacity = "0"
+        email.style.border = "2px solid red"
+    }
+    //CHECK PASSWORD VALIDATE
+    let validatePass = /^(?=.*[A-Z])(?=.*[\W])(?=.*[0-9]).{8,}$/.test(password.value)
+    if (!validatePass && password.value !== "") {
+        errorMsg[2].innerHTML = "Le mot de passe doit avoir au minimum 1 majuscule, 1 minuscule, 1 caractère spécial et doit avoir 8 caractères minimums"
+    failureIcon[2].style.opacity = "1"
+    successIcon[2].style.opacity = "0"
+    password.style.border = "2px solid red"
+    }
+*/
