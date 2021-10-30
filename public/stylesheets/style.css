@@ -202,6 +202,7 @@ h1 img {
   position: relative;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   width: 450px;
   height: 500px;
   margin: auto;
@@ -209,6 +210,10 @@ h1 img {
   border-radius: 2%;
   background-color: var(--container-bcg-color);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container h4 {
+  margin-left: 10px;
 }
 
 /****back btn****/
@@ -747,10 +752,6 @@ select {
 }
 
 /**MSG**/
-
-h4{
-  /* margin-left: 50px; */
-}
 
 .error-file {
   margin-left: 50px;

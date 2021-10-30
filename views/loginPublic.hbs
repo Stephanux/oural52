@@ -1,5 +1,10 @@
 <div class="container">
-    <main>        
+    <div>
+        {{#if msg}}
+        <h4>{{msg}}</h4>
+        {{/if}}
+    </div>
+    <main>       
         <form action="/authenticated" method="POST" id="form-login">
             <div class="form">
                 <label for="username">Nom d'utilisateur :</label>

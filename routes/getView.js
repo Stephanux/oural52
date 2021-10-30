@@ -5,7 +5,8 @@ const router = express.Router();
 router.get('/', (req, res, next) => {
     console.log("from getView ");
     res.render(req.message.view, {
-        title: req.message.title
+        title: req.message.title,
+        msg: req.query.msg
     });
 
 });

@@ -157,13 +157,13 @@ passport.use(new LocalStrategy(
     }
 ));
 
-app.post('/authenticated', passport.authenticate('local'), function(req, res) {
-    if (req.session.passport.user != null) {
-        res.redirect('/accueil'); //le user est authentifié , on affiche l’accueil, il est en session
-    } else {
-        res.redirect('/'); // il n’est pas présent on renvoie à la boîte de login
-    }
-});
+app.post('/authenticated',
+    passport.authenticate('local',
+    {   
+        successRedirect: '/accueil',
+        failureRedirect: '/' + "?msg=Il y'a une erreur de nom d'utilisateur ou de mot de passe"
+    })
+)
 
 require('./dynamicRouter')(app);
 
