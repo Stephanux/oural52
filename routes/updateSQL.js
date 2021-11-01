@@ -25,7 +25,6 @@ router.post(('/'), (req, res, next) => {
             }).catch((err) => {
                 console.log('error select', err)
                 res.redirect(req.message.redirect + '?msg=Il y a une erreur')
-                res.send('Erreur : ' + err)
             })
     } else {
         res.redirect('/')  // affichage boîte de login si pas authentifié

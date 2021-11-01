@@ -4,6 +4,33 @@
         "view": "loginPublic",
         "title": "Se connecter"
     },
+    "GET/forgotPassword": {
+        "controler": "getView",
+        "view": "forgotPassword",
+        "form_action": "/forgotPassword",
+        "title": "Mot de passe oublié"
+    },
+    "POST/forgotPassword": {
+        "controler": "forgotPassword",
+        "modelName": "Users",
+        "view": "forgotPassword",
+        "title": "Mot de passe oublié",
+        "redirect": "/forgotPassword"
+    },
+    "GET/changePassword": {
+        "controler": "getUserId",
+        "view": "changePassword",
+        "modelName": "Users",
+        "title": "Changement mot de passe",
+        "form_action": "/changePassword"
+    },
+    "POST/changePassword": {
+        "controler": "changePassword",
+        "modelName": "Users",
+        "view": "changePassword",
+        "title": "Changement mot de passe",
+        "redirect": "/"
+    },
     "GET/accueil": {
         "controler": "getViewWithAuth",
         "view": "home",
@@ -12,7 +39,7 @@
     "GET/logout": {
         "controler": "logout",
         "view": "login",
-        "title": "Bienvenue dans le framework Node/Express"
+        "title": "Se déconnecter"
     },
     "GET/listUsers": {
         "controler": "listUsers",
@@ -47,6 +74,7 @@
         "params_query": [
             "name",
             "firstName",
+            "email",
             "login",
             "mdp",
             "_id"],

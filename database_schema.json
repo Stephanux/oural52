@@ -4,6 +4,10 @@
         "schema": {
             "_id": "ObjectId",
             "name": "String",
+            "email": {
+                "type":"string",
+                "unique": true
+            },
             "firstName": "String",
             "login": "String",
             "mdp": "String"

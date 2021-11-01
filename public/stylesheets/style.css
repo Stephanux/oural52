@@ -5,8 +5,8 @@
   --add-color: #188c3e;
   --delete-color: #a61717;
   --edit-color: #98901f;
-  --text-color-white: hsl(0, 50%, 100%);
-  --text-color-black: hsl(0, 50%, 0%);
+  --text-color-white: #ffffff;
+  --text-color-black: #000000;
 }
 
 *{
@@ -185,6 +185,7 @@ h1 img {
   width: 30px;
   height: 30px;
   transform: rotate(.5turn);
+  transition: .5s;
   fill: var(--text-color-white);
   margin-bottom: -5px;
 }
@@ -192,6 +193,7 @@ h1 img {
 .hide-list-menu{
   width: 30px;
   height: 30px;
+  transition: .5s;
   margin-bottom: -5px;
   fill: var(--text-color-white);
 }
@@ -214,6 +216,26 @@ h1 img {
 
 .container h4 {
   margin-left: 10px;
+}
+
+.container main .form a {
+  color: var(--header-bcg-color);
+  text-decoration: underline
+}
+
+.form input[type="submit"][value="Envoyer"]{
+  background-color: var(--header-bcg-color);
+  color: var(--text-color-white);
+  height: 25px;
+  transition: 0.2s;
+  cursor: pointer;
+  margin-top: 90px;
+}
+
+.form input[type="submit"][value="Envoyer"]:hover{
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: rgb(39, 125, 165);
 }
 
 /****back btn****/
@@ -495,7 +517,7 @@ select {
   margin-bottom: 20px;
   background :var(--header-bcg-color);
   color: var(--text-color-white);
-  border: 2px solid #accbee;
+  border: 2px solid #257aa1;
   transition: 0.2s;
   cursor: pointer;
 }

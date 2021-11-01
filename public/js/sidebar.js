@@ -170,7 +170,7 @@ window.addEventListener('load', () => {
     let logout = document.querySelector('.logout')
     let title = document.getElementById('title')
 
-    if(window.location.pathname === ('/')) {
+    if(window.location.pathname === ('/') || window.location.pathname === ('/forgotPassword') || window.location.pathname === ('/changePassword')) {
         title.style.position = 'absolute'
         icon.classList.add('sidebar')
         home.classList.add('sidebar')

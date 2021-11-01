@@ -6,9 +6,9 @@ router.get('/', (req, res, next) => {
     console.log("from getView ");
     res.render(req.message.view, {
         title: req.message.title,
-        msg: req.query.msg
+        msg: req.query.msg,
+        form_action: req.message.form_action
     });
-
 });
 
 module.exports = router;

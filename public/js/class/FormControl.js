@@ -63,13 +63,13 @@ export class FormControl {
         })
     }
 
-    checkEmail(email, serial){
+    checkEmail(email, serial, message){
         let validateMail = /^[a-zA-Z0-9][a-zA-Z0-9._-]{2,}[@][a-zA-Z0-9]{2,}[.][a-z]{2,3}$/.test(email.value)
         if(!validateMail) {
-            errorMsg[serial].innerHTML = "Le format de l'email n'est pas le bon"
-        failureIcon[serial].style.opacity = "1"
-        successIcon[serial].style.opacity = "0"
-        email.style.border = "2px solid red"
+            errorMsg[serial].innerHTML = message
+            failureIcon[serial].style.opacity = "1"
+            successIcon[serial].style.opacity = "0"
+            email.style.border = "2px solid red"
         }
     }
 

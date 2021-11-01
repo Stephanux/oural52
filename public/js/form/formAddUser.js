@@ -32,7 +32,7 @@ window.addEventListener('load', () => {
         }
         if (password.value !== confirmPassword.value) {
             e.preventDefault()
-            formControlUser.confirmPassword(password, confirmPassword, 3, 4)
+            formControlUser.confirmPassword(confirmPassword, 4, 3)
         }
         formControlUser.displayEye(password, iconPassword)
         formControlUser.displayEye(confirmPassword, iconConfirmPassword)     

@@ -63,7 +63,8 @@ global.schemas = {};
 var mongoose = require('mongoose');
 mongoose.connect(config.mongoose.url, {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useCreateIndex: true
 }, function(err) {
     if (err) {
         throw err;
