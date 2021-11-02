@@ -23,7 +23,11 @@ router.post('/', (req, res, next) => {
                     from: process.env.MAIL_FROM,
                     to: result[0].email,
                     subject: 'Modification du mot de passe',
-                    text: 'Pour modifier votre mot de passe, veuillez cliquez sur ce lien: ' + url
+                    html: `
+                    <div>
+                        <p>Pour modifier votre mot de passe, veuillez cliquer <a href="${url}">ici</a></p>
+                    </div>
+                    `
                 }
                 transporter.sendMail(mailOptions, (error, info) => {
                     if(error){
