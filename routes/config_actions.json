@@ -33,11 +33,20 @@
     },
     "GET/accueil": {
         "controler": "getViewWithAuth",
+        "modelName": "Users",
         "view": "home",
         "title": "Accueil"
     },
     "GET/logout": {
+        "controler": "getViewWithAuth",
+        "modelName": "Users",
+        "view": "logout",
+        "form_action": "/logout",
+        "title": "Se déconnecter"
+    },
+    "POST/logout": {
         "controler": "logout",
+        "modelName": "Users",
         "view": "login",
         "title": "Se déconnecter"
     },
@@ -76,7 +85,6 @@
             "firstName",
             "email",
             "login",
-            "mdp",
             "_id"],
         "redirect": "/listUsers"
     },
@@ -95,6 +103,7 @@
     "GET/formInsertVehicule": {
         "controler": "selectListSchemas",
         "view": "addVehicule",
+        "modelName": "Users",
         "tables_list": [
             "modele",
             "type_vehicule",
@@ -110,6 +119,7 @@
     },
     "POST/addVehicule": {
         "controler": "addSQL",
+        "modelName": "Users",
         "view": "addVehicule",
         "request": "INSERT INTO Vehicules (nom_vehicule, date_mise_circulation, id_type_vehicule, id_modele) VALUES (?, ?, ?, ?)",
         "title": "Ajoutez un véhicule",
@@ -117,6 +127,7 @@
     },
     "GET/formInsertTypeVehicule": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "addTypeVehicule",
         "tables_list": ["type_vehicule"],
         "sql_list": ["SELECT * FROM type_vehicule"],
@@ -125,6 +136,7 @@
     },
     "POST/addTypeVehicule": {
         "controler": "addSQLAndUploadSingle",
+        "modelName": "Users",
         "view": "addTypeVehicule",
         "request": "INSERT INTO type_vehicule (nom_type_vehicule, doc_pdf) VALUES (?, ?)",
         "title": "Ajoutez un type de véhicule",
@@ -132,6 +144,7 @@
     },
     "GET/listTypeVehicule": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "listTypeVehicule",
         "tables_list": ["type_vehicule"],
         "sql_list": ["select * from type_vehicule"],
@@ -139,6 +152,7 @@
     },
     "GET/formEditTypeVehicule": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editTypeVehiculeById",
         "tables_list": ["type_vehicule"],
         "sql_list": ["select * from type_vehicule"],
@@ -148,6 +162,7 @@
     },
     "POST/editTypeVehicule": {
         "controler": "updateSQLAndUploadSingle",
+        "modelName": "Users",
         "view": "editTypeVehiculeById",
         "sql_query": "UPDATE type_vehicule SET nom_type_vehicule=?, doc_pdf=? WHERE type_vehicule.id_type_vehicule=?",
         "params_query": [
@@ -160,6 +175,7 @@
     },
     "GET/formDeleteTypeVehicule": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deleteTypeVehicule",
         "sql_query": "SELECT id_type_vehicule, nom_type_vehicule, doc_pdf FROM type_vehicule WHERE type_vehicule.id_type_vehicule = ?",
         "title": "Supprimez un type de véhicule",
@@ -167,6 +183,7 @@
     },
     "POST/deleteTypeVehicule": {
         "controler": "deleteSQL",
+        "modelName": "Users",
         "view": "deleteTypeVehicule",
         "params_query": ["id"],
         "sql_query": "DELETE FROM type_vehicule WHERE type_vehicule.id_type_vehicule = ?",
@@ -174,6 +191,7 @@
     },
     "GET/formInsertMarque": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "addMarque",
         "tables_list": ["marques"],
         "sql_list": ["SELECT * FROM marques"],
@@ -182,6 +200,7 @@
     },
     "POST/addMarque": {
         "controler": "addSQL",
+        "modelName": "Users",
         "view": "addMarque",
         "request": "INSERT INTO marques (nom_marque) VALUES (?)",
         "title": "Ajoutez une marque de véhicule",
@@ -189,6 +208,7 @@
     },
     "GET/listModeleVehicule": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "listModeleVehicule",
         "tables_list": ["modele"],
         "sql_list": ["SELECT id_modele, nom_modele, modele.id_marque, marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque"],
@@ -196,6 +216,7 @@
     },
     "GET/formEditModeleVehicule": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editModeleVehiculeById",
         "tables_list": [
             "modele",
@@ -211,6 +232,7 @@
     },
     "POST/editModeleVehicule": {
         "controler": "updateSQL",
+        "modelName": "Users",
         "view": "editModeleVehiculeById",
         "sql_query": "UPDATE modele SET nom_modele = ?, id_marque = ? WHERE modele.id_modele = ?",
         "params_query": [
@@ -223,6 +245,7 @@
     },
     "GET/formDeleteModeleVehicule": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deleteModele",
         "sql_query": "SELECT id_modele, nom_modele FROM modele WHERE modele.id_modele = ?",
         "title": "Supprimez un modèle",
@@ -230,6 +253,7 @@
     },
     "POST/deleteModele": {
         "controler": "deleteSQL",
+        "modelName": "Users",
         "view": "deleteModele",
         "params_query": ["id"],
         "sql_query": "DELETE FROM modele WHERE modele.id_modele = ?",
@@ -237,6 +261,7 @@
     },
     "GET/listMarqueVehicule": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "listMarqueVehicule",
         "tables_list": ["marques"],
         "sql_list": ["SELECT * FROM marques"],
@@ -244,6 +269,7 @@
     },
     "GET/formEditMarqueVehicule": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editMarqueVehiculeById",
         "tables_list": ["marques"],
         "sql_list": ["SELECT * FROM marques"],
@@ -253,6 +279,7 @@
     },
     "POST/editMarqueVehicule": {
         "controler": "updateSQL",
+        "modelName": "Users",
         "view": "editMarqueVehiculeById",
         "sql_query": "UPDATE marques SET nom_marque=? WHERE marques.id_marque=?",
         "params_query": [
@@ -264,6 +291,7 @@
     },
     "GET/formDeleteMarqueVehicule": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deleteMarque",
         "sql_query": "SELECT id_marque, nom_marque FROM marques WHERE marques.id_marque = ?",
         "title": "Supprimez une marque",
@@ -271,6 +299,7 @@
     },
     "POST/deleteMarque": {
         "controler": "deleteSQL",
+        "modelName": "Users",
         "view": "deleteMarque",
         "params_query": ["id"],
         "sql_query": "DELETE FROM marques WHERE marques.id_marque = ?",
@@ -292,6 +321,7 @@
     },
     "POST/addModele": {
         "controler": "addSQL",
+        "modelName": "Users",
         "view": "addModele",
         "request": "INSERT INTO modele (id_marque, nom_modele) VALUES (?, ?)",
         "title": "Ajoutez le modèle d'une marque",
@@ -299,6 +329,7 @@
     },
     "GET/formInsertPiece": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "addPiece",
         "tables_list": [
             "pieces_detachees",
@@ -315,6 +346,7 @@
     },
     "POST/addPiece": {
         "controler": "addPieceAndLinkVehicule",
+        "modelName": "Users",
         "view": "addPiece",
         "request": "INSERT INTO pieces_detachees ( nom_p_d, id_stype_p_d, longueur, largeur, diametre, localisation, etat, photo, doc_pdf) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)",
         "title": "Ajoutez une pièce détachée",
@@ -329,6 +361,7 @@
     },
     "GET/listTypePiece": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "listTypePiece",
         "tables_list": ["type_p_d"],
         "sql_list": ["SELECT * FROM type_p_d"],
@@ -336,6 +369,7 @@
     },
     "GET/formInsertTypePiece": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "addTypePiece",
         "tables_list": [
             "type_p_d"
@@ -348,6 +382,7 @@
     },
     "POST/addTypePiece": {
         "controler": "addSQL",
+        "modelName": "Users",
         "view": "addTypePiece",
         "request": "INSERT INTO type_p_d (nom_type_p_d) VALUES (?)",
         "title": "Ajoutez un type de pièce détachée",
@@ -355,6 +390,7 @@
     },
     "GET/formEditTypePiece": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editTypePieceById",
         "tables_list": ["type_p_d"],
         "sql_list": ["SELECT * FROM type_p_d"],
@@ -364,6 +400,7 @@
     },
     "POST/editTypePiece": {
         "controler": "updateSQL",
+        "modelName": "Users",
         "view": "editTypePieceById",
         "sql_query": "UPDATE type_p_d SET nom_type_p_d = ? WHERE type_p_d.id_type_p_d = ?",
         "params_query": [
@@ -375,6 +412,7 @@
     },
     "GET/formDeleteTypePiece": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deleteTypePiece",
         "sql_query": "SELECT id_type_p_d, nom_type_p_d FROM type_p_d WHERE type_p_d.id_type_p_d = ?",
         "title": "Supprimez un type de pièce détachée",
@@ -382,6 +420,7 @@
     },
     "POST/deleteTypePiece": {
         "controler": "deleteSQL",
+        "modelName": "Users",
         "view": "deleteTypePiece",
         "params_query": ["id"],
         "sql_query": "DELETE FROM type_p_d WHERE type_p_d.id_type_p_d= ?",
@@ -389,6 +428,7 @@
     },
     "GET/listSousTypePiece": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "listSousTypePiece",
         "tables_list": ["sous_type_p_d"],
         "sql_list": ["SELECT id_stype_p_d, nom_stype, sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d"],
@@ -396,6 +436,7 @@
     },
     "GET/formInsertSousTypePiece": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "addSousTypePiece",
         "tables_list": [
             "sous_type_p_d",
@@ -410,6 +451,7 @@
     },
     "POST/addSousTypePiece": {
         "controler": "addSQL",
+        "modelName": "Users",
         "view": "addSousTypePiece",
         "request": "INSERT INTO sous_type_p_d (nom_stype, id_type_p_d) VALUES (?, ?)",
         "title": "Ajoutez un sous-type de pièce détachée",
@@ -417,6 +459,7 @@
     },
     "GET/formEditSousTypePiece": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editSousTypePieceById",
         "tables_list": [
             "sous_type_p_d",
@@ -432,6 +475,7 @@
     },
     "POST/editSousTypePiece": {
         "controler": "updateSQL",
+        "modelName": "Users",
         "view": "editSousTypePieceById",
         "sql_query": "UPDATE sous_type_p_d SET nom_stype = ?, id_type_p_d = ? WHERE sous_type_p_d.id_stype_p_d = ?",
         "params_query": [
@@ -444,6 +488,7 @@
     },
     "GET/formDeleteSousTypePiece": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deleteSousTypePiece",
         "sql_query": "SELECT id_stype_p_d, nom_stype FROM sous_type_p_d WHERE sous_type_p_d.id_stype_p_d = ?",
         "title": "Supprimez un sous-type de pièce détachée",
@@ -451,6 +496,7 @@
     },
     "POST/deleteSousTypePiece": {
         "controler": "deleteSQL",
+        "modelName": "Users",
         "view": "deleteSousTypePiece",
         "params_query": ["id"],
         "sql_query": "DELETE FROM sous_type_p_d WHERE sous_type_p_d.id_stype_p_d = ?",
@@ -458,6 +504,7 @@
     },
     "GET/stockVehicule": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "stockVehicule",
         "tables_list": ["Vehicules"],
         "sql_list": ["SELECT id_vehicule, nom_vehicule, date_mise_circulation, modele.id_marque, Vehicules.id_type_vehicule, Vehicules.id_modele, modele.nom_modele, marques.nom_marque, type_vehicule.nom_type_vehicule, type_vehicule.doc_pdf FROM Vehicules, marques, type_vehicule, modele WHERE modele.id_marque = marques.id_marque AND Vehicules.id_type_vehicule = type_vehicule.id_type_vehicule AND Vehicules.id_modele = modele.id_modele"],
@@ -466,6 +513,7 @@
     },
     "GET/formEditVehicule": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editVehicule",
         "tables_list": [
             "type_vehicule",
@@ -481,6 +529,7 @@
     },
     "POST/editVehicule": {
         "controler": "updateSQL",
+        "modelName": "Users",
         "view": "editVehicule",
         "sql_query": "UPDATE Vehicules SET nom_vehicule=?, date_mise_circulation=?, id_type_vehicule=?, id_modele=? WHERE Vehicules.id_vehicule=?",
         "params_query": [
@@ -495,6 +544,7 @@
     },
     "GET/formDeleteVehicule": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deleteVehicule",
         "sql_query": "SELECT id_vehicule, nom_vehicule, date_mise_circulation, Vehicules.id_modele, Vehicules.id_type_vehicule  FROM Vehicules WHERE Vehicules.id_vehicule=?",
         "title": "Supprimez un véhicule",
@@ -502,6 +552,7 @@
     },
     "POST/deleteVehicule": {
         "controler": "deleteSQL",
+        "modelName": "Users",
         "view": "deleteVehicule",
         "params_query": ["id"],
         "sql_query": "DELETE from Vehicules WHERE Vehicules.id_vehicule = ?",
@@ -509,6 +560,7 @@
     },
     "GET/stockPiece": {
         "controler": "selectListSchemas",
+        "modelName": "Users",
         "view": "stockPiece",
         "tables_list": ["pieces_detachees"],
         "sql_list": [
@@ -518,6 +570,7 @@
     },
     "GET/formEditPiece": {
         "controler": "selectByIdAndListSchemas",
+        "modelName": "Users",
         "view": "editPiece",
         "tables_list": [
             "sous_type_p_d",
@@ -535,6 +588,7 @@
     },
     "POST/editPiece": {
         "controler": "updateSQLAndUploadMultiple",
+        "modelName": "Users",
         "view": "editPiece",
         "sql_query": "UPDATE pieces_detachees SET nom_p_d=?, id_stype_p_d=?, longueur=?, largeur=?, diametre=?, localisation=?, etat=?, photo=?, doc_pdf=? WHERE pieces_detachees.id_p_d=?",
         "params_query": [
@@ -561,6 +615,7 @@
     },
     "GET/formDeletePiece": {
         "controler": "selectSQLById",
+        "modelName": "Users",
         "view": "deletePiece",
         "sql_query": "SELECT pieces_detachees.id_p_d, liens_p_d.id_vehicule, nom_p_d, photo, pieces_detachees.id_stype_p_d, longueur, largeur, diametre, doc_pdf, localisation, etat FROM pieces_detachees, liens_p_d WHERE pieces_detachees.id_p_d= ?",
         "title": "Supprimez une pièce",
@@ -568,6 +623,7 @@
     },
     "POST/deletePiece": {
         "controler": "deletePieceAndLink",
+        "modelName": "Users",
         "view": "deletePiece",
         "params_query": [
             "id_piece",

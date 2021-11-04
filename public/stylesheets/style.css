@@ -84,7 +84,7 @@ li {
 }
 
 .title-margin {
-  margin-left: 40px;
+  margin-left: 45px;
 }
 
 h1 span {
@@ -187,7 +187,7 @@ h1 img {
   transform: rotate(.5turn);
   transition: .5s;
   fill: var(--text-color-white);
-  margin-bottom: -5px;
+  margin-bottom: -7px;
 }
 
 .hide-list-menu{
@@ -197,6 +197,46 @@ h1 img {
   margin-bottom: -5px;
   fill: var(--text-color-white);
 }
+
+.user-nav {
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+
+.user-icon{
+  width: 30px;
+  height: 30px;
+  transition: .5s;
+  margin-bottom: -5px;
+  margin: 0 10px -5px 0;
+  fill: var(--text-color-white);
+}
+
+#nav {
+  display: none;
+  width: 250px;
+  padding: 40px 10px 10px 10px;
+  position: absolute;
+  top: 23px;
+  right: -50px;
+  background-color: var(--header-bcg-color);
+  z-index: 10;
+}
+
+#nav ul li {
+  margin-top: 20px;
+}
+
+#nav ul li a:hover{
+  color: var(--container-bcg-color);
+  transition: 0.3s;
+}
+
+#user:hover #nav{
+  display: block;
+}
+
 /****container****/
 
 .container{
@@ -206,9 +246,9 @@ h1 img {
   align-items: center;
   flex-direction: column;
   width: 450px;
-  height: 500px;
+  height: 350px;
   margin: auto;
-  margin-top: 10vh;
+  margin-top: 15vh;
   border-radius: 2%;
   background-color: var(--container-bcg-color);
   box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
@@ -236,6 +276,13 @@ h1 img {
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: rgb(39, 125, 165);
+}
+
+.forget{
+  font-size: 12px;
+  position: absolute;
+  right: 130px;
+  bottom: 150px;
 }
 
 /****back btn****/
@@ -508,7 +555,7 @@ select {
 
 .main h2{
   margin-bottom: 50px;
-  margin-left: 55px;
+  margin-left: 90px;
 }
 
 .main button {
@@ -568,6 +615,11 @@ select {
   padding: 20px 0;
 }
 
+.wrapper .form a {
+  color: var(--header-bcg-color);
+  text-decoration: underline
+}
+
 .form{
   display: flex;
   flex-direction: column;
@@ -575,7 +627,7 @@ select {
 }
 
 .form :nth-child(n){
-  margin-bottom: 8px;
+  margin-bottom: 10px;
 }
 
 .form input[type="submit"][value="Se connecter"]{
@@ -630,6 +682,19 @@ select {
 }
 
 .form input[type="submit"][value="Supprimer"]:hover{
+  box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
+  transform: translateX(3px);
+  background-color: hsl(0, 63%, 46%);
+}
+
+.form input[type="submit"][value="Se déconnecter"]{
+  transition: 0.2s;
+  background-color: var(--delete-color);
+  color: var(--text-color-white);
+  cursor: pointer;
+}
+
+.form input[type="submit"][value="Se déconnecter"]:hover{
   box-shadow: 0 5px 10px hsla(0, 0%, 0%, 0.32);
   transform: translateX(3px);
   background-color: hsl(0, 63%, 46%);

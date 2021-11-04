@@ -105,10 +105,25 @@
         <div id="title">
             <h1><span>Oural-52</span><img src="img/Oural-52.png" alt="Logo oural-52"></h1>
         </div>
-        <div id="logout">
-            <form action="/logout" method="GET" class="logout">
-                <input type="submit" value="Se déconnecter">
-            </form>
+        <div id="user">     
+            <svg class="user-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 375" style="enable-background:new 0 0 300 300" xml:space="preserve"><path d="M193.7 136.88c-12.36 8.75-27.44 13.91-43.7 13.91s-31.34-5.16-43.7-13.91C72.4 153.17 49 187.83 49 227.96v38.48c0 10.23 8.29 18.52 18.52 18.52h164.96c10.23 0 18.52-8.29 18.52-18.52v-38.48c0-40.13-23.4-74.79-57.3-91.08zM209.87 74.91c0 33.07-26.81 59.87-59.87 59.87-33.07 0-59.88-26.8-59.88-59.87 0-33.06 26.81-59.87 59.88-59.87 33.06 0 59.87 26.81 59.87 59.87z"/></svg>
+            <p>Bonjour {{user.firstName}}</p>
+            <div id="nav">
+            <p>Dernière connexion le {{user.lastLogin}}</p>
+                <nav>
+                    <ul>
+                        <li>
+                            <a href="/formEditUser?id={{user._id}}">Modifier vos informations</a>
+                        </li>
+                        <li>
+                            <a href="/changePassword?id={{user._id}}">Modifier votre mot de passe</a>
+                        </li>
+                        <li>
+                            <a href="/logout">Se déconnecter</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>         
         </div>       
     </div>
 </header>

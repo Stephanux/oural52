@@ -14,12 +14,21 @@ router.get('/', (req, res, next) => {
             .then((result) => { 
                 console.log('listes des données : ', result)
                 if (req.message.return_type == null) {
-                    // récupérer les données extraites de la base et les envoyées à une vue
-                    res.render(req.message.view, {
-                        title: req.message.title,
-                        form_action: req.message.form_action,
-                        data: result[0] // Attention a renvoyer une variable avec un nom generique
+                    /**On récupère les informations de l'utilisateur connecté */
+                    global.schemas[req.message.modelName].find({_id: req.session.passport.user})
+                    .then((user) => {
+                        console.log('req.session: ',user)
+                        // récupérer les données extraites de la base et les envoyées à une vue
+                        res.render(req.message.view, {
+                            title: req.message.title,
+                            form_action: req.message.form_action,
+                            data: result[0], // Attention a renvoyer une variable avec un nom generique
+                            user: user[0]
+                        })
                     })
+                    .catch((err) => {
+                        console.log(err)
+                    })          
                 } else {
                     res.setHeader('content-type', 'application/json')
                     res.send(result)

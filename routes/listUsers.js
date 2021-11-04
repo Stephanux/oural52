@@ -18,12 +18,21 @@ router.get('/', (req, res, next) => {
                     console.log(result);
                     if (result.length == 0) result = null;
                     if (req.message.return_type == null) {
-                        res.render(req.message.view, {
-                            title: req.message.title,
-                            form_action: req.message.form_action,
-                            msg: req.query.msg,
-                            data: result
-                        });
+                        /*On récupère les informations de l'utilisateur connecté */
+                        global.schemas[req.message.modelName].find({_id: req.session.passport.user})
+                        .then((user) => {
+                            console.log('req.session: ',user)
+                            res.render(req.message.view, {
+                                title: req.message.title,
+                                form_action: req.message.form_action,
+                                msg: req.query.msg,
+                                data: result,
+                                user: user[0]
+                            })
+                        })
+                        .catch((err) => {
+                            console.log(err)
+                        })                       
                     } else {
                         res.send(JSON.stringify(result));
                     }

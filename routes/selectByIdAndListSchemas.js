@@ -36,14 +36,24 @@ router.get(('/'), (req, res) => {
                 }
                 getDataFromTable(i, () => {
                     if (req.message.return_type == null) {
-                        // récupérer les données extraites de la base et les envoyées à une vue
-                        res.render(req.message.view, {
-                            stitle: 'Connexion à BD SQL données Countries via Sequelize',
-                            title: req.message.title,
-                            form_action: req.message.form_action,
-                            datas: results, // Attention a renvoyer une variable avec un nom generique
-                            data: result[0]
-                        })
+                        /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
+                        global.schemas[req.message.modelName].find({_id: req.session.passport.user})
+                            .then((user) => {
+                                console.log('req.session: ',user)
+                                // récupérer les données extraites de la base et les envoyées à une vue
+                                res.render(req.message.view, {
+                                    stitle: 'Connexion à BD SQL données Countries via Sequelize',
+                                    title: req.message.title,
+                                    form_action: req.message.form_action,
+                                    datas: results, // Attention a renvoyer une variable avec un nom generique
+                                    data: result[0],
+                                    user: user[0]
+                                })
+                            })
+                            .catch((err) => {
+                                console.log(err)
+                            })
+                        
                     } else {
                         res.setHeader('content-type', 'application/json')
                         res.send(result)
