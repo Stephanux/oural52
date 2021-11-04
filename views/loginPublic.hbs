@@ -7,7 +7,7 @@
     <main>       
         <form action="/authenticated" method="POST" id="form-login">
             <div class="form">
-                <label for="username">Nom d'utilisateur :</label>
+                <label for="username">Pseudo :</label>
                 <div class="form-data">
                     <input type="text" name="username" id="usernameLogin">
                     <i class="fas fa-exclamation-circle failure-icon"></i>
@@ -24,12 +24,10 @@
                     <i class="far fa-check-circle success-icon"></i>
                     <div class="error"></div>
                 </div>
+                <a href="/forgotPassword" class="forget">Mot de passe oublié</a>
                 <input type="submit" value="Se connecter">
             </div>
         </form>
-        <div class="form">
-            <a href="/forgotPassword">Mot de passe oublié ?</a>
-        </div>
     </main>
 </div>
 <script src="js/class/FormControl.js" type="module"></script>

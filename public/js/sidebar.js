@@ -18,7 +18,7 @@ window.addEventListener('load', () => {
     let titleVehicule = document.querySelector('.title-vehicule')
     let titlePiece = document.querySelector('.title-piece')
     let titleStock = document.querySelector('.title-stock')
-    let tileEditVehicule = document.querySelector('.title-edit-vehicule')
+    let titleEditVehicule = document.querySelector('.title-edit-vehicule')
     let titleEditPiece = document.querySelector('.title-edit-piece')
     let titleUser = document.querySelector('.title-user')
     let toggleMenu = document.querySelectorAll('.toggle-menu')
@@ -52,6 +52,8 @@ window.addEventListener('load', () => {
         titleVehicule.classList.add('item')
         listVehicule.classList.add('hide-list-menu')
         listVehicule.classList.remove('list-menu')
+        listPiece.classList.remove('hide-list-menu')
+        listPiece.classList.add('list-menu')
         titlePiece.classList.remove('item')
         titleStock.classList.remove('item')
         tileEditVehicule.classList.remove('item')
@@ -66,6 +68,10 @@ window.addEventListener('load', () => {
         menuEditVehicule.style.display = "none"
         menuEditPiece.style.display = "none"
         menuUsers.style.display = "none"
+        listVehicule.classList.remove('hide-list-menu')
+        listVehicule.classList.add('list-menu')
+        listPiece.classList.add('hide-list-menu')
+        listPiece.classList.remove('list-menu')
         titlePiece.classList.add('item')
         titleVehicule.classList.remove('item')
         titleStock.classList.remove('item')
@@ -131,7 +137,7 @@ window.addEventListener('load', () => {
         tileEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
     })
-
+    
     //CLOSE SIDEBAR AND SUB-MENUS//
     closeMenu.addEventListener('click', () => {
         sideBar.classList.remove('active')
@@ -150,44 +156,29 @@ window.addEventListener('load', () => {
         menuUsers.style.display = "none"
     })
 
-    for(i = 0; i < toggleMenu.length; i++) {
-        toggleMenu[i].addEventListener('click', () => {
-            console.log('allo')
-            listVehicule.classList.add('list-menu')
-            toggleMenu[i].classList.remove('hide-list-menu')
-            menuVehicule.style.display = "none"
-            menuPiece.style.display = "none"
-            menuStock.style.display = "none"
-            menuEditVehicule.style.display = "none"
-            menuEditPiece.style.display = "none"
-            menuUsers.style.display = "none"
-        })
-    }
-
-
     //HIDE SIDEBAR IF USER IS NOT LOGGIN
     let home = document.querySelector('.home')
-    let logout = document.querySelector('.logout')
     let title = document.getElementById('title')
+    let user = document.querySelector('#user')
 
     if(window.location.pathname === ('/') || window.location.pathname === ('/forgotPassword') || window.location.pathname === ('/changePassword')) {
         title.style.position = 'absolute'
         icon.classList.add('sidebar')
         home.classList.add('sidebar')
-        logout.classList.add('sidebar')
+        user.classList.add('sidebar')
     } else {
         title.classList.add('title-margin')
         icon.classList.remove('sidebar')
         home.classList.remove('sidebar')
-        logout.classList.remove('sidebar')
+        user.classList.remove('sidebar')
+        user.classList.add('user-nav')
     }
-
+    
     //BACK BUTTON
 
-    let backBtn = document.querySelectorAll('.back')
-    for(i = 0; i < backBtn.length; i++){
-        backBtn[i].addEventListener('click', () => {
-            window.history.back()
-        })
-    }   
+    let backBtn = document.querySelector('.back')
+    backBtn.addEventListener('click', () => {
+        window.history.back()
+    })
+  
 })

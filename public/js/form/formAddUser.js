@@ -15,33 +15,21 @@ window.addEventListener('load', () => {
     let name = document.querySelector('#userName')
     let firstname = document.querySelector('#userFirstname')
     let pseudo = document.querySelector('#userLogin')
-    let password = document.querySelector('#userMdp')
-    let confirmPassword = document.querySelector('#password-confirm')
-    let iconPassword = document.querySelector('.icon-password')
-    let iconConfirmPassword = document.querySelector('.icon-confirm-password')
+    let email = document.querySelector('#email')
 
     formUser.addEventListener('submit', (e) => {
         let formControlUser = new FormControl()
-        if(name.value === '' || firstname.value === '' || pseudo.value === '' || password.value === '' || confirmPassword.value === ''){
+        if(name.value === '' || firstname.value === '' || pseudo.value === '' || email.value === ''){
             e.preventDefault()
             formControlUser.showErrMsg(name, 0, "Le nom est requis")
             formControlUser.showErrMsg(firstname, 1 , "Le prénom est requis")
-            formControlUser.showErrMsg(pseudo, 2 , "Le pseudo est requis")
-            formControlUser.showErrMsg(password, 3, "Le mot de passe est obligatoire")
-            formControlUser.showErrMsg(confirmPassword, 4, "La confirmation est obligatoire")
+            formControlUser.showErrMsg(email, 2 , "L'email' est requis")
+            formControlUser.showErrMsg(pseudo, 3 , "Le pseudo est requis")
         }
-        if (password.value !== confirmPassword.value) {
-            e.preventDefault()
-            formControlUser.confirmPassword(confirmPassword, 4, 3)
-        }
-        formControlUser.displayEye(password, iconPassword)
-        formControlUser.displayEye(confirmPassword, iconConfirmPassword)     
+
         formControlUser.hideStyle(name, 0, "")
         formControlUser.hideStyle(firstname, 1, "") 
-        formControlUser.hideStyle(pseudo, 2, "") 
-        formControlUser.hideStyle(password, 3, "") 
-        formControlUser.hideStyle(confirmPassword, 4, "")
-        formControlUser.switchTypeOfInput(iconPassword, password)
-        formControlUser.switchTypeOfInput(iconConfirmPassword, confirmPassword)   
+        formControlUser.hideStyle(email, 2, "")
+        formControlUser.hideStyle(pseudo, 3, "") 
     })
 })
