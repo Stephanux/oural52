@@ -214,6 +214,29 @@
         "sql_list": ["SELECT id_modele, nom_modele, modele.id_marque, marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque"],
         "title": "Tableaux des modèles de véhicule"
     },
+    "GET/formInsertModele": {
+        "controler": "selectListSchemas",
+        "view": "addModele",
+        "modelName": "Users",
+        "tables_list": [
+            "marques",
+            "modele"
+        ],
+        "sql_list": [
+            "SELECT * FROM marques",
+            "SELECT * FROM modele"
+        ],
+        "form_action": "/addModele",
+        "title": "Ajoutez le modèle d'une marque"
+    },
+    "POST/addModele": {
+        "controler": "addSQL",
+        "modelName": "Users",
+        "view": "addModele",
+        "request": "INSERT INTO modele (id_marque, nom_modele) VALUES (?, ?)",
+        "title": "Ajoutez le modèle d'une marque",
+        "redirect": "/formInsertModele"
+    },
     "GET/formEditModeleVehicule": {
         "controler": "selectByIdAndListSchemas",
         "modelName": "Users",
@@ -304,28 +327,6 @@
         "params_query": ["id"],
         "sql_query": "DELETE FROM marques WHERE marques.id_marque = ?",
         "redirect": "/listMarqueVehicule"
-    },
-    "GET/formInsertModele": {
-        "controler": "selectListSchemas",
-        "view": "addModele",
-        "tables_list": [
-            "marques",
-            "modele"
-        ],
-        "sql_list": [
-            "SELECT * FROM marques",
-            "SELECT * FROM modele"
-        ],
-        "form_action": "/addModele",
-        "title": "Ajoutez le modèle d'une marque"
-    },
-    "POST/addModele": {
-        "controler": "addSQL",
-        "modelName": "Users",
-        "view": "addModele",
-        "request": "INSERT INTO modele (id_marque, nom_modele) VALUES (?, ?)",
-        "title": "Ajoutez le modèle d'une marque",
-        "redirect": "/formInsertModele"
     },
     "GET/formInsertPiece": {
         "controler": "selectListSchemas",

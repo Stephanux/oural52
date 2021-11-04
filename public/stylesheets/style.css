@@ -99,7 +99,7 @@ h1 img {
 
 #sidebar{
 	position: absolute;
-	width: 1000px;
+	width: 380px;
 	padding: 10px;
 	height: 100%;
 	background-color: var(--header-bcg-color);
@@ -595,17 +595,44 @@ select {
   background-color: hsl(0, 63%, 46%);
 }
 
+/****top-messages****/
+
+.messages {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--container-bcg-color);
+  margin: auto;
+  padding: 20px 0;
+  width: 300px;
+  height: auto;
+  border-radius: 10px;
+  margin-top: 5vh;
+}
+
+.top-message {
+  display: flex;
+  flex-direction: column;
+}
+
+.messages .top-message span {
+  margin-bottom: 10px;
+}
+
+.messages h4 {
+  margin-bottom: 10px;
+}
+
 /****add****/
 
 .wrapper{
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 700px;
-  min-height: 500px;
+  width: 500px;
   height: auto;
   margin: auto;
-  margin-top: 15vh;
+  margin-top: 5vh;
   position: relative;
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
