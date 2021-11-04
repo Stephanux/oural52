@@ -43,29 +43,9 @@
                     <i class="fas fa-exclamation-circle failure-icon"></i>
                     <i class="far fa-check-circle success-icon"></i>
                     <div class="error"></div>
-                </div>
-
-                <label for="mdp">Mot de passe* :</label>
-                <div class="form-data">
-                    <input type="password" name="mdp" id="userMdp" value="{{data.mdp}}">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <span class="icon-password">
-                        <i class="fas fa-eye password-eye"></i>
-                    </span>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
-                </div>
-
-                <label for="password-confirm">Confirmation du mot de passe* :</label>
-                <div class="form-data">
-                    <input type="password" name="password-confirm" id="password-confirm">
-                    <i class="fas fa-exclamation-circle failure-icon"></i>
-                    <span class="icon-confirm-password">
-                        <i class="fas fa-eye confirm-password-eye"></i>
-                    </span>
-                    <i class="far fa-check-circle success-icon"></i>
-                    <div class="error"></div>
-                </div>
+                </div>           
+                <input type="hidden" name="mdp" id="userMdp" value="{{data.mdp}}">  
+                <input type="hidden" name="lastLogin" id="lastLogin" value="{{data.lastLogin}}">             
                 <input type="submit" value="Ajouter">
                 <span class="champs">*champs requis</span>
             </div>
