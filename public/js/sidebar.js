@@ -21,8 +21,6 @@ window.addEventListener('load', () => {
     let titleEditVehicule = document.querySelector('.title-edit-vehicule')
     let titleEditPiece = document.querySelector('.title-edit-piece')
     let titleUser = document.querySelector('.title-user')
-    let toggleMenu = document.querySelectorAll('.toggle-menu')
-    let listMenu = document.querySelectorAll('.list-menu')
     let listVehicule = document.querySelector('#list-menu-vehicule')
     let listPiece = document.querySelector('#list-menu-piece')
     let listStock = document.querySelector('#list-menu-stock')
@@ -43,98 +41,164 @@ window.addEventListener('load', () => {
 
     //SHOW SUB-MENUS//
     vehicule.addEventListener('click', () => {
-        menuVehicule.style.display = "block"
-        menuPiece.style.display = "none"
-        menuStock.style.display = "none"
-        menuEditVehicule.style.display = "none"
-        menuEditPiece.style.display = "none"
-        menuUsers.style.display = "none"
-        titleVehicule.classList.add('item')
-        listVehicule.classList.add('hide-list-menu')
-        listVehicule.classList.remove('list-menu')
-        listPiece.classList.remove('hide-list-menu')
-        listPiece.classList.add('list-menu')
+        menuVehicule.classList.toggle('block')
+        menuStock.classList.remove('block')
+        menuPiece.classList.remove('block')
+        menuEditVehicule.classList.remove('block')
+        menuEditPiece.classList.remove('block')
+        menuUsers.classList.remove('block')
+        menuPiece.classList.toggle('sidebar')
+        menuStock.classList.toggle('sidebar')
+        menuEditVehicule.classList.toggle('sidebar')
+        menuEditPiece.classList.toggle('sidebar')
+        menuUsers.classList.toggle('sidebar')
+        listVehicule.classList.toggle('hide-list-menu')
+        listVehicule.classList.toggle('list-menu')
+        listPiece.classList.replace('hide-list-menu', 'list-menu')
+        listStock.classList.replace('hide-list-menu', 'list-menu')
+        listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+        listUsers.classList.replace('hide-list-menu', 'list-menu')
+        titleVehicule.classList.toggle('item')
         titlePiece.classList.remove('item')
         titleStock.classList.remove('item')
-        tileEditVehicule.classList.remove('item')
+        titleEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
         titleUser.classList.remove('item')
     })
 
     piece.addEventListener('click', () => {
-        menuVehicule.style.display = "none"
-        menuPiece.style.display = "block"
-        menuStock.style.display = "none"
-        menuEditVehicule.style.display = "none"
-        menuEditPiece.style.display = "none"
-        menuUsers.style.display = "none"
-        listVehicule.classList.remove('hide-list-menu')
-        listVehicule.classList.add('list-menu')
-        listPiece.classList.add('hide-list-menu')
-        listPiece.classList.remove('list-menu')
-        titlePiece.classList.add('item')
+        menuVehicule.classList.toggle('sidebar')
+        menuVehicule.classList.remove('block')
+        menuStock.classList.remove('block')
+        menuEditVehicule.classList.remove('block')
+        menuEditPiece.classList.remove('block')
+        menuUsers.classList.remove('block')
+        menuPiece.classList.toggle('block')
+        menuStock.classList.toggle('sidebar')
+        menuEditVehicule.classList.toggle('sidebar')
+        menuEditPiece.classList.toggle('sidebar')
+        menuUsers.classList.toggle('sidebar')
+        listVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listStock.classList.replace('hide-list-menu', 'list-menu')
+        listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+        listUsers.classList.replace('hide-list-menu', 'list-menu')
+        listPiece.classList.toggle('hide-list-menu')
+        listPiece.classList.toggle('list-menu')
+        titlePiece.classList.toggle('item')
         titleVehicule.classList.remove('item')
         titleStock.classList.remove('item')
-        tileEditVehicule.classList.remove('item')
+        titleEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
         titleUser.classList.remove('item')
     })
 
     stock.addEventListener('click', () => {
-        menuVehicule.style.display = "none"
-        menuPiece.style.display = "none"
-        menuStock.style.display = "block"
-        menuEditVehicule.style.display = "none"
-        menuEditPiece.style.display = "none"
-        menuUsers.style.display = "none"
-        titleStock.classList.add('item')
+        menuStock.classList.toggle('block')
+        menuVehicule.classList.remove('block')
+        menuPiece.classList.remove('block')
+        menuEditVehicule.classList.remove('block')
+        menuEditPiece.classList.remove('block')
+        menuUsers.classList.remove('block')
+        menuVehicule.classList.toggle('sidebar')
+        menuPiece.classList.toggle('sidebar')
+        menuEditVehicule.classList.toggle('sidebar')
+        menuEditPiece.classList.toggle('sidebar')
+        menuUsers.classList.toggle('sidebar')
+        listStock.classList.toggle('hide-list-menu')
+        listStock.classList.toggle('list-menu')
+        listVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listPiece.classList.replace('hide-list-menu', 'list-menu')
+        listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+        listUsers.classList.replace('hide-list-menu', 'list-menu')
+        titleStock.classList.toggle('item')
         titleVehicule.classList.remove('item')
         titlePiece.classList.remove('item')
-        tileEditVehicule.classList.remove('item')
+        titleEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
         titleUser.classList.remove('item')
     })
 
     editVehicule.addEventListener('click', () => {
-        menuVehicule.style.display = "none"
-        menuPiece.style.display = "none"
-        menuStock.style.display = "none"
-        menuEditVehicule.style.display = "block"
-        menuEditPiece.style.display = "none"
-        menuUsers.style.display = "none"
-        tileEditVehicule.classList.add('item')
+        menuEditVehicule.classList.toggle('block')
+        menuVehicule.classList.remove('block')
+        menuPiece.classList.remove('block')
+        menuStock.classList.remove('block')
+        menuEditPiece.classList.remove('block')
+        menuUsers.classList.remove('block')
+        menuVehicule.classList.toggle('sidebar')
+        menuPiece.classList.toggle('sidebar')
+        menuStock.classList.toggle('sidebar')
+        menuEditPiece.classList.toggle('sidebar')
+        menuUsers.classList.toggle('sidebar')
+        listEditVehicule.classList.toggle('hide-list-menu')
+        listEditVehicule.classList.toggle('list-menu')
+        listVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listPiece.classList.replace('hide-list-menu', 'list-menu')
+        listStock.classList.replace('hide-list-menu', 'list-menu')
+        listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+        listUsers.classList.replace('hide-list-menu', 'list-menu')
+        titleEditVehicule.classList.toggle('item')
         titlePiece.classList.remove('item')
+        titleVehicule.classList.remove('item')
         titleStock.classList.remove('item')
         titleEditPiece.classList.remove('item')
         titleUser.classList.remove('item')
     })
 
     editPiece.addEventListener('click', () => {
-        menuVehicule.style.display = "none"
-        menuPiece.style.display = "none"
-        menuStock.style.display = "none"
-        menuEditVehicule.style.display = "none"
-        menuEditPiece.style.display = "block"
-        menuUsers.style.display = "none"
-        titleEditPiece.classList.add('item')
+        menuVehicule.classList.toggle('sidebar')
+        menuPiece.classList.toggle('sidebar')
+        menuStock.classList.toggle('sidebar')
+        menuEditVehicule.classList.toggle('sidebar')
+        menuUsers.classList.toggle('sidebar')
+        menuEditPiece.classList.toggle('block')
+        menuVehicule.classList.remove('block')
+        menuPiece.classList.remove('block')
+        menuStock.classList.remove('block')
+        menuEditVehicule.classList.remove('block')
+        menuUsers.classList.remove('block')
+        listEditPiece.classList.toggle('hide-list-menu')
+        listEditPiece.classList.toggle('list-menu')
+        listVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listPiece.classList.replace('hide-list-menu', 'list-menu')
+        listStock.classList.replace('hide-list-menu', 'list-menu')
+        listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listUsers.classList.replace('hide-list-menu', 'list-menu')
+        titleEditPiece.classList.toggle('item')
         titlePiece.classList.remove('item')
+        titleVehicule.classList.remove('item')
         titleStock.classList.remove('item')
-        tileEditVehicule.classList.remove('item')
+        titleEditVehicule.classList.remove('item')
         titleUser.classList.remove('item')
     })
 
     users.addEventListener('click', () => {
-        menuVehicule.style.display = "none"
-        menuPiece.style.display = "none"
-        menuStock.style.display = "none"
-        menuEditVehicule.style.display = "none"
-        menuEditPiece.style.display = "none"
-        menuUsers.style.display = "block"
-        titleUser.classList.add('item')
+        menuVehicule.classList.toggle('sidebar')
+        menuPiece.classList.toggle('sidebar')
+        menuStock.classList.toggle('sidebar')
+        menuEditVehicule.classList.toggle('sidebar')
+        menuEditPiece.classList.toggle('sidebar')
+        menuUsers.classList.toggle('block')
+        menuEditPiece.classList.remove('block')
+        menuVehicule.classList.remove('block')
+        menuPiece.classList.remove('block')
+        menuStock.classList.remove('block')
+        menuEditPiece.classList.remove('block')
+        listUsers.classList.toggle('hide-list-menu')
+        listUsers.classList.toggle('list-menu')
+        listVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listPiece.classList.replace('hide-list-menu', 'list-menu')
+        listStock.classList.replace('hide-list-menu', 'list-menu')
+        listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+        titleUser.classList.toggle('item')
         titlePiece.classList.remove('item')
         titleVehicule.classList.remove('item')
         titleStock.classList.remove('item')
-        tileEditVehicule.classList.remove('item')
+        titleEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
     })
     
@@ -145,15 +209,20 @@ window.addEventListener('load', () => {
         titlePiece.classList.remove('item')
         titleVehicule.classList.remove('item')
         titleStock.classList.remove('item')
-        tileEditVehicule.classList.remove('item')
+        titleEditVehicule.classList.remove('item')
         titleEditPiece.classList.remove('item')
         titleUser.classList.remove('item')
-        menuVehicule.style.display = "none"
-        menuPiece.style.display = "none"
-        menuStock.style.display = "none"
-        menuEditVehicule.style.display = "none"
-        menuEditPiece.style.display = "none"
-        menuUsers.style.display = "none"
+        listVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listPiece.classList.replace('hide-list-menu', 'list-menu')
+        listStock.classList.replace('hide-list-menu', 'list-menu')
+        listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+        listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+        menuVehicule.classList.replace('block', 'sidebar')
+        menuPiece.classList.replace('block', 'sidebar')
+        menuStock.classList.replace('block', 'sidebar')
+        menuEditVehicule.classList.replace('block', 'sidebar')
+        menuEditPiece.classList.replace('block', 'sidebar')
+        menuUsers.classList.replace('block', 'sidebar')
     })
 
     //HIDE SIDEBAR IF USER IS NOT LOGGIN
