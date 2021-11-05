@@ -3,12 +3,6 @@
         {{#if msg}}
         <h4>{{msg}}</h4>
         {{/if}}
-        <span class="existing">Véhicules existant :</span>
-        <select name="type">
-            {{#each data.Vehicules}}
-            <option value="{{this.id_vehicule}}">{{this.nom_vehicule}}</option>
-            {{/each}}
-        </select>
     </div>
 </div>
 <div class="wrapper">

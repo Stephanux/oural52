@@ -40,12 +40,24 @@ router.post(('/'), async(req, res) => {
                                 to: result[0].email,
                                 subject: 'Création de compte',
                                 html: `
-                                <div>
+                                <div style="
+                                display: block;
+                                width: 100%;
+                                max-width: 500px;
+                                margin: 0 auto;
+                                line-height: 50px;">
                                     <h1>Bonjour</h1>
                                     <p>Sauron vous a invité dans son club privé, veuillez changer de mot de passe</p>
-                                </div>
-                                <div>
-                                    <p>Pour modifier votre mot de passe, veuillez cliquer <a href="${url}">ici</a></p>
+                                    <p>Pour modifier votre mot de passe, veuillez cliquer sur le bouton ci-dessous</p>
+                                    <div style="width: 200px;
+                                                height: 50px;
+                                                background-color: black;
+                                                text-align: center;
+                                                cursor: pointer;
+                                                border-radius: 10px;">
+                                    <a href="${url}" style="color: white; text-decoration: none;">Changer de mot de passe</a>            
+                                    </div>
+                                    <p style="font-size: 12px;">Ceci est un mail automatique, veuillez ne pas y répondre</p>
                                 </div>
                                 `
                             }
