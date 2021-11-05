@@ -49,6 +49,7 @@ function manageAction(req, res, next) {
     // Si l'action n'est pas définie dans l'annuaire, on log l'erreur
     if (typeof global.actions_json[req.message.action] == 'undefined') {
         console.log("Erreur: Pas d'action dans l'annuaire config_actions.json : " + path);
+        res.render('404')
         next();
     } else {
         instanceModule = require('./routes/' + req.message.controler);
