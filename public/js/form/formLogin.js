@@ -16,9 +16,14 @@ window.addEventListener('load', () => {
     let usernameLogin = document.querySelector('#usernameLogin')
     let passwordLogin = document.querySelector('#passwordLogin')
     let iconPassword = document.querySelector('.icon-password')
+    let pwd = document.querySelector('#pwd')
 
     formLogin.addEventListener('submit', (e) => {
-
+         /**Honey pot */
+        if(pwd.value !== '') {
+            e.preventDefault()
+        }
+        
         let formControlLogin = new FormControl()
         if(usernameLogin.value === '' || passwordLogin.value === ''){
             e.preventDefault()

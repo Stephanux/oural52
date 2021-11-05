@@ -16,8 +16,14 @@ window.addEventListener('load', () => {
     let confirmPassword = document.querySelector('#reset-pwd-confirm')
     let iconPassword = document.querySelector('.icon-password')
     let iconConfirmPassword = document.querySelector('.icon-confirm-password')
+    let mail = document.querySelector('.mail')
 
     formReset.addEventListener('submit', (e) => {
+         /**Honey pot */
+         if(mail.value !== '') {
+            e.preventDefault()
+        }
+
         let formControlReset = new FormControl()
         if(password.value === '' || confirmPassword.value === ''){
             e.preventDefault()
