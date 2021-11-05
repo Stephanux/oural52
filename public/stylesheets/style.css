@@ -108,7 +108,7 @@ h1 img {
 }
 
 .sidebar{
-  display: none;
+  display: none; 
 }
 
 .menu-icon{
@@ -237,6 +237,10 @@ h1 img {
   display: block;
 }
 
+.block {
+  display: block;
+}
+
 /****container****/
 
 .container{
@@ -282,7 +286,7 @@ h1 img {
   font-size: 12px;
   position: absolute;
   right: 130px;
-  bottom: 150px;
+  bottom: 130px;
 }
 
 /****back btn****/
@@ -727,6 +731,18 @@ select {
   background-color: hsl(0, 63%, 46%);
 }
 
+.form #pwd{
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+}
+
+.form #mail{
+  visibility: hidden;
+  display: none;
+  opacity: 0;
+}
+
 .champs {
   font-size: 14px;
 }
@@ -738,13 +754,13 @@ select {
   position: relative;
   justify-content: center;
   align-items: center;
-  width: 1400px;
-  min-height: 500px;
+  width: 100%;
+  max-width: 700px;
   height: auto;
   margin: auto;
   padding: 50px;
-  margin-top: 15vh;
-  margin-bottom: 15vh;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
   background-color: var(--container-bcg-color);
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
