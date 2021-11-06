@@ -331,6 +331,42 @@ h1 img {
   transition: .5s;
 }
 
+.user-wrap .back {
+  width: 100px;
+  height: 30px;
+  background: var(--text-color-black);
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  left: 0;
+  bottom: 0;
+}
+
+.user-wrap .back div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.user-wrap .back svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-color-white);
+}
+
+.user-wrap .back span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.user-wrap .back:hover{
+  background: hsl(0, 0%, 13%);
+  transition: .5s;
+}
+
 .stock-wrap .back {
   width: 100px;
   height: 30px;
@@ -662,6 +698,23 @@ select {
 .messages h4 {
   margin-bottom: 10px;
 }
+/**user*/
+.user-wrap{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 500px;
+  height: auto;
+  margin: auto;
+  margin-top: 15vh;
+  position: relative;
+  margin-bottom: 15vh;
+  background-color: var(--container-bcg-color);
+  border-radius: 10px;
+  position: relative;
+  box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.1);
+  padding: 20px 0;
+}
 
 /****add****/
 
@@ -953,6 +1006,39 @@ select {
   position: absolute;
   top: 0;
   transform: translateY(185%);
+}
+
+/**Modal**/
+
+#modal {
+  display: flex;
+  align-items: center;
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  top: -132px;
+  left: 0;
+}
+
+.modal-content{
+  width: 700px;
+  height:100px;
+  margin: auto;
+  padding: 40px;
+  position: relative;
+  border-radius: 5px;
+  background-color:#c5c5cc;
+}
+
+.modal-content .close-modal{
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-top: 10px;
+  fill: var(--delete-color);
+  width: 25px;
+  cursor: pointer;
 }
 
 /**SCROLLBAR**/

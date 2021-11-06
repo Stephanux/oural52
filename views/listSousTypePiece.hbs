@@ -1,8 +1,16 @@
+{{#if msg}}
+    <div id="modal">
+        <div class="modal-content">
+            <svg class="close-modal" xmlns="http://www.w3.org/2000/svg" data-name="Layer 2" viewBox="0 0 32 40"x="0px" y="0px">
+                <path d="M4,29a1,1,0,0,1-.707-1.707l24-24a1,1,0,1,1,1.414,1.414l-24,24A1,1,0,0,1,4,29Z" />
+                <path d="M28,29a1,1,0,0,1-.707-.293l-24-24A1,1,0,0,1,4.707,3.293l24,24A1,1,0,0,1,28,29Z" />
+            </svg>
+            <h3>{{msg}}</h3>
+        </div>
+    </div>     
+{{/if}}
 <div class="wrap">
     <div class="super-head">
-        {{#if msg}}
-        <h3>{{msg}}</h3>
-        {{/if}}
         <button class="btn_down">
             <div>
                 <span>Aller en bas</span>
@@ -63,3 +71,4 @@
     </div>
 </div>
 <script src="js/stock.js"></script>
+<script src="js/modal/modalWrap.js" type="module"></script>
