@@ -1028,7 +1028,8 @@ select {
   padding: 40px;
   position: relative;
   border-radius: 5px;
-  background-color:#c5c5cc;
+  border: 1px solid black;
+  background-color:var(--container-bcg-color);
 }
 
 .modal-content .close-modal{
