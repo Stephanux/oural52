@@ -331,6 +331,42 @@ h1 img {
   transition: .5s;
 }
 
+.stock-wrap .back {
+  width: 100px;
+  height: 30px;
+  background: var(--text-color-black);
+  cursor: pointer;
+  border: none;
+  box-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+  transition: .5s;
+  padding: 2px;
+  position: absolute;
+  left: 0;
+  bottom: -30px;
+}
+
+.stock-wrap .back div {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.stock-wrap .back svg {
+  width: 30px;
+  height: 30px;
+  fill: var(--text-color-white);
+}
+
+.stock-wrap .back span {
+  margin-bottom: 5px;
+  color: var(--text-color-white);
+}
+
+.stock-wrap .back:hover{
+  background: hsl(0, 0%, 13%);
+  transition: .5s;
+}
+
 .wrapper .back {
   width: 100px;
   height: 30px;
@@ -746,8 +782,26 @@ select {
 .champs {
   font-size: 14px;
 }
+/****sotck****/
 
-/****stock****/
+.stock-wrap{
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  height: auto;
+  margin: auto;
+  padding: 50px;
+  margin-top: 10vh;
+  margin-bottom: 10vh;
+  background-color: var(--container-bcg-color);
+  border-radius: 5px;
+  box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);
+}
+
+/****list-stock****/
 
 .wrap{
   display: flex;
@@ -809,6 +863,10 @@ select {
   padding: 8px 0;
 }
 
+.stock-wrap .dataTable-top, .wrap .dataTable-bottom{
+  padding: 8px 0;
+}
+
 .wrapper .dataTable-top, .wrapper .dataTable-bottom{
   padding: 8px 0;
 }
@@ -821,6 +879,10 @@ select {
 }
 
 .wrapper .dataTable-selector {
+  padding: 0 0 0 10px;
+}
+
+.stock-wrap .dataTable-selector {
   padding: 0 0 0 10px;
 }
 
