@@ -10,7 +10,8 @@
             },
             "firstName": "String",
             "login": "String",
-            "mdp": "String"
+            "mdp": "String",
+            "lastLogin": "String"
         }
     }
 }
