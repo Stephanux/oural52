@@ -8,6 +8,7 @@ const jwt = require('jsonwebtoken');
 /**Contrôleur pour changer de mot de passe, puis le hash/sale avant l'insertion**/
 router.post('/', async(req, res) => {
     /*
+    /////JWT////
     .then((result) => {
         let secret = result[0].mdp
         let payload = jwt.decode(req.body.token, secret)
@@ -15,7 +16,19 @@ router.post('/', async(req, res) => {
     .catch((err) => {
         console.log(err)
     })
+    ////////////
+    //SAME PWD//
+    global.schemas[req.message.modelName].find({ _id: new ObjectId(req.body._id) })
+        .then(async(result) => {
+            let pass = req.body.reset_pwd
+            let bddPass = result[0].mdp
+            const isValid = await bcrypt.compare(pass, bddPass)
+            if (isValid) {
+                res.redirect(req.message.err + "?msg=Il y a eu une erreur: Veuillez entrer un nouveau mot de passe");
+            } else {
+    /////////////            
     */
+  
     let pass = req.body.reset_pwd
     await bcrypt.hash(pass, 10)
         .then(async(hash) => {
