@@ -1,15 +1,28 @@
 var express = require('express');
 var router = express.Router();
 const nodemailer = require('nodemailer')
-require('dotenv').config()
+const jwt = require('jsonwebtoken');
+
 
 /**Contrôleur pour récupérer les informations d'un utilisateur en fonction de ce qui entré dans l'input, puis envoi un mail pour reset le mot de passe */
 router.post('/', (req, res, next) => {
     global.schemas[req.message.modelName].find({email: req.body.email}) 
         .then((result) => {
-            if(req.body.email === result[0].email) {
-                console.log(result);
-                const url = `http://localhost:3040/changePassword?id=${result[0]._id}`
+            let userMail = result[0].email
+            let userId = result[0]._id
+            let userPwd = result[0].mdp
+            if(req.body.email === userMail) {
+                /*
+                let payload = {
+                    email: userMail,
+                    id: userId
+                }
+                let secret = userPwd
+                let token = jwt.sign(payload, secret, {expiresIn: 60})
+                console.log('token: ', token);
+                */
+                const url = `${process.env.CHANGE_PWD_URL}?u=${userId}`
+                console.log(url);
                 let transporter = nodemailer.createTransport({
                     host: process.env.MAIL_HOST,
                     port: process.env.MAIL_PORT,
@@ -21,7 +34,7 @@ router.post('/', (req, res, next) => {
                 })
                 let mailOptions = {
                     from: process.env.MAIL_FROM,
-                    to: result[0].email,
+                    to: userMail,
                     subject: 'Modification du mot de passe',
                     html: `
                     <div style="
@@ -41,7 +54,7 @@ router.post('/', (req, res, next) => {
                                         border-radius: 10px;">
                             <a href="${url}" style="color: white; text-decoration: none;">Changer de mot de passe</a>            
                             </div>
-                            <p>Si ce n'était pas vous, veuillez penser à changer votre mot de passe lors de votre prochaine visite</p>
+                            <p>Si ce n'était pas vous, veuillez penser à changer votre mot de passe.</p>
                             <p style="font-size: 12px;">Ceci est un mail automatique, veuillez ne pas y répondre</p>
                     </div>
                             
