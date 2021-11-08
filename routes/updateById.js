@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
 const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
-const bcrypt = require('bcryptjs');
+const ObjectId = mongoose.Types.ObjectId
+const bcrypt = require('bcryptjs')
 
 
 /* Modification d'un utilisateur dans la base de données */
@@ -16,20 +16,20 @@ router.post(('/'), async(req, res) => {
                     if (err) { 
                         throw err 
                     }       
-                    console.log('from updateById: ', result);
+                    console.log('from updateById: ', result)
                     global.schemas[req.message.modelName].find({ _id: new ObjectId(req.body._id) }, (err, result) => {
                         if (err) { 
                             throw err 
                         }
-                        console.log('users: ', result);
-                        res.redirect(req.message.redirect + "?msg=Modification correctement effectué");
-                    });
-                }); // fin de l'update()
+                        console.log('users: ', result)
+                        res.redirect(req.message.redirect + "?msg=Modification correctement effectué")
+                    })
+                }) // fin de l'update()
             })
             .catch((err) => console.log(err))
     } else {
-        res.redirect('/');  // affichage boîte de login si pas authentifié
+        res.redirect('/')  // affichage boîte de login si pas authentifié
     }
-});
+})
 
-module.exports = router;
+module.exports = router

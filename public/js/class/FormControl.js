@@ -64,7 +64,7 @@ export class FormControl {
     }
 
     checkEmail(email, serial, message){
-        let validateMail = /^[a-zA-Z0-9][a-zA-Z0-9._-]{2,}[@][a-zA-Z0-9]{2,}[.][a-z]{2,3}$/.test(email.value)
+        let validateMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value)
         if(!validateMail) {
             errorMsg[serial].innerHTML = message
             failureIcon[serial].style.opacity = "1"
