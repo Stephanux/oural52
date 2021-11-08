@@ -26,7 +26,7 @@ router.post('/', async(req, res) => {
             if (isValid) {
                 res.redirect(req.message.err + "?msg=Il y a eu une erreur: Veuillez entrer un nouveau mot de passe");
             } else {
-    /////////////            
+    ////////////            
     */
   
     let pass = req.body.reset_pwd

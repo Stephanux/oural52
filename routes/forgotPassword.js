@@ -1,7 +1,7 @@
-var express = require('express');
-var router = express.Router();
+var express = require('express')
+var router = express.Router()
 const nodemailer = require('nodemailer')
-const jwt = require('jsonwebtoken');
+const jwt = require('jsonwebtoken')
 
 
 /**Contrôleur pour récupérer les informations d'un utilisateur en fonction de ce qui entré dans l'input, puis envoi un mail pour reset le mot de passe */
@@ -64,16 +64,16 @@ router.post('/', (req, res, next) => {
                     if(error){
                         console.log(error) 
                     } else {
-                        console.log('envoyé!! ' + info.response);
+                        console.log('envoyé!! ' + info.response)
                     }
                 })
                 res.redirect(req.message.redirect + "?msg=Un email va vous être envoyé")
             }
         })
         .catch((err) => {
-            console.log(err);
+            console.log(err)
             res.redirect(req.message.redirect + "?msg=Il y a une erreur: Aucun email existant")         
         })
-});
+})
 
-module.exports = router;
+module.exports = router

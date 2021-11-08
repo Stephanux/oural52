@@ -1,5 +1,5 @@
-const express = require('express');
-const router = express.Router();
+const express = require('express')
+const router = express.Router()
 
 /* Composant générique findByIdWithList pour lire un enreg via son Id mongodb 
 + une liste d'une autre collection via la variable modelList dans config_actions.json */
@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
                         data: result[0],
                         msg: req.query.msg,
                         user: user[0]
-                    });
+                    })
                 })
                 .catch((err) => {
                     console.log(err)
@@ -29,8 +29,8 @@ router.get('/', (req, res) => {
                 console.log(err)
             })
     } else {
-        res.redirect('/'); // affichage boîte de login si pas authentifié
+        res.redirect('/') // affichage boîte de login si pas authentifié
     }
-});
+})
 
-module.exports = router;
+module.exports = router

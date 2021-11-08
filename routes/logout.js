@@ -1,7 +1,7 @@
 const express = require('express')
 const router = express.Router()
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Types.ObjectId
 /* Déconnexion et redirection à la page login */
 router.post('/',(req, res, next) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
@@ -21,8 +21,8 @@ router.post('/',(req, res, next) => {
         .catch((err) => {
             console.log(err)
         })
-         req.logout(); // efface de la session.passport la propriété user
+         req.logout() // efface de la session.passport la propriété user
          res.redirect('/')
     } else res.redirect('/')
-});
+})
 module.exports = router

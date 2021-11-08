@@ -1,7 +1,7 @@
-const express = require('express');
-const router = express.Router();
-const mongoose = require('mongoose');
-const ObjectId = mongoose.Types.ObjectId;
+const express = require('express')
+const router = express.Router()
+const mongoose = require('mongoose')
+const ObjectId = mongoose.Types.ObjectId
 const jwt = require('jsonwebtoken')
 
 /**Contrôleur pour récupérer les informations d'un utilisateur en fonction de l'id passé dans l'url**/
@@ -18,10 +18,10 @@ router.get('/',(req, res, next) => {
                 //payload: req.params.id,
                 //token: req.params.token,
                 data: result[0]
-            });     
+            })     
         }).catch((err) =>{
             console.log(err)
         })
-});
+})
 
-module.exports = router;
+module.exports = router
