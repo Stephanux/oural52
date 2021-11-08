@@ -331,7 +331,7 @@ h1 img {
   transition: .5s;
 }
 
-.user-wrap .back {
+.form-wrap .back {
   width: 100px;
   height: 30px;
   background: var(--text-color-black);
@@ -345,24 +345,24 @@ h1 img {
   bottom: 0;
 }
 
-.user-wrap .back div {
+.form-wrap .back div {
   display: flex;
   align-items: center;
   justify-content: space-around;
 }
 
-.user-wrap .back svg {
+.form-wrap .back svg {
   width: 30px;
   height: 30px;
   fill: var(--text-color-white);
 }
 
-.user-wrap .back span {
+.form-wrap .back span {
   margin-bottom: 5px;
   color: var(--text-color-white);
 }
 
-.user-wrap .back:hover{
+.form-wrap .back:hover{
   background: hsl(0, 0%, 13%);
   transition: .5s;
 }
@@ -699,7 +699,7 @@ select {
   margin-bottom: 10px;
 }
 /**user*/
-.user-wrap{
+.form-wrap{
   display: flex;
   justify-content: center;
   align-items: center;

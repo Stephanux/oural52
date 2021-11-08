@@ -79,13 +79,6 @@
                                 <li><a href="/listSousTypePiece">Liste des sous-type de pièce</a></li>
                             </ul>
                         </li>
-                        <li class="list-users">
-                            <span class="title-user">Utilisateurs <span><svg id="list-menu-users" class="list-menu toggle-menu" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 125"><path style="color:#000;enable-background:accumulate" d="m50 979.362 26 46H24z" overflow="visible" transform="translate(0 -952.362)"/></svg></span></span>
-                            <ul class="sub-menu-list-users">
-                                <li><a href="/formInsertUser">Ajoutez un utilisateur</a></li>
-                                <li><a href="/listUsers">Liste des utilisateurs</a></li>
-                            </ul>
-                        </li>
                     </ul>
                 </nav>
             </div>
@@ -113,11 +106,14 @@
                 <nav>
                     <ul>
                         <li>
+                            <a href="/formInsertUser">Ajoutez un utilisateur</a>
+                        </li>
+                        <li>
                             <a href="/formEditUser?id={{user._id}}">Modifier vos informations</a>
                         </li>
                         <li>
                             <a href="/changePassword?id={{user._id}}">Modifier votre mot de passe</a>
-                        </li>
+                        </li>                  
                         <li>
                             <a href="/logout">Se déconnecter</a>
                         </li>
