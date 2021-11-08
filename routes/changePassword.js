@@ -33,7 +33,7 @@ router.post('/', async(req, res) => {
     await bcrypt.hash(pass, 10)
         .then(async(hash) => {
             req.body.reset_pwd = hash              
-            await global.schemas[req.message.modelName].updateOne({ _id: new ObjectId(req.body._id) }, { $set: {mdp: req.body.reset_pwd} }, (err, result) => {
+            await global.schemas[req.message.modelName].updateOne({ _id: ObjectId(req.body._id) }, { $set: {mdp: req.body.reset_pwd} }, (err, result) => {
                 if (err) { 
                     throw err 
                 }       

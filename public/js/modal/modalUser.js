@@ -1,7 +1,7 @@
 window.addEventListener('load', () => {
     //MODAL
     let modal = document.querySelector('#modal')
-    let userWrap = document.querySelector('.user-wrap')
+    let userWrap = document.querySelector('.form-wrap')
     let closeModal = document.querySelector('.close-modal')
 
     if(modal) {

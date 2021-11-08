@@ -14,16 +14,24 @@ window.addEventListener('load', () => {
     
     let formEmail = document.querySelector('#form-email')
     let email = document.querySelector('#email')
+    let mail = document.querySelector('.mail')
 
     formEmail.addEventListener('submit', (e) => {
-
+        /**Honey pot */
+        if(mail.value !== '') {
+         e.preventDefault()
+        }
         let formControlEmail = new FormControl()
         if(email.value === ''){
             e.preventDefault()
             formControlEmail.showErrMsg(email, 0, "L'email est requis'")
         }
-        formControlEmail.hideStyle(email, 0, "")
-        formControlEmail.checkEmail(email, 0, "Le format de l'email n'est pas bon")
+        let validateMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value)
+        if(email.value !== "" && !validateMail){
+            e.preventDefault()
+            formControlEmail.checkEmail(email, 0, "Le format de l'email n'est pas bon")
+        }
+        formControlEmail.hideStyle(email, 0, "") 
         formControlEmail.switchColorMsg()
     })
     

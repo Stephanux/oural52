@@ -16,13 +16,9 @@ window.addEventListener('load', () => {
     let confirmPassword = document.querySelector('#reset-pwd-confirm')
     let iconPassword = document.querySelector('.icon-password')
     let iconConfirmPassword = document.querySelector('.icon-confirm-password')
-    let mail = document.querySelector('.mail')
+   
 
     formReset.addEventListener('submit', (e) => {
-         /**Honey pot */
-         if(mail.value !== '') {
-            e.preventDefault()
-        }
 
         let formControlReset = new FormControl()
         if(password.value === '' || confirmPassword.value === ''){
@@ -33,6 +29,11 @@ window.addEventListener('load', () => {
         if (password.value !== confirmPassword.value) {
             e.preventDefault()
             formControlReset.confirmPassword(confirmPassword, 1, 0)
+        }
+        let validatePass = /^(?=.*[A-Z])(?=.*[\W])(?=.*[0-9]).{8,}$/.test(password.value)
+        if(password.value !== "" && !validatePass) {
+            e.preventDefault()
+            formControlReset.checkPassword(password, 0)
         }
         formControlReset.displayEye(password, iconPassword)
         formControlReset.displayEye(confirmPassword, iconConfirmPassword)      

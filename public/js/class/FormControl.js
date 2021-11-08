@@ -36,10 +36,10 @@ export class FormControl {
     displayEye(element, eye){
         element.addEventListener('input', () => {
             if(element.value !== "") {
-                eye.style.opacity = "1"
+                eye.style.display = "block"
                 eye.style.cursor = "pointer"
             } else {
-                eye.style.opacity = "0"
+                eye.style.display = "none"
                 eye.style.cursor = "auto"
             }
         })
@@ -66,20 +66,19 @@ export class FormControl {
     checkEmail(email, serial, message){
         let validateMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value)
         if(!validateMail) {
-            errorMsg[serial].innerHTML = message
-            failureIcon[serial].style.opacity = "1"
-            successIcon[serial].style.opacity = "0"
+            this.errorMsg[serial].style.display = "block"
+            this.errorMsg[serial].innerHTML = message
+            this.failureIcon[serial].style.opacity = "1"
+            this.successIcon[serial].style.opacity = "0"
             email.style.border = "2px solid red"
         }
     }
 
     checkPassword(password, serial) {
-        let validatePass = /^(?=.*[A-Z])(?=.*[\W])(?=.*[0-9]).{8,}$/.test(password.value)
-        if (!validatePass && password.value !== "") {
-            errorMsg[serial].innerHTML = "Le mot de passe doit avoir au minimum 1 majuscule, 1 minuscule, 1 caractère spécial et doit avoir 8 caractères minimums"
-        failureIcon[serial].style.opacity = "1"
-        successIcon[serial].style.opacity = "0"
+        this.errorMsg[serial].style.display = "block"
+        this.errorMsg[serial].innerHTML = "Le mot de passe doit avoir au minimum 1 majuscule, 1 minuscule, 1 caractère spécial et doit avoir 8 caractères minimums"
+        this.failureIcon[serial].style.opacity = "1"
+        this.successIcon[serial].style.opacity = "0"
         password.style.border = "2px solid red"
-        }
     }
 }

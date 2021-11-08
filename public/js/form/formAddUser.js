@@ -26,7 +26,11 @@ window.addEventListener('load', () => {
             formControlUser.showErrMsg(email, 2 , "L'email' est requis")
             formControlUser.showErrMsg(pseudo, 3 , "Le pseudo est requis")
         }
-
+        let validateMail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email.value)
+        if(email.value !== "" && !validateMail){
+            e.preventDefault()
+            formControlUser.checkEmail(email, 2, "Le format de l'email n'est pas bon")
+        }
         formControlUser.hideStyle(name, 0, "")
         formControlUser.hideStyle(firstname, 1, "") 
         formControlUser.hideStyle(email, 2, "")

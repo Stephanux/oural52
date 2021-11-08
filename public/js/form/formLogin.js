@@ -35,6 +35,7 @@ window.addEventListener('load', () => {
         formControlLogin.hideStyle(passwordLogin, 1, "")
         formControlLogin.switchTypeOfInput(iconPassword, passwordLogin)
         formControlLogin.switchColorMsg()
+        
     })
     
 })
