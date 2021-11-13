@@ -189,6 +189,32 @@ window.addEventListener('load', () => {
         user.classList.remove('sidebar')
         user.classList.add('user-nav')
     }
+
+    let clickable = document.querySelector('#clickable')
+
+    console.log('tata');
+    clickable.addEventListener('click', () => {
+            if(sideBar.classList.contains('active')){
+            console.log('toto')
+            sideBar.classList.remove('active')
+            titleVehicule.classList.remove('item')
+            titlePiece.classList.remove('item')
+            titleVehicule.classList.remove('item')
+            titleStock.classList.remove('item')
+            titleEditVehicule.classList.remove('item')
+            titleEditPiece.classList.remove('item')
+            listVehicule.classList.replace('hide-list-menu', 'list-menu')
+            listPiece.classList.replace('hide-list-menu', 'list-menu')
+            listStock.classList.replace('hide-list-menu', 'list-menu')
+            listEditVehicule.classList.replace('hide-list-menu', 'list-menu')
+            listEditPiece.classList.replace('hide-list-menu', 'list-menu')
+            menuVehicule.classList.replace('block', 'sidebar')
+            menuPiece.classList.replace('block', 'sidebar')
+            menuStock.classList.replace('block', 'sidebar')
+            menuEditVehicule.classList.replace('block', 'sidebar')
+            menuEditPiece.classList.replace('block', 'sidebar')
+        }
+        })
     
     //BACK BUTTON
 
