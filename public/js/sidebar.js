@@ -18,7 +18,6 @@ window.addEventListener('load', () => {
     let titleStock = document.querySelector('.title-stock')
     let titleEditVehicule = document.querySelector('.title-edit-vehicule')
     let titleEditPiece = document.querySelector('.title-edit-piece')
-    let titleUser = document.querySelector('.title-user')
     let listVehicule = document.querySelector('#list-menu-vehicule')
     let listPiece = document.querySelector('#list-menu-piece')
     let listStock = document.querySelector('#list-menu-stock')
@@ -26,7 +25,7 @@ window.addEventListener('load', () => {
     let listEditPiece = document.querySelector('#list-menu-edit-piece')
 
     //SHOW SIDEBAR//
-    icon.addEventListener('click', () => {
+    icon.addEventListener('click', (e) => {
         sideBar.classList.toggle('active')
         vehicule.style.display = "block"
         piece.style.display = "block"
@@ -190,12 +189,8 @@ window.addEventListener('load', () => {
         user.classList.add('user-nav')
     }
 
-    let clickable = document.querySelector('#clickable')
-
-    console.log('tata');
-    clickable.addEventListener('click', () => {
-            if(sideBar.classList.contains('active')){
-            console.log('toto')
+    document.addEventListener('click', (e) => {
+        if(e.target.id !== 'sidebar' && e.target.id !== 'click') {
             sideBar.classList.remove('active')
             titleVehicule.classList.remove('item')
             titlePiece.classList.remove('item')
@@ -214,7 +209,7 @@ window.addEventListener('load', () => {
             menuEditVehicule.classList.replace('block', 'sidebar')
             menuEditPiece.classList.replace('block', 'sidebar')
         }
-        })
+    })
     
     //BACK BUTTON
 
