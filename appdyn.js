@@ -110,9 +110,9 @@ app.use(session({
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false,
-        maxAge: 3600000
-    } // à mettre à true uniquement avec un site https.
+        secure: false, // à mettre à true uniquement avec un site https.
+        maxAge: 3600000 //1h
+    } 
 }));
 app.use(passport.initialize());
 app.use(passport.session());
