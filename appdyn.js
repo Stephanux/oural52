@@ -9,6 +9,8 @@ var passport = require("passport");
 var LocalStrategy = require('passport-local').Strategy;
 var multer = require('multer');
 var bcrypt = require('bcryptjs')
+const jwt = require('jsonwebtoken')
+require('dotenv').config()
 
 global.upload = multer({
     dest: './public/data/uploads/',
@@ -53,14 +55,10 @@ hbs.registerHelper('compare', function(lvalue, rvalue, options) {
     }
 });
 
-global.db = {};
-var mongoClient = require('mongodb').MongoClient;
-// Connexion URL
-var url = config.mongodb.url;
-
 // connexion depuis mongoose
 global.schemas = {};
 var mongoose = require('mongoose');
+const ObjectId = mongoose.Types.ObjectId;
 mongoose.connect(config.mongoose.url, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
@@ -107,12 +105,13 @@ app.use(express.urlencoded({
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({
-    name: 'sessiongreta',
-    secret: 'AsipfGjdp*%dsDKNFNFKqoeID1345',
+    name: process.env.SESSION_NAME,
+    secret: process.env.SESSION_SECRET,
     resave: false,
     saveUninitialized: false,
     cookie: {
-        secure: false
+        secure: false,
+        maxAge: 3600000
     } // à mettre à true uniquement avec un site https.
 }));
 app.use(passport.initialize());
@@ -163,7 +162,7 @@ app.post('/authenticated',
     {   
         successRedirect: '/accueil',
         failureRedirect: '/' + "?msg=Il y'a une erreur de nom d'utilisateur ou de mot de passe"
-    })
+    })  
 )
 
 require('./dynamicRouter')(app);
