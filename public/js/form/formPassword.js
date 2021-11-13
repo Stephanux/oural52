@@ -16,11 +16,20 @@ window.addEventListener('load', () => {
     let confirmPassword = document.querySelector('#reset-pwd-confirm')
     let iconPassword = document.querySelector('.icon-password')
     let iconConfirmPassword = document.querySelector('.icon-confirm-password')
+
+    let formControlReset = new FormControl()
+    formControlReset.displayEye(password, iconPassword)
+    formControlReset.displayEye(confirmPassword, iconConfirmPassword) 
+    formControlReset.switchTypeOfInput(iconPassword, password)
+    formControlReset.switchTypeOfInput(iconConfirmPassword, confirmPassword) 
    
 
     formReset.addEventListener('submit', (e) => {
 
-        let formControlReset = new FormControl()
+        let formControlReset = new FormControl()     
+        formControlReset.hideStyle(password, 0, "") 
+        formControlReset.hideStyle(confirmPassword, 1, "")       
+
         if(password.value === '' || confirmPassword.value === ''){
             e.preventDefault()
             formControlReset.showErrMsg(password, 0, "Le mot de passe est obligatoire")
@@ -34,12 +43,6 @@ window.addEventListener('load', () => {
         if(password.value !== "" && !validatePass) {
             e.preventDefault()
             formControlReset.checkPassword(password, 0)
-        }
-        formControlReset.displayEye(password, iconPassword)
-        formControlReset.displayEye(confirmPassword, iconConfirmPassword)      
-        formControlReset.hideStyle(password, 0, "") 
-        formControlReset.hideStyle(confirmPassword, 1, "")
-        formControlReset.switchTypeOfInput(iconPassword, password)
-        formControlReset.switchTypeOfInput(iconConfirmPassword, confirmPassword)   
+        }   
     })
 })

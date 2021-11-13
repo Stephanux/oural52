@@ -10,6 +10,12 @@ window.addEventListener('load', () => {
         msgForm.style.color = "green"
     }
 
+    /**Gestion type de fichier reçu**/
+
+    let docPDF = document.querySelector('#doc_piece')
+    let photo = document.querySelector('#photo')
+
+
     /**ADD MARQUE**/
     let formPiece = document.querySelector('#form-piece')
     let nomPiece = document.querySelector('#namePD')
@@ -20,7 +26,6 @@ window.addEventListener('load', () => {
             e.preventDefault()
             formControlAddPiece.showErrMsg(nomPiece, 1, "Le nom de la pièce est obligatoire")
         }
-         
         formControlAddPiece.hideStyle(nomPiece, 1, "")  
     })
 })

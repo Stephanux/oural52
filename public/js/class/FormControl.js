@@ -36,7 +36,7 @@ export class FormControl {
     displayEye(element, eye){
         element.addEventListener('input', () => {
             if(element.value !== "") {
-                eye.style.display = "block"
+                eye.style.display = "inline"
                 eye.style.cursor = "pointer"
             } else {
                 eye.style.display = "none"
