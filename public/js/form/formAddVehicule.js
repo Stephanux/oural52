@@ -13,14 +13,16 @@ window.addEventListener('load', () => {
     /**ADD MARQUE**/
     let formAddVehicule = document.querySelector('#form-add-vehicule')
     let nomVehicule = document.querySelector('#nameV')
+    let dateMEC = document.querySelector('#dateMEC')
 
     formAddVehicule.addEventListener('submit', (e) => {
-        let formControlAddTypeVehicule = new FormControl()
-        if(nomVehicule.value === ''){
+        let formControlAddVehicule = new FormControl()
+        if(nomVehicule.value === '' || dateMEC.value === ""){
             e.preventDefault()
-            formControlAddTypeVehicule.showErrMsg(nomVehicule, 0, "Le nom du véhicule est obligatoire")
+            formControlAddVehicule.showErrMsg(nomVehicule, 0, "Le nom du véhicule est obligatoire")
+            formControlAddVehicule.showErrMsg(dateMEC, 1, "Veuillez renseigner une date")
         }
          
-        formControlAddTypeVehicule.hideStyle(nomVehicule, 0, "")  
+        formControlAddVehicule.hideStyle(nomVehicule, 0, "")  
     })
 })

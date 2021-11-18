@@ -190,7 +190,9 @@ window.addEventListener('load', () => {
     }
 
     document.addEventListener('click', (e) => {
-        if(e.target.id !== 'sidebar' && e.target.id !== 'click') {
+        eTarget = e.target.classList.value
+        title = "title"
+        if(e.target.id !== 'sidebar' && e.target.id !== 'click' && !eTarget.includes(title)) {
             sideBar.classList.remove('active')
             titleVehicule.classList.remove('item')
             titlePiece.classList.remove('item')

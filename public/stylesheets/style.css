@@ -689,7 +689,7 @@ select {
   width: 300px;
   height: auto;
   border-radius: 10px;
-  margin-top: 5vh;
+  margin-top: 3vh;
 }
 
 .top-message {
@@ -731,7 +731,7 @@ select {
   width: 500px;
   height: auto;
   margin: auto;
-  margin-top: 5vh;
+  margin-top: 2vh;
   position: relative;
   margin-bottom: 15vh;
   background-color: var(--container-bcg-color);
@@ -850,7 +850,7 @@ select {
   justify-content: center;
   align-items: center;
   width: 100%;
-  max-width: 1200px;
+  max-width: 1240px;
   height: auto;
   margin: auto;
   padding: 50px;
@@ -873,8 +873,8 @@ select {
   height: auto;
   margin: auto;
   padding: 50px;
-  margin-top: 10vh;
-  margin-bottom: 10vh;
+  margin-top: 6vh;
+  /* margin-bottom: 10vh; */
   background-color: var(--container-bcg-color);
   border-radius: 5px;
   box-shadow: 10px 10px 10px rgba(0, 0, 0, 0.1);

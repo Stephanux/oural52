@@ -3,7 +3,7 @@
         <span class="existing">Sous type de pièces existants :</span>
         <select name="type">
             {{#each data.sous_type_p_d}}
-            <option value="{{this.id_stype_p_d}}">{{this.nom_stype}}</option>
+            <option value="{{this.id_stype_p_d}}">{{this.nom_type_p_d}} - {{this.nom_stype}}</option>
             {{/each}}
         </select>
     </div>
