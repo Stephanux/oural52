@@ -39,7 +39,7 @@ window.addEventListener('load', () => {
             e.preventDefault()
             formControlReset.confirmPassword(confirmPassword, 1, 0)
         }
-        let validatePass = /^(?=.*[A-Z])(?=.*[\W])(?=.*[0-9]).{8,}$/.test(password.value)
+        let validatePass = /((?=.*\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\W]).{8,50})/.test(password.value)
         if(password.value !== "" && !validatePass) {
             e.preventDefault()
             formControlReset.checkPassword(password, 0)

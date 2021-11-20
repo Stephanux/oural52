@@ -86,7 +86,7 @@
             "email",
             "login",
             "_id"],
-        "redirect": "/listUsers"
+        "redirect": "/"
     },
     "GET/formDeleteUser": {
         "controler": "findUsersByIdWithList",
@@ -224,7 +224,7 @@
         ],
         "sql_list": [
             "SELECT * FROM marques",
-            "SELECT * FROM modele"
+            "SELECT id_modele, nom_modele, modele.id_marque, marques.nom_marque FROM modele, marques WHERE modele.id_marque = marques.id_marque"
         ],
         "form_action": "/addModele",
         "title": "Ajoutez le modèle d'une marque"
@@ -444,8 +444,8 @@
             "type_p_d"
         ],
         "sql_list": [
-            "select * from sous_type_p_d",
-            "select * from type_p_d"
+            "SELECT sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d, sous_type_p_d.id_stype_p_d, sous_type_p_d.nom_stype FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d",
+            "SELECT * FROM type_p_d"
         ],
         "form_action": "/addSousTypePiece",
         "title": "Ajoutez un sous-type de pièce détachée"
@@ -467,7 +467,7 @@
             "type_p_d"
         ],
         "sql_list": [
-            "SELECT * FROM sous_type_p_d",
+            "SELECT sous_type_p_d.id_type_p_d, type_p_d.nom_type_p_d, sous_type_p_d.id_stype_p_d, sous_type_p_d.nom_stype FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_type_p_d = type_p_d.id_type_p_d",
             "SELECT * FROM type_p_d"
         ],
         "sql_query": "SELECT id_stype_p_d, sous_type_p_d.id_type_p_d, nom_stype, type_p_d.nom_type_p_d FROM sous_type_p_d, type_p_d WHERE sous_type_p_d.id_stype_p_d = ?",
