@@ -6,14 +6,34 @@ const bcrypt = require('bcryptjs')
 const nodemailer = require('nodemailer')
 require('dotenv').config()
 
+let passwordGenerate = () => {
+    let dataLowerCase = "azertyuiopqsdfghjklmwxcvbn";
+    let dataUppercase = dataLowerCase.toUpperCase();
+    let dataNumbers = "0123456789";
+    let dataSymbols = `$£^¨ù%*!§:/;.?,"'(-è_çé&)`;
+    let data = []
+    password = ""
+
+    data.push(...dataLowerCase)
+    data.push(...dataUppercase)
+    data.push(...dataNumbers)
+    data.push(...dataSymbols)
+
+    for(i = 0; i < 8; i++) {
+        password += data[Math.floor(Math.random() * data.length)];
+    }
+    return password
+}
+
 /**Ajouter un utilisateur avec hashage/salage du mot de passe */
 router.post(('/'), async(req, res) => {
     /**Vérification si l'utilisateur détient un droit de pouvoir voir la page*/
     if ((req.session.passport) && (req.session.passport.user != null)) {
         /**Hashage mot de passe**/
-        req.body.mdp = Math.random().toString(36)
+        passwordGenerate()
+        req.body.mdp = password
         let pass = req.body.mdp
-        console.log(pass)
+        console.log('mot de passe généré: ',pass)
         await bcrypt.hash(pass, 10)
             .then(async(hash) => {
                 req.body.mdp = hash
@@ -22,8 +42,7 @@ router.post(('/'), async(req, res) => {
                 /**Après le hashage/salage du mot de passe on fait la requête à la base de données */
                 await global.schemas[req.message.modelName].create([req.body])
                     .then((result) => {
-                        console.log('insertOne mongoose: ', result)
-                        console.log('email: ', result[0].email)
+                        console.log('new user mongoose: ', result)
                         if(req.body.email === result[0].email) {
                             const url = `http://localhost:3040/changePassword?id=${result[0]._id}`
                             let transporter = nodemailer.createTransport({
