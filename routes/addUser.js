@@ -31,10 +31,8 @@ router.post(('/'), async(req, res) => {
     if ((req.session.passport) && (req.session.passport.user != null)) {
         /**Hashage mot de passe**/
         passwordGenerate()
-        req.body.mdp = password
-        let pass = req.body.mdp
-        console.log('mot de passe généré: ',pass)
-        await bcrypt.hash(pass, 10)
+        console.log('mot de passe généré: ',password)
+        await bcrypt.hash(password, 10)
             .then(async(hash) => {
                 req.body.mdp = hash
                 // On doit créer via Mongoose un _id pour faire l'insertion dans la base
